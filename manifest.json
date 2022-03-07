@@ -3,8 +3,8 @@
     "id": "gotosocial",
     "packaging_format": 1,
     "description": {
-        "en": "GoToSocial is an ActivityPub social network server, written in Golang.",
-        "fr": "GoToSocial est un serveur de réseau social basé sur ActivityPub écrit en Golang."
+        "en": "GoToSocial is an ActivityPub social network server, written in Golang. With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!",
+        "fr": "GoToSocial est un serveur de réseau social basé sur ActivityPub écrit en Golang. Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !"
     },
     "version": "0.2.1~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
