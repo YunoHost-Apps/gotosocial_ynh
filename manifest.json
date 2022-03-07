@@ -6,8 +6,8 @@
         "en": "GoToSocial is an ActivityPub social network server, written in Golang.",
         "fr": "GoToSocial est un serveur de réseau social basé sur ActivityPub écrit en Golang."
     },
-    "version": "1.0~ynh1",
-    "url": "https://example.com",
+    "version": "0.2.1~ynh1",
+    "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "free",
         "website": "https://docs.gotosocial.org/",
@@ -24,23 +24,17 @@
     "requirements": {
         "yunohost": ">= 4.1.3"
     },
-    "multi_instance": flase,
+    "multi_instance": false,
     "services": [
         "nginx",
         "postgresql"
     ],
     "arguments": {
-        "install" : [
+        "install": [
             {
                 "name": "domain",
                 "type": "domain",
                 "example": "example.com"
-            },
-            {
-                "name": "path",
-                "type": "path",
-                "example": "/example",
-                "default": "/example"
             },
             {
                 "name": "admin",
@@ -51,16 +45,6 @@
                 "name": "is_public",
                 "type": "boolean",
                 "default": true
-            },
-            {
-                "name": "language",
-                "type": "string",
-                "ask": {
-                    "en": "Choose the application language",
-                    "fr": "Choisissez la langue de l'application"
-                },
-                "choices": ["fr", "en"],
-                "default": "fr"
             },
             {
                 "name": "password",
