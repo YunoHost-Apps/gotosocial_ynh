@@ -11,7 +11,7 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-GoToSocial est un serveur de réseau social basé sur ActivityPub écrit en Golang. Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !
+Un serveur de réseau social basé sur ActivityPub écrit en Golang.
 
 **Version incluse :** 0.2.1~ynh1
 
