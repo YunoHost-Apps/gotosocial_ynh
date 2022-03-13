@@ -32,6 +32,7 @@ password=$YNH_APP_ARG_PASSWORD
 registration=$YNH_APP_ARG_REGISTRATION
 registration_approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
 registration_reason=$YNH_APP_ARG_REGISTRATION_REASON
+is_public=1
 
 ### If it's a multi-instance app, meaning it can be installed several times independently
 ### The id of the app as stated in the manifest is available as $YNH_APP_ID
@@ -79,6 +80,7 @@ ynh_app_setting_set --app=$app --key=password --value=$password
 ynh_app_setting_set --app=$app --key=registration --value=$registration
 ynh_app_setting_set --app=$app --key=registration_approval --value=$registration_approval
 ynh_app_setting_set --app=$app --key=registration_reason --value=$registration_reason
+ynh_app_setting_set --app=$app --key=$is_public --value=$is_public
 
 #=================================================
 # STANDARD MODIFICATIONS
