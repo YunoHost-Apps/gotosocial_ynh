@@ -172,12 +172,12 @@ accounts-registration-open: __REGISTRATION__
 # Bool. Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?
 # Options: [true, false]
 # Default: true
-accounts-approval-required: __APPROVAL__
+accounts-approval-required: __REGISTRATION_APPROVAL__
 
 # Bool. Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?
 # Options: [true, false]
 # Default: true
-accounts-reason-required: __REASON__
+accounts-reason-required: __REGISTRATION_REASON__
 
 ########################
 ##### MEDIA CONFIG #####
