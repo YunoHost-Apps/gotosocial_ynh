@@ -38,7 +38,15 @@
             },
             {
                 "name": "admin",
-                "type": "user",
+                "type": "string",
+                "ask": {
+                    "en": "The username of your admin account.",
+                    "fr": "Le nom d'utilisateur de votre compte admin."
+                },
+                "help": {
+                    "en": "Must be in lower case and without special characters.",
+                    "fr": "Doit être en minuscule et sans caractère special."
+                },
                 "example": "johndoe"
             },
             {
