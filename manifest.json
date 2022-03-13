@@ -80,7 +80,7 @@
                 "default": false
             },
             {
-                "name": "registration-approval",
+                "name": "registration_approval",
                 "type": "boolean",
                 "ask": {
                     "en": "Registration approval?",
@@ -93,7 +93,7 @@
                 "default": true
             },
             {
-                "name": "registration-reason",
+                "name": "registration_reason",
                 "type": "boolean",
                 "ask": {
                     "en": "Request registration reason?",
