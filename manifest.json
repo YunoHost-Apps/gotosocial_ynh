@@ -9,14 +9,14 @@
     "version": "0.2.1~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
-        "license": "WTFPL",
+        "license": " AGPL-3.0-only",
         "website": "https://docs.gotosocial.org/",
         "demo": "",
         "admindoc": "https://docs.gotosocial.org/en/latest/",
         "userdoc": "https://docs.gotosocial.org/en/latest/",
         "code": "https://github.com/superseriousbusiness/gotosocial"
     },
-    "license": "free",
+    "license": "WTFPL",
     "maintainer": {
         "name": "OniriCorpe",
         "email": ""
