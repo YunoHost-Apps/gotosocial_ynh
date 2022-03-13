@@ -370,11 +370,11 @@ ynh_systemd_action --service_name=nginx --action=reload
 #=================================================
 ynh_script_progression --message="Creating admin user..." --time --weight=1
 
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$YNH_APP_ARG_ADMIN" --email "$YNH_APP_ARG_EMAIL" --password "$YNH_APP_ARG_PASSWORD"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
 
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --username "$YNH_APP_ARG_ADMIN"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --username "$admin"
 
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$YNH_APP_ARG_ADMIN"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
 
 #=================================================
 # END OF SCRIPT
