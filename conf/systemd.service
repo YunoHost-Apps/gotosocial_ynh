@@ -1,13 +1,15 @@
 [Unit]
-Description=Small description of the service
-After=network.target
+Description=GoToSocial Server
+After=network.target postgresql.service nginx.service
 
 [Service]
-Type=simple
+Type=exec
+Restart=on-failure
+
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__/
-ExecStart=__FINALPATH__/script
+WorkingDirectory=__FINALPATH__/__APP__
+ExecStart=__FINALPATH__/__APP__/ --config-path config.yaml server start
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 
