@@ -34,19 +34,11 @@
             {
                 "name": "domain",
                 "type": "domain",
-                "ask": {
-                    "en": "The domain name on which your instance will be installed.",
-                    "fr": "Le nom de domaine sur lequel sera installé votre instance."
-                },
                 "example": "gotosocial.example.com"
             },
             {
                 "name": "admin",
                 "type": "user",
-                "ask": {
-                    "en": "The username of your admin account.",
-                    "fr": "Le nom d'utilisateur de votre compte admin."
-                },
                 "example": "johndoe"
             },
             {
@@ -61,10 +53,6 @@
             {
                 "name": "password",
                 "type": "password",
-                "ask": {
-                    "en": "The password for your administrator account.",
-                    "fr": "Le mot de passe de votre compte administrateur."
-                },
                 "help": {
                     "en": "Must contain: upper case, lower case, number and special character.",
                     "fr": "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
