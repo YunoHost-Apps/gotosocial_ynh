@@ -26,14 +26,14 @@ log-level: "info"
 # String. Application name to use internally.
 # Examples: ["My Application","gotosocial"]
 # Default: "gotosocial"
-application-name: "gotosocial"
+application-name: "__APP__"
 
 # String. Hostname that this server will be reachable at. Defaults to localhost for local testing,
 # but you should *definitely* change this when running for real, or your server won't work at all.
 # DO NOT change this after your server has already run once, or you will break things!
 # Examples: ["gts.example.org","some.server.com"]
 # Default: "localhost"
-host: "localhost"
+host: "__DOMAIN__"
 
 # String. Domain to use when federating profiles. This is useful when you want your server to be at
 # eg., "gts.example.org", but you want the domain on accounts to be "example.org" because it looks better
@@ -115,17 +115,17 @@ db-port: 5432
 # String. Username for the database connection.
 # Examples: ["mydbuser","postgres","gotosocial"]
 # Default: ""
-db-user: "__APP__"
+db-user: "__DB_USER__"
 
 # String. Password to use for the database connection
 # Examples: ["password123","verysafepassword","postgres"]
 # Default: ""
-db-password: ""
+db-password: "__DB_PWD__"
 
 # String. Name of the database to use within the provided database type.
 # Examples: ["mydb","postgres","gotosocial"]
 # Default: "gotosocial"
-db-database: "__APP__"
+db-database: "__DB_NAME__"
 
 # String. Disable, enable, or require SSL/TLS connection to the database.
 # If "disable" then no TLS connection will be attempted.
@@ -151,12 +151,12 @@ db-tls-ca-cert: ""
 # String. Directory from which gotosocial will attempt to load html templates (.tmpl files).
 # Examples: ["/some/absolute/path/", "./relative/path/", "../../some/weird/path/"]
 # Default: "./web/template/"
-web-template-base-dir: "./web/template/"
+web-template-base-dir: "__FINALPATH__/web/template/"
 
 # String. Directory from which gotosocial will attempt to serve static web assets (images, scripts).
 # Examples: ["/some/absolute/path/", "./relative/path/", "../../some/weird/path/"]
 # Default: "./web/assets/"
-web-asset-base-dir: "./web/assets/"
+web-asset-base-dir: "__FINALPATH__/web/assets/"
 
 ###########################
 ##### ACCOUNTS CONFIG #####
@@ -167,17 +167,17 @@ web-asset-base-dir: "./web/assets/"
 # Bool. Do we want people to be able to just submit sign up requests, or do we want invite only?
 # Options: [true, false]
 # Default: true
-accounts-registration-open: true
+accounts-registration-open: __REGISTRATION__
 
 # Bool. Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?
 # Options: [true, false]
 # Default: true
-accounts-approval-required: true
+accounts-approval-required: __APPROVAL__
 
 # Bool. Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?
 # Options: [true, false]
 # Default: true
-accounts-reason-required: true
+accounts-reason-required: __REASON__
 
 ########################
 ##### MEDIA CONFIG #####
@@ -233,7 +233,7 @@ storage-backend: "local"
 # this directory, and create new subdirectories and files within it.
 # Examples: ["/home/gotosocial/storage", "/opt/gotosocial/datastorage"]
 # Default: "/gotosocial/storage"
-storage-local-base-path: "/gotosocial/storage"
+storage-local-base-path: "__DATADIR__"
 
 ###########################
 ##### STATUSES CONFIG #####

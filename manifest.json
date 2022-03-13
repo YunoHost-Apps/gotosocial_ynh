@@ -50,6 +50,15 @@
                 "example": "johndoe"
             },
             {
+                "name": "email",
+                "type": "email",
+                "help": {
+                    "en": "The email adress of your admin account.",
+                    "fr": "L'adresse e-mail de votre compte admin."
+                },
+                "example": "johndoe@example.com"
+            },
+            {
                 "name": "password",
                 "type": "password",
                 "help": {
@@ -57,6 +66,33 @@
                     "fr": "Le mot de passe de votre compte administrateur. Doit contenir : majuscule, minuscule, chiffre et caractère spécial."
                 },
                 "example": "Choose a strong password"
+            },
+            {
+                "name": "registration",
+                "type": "boolean",
+                "help": {
+                    "en": "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?",
+                    "fr": "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+                },
+                "default": false
+            },
+            {
+                "name": "registration-approval",
+                "type": "boolean",
+                "help": {
+                    "en": "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?",
+                    "fr": "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
+                },
+                "default": true
+            },
+            {
+                "name": "registration-reason",
+                "type": "boolean",
+                "help": {
+                    "en": "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?",
+                    "fr": "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
+                },
+                "default": true
             }
         ]
     }

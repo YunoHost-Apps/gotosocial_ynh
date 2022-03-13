@@ -8,8 +8,8 @@ Restart=on-failure
 
 User=__APP__
 Group=__APP__
-WorkingDirectory=__FINALPATH__/__APP__
-ExecStart=__FINALPATH__/__APP__/ --config-path config.yaml server start
+WorkingDirectory=__FINALPATH__/
+ExecStart=__FINALPATH__/gotosocial --config-path config.yaml server start
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 

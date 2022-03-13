@@ -25,11 +25,12 @@ ynh_abort_if_errors
 #=================================================
 
 domain=$YNH_APP_ARG_DOMAIN
-path_url=$YNH_APP_ARG_PATH
 admin=$YNH_APP_ARG_ADMIN
-is_public=$YNH_APP_ARG_IS_PUBLIC
-language=$YNH_APP_ARG_LANGUAGE
+email=$YNH_APP_ARG_EMAIL
 password=$YNH_APP_ARG_PASSWORD
+registration=$YNH_APP_ARG_REGISTRATION
+approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
+reason=$YNH_APP_ARG_REGISTRATION_REASON
 
 ### If it's a multi-instance app, meaning it can be installed several times independently
 ### The id of the app as stated in the manifest is available as $YNH_APP_ID
@@ -168,7 +169,7 @@ ynh_add_nginx_config
 #=================================================
 # SPECIFIC SETUP
 #=================================================
-# ...
+#
 #=================================================
 
 #=================================================
@@ -369,11 +370,11 @@ ynh_systemd_action --service_name=nginx --action=reload
 #=================================================
 ynh_script_progression --message="Creating admin user..." --time --weight=1
 
-./gotosocial --config-path "$final_path/config.yaml" admin account create --username some_username --email some_email@whatever.org --password SOME_PASSWORD
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$YNH_APP_ARG_ADMIN" --email "$YNH_APP_ARG_EMAIL" --password "$YNH_APP_ARG_PASSWORD"
 
-./gotosocial --config-path "$final_path/config.yaml" admin account confirm --username some_username
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --username "$YNH_APP_ARG_ADMIN"
 
-./gotosocial --config-path "$final_path/config.yaml" admin account promote --username some_username
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$YNH_APP_ARG_ADMIN"
 
 #=================================================
 # END OF SCRIPT
