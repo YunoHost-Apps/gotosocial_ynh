@@ -101,6 +101,19 @@ if ! ynh_permission_exists --permission="api"; then
 	ynh_permission_create --permission="api" --url="/api" --allowed="visitors" --show_tile="false" --protected="true"
 fi
 
+#Switch variables name
+psql_db=$(ynh_app_setting_get --app=$app --key=psql_db)
+
+if [ -n "$psql_db" ]
+then
+	db_name=$(ynh_app_setting_get --app=$app --key=psql_db)
+	db_pwd=$(ynh_app_setting_get --app=$app --key=psqlpwd)
+	ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+	ynh_app_setting_set --app=$app --key=db_pwd --value=$db_pwd
+	ynh_app_setting_delete --app=$app --key=psql_db
+	ynh_app_setting_delete --app=$app --key=psqlpwd
+fi
+
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
