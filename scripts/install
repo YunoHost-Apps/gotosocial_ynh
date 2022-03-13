@@ -29,8 +29,8 @@ admin=$YNH_APP_ARG_ADMIN
 email=$YNH_APP_ARG_EMAIL
 password=$YNH_APP_ARG_PASSWORD
 registration=$YNH_APP_ARG_REGISTRATION
-approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
-reason=$YNH_APP_ARG_REGISTRATION_REASON
+registration-approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
+registration-reason=$YNH_APP_ARG_REGISTRATION_REASON
 
 ### If it's a multi-instance app, meaning it can be installed several times independently
 ### The id of the app as stated in the manifest is available as $YNH_APP_ID
