@@ -3,13 +3,13 @@
     "id": "gotosocial",
     "packaging_format": 1,
     "description": {
-        "en": "GoToSocial is an ActivityPub social network server, written in Golang. With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!",
-        "fr": "GoToSocial est un serveur de réseau social basé sur ActivityPub écrit en Golang. Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !"
+        "en": "An ActivityPub social network server, written in Golang.",
+        "fr": "Un serveur de réseau social basé sur ActivityPub écrit en Golang."
     },
     "version": "0.2.1~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
-        "license": "free",
+        "license": "WTFPL",
         "website": "https://docs.gotosocial.org/",
         "demo": "",
         "admindoc": "https://docs.gotosocial.org/en/latest/",
@@ -34,7 +34,7 @@
             {
                 "name": "domain",
                 "type": "domain",
-                "help": {
+                "ask": {
                     "en": "The domain name on which your instance will be installed.",
                     "fr": "Le nom de domaine sur lequel sera installé votre instance."
                 },
@@ -43,7 +43,7 @@
             {
                 "name": "admin",
                 "type": "user",
-                "help": {
+                "ask": {
                     "en": "The username of your admin account.",
                     "fr": "Le nom d'utilisateur de votre compte admin."
                 },
@@ -51,8 +51,8 @@
             },
             {
                 "name": "email",
-                "type": "email",
-                "help": {
+                "type": "string",
+                "ask": {
                     "en": "The email adress of your admin account.",
                     "fr": "L'adresse e-mail de votre compte admin."
                 },
@@ -61,15 +61,22 @@
             {
                 "name": "password",
                 "type": "password",
-                "help": {
-                    "en": "The password for your administrator account. Must contain: upper case, lower case, number and special character.",
-                    "fr": "Le mot de passe de votre compte administrateur. Doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+                "ask": {
+                    "en": "The password for your administrator account.",
+                    "fr": "Le mot de passe de votre compte administrateur."
                 },
-                "example": "Choose a strong password"
+                "help": {
+                    "en": "Must contain: upper case, lower case, number and special character.",
+                    "fr": "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+                }
             },
             {
                 "name": "registration",
                 "type": "boolean",
+                "ask": {
+                    "en": "Open registration?",
+                    "fr": "Inscriptions ouvertes ?"
+                },
                 "help": {
                     "en": "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?",
                     "fr": "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
@@ -79,6 +86,10 @@
             {
                 "name": "registration-approval",
                 "type": "boolean",
+                "ask": {
+                    "en": "Registration approval?",
+                    "fr": "Vérification manuelle des inscriptions ?"
+                },
                 "help": {
                     "en": "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?",
                     "fr": "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
@@ -88,6 +99,10 @@
             {
                 "name": "registration-reason",
                 "type": "boolean",
+                "ask": {
+                    "en": "Request registration reason?",
+                    "fr": "Demande de motif pour les inscriptions ?"
+                },
                 "help": {
                     "en": "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?",
                     "fr": "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
