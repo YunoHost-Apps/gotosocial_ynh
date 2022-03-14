@@ -6,25 +6,23 @@
 ;; Test complet
 	; Manifest
 		domain="domain.tld"
-		path="/path"
-		admin="john"
-		language="fr"
-		is_public=1
+		admin="xana"
+		email="user@example.com"
 		password="1Strong-Password"
 		port="666"
 	; Checks
 		pkg_linter=1
-		setup_sub_dir=1
+		setup_sub_dir=0
 		setup_root=1
 		setup_nourl=0
-		setup_private=1
+		setup_private=0
 		setup_public=1
 		upgrade=1
-		upgrade=1	from_commit=CommitHash
+		upgrade=0	from_commit=CommitHash
 		backup_restore=1
 		multi_instance=1
 		port_already_use=0
-		change_url=1
+		change_url=0
 ;;; Options
 Email=
 Notification=none
