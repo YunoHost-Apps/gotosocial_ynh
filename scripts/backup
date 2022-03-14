@@ -24,7 +24,7 @@ ynh_abort_if_errors
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_print_info --message="Loading installation settings..."
+ynh_print_info --message="Loading installation settings..." --weight=1
 
 app=$YNH_APP_INSTANCE_NAME
 
@@ -37,7 +37,7 @@ datadir=$(ynh_app_setting_get --app=$app --key=datadir)
 #=================================================
 # DECLARE DATA AND CONF FILES TO BACKUP
 #=================================================
-ynh_print_info --message="Declaring files to be backed up..."
+ynh_print_info --message="Declaring files to be backed up..." --weight=1
 
 ### N.B. : the following 'ynh_backup' calls are only a *declaration* of what needs
 ### to be backuped and not an actual copy of any file. The actual backup that
@@ -87,7 +87,7 @@ ynh_backup --src_path="/etc/$app/"
 #=================================================
 # BACKUP THE POSTGRESQL DATABASE
 #=================================================
-ynh_print_info --message="Backing up the PostgreSQL database..."
+ynh_print_info --message="Backing up the PostgreSQL database..." --weight=5
 
 ynh_psql_dump_db --database="$db_name" > db.sql
 
@@ -95,4 +95,4 @@ ynh_psql_dump_db --database="$db_name" > db.sql
 # END OF SCRIPT
 #=================================================
 
-ynh_print_info --message="Backup script completed for $app. (YunoHost will then actually copy those files to the archive)."
+ynh_print_info --message="Backup script completed for $app. (YunoHost will then actually copy those files to the archive)." --weight=1
