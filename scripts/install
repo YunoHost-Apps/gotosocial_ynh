@@ -331,6 +331,17 @@ yunohost service add $app --description="Gotosocial server" --log="/var/log/$app
 ### service though so you should re-provide all relevant flags when doing so)
 
 #=================================================
+# CREATE ADMIN USER
+#=================================================
+ynh_script_progression --message="Creating admin user..." --time --weight=1
+
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
+
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --username "$admin"
+
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
+
+#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --time --weight=1
@@ -365,17 +376,6 @@ fi
 ynh_script_progression --message="Reloading NGINX web server..." --time --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
-
-#=================================================
-# CREATE ADMIN USER
-#=================================================
-ynh_script_progression --message="Creating admin user..." --time --weight=1
-
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
-
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --username "$admin"
-
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
 
 #=================================================
 # END OF SCRIPT
