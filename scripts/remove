@@ -21,6 +21,7 @@ port=$(ynh_app_setting_get --app=$app --key=port)
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$db_name
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+datadir=$(ynh_app_setting_get --app=$app --key=datadir)
 
 #=================================================
 # STANDARD REMOVE
@@ -68,6 +69,14 @@ ynh_script_progression --message="Removing app main directory..." --weight=1
 ynh_secure_remove --file="$final_path"
 
 #=================================================
+# REMOVE APP DATA DIR
+#=================================================
+ynh_script_progression --message="Removing app data directory..." --weight=1
+
+# Remove the app directory securely
+ynh_secure_remove --file="$datadir"
+
+#=================================================
 # REMOVE NGINX CONFIGURATION
 #=================================================
 ynh_script_progression --message="Removing NGINX web server configuration..." --weight=1
@@ -99,12 +108,6 @@ fi
 # REMOVE VARIOUS FILES
 #=================================================
 ynh_script_progression --message="Removing various files..." --weight=1
-
-# Remove a cron file
-ynh_secure_remove --file="/etc/cron.d/$app"
-
-# Remove a directory securely
-ynh_secure_remove --file="/etc/$app"
 
 # Remove the log files
 ynh_secure_remove --file="/var/log/$app"
