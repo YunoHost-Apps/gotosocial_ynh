@@ -151,12 +151,12 @@ db-tls-ca-cert: ""
 # String. Directory from which gotosocial will attempt to load html templates (.tmpl files).
 # Examples: ["/some/absolute/path/", "./relative/path/", "../../some/weird/path/"]
 # Default: "./web/template/"
-web-template-base-dir: "__FINALPATH__/web/template/"
+web-template-base-dir: "./web/template/"
 
 # String. Directory from which gotosocial will attempt to serve static web assets (images, scripts).
 # Examples: ["/some/absolute/path/", "./relative/path/", "../../some/weird/path/"]
 # Default: "./web/assets/"
-web-asset-base-dir: "__FINALPATH__/web/assets/"
+web-asset-base-dir: "./web/assets/"
 
 ###########################
 ##### ACCOUNTS CONFIG #####
