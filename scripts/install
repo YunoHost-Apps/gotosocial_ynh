@@ -78,7 +78,7 @@ ynh_app_setting_set --app=$app --key=email --value=$email
 ynh_app_setting_set --app=$app --key=password --value=$password
 ynh_app_setting_set --app=$app --key=registration --value=$registration
 ynh_app_setting_set --app=$app --key=registration_approval --value=$registration_approval
-ynh_app_setting_set --app=$app --key=registration_reason --value=$registration_reaso
+ynh_app_setting_set --app=$app --key=registration_reason --value=$registration_reason
 
 #=================================================
 # STANDARD MODIFICATIONS
