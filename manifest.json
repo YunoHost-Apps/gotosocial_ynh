@@ -33,8 +33,7 @@
         "install": [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "gotosocial.example.com"
+                "type": "domain"
             },
             {
                 "name": "admin",
