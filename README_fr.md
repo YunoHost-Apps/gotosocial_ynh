@@ -11,13 +11,13 @@ Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour
 
 ## Vue d'ensemble
 
-GoToSocial is an [ActivityPub](https://activitypub.rocks/) social network server, written in Golang.
+Un serveur de réseau social basé sur [ActivityPub](https://activitypub.rocks/) écrit en Golang.
 
-With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
+Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !
 
 ![](./doc/logo_sloth.png)
 
-Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org). You can skip straight to the API documentation [here](https://docs.gotosocial.org/en/latest/api/swagger/).
+Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
 **Version incluse :** 0.2.1~ynh1
@@ -30,11 +30,12 @@ Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org). You can 
 
 ## Avertissements / informations importantes
 
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-  * GoToSocial require a dedicated root domain, eg. gotosocial.domain.tld
-  * This package is not-working single-sign on or LDAP integration
-  * This package is currently set to single-instance that means you can run a single GoToSocial instance on a single server.
+GoToSocial nécessite un nom de domaine dédié, par exemple : gotosocial.domain.tld.
 
+Ce paquet ne fonctionne pas avec l'authentification unique (SSO) ou l'intégration LDAP.  
+Vous aurez un compte séparé du reste de votre serveur Yunohost, avec potentiellement un nom d'utilisateur et un mot de passe différent.
+
+Vous pouvez exécuter une seule instance de GoToSocial sur un seul serveur Yunohost.
 ## Documentations et ressources
 
 * Site officiel de l'app : https://docs.gotosocial.org/

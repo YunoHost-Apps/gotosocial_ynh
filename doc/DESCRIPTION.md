@@ -4,4 +4,4 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 
 ![](./doc/logo_sloth.png)
 
-Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org). You can skip straight to the API documentation [here](https://docs.gotosocial.org/en/latest/api/swagger/).
+Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
