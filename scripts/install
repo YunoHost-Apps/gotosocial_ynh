@@ -32,7 +32,6 @@ password=$YNH_APP_ARG_PASSWORD
 registration=$YNH_APP_ARG_REGISTRATION
 registration_approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
 registration_reason=$YNH_APP_ARG_REGISTRATION_REASON
-is_public=1
 
 ### If it's a multi-instance app, meaning it can be installed several times independently
 ### The id of the app as stated in the manifest is available as $YNH_APP_ID
@@ -362,13 +361,9 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$ap
 #=================================================
 ynh_script_progression --message="Configuring permissions..." --time --weight=1
 
-# Make app public if necessary
-if [ $is_public -eq 1 ]
-then
-	# Everyone can access the app.
-	# The "main" permission is automatically created before the install script.
-	ynh_permission_update --permission="main" --add="visitors"
-fi
+# Everyone can access the app.
+# The "main" permission is automatically created before the install script.
+ynh_permission_update --permission="main" --add="visitors"
 
 #=================================================
 # RELOAD NGINX
