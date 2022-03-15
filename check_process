@@ -9,7 +9,7 @@
 		admin="xana"
 		email="user@example.com"
 		password="1Strong-Password"
-		port="666"
+		port="8095"
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=0
