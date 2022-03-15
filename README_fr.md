@@ -20,7 +20,7 @@ Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et p
 Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Version incluse :** 0.2.1~ynh1
+**Version incluse :** 0.2.1~ynh2
 
 
 
@@ -34,6 +34,9 @@ GoToSocial nécessite un nom de domaine dédié, par exemple : gotosocial.domain
 
 Ce paquet ne fonctionne pas avec l'authentification unique (SSO) ou l'intégration LDAP.  
 Vous aurez un compte séparé du reste de votre serveur Yunohost, avec potentiellement un nom d'utilisateur et un mot de passe différent.
+
+Vous pouvez vous connecter sur [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) pour administrer votre insance GoToSocial.
+Le [code source de cette interface d'administration](https://github.com/superseriousbusiness/gotosocial-admin) est consultable sur github.
 
 ## Documentations et ressources
 
