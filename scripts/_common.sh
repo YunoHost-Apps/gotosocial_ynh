@@ -11,6 +11,8 @@ pkg_dependencies="postgresql postgresql-contrib"
 # PERSONAL HELPERS
 #=================================================
 
+# custom function to detect armv6 and armv7
+# ($YNH_ARCH returns armhf for both...)
 detect_arch(){
 	local architecture
 	if [ -n "$(uname -m | grep arm64)" ] || [ -n "$(uname -m | grep aarch64)" ]; then
