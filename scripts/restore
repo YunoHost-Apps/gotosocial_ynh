@@ -132,6 +132,13 @@ ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
 # RESTORE VARIOUS FILES
 #=================================================
 
+mkdir -p /var/log/$app
+
+# for debugging purpose, will remove
+# systemd[7948]: gotosocial.service: Failed to set up standard output: No such file or directory
+# systemd[7948]: gotosocial.service: Failed at step STDOUT spawning /var/www/gotosocial/gotosocial: No such file or directory
+ls -l $final_path
+
 #=================================================
 # RESTORE SYSTEMD
 #=================================================
