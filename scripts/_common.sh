@@ -11,7 +11,7 @@ pkg_dependencies="postgresql postgresql-contrib"
 # PERSONAL HELPERS
 #=================================================
 
-ynh_detect_arch(){
+detect_arch(){
 	local architecture
 	if [ -n "$(uname -m | grep arm64)" ] || [ -n "$(uname -m | grep aarch64)" ]; then
 		architecture="arm64"
