@@ -31,7 +31,7 @@ admin=$YNH_APP_ARG_ADMIN
 email=$YNH_APP_ARG_EMAIL
 password=$YNH_APP_ARG_PASSWORD
 
-registration=$YNH_APP_ARG_REGISTRATION
+registration_open=$YNH_APP_ARG_REGISTRATION
 registration_approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
 registration_reason=$YNH_APP_ARG_REGISTRATION_REASON
 
