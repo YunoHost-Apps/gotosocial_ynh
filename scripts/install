@@ -26,9 +26,11 @@ ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
+
 admin=$YNH_APP_ARG_ADMIN
 email=$YNH_APP_ARG_EMAIL
 password=$YNH_APP_ARG_PASSWORD
+
 registration=$YNH_APP_ARG_REGISTRATION
 registration_approval=$YNH_APP_ARG_REGISTRATION_APPROVAL
 registration_reason=$YNH_APP_ARG_REGISTRATION_REASON
@@ -71,12 +73,16 @@ ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 #=================================================
 ynh_script_progression --message="Storing installation settings..." --weight=1
 
+ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+
 ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path --value=$path_url
+ynh_app_setting_set --app=$app --key=path_url --value=$path_url
+
 ynh_app_setting_set --app=$app --key=admin --value=$admin
 ynh_app_setting_set --app=$app --key=email --value=$email
 ynh_app_setting_set --app=$app --key=password --value=$password
-ynh_app_setting_set --app=$app --key=registration --value=$registration
+
+ynh_app_setting_set --app=$app --key=registration_open --value=$registration_open
 ynh_app_setting_set --app=$app --key=registration_approval --value=$registration_approval
 ynh_app_setting_set --app=$app --key=registration_reason --value=$registration_reason
 
@@ -136,7 +142,6 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 
 architecture=$YNH_ARCH
 
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$final_path" --source_id=$architecture
 

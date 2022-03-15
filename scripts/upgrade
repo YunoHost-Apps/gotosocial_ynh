@@ -20,12 +20,13 @@ final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 port=$(ynh_app_setting_get --app=$app --key=port)
+path_url=$(ynh_app_setting_get --app=$app --key=path_url)
 
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$(ynh_app_setting_get --app=$app --key=db_user)
 db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
 
-registration=$(ynh_app_setting_get --app=$app --key=registration)
+registration_open=$(ynh_app_setting_get --app=$app --key=registration_open)
 registration_approval=$(ynh_app_setting_get --app=$app --key=registration_approval)
 registration_reason=$(ynh_app_setting_get --app=$app --key=registration_reason)
 
@@ -85,7 +86,7 @@ then
 	architecture=$YNH_ARCH
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path" --source_id=$architecture
+	ynh_setup_source --dest_dir="$final_path" --source_id=$architecture --keep="config.yaml"
 fi
 
 # FIXME: this should be managed by the core in the future
