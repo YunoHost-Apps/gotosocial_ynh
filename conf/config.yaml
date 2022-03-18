@@ -53,7 +53,7 @@ account-domain: ""
 # letsencrypt, it should still be https.
 # Options: ["http","https"]
 # Default: "https"
-protocol: "http"
+protocol: "https"
 
 # String. Address to bind the GoToSocial server to.
 # This can be an IPv4 address or an IPv6 address (surrounded in square brackets), or a hostname.
