@@ -20,7 +20,7 @@ Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et p
 Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Version incluse :** 0.2.1~ynh2
+**Version incluse :** 0.2.1~ynh3
 
 
 
@@ -29,6 +29,8 @@ Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](http
 ![](./doc/screenshots/screenshot.jpg)
 
 ## Avertissements / informations importantes
+
+GoToSocial est encore en alpha et **peut etre instable**.
 
 GoToSocial nécessite un nom de domaine dédié, par exemple : gotosocial.domain.tld.
 

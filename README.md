@@ -24,7 +24,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.2.1~ynh2
+**Shipped version:** 0.2.1~ynh3
 
 
 
@@ -33,6 +33,8 @@ Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 ![](./doc/screenshots/screenshot.jpg)
 
 ## Disclaimers / important information
+
+GoToSocial is still in alpha and **may be unstable**.
 
 GoToSocial require a dedicated root domain, for example: gotosocial.domain.tld.
 
