@@ -1,3 +1,5 @@
+GoToSocial est encore en alpha et **peut etre instable**.
+
 GoToSocial nécessite un nom de domaine dédié, par exemple : gotosocial.domain.tld.
 
 Ce paquet ne fonctionne pas avec l'authentification unique (SSO) ou l'intégration LDAP.  
