@@ -24,7 +24,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.2.1~ynh2
+**Shipped version:** 0.2.1~ynh4
 
 
 
@@ -34,10 +34,15 @@ Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 ## Disclaimers / important information
 
-GoToSocial require a dedicated root domain, for example: gotosocial.domain.tld.
+GoToSocial is still in alpha and **may be unstable**.
+
+GoToSocial require a **dedicated root domain**, for example: gotosocial.domain.tld.
 
 This package is not-working single-sign on or LDAP integration.  
 You will have a separate account from the rest of your Yunohost server, potentially with a different username and password.
+
+GoToSocial **does not provide a user interface**.  
+You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.app/) on Android or an instance of [Pinafore](https://pinafore.social/) on the Web.
 
 You can login to [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) to administrate your GoToSocial instance.
 The [source code of this administration panel](https://github.com/superseriousbusiness/gotosocial-admin) is available on github.
