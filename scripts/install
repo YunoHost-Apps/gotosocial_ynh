@@ -27,6 +27,8 @@ ynh_abort_if_errors
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
 
+client_max_body_size="50M"
+
 admin=$YNH_APP_ARG_ADMIN
 email=$YNH_APP_ARG_EMAIL
 password=$YNH_APP_ARG_PASSWORD
@@ -77,6 +79,8 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path_url --value=$path_url
+
+ynh_app_setting_set --app=$app --key=client_max_body_size --value=$client_max_body_size
 
 ynh_app_setting_set --app=$app --key=admin --value=$admin
 ynh_app_setting_set --app=$app --key=email --value=$email
