@@ -180,12 +180,6 @@ ynh_script_progression --message="Upgrading dependencies..."
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
-# SPECIFIC UPGRADE
-#=================================================
-# ...
-#=================================================
-
-#=================================================
 # UPDATE A CONFIG FILE
 #=================================================
 ynh_script_progression --message="Updating a configuration file..."
@@ -202,13 +196,6 @@ ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
 # for example if the app is expected to be able to modify its own config
 chmod 400 "$final_path/config.yaml"
 chown $app:$app "$final_path/config.yaml"
-
-### For more complex cases where you want to replace stuff using regexes,
-### you shoud rely on ynh_replace_string (which is basically a wrapper for sed)
-### When doing so, you also need to manually call ynh_store_file_checksum
-###
-### ynh_replace_string --match_string="match_string" --replace_string="replace_string" --target_file="$final_path/some_config_file"
-### ynh_store_file_checksum --file="$final_path/some_config_file"
 
 #=================================================
 # SETUP SYSTEMD
