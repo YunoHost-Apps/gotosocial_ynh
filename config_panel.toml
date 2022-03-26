@@ -11,8 +11,8 @@ services = ["__APP__"]
 name.en = "GoToSocial configuration panel"
 name.fr = "Configuration de GoToSocial"
 
-help.en = ""
-help.fr = ""
+help.en = "Here you can easily configure some things about your GoToSocial instance."
+help.fr = "Ici vous pouvez configurer facilement certaines choses à propos de votre instance GoToSocial."
 
 ####################
 #### ACCOUNTS CONFIG
