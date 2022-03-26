@@ -57,88 +57,88 @@ app=$YNH_APP_INSTANCE_NAME
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
 #=================================================
 
-ynh_script_progression __message="Validating installation parameters..." __weight=1
+ynh_script_progression --message="Validating installation parameters..." --weight=1
 
 final_path=/var/www/$app
-test ! _e "$final_path" || ynh_die __message="This path already contains a folder"
+test ! -e "$final_path" || ynh_die --message="This path already contains a folder"
 
-ynh_webpath_register __app=$app __domain=$domain __path_url=$path_url
+ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
-ynh_script_progression __message="Storing installation settings..." __weight=1
+ynh_script_progression --message="Storing installation settings..." --weight=1
 
-ynh_app_setting_set __app=$app __key=final_path __value=$final_path
+ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 
-ynh_app_setting_set __app=$app __key=domain __value=$domain
-ynh_app_setting_set __app=$app __key=path_url __value=$path_url
+ynh_app_setting_set --app=$app --key=domain --value=$domain
+ynh_app_setting_set --app=$app --key=path_url --value=$path_url
 
-ynh_app_setting_set __app=$app __key=client_max_body_size __value=$client_max_body_size
+ynh_app_setting_set --app=$app --key=client_max_body_size --value=$client_max_body_size
 
-ynh_app_setting_set __app=$app __key=admin __value=$admin
-ynh_app_setting_set __app=$app __key=email __value=$email
-ynh_app_setting_set __app=$app __key=password __value=$password
+ynh_app_setting_set --app=$app --key=admin --value=$admin
+ynh_app_setting_set --app=$app --key=email --value=$email
+ynh_app_setting_set --app=$app --key=password --value=$password
 
-ynh_app_setting_set __app=$app __key=registration_open __value=$registration_open
-ynh_app_setting_set __app=$app __key=registration_approval __value=$registration_approval
-ynh_app_setting_set __app=$app __key=registration_reason __value=$registration_reason
+ynh_app_setting_set --app=$app --key=registration_open --value=$registration_open
+ynh_app_setting_set --app=$app --key=registration_approval --value=$registration_approval
+ynh_app_setting_set --app=$app --key=registration_reason --value=$registration_reason
 
-ynh_app_setting_set __app=$app __key=media_image_max_size __value=$media_image_max_size
-ynh_app_setting_set __app=$app __key=media_video_max_size __value=$media_video_max_size
-ynh_app_setting_set __app=$app __key=media_description_min_chars __value=$media_description_min_chars
-ynh_app_setting_set __app=$app __key=media_description_max_chars __value=$media_description_max_chars
-ynh_app_setting_set __app=$app __key=media_remote_cache_days __value=$media_remote_cache_days
+ynh_app_setting_set --app=$app --key=media_image_max_size --value=$media_image_max_size
+ynh_app_setting_set --app=$app --key=media_video_max_size --value=$media_video_max_size
+ynh_app_setting_set --app=$app --key=media_description_min_chars --value=$media_description_min_chars
+ynh_app_setting_set --app=$app --key=media_description_max_chars --value=$media_description_max_chars
+ynh_app_setting_set --app=$app --key=media_remote_cache_days --value=$media_remote_cache_days
 
-ynh_app_setting_set __app=$app __key=statuses_max_chars __value=$statuses_max_chars
-ynh_app_setting_set __app=$app __key=statuses_cw_max_chars __value=$statuses_cw_max_chars
-ynh_app_setting_set __app=$app __key=statuses_poll_max_options __value=$statuses_poll_max_options
-ynh_app_setting_set __app=$app __key=statuses_poll_option_max_chars __value=$statuses_poll_option_max_chars
-ynh_app_setting_set __app=$app __key=statuses_media_max_files __value=$statuses_media_max_files
+ynh_app_setting_set --app=$app --key=statuses_max_chars --value=$statuses_max_chars
+ynh_app_setting_set --app=$app --key=statuses_cw_max_chars --value=$statuses_cw_max_chars
+ynh_app_setting_set --app=$app --key=statuses_poll_max_options --value=$statuses_poll_max_options
+ynh_app_setting_set --app=$app --key=statuses_poll_option_max_chars --value=$statuses_poll_option_max_chars
+ynh_app_setting_set --app=$app --key=statuses_media_max_files --value=$statuses_media_max_files
 
 #=================================================
 # STANDARD MODIFICATIONS
 #=================================================
 # FIND AND OPEN A PORT
 #=================================================
-ynh_script_progression __message="Finding an available port..." __weight=1
+ynh_script_progression --message="Finding an available port..." --weight=1
 
 # Find an available port
-port=$(ynh_find_port __port=8095)
-ynh_app_setting_set __app=$app __key=port __value=$port
+port=$(ynh_find_port --port=8095)
+ynh_app_setting_set --app=$app --key=port --value=$port
 
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
-ynh_script_progression __message="Installing dependencies..." __weight=5
+ynh_script_progression --message="Installing dependencies..." --weight=5
 
 ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-ynh_script_progression __message="Configuring system user..." __weight=1
+ynh_script_progression --message="Configuring system user..." --weight=1
 
 # Create a system user
-ynh_system_user_create __username=$app __home_dir="$final_path"
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # CREATE A POSTGRESQL DATABASE
 #=================================================
-ynh_script_progression __message="Creating a PostgreSQL database..." __weight=5
+ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
 
-db_name=$(ynh_sanitize_dbid __db_name=$app)
+db_name=$(ynh_sanitize_dbid --db_name=$app)
 db_user=$db_name
-db_pwd=$(ynh_string_random __length=30)
-ynh_app_setting_set __app=$app __key=db_name __value=$db_name
-ynh_app_setting_set __app=$app __key=db_pwd __value=$db_pwd
+db_pwd=$(ynh_string_random --length=30)
+ynh_app_setting_set --app=$app --key=db_name --value=$db_name
+ynh_app_setting_set --app=$app --key=db_pwd --value=$db_pwd
 ynh_psql_test_if_first_run
-ynh_psql_setup_db __db_user=$db_user __db_name=$db_name __db_pwd=$db_pwd
+ynh_psql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression __message="Setting up source files..." __weight=1
+ynh_script_progression --message="Setting up source files..." --weight=1
 
 ### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
 ### downloaded from an upstream source, like a git repository.
@@ -148,7 +148,7 @@ ynh_script_progression __message="Setting up source files..." __weight=1
 architecture=$(detect_arch)
 
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source __dest_dir="$final_path" __source_id=$architecture
+ynh_setup_source --dest_dir="$final_path" --source_id=$architecture
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
@@ -157,13 +157,13 @@ ynh_setup_source __dest_dir="$final_path" __source_id=$architecture
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
 chmod 750 "$final_path"
-chmod _R o_rwx "$final_path"
-chown _R $app:www_data "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www_data "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression __message="Configuring NGINX web server..." __weight=1
+ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 
 # Create a dedicated NGINX config
 ynh_add_nginx_config
@@ -171,29 +171,29 @@ ynh_add_nginx_config
 #=================================================
 # CREATE DATA DIRECTORY
 #=================================================
-ynh_script_progression __message="Creating a data directory..." __weight=1
+ynh_script_progression --message="Creating a data directory..." --weight=1
 
 datadir=/home/yunohost.app/$app
-ynh_app_setting_set __app=$app __key=datadir __value=$datadir
+ynh_app_setting_set --app=$app --key=datadir --value=$datadir
 
-mkdir _p $datadir
+mkdir -p $datadir
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www_data) can access
+# such that the appropriate users (e.g. maybe www-data) can access
 # files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
+# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
 chmod 750 "$datadir"
-chmod _R o_rwx "$datadir"
-chown _R $app:www_data "$datadir"
+chmod -R o-rwx "$datadir"
+chown -R $app:www_data "$datadir"
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression __message="Adding a configuration file..." __weight=1
+ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config __template="config.yaml" __destination="$final_path/config.yaml"
+ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
 
 # FIXME: this should be handled by the core in the future
 # You may need to use chmod 600 instead of 400,
@@ -204,7 +204,7 @@ chown $app:$app "$final_path/config.yaml"
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression __message="Configuring a systemd service..." __weight=1
+ynh_script_progression --message="Configuring a systemd service..." --weight=1
 
 # Create a dedicated systemd config
 ynh_add_systemd_config
@@ -214,7 +214,7 @@ ynh_add_systemd_config
 #=================================================
 # SETUP LOGROTATE
 #=================================================
-ynh_script_progression __message="Configuring log rotation..." __weight=1
+ynh_script_progression --message="Configuring log rotation..." --weight=1
 
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
@@ -222,46 +222,46 @@ ynh_use_logrotate
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression __message="Integrating service in YunoHost..." __weight=1
+ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app __description="Gotosocial server" __log="/var/log/$app/$app.log"
+yunohost service add $app --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # CREATE ADMIN USER
 #=================================================
-ynh_script_progression __message="Creating gotosocial admin user..." __weight=1
+ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
 
-"$final_path"/gotosocial __config_path "$final_path/config.yaml" admin account create __username "$admin" __email "$email" __password "$password"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
 
-"$final_path"/gotosocial __config_path "$final_path/config.yaml" admin account confirm __username "$admin"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --_username "$admin"
 
-"$final_path"/gotosocial __config_path "$final_path/config.yaml" admin account promote __username "$admin"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression __message="Starting a systemd service..." __weight=1
+ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action __service_name=$app __action="start" __log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # SETUP SSOWAT
 #=================================================
-ynh_script_progression __message="Configuring permissions..." __weight=1
+ynh_script_progression --message="Configuring permissions..." --weight=1
 
 # Everyone can access the app.
-ynh_permission_update __permission="main" __add="visitors"
+ynh_permission_update --permission="main" --add="visitors"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression __message="Reloading NGINX web server..." __weight=1
+ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
-ynh_systemd_action __service_name=nginx __action=reload
+ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression __message="Installation of $app completed" __last
+ynh_script_progression --message="Installation of $app completed" --last
