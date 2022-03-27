@@ -29,7 +29,7 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
 
-client_max_body_size="50M"
+client_max_body_size="100M"
 
 admin=$YNH_APP_ARG_ADMIN
 email=$YNH_APP_ARG_EMAIL

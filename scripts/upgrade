@@ -90,7 +90,7 @@ ynh_script_progression --message="Ensuring downward compatibility..."
 if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4
 then
 	# declaration of new parameters
-	client_max_body_size="50M"
+	client_max_body_size="100M"
 	media_image_max_size="2097152"
 	media_video_max_size="10485760"
 	media_description_min_chars="0"
