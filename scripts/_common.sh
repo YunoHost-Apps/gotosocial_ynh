@@ -31,6 +31,11 @@ detect_arch(){
 	echo $architecture
 }
 
+# custom function to change bash bool 0/1 to false/true
+convert_bool(){
+	(("$1")) && echo "true" || echo "false"
+}
+
 #=================================================
 # EXPERIMENTAL HELPERS
 #=================================================

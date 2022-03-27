@@ -34,15 +34,29 @@ domain=$(ynh_app_setting_get --app=$app --key=domain)
 port=$(ynh_app_setting_get --app=$app --key=port)
 path_url=$(ynh_app_setting_get --app=$app --key=path_url)
 
+client_max_body_size=$(ynh_app_setting_get --app=$app --key=client_max_body_size)
+
 db_name=$(ynh_app_setting_get --app=$app --key=db_name)
 db_user=$db_name
 db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
+
+datadir=$(ynh_app_setting_get --app=$app --key=datadir)
 
 registration_open=$(ynh_app_setting_get --app=$app --key=registration_open)
 registration_approval=$(ynh_app_setting_get --app=$app --key=registration_approval)
 registration_reason=$(ynh_app_setting_get --app=$app --key=registration_reason)
 
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+media_image_max_size=$(ynh_app_setting_get --app=$app --key=media_image_max_size)
+media_video_max_size=$(ynh_app_setting_get --app=$app --key=media_video_max_size)
+media_description_min_chars=$(ynh_app_setting_get --app=$app --key=media_description_min_chars)
+media_description_max_chars=$(ynh_app_setting_get --app=$app --key=media_description_max_chars)
+media_remote_cache_days=$(ynh_app_setting_get --app=$app --key=media_remote_cache_days)
+
+statuses_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_max_chars)
+statuses_cw_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_cw_max_chars)
+statuses_poll_max_options=$(ynh_app_setting_get --app=$app --key=statuses_poll_max_options)
+statuses_poll_option_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_poll_option_max_chars)
+statuses_media_max_files=$(ynh_app_setting_get --app=$app --key=statuses_media_max_files)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
