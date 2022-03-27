@@ -21,7 +21,7 @@ name = "Accounts configuration"
 
 help = "Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts."
 
-[gotosocial.accounts.accounts_registration_open]
+[gotosocial.accounts.registration_open]
 ask.en = "Open registrations?"
 ask.fr = "Inscriptions ouvertes ?"
 bind = "accounts_registration_open:__FINALPATH__/config.yaml"
@@ -30,7 +30,7 @@ help.en = "Do we want people to be able to just submit sign up requests, or do w
 help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
 type = "boolean"
 
-[gotosocial.accounts.accounts_approval_required]
+[gotosocial.accounts.approval_required]
 ask.en = "Approval required?"
 ask.fr = "Validation requise ?"
 bind = "accounts_approval_required:__FINALPATH__/config.yaml"
@@ -39,7 +39,7 @@ help.en = "Do sign up requests require approval from an admin/moderator before a
 help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
 type = "boolean"
 
-[gotosocial.accounts.accounts_reason_required]
+[gotosocial.accounts.reason_required]
 ask.en = "Reason required?"
 ask.fr = "Motif requis ?"
 bind = "accounts_reason_required:__FINALPATH__/config.yaml"
