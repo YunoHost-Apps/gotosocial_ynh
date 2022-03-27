@@ -170,30 +170,3 @@ default = "6"
 help.en = "Default: 6. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 6. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
-
-################
-### NGINX CONFIG
-################
-
-[nginx]
-
-services = ["nginx"]
-
-name.en = "nginx configuration"
-name.fr = "Configuration de nginx"
-
-[nginx.config]
-name.en = "nginx configuration"
-name.fr = "Configuration de nginx"
-
-help.en = "Config pertaining to the Web server."
-help.fr = "Configuration relative au serveur Web."
-
-[nginx.config.client_max_body_size]
-ask.en = "Sets the maximum allowed size of uploaded files."
-ask.fr = "Définit la taille maximale autorisée des fichiers téléchargés."
-bind = "client_max_body_size:/etc/nginx/conf.d/__DOMAIN__.d/__APP__.conf"
-default = "50M"
-help.en = "Default: 50M."
-help.fr = "Valeur par défaut : 50M"
-type = "string"
