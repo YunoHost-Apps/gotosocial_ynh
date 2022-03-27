@@ -263,7 +263,7 @@ statuses-poll-max-options: __STATUSES_POLL_MAX_OPTIONS__
 # Note that going way higher than the default might break federation.
 # Examples: [50, 100, 150]
 # Default: 50
-statuses-poll-option-max-chars: __STATUSES_POLL_OPTION_MAX_OPTIONS__
+statuses-poll-option-max-chars: __STATUSES_POLL_OPTION_MAX_CHARS__
 
 # Int. Maximum amount of media files that can be attached to a new status.
 # Note that going way higher than the default might break federation.
