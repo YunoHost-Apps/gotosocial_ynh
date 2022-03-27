@@ -24,6 +24,8 @@ ynh_abort_if_errors
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
+app=$YNH_APP_INSTANCE_NAME
+
 domain=$YNH_APP_ARG_DOMAIN
 path_url="/"
 
@@ -50,8 +52,6 @@ statuses_cw_max_chars="100"
 statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
-
-app=$YNH_APP_INSTANCE_NAME
 
 #=================================================
 # CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
