@@ -101,7 +101,7 @@ then
 	statuses_poll_max_options="6"
 	statuses_poll_option_max_chars="50"
 	statuses_media_max_files="6"
-	# conversionof old parameters
+	# conversion of old parameters
 	registration_open=$(convert_bool "$registration_open")
 	registration_approval=$(convert_bool "$registration_approval")
 	registration_reason=$(convert_bool "$registration_reason")
