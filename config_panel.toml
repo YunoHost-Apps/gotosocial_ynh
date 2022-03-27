@@ -22,7 +22,7 @@ name.fr = "Configuration des inscriptions"
 help.en = "Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts."
 help.fr = "Configuration relative à la création et à la maintenance des comptes sur le serveur, ainsi que les valeurs par défaut pour les nouveaux comptes."
 
-[gotosocial.accounts.registration-open]
+[gotosocial.accounts.accounts-registration-open]
 ask.en = "Open registrations?"
 ask.fr = "Inscriptions ouvertes ?"
 bind = "accounts-registration-open:__FINALPATH__/config.yaml"
@@ -31,7 +31,7 @@ help.en = "Do we want people to be able to just submit sign up requests, or do w
 help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
 type = "boolean"
 
-[gotosocial.accounts.approval-required]
+[gotosocial.accounts.accounts-approval-required]
 ask.en = "Approval required?"
 ask.fr = "Validation requise ?"
 bind = "accounts-approval-required:__FINALPATH__/config.yaml"
@@ -40,7 +40,7 @@ help.en = "Do sign up requests require approval from an admin/moderator before a
 help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
 type = "boolean"
 
-[gotosocial.accounts.reason-required]
+[gotosocial.accounts.accounts-reason-required]
 ask.en = "Reason required?"
 ask.fr = "Motif requis ?"
 bind = "accounts-reason-required:__FINALPATH__/config.yaml"
@@ -60,7 +60,7 @@ name.fr = "Configuration des médias"
 help.en = "Config pertaining to user media uploads (videos, image, image descriptions)."
 help.fr = "Configuration relative aux médias téléchargés par les utilisateurs (vidéos, images, descriptions d'images)."
 
-[gotosocial.media.image-max-size]
+[gotosocial.media.media-image-max-size]
 ask.en = "Maximum allowed image upload size in bytes."
 ask.fr = "Taille maximale autorisée pour le téléchargement d'images, en octets."
 bind = "media-image-max-size:__FINALPATH__/config.yaml"
@@ -69,7 +69,7 @@ help.en = "Default: 2097152 -- aka 2MB"
 help.fr = "Valeur par défaut : 2097152 (soit 2 Mo)"
 type = "number"
 
-[gotosocial.media.video-max-size]
+[gotosocial.media.media-video-max-size]
 ask.en = "Maximum allowed video upload size in bytes."
 ask.fr = "Taille maximale autorisée pour le téléchargement de vidéos, en octets."
 bind = "media-video-max-size:__FINALPATH__/config.yaml"
@@ -78,7 +78,7 @@ help.en = "Default: 10485760 -- aka 10MB"
 help.fr = "Valeur par défaut : 10485760 (soit 10 Mo)"
 type = "number"
 
-[gotosocial.media.description-min-chars]
+[gotosocial.media.media-description-min-chars]
 ask.en = "Minimum amount of characters required as an image or video description."
 ask.fr = "Nombre minimum de caractères requis pour la description d'une image ou d'une vidéo."
 bind = "media-description-min-chars:__FINALPATH__/config.yaml"
@@ -87,7 +87,7 @@ help.en = "Default: 0 (not required)"
 help.fr = "Valeur par défaut : 0 (non obligatoire)"
 type = "number"
 
-[gotosocial.media.description-max-chars]
+[gotosocial.media.media-description-max-chars]
 ask.en = "Maximum amount of characters permitted in an image or video description."
 ask.fr = "Nombre maximum de caractères requis pour la description d'une image ou d'une vidéo."
 bind = "media-description-max-chars:__FINALPATH__/config.yaml"
@@ -96,7 +96,7 @@ help.en = "Default: 500"
 help.fr = "Valeur par défaut : 500"
 type = "number"
 
-[gotosocial.media.remote-cache-days]
+[gotosocial.media.media-remote-cache-days]
 ask.en = "Number of days to cache media from remote instances before they are removed from the cache."
 ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
 bind = "media-remote-cache-days:__FINALPATH__/config.yaml"
@@ -126,7 +126,7 @@ name.fr = "Configuration des status"
 help.en = "Config pertaining to the creation of statuses/posts, and permitted limits."
 help.fr = "Configuration relative à la création de statuts/posts, et aux limites autorisées."
 
-[gotosocial.statuses.max-chars]
+[gotosocial.statuses.statuses-max-chars]
 ask.en = "Maximum amount of characters permitted for a new status."
 ask.fr = "Nombre maximal de caractères autorisés pour un nouveau statut."
 bind = "statuses-max-chars:__FINALPATH__/config.yaml"
@@ -135,7 +135,7 @@ help.en = "Default: 5000. Note that going way higher than the default might brea
 help.fr = "Valeur par défaut : 5000. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.cw-max-chars]
+[gotosocial.statuses.statuses-cw-max-chars]
 ask.en = "Maximum amount of characters allowed in the CW/subject header of a status."
 ask.fr = "Nombre maximum de caractères autorisés dans l'en-tête CW/sujet d'un statut."
 bind = "statuses-cw-max-chars:__FINALPATH__/config.yaml"
@@ -144,7 +144,7 @@ help.en = "Default: 100. Note that going way higher than the default might break
 help.fr = "Valeur par défaut : 100. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.poll-max-options]
+[gotosocial.statuses.statuses-poll-max-options]
 ask.en = "Maximum amount of options to permit when creating a new poll."
 ask.fr = "Nombre maximum d'options autorisées lors de la création d'un nouveau sondage."
 bind = "statuses-poll-max-options:__FINALPATH__/config.yaml"
@@ -153,7 +153,7 @@ help.en = "Default: 6. Note that going way higher than the default might break f
 help.fr = "Valeur par défaut : 6. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.poll-option-max-chars]
+[gotosocial.statuses.statuses-poll-option-max-chars]
 ask.en = "Maximum amount of characters to permit per poll option when creating a new poll."
 ask.fr = "Nombre maximal de caractères autorisés par option de sondage lors de la création d'un nouveau sondage."
 bind = "statuses-poll-option-max-chars:__FINALPATH__/config.yaml"
@@ -162,7 +162,7 @@ help.en = "Default: 50. Note that going way higher than the default might break 
 help.fr = "Valeur par défaut : 50. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.media-max-files]
+[gotosocial.statuses.statuses-media-max-files]
 ask.en = "Maximum amount of media files that can be attached to a new status."
 ask.fr = "Quantité maximale de fichiers multimédias qui peuvent être joints à un nouveau statut."
 bind = "statuses-media-max-files:__FINALPATH__/config.yaml"
@@ -189,7 +189,7 @@ name.fr = "Configuration de nginx"
 help.en = "Config pertaining to the Web server."
 help.fr = "Configuration relative au serveur Web."
 
-[nginx.config.max-client_max_body_size]
+[nginx.config.client_max_body_size]
 ask.en = "Sets the maximum allowed size of uploaded files."
 ask.fr = "Définit la taille maximale autorisée des fichiers téléchargés."
 bind = "client_max_body_size:/etc/nginx/conf.d/__DOMAIN__.d/__APP__.conf"
