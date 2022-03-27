@@ -50,11 +50,9 @@ type = "boolean"
 #################
 
 [gotosocial.media]
-name.en = "Media config"
-name.fr = "Configuration des médias"
+name = "Media config"
 
-help.en = "Config pertaining to user media uploads (videos, image, image descriptions)."
-help.fr = "Configuration relative aux médias téléchargés par les utilisateurs (vidéos, images, descriptions d'images)."
+help = "Config pertaining to user media uploads (videos, image, image descriptions)."
 
 [gotosocial.media.media_image_max_size]
 ask.en = "Maximum allowed image upload size in bytes."
@@ -116,11 +114,9 @@ type = "number"
 ###################
 
 [gotosocial.statuses]
-name.en = "Status config"
-name.fr = "Configuration des status"
+name = "Status config"
 
-help.en = "Config pertaining to the creation of statuses/posts, and permitted limits."
-help.fr = "Configuration relative à la création de statuts/posts, et aux limites autorisées."
+help = "Config pertaining to the creation of statuses/posts, and permitted limits."
 
 [gotosocial.statuses.statuses_max_chars]
 ask.en = "Maximum amount of characters permitted for a new status."
