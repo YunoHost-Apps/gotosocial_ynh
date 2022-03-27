@@ -1,5 +1,5 @@
 # temp fix for https://github.com/YunoHost/yunohost/pull/1449
-final_path = "/var/www/$app"
+# final_path = "/var/www/$app"
 
 version = "1.0"
 
