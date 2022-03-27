@@ -152,13 +152,13 @@ ynh_setup_source --dest_dir="$final_path" --source_id=$architecture
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www_data) can access
+# such that the appropriate users (e.g. maybe www-data) can access
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
-chown -R $app:www_data "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -186,7 +186,7 @@ mkdir -p $datadir
 # this will be treated as a security issue.
 chmod 750 "$datadir"
 chmod -R o-rwx "$datadir"
-chown -R $app:www_data "$datadir"
+chown -R $app:www-data "$datadir"
 
 #=================================================
 # ADD A CONFIGURATION
