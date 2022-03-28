@@ -14,37 +14,37 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Loading installation settings..."
 
-app=$YNH_APP_INSTANCE_NAME
+app="$YNH_APP_INSTANCE_NAME"
 
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-port=$(ynh_app_setting_get --app=$app --key=port)
-path_url=$(ynh_app_setting_get --app=$app --key=path_url)
+domain=$(ynh_app_setting_get --app="$app" --key=domain)
+port=$(ynh_app_setting_get --app="$app" --key=port)
+path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
 
-client_max_body_size=$(ynh_app_setting_get --app=$app --key=client_max_body_size)
+client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
 
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-db_user=$(ynh_app_setting_get --app=$app --key=db_user)
-db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
+db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
+db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
+db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
-registration_open=$(ynh_app_setting_get --app=$app --key=registration_open)
-registration_approval=$(ynh_app_setting_get --app=$app --key=registration_approval)
-registration_reason=$(ynh_app_setting_get --app=$app --key=registration_reason)
+registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 
-media_image_max_size=$(ynh_app_setting_get --app=$app --key=media_image_max_size)
-media_video_max_size=$(ynh_app_setting_get --app=$app --key=media_video_max_size)
-media_description_min_chars=$(ynh_app_setting_get --app=$app --key=media_description_min_chars)
-media_description_max_chars=$(ynh_app_setting_get --app=$app --key=media_description_max_chars)
-media_remote_cache_days=$(ynh_app_setting_get --app=$app --key=media_remote_cache_days)
+media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
+media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
+media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
+media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
+media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
 
-statuses_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_max_chars)
-statuses_cw_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_cw_max_chars)
-statuses_poll_max_options=$(ynh_app_setting_get --app=$app --key=statuses_poll_max_options)
-statuses_poll_option_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_poll_option_max_chars)
-statuses_media_max_files=$(ynh_app_setting_get --app=$app --key=statuses_media_max_files)
+statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
+statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
+statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
+statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
+statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
 #=================================================
 # CHECK VERSION
@@ -79,7 +79,7 @@ ynh_abort_if_errors
 #=================================================
 ynh_script_progression --message="Stopping a systemd service..."
 
-ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
@@ -109,21 +109,21 @@ then
 	db_user=$db_name
 	ynh_app_setting_set --app=$app --key=db_user --value=$db_user
 	# registration of new parameters
-	ynh_app_setting_set --app=$app --key=client_max_body_size --value=$client_max_body_size
-	ynh_app_setting_set --app=$app --key=media_image_max_size --value=$media_image_max_size
-	ynh_app_setting_set --app=$app --key=media_video_max_size --value=$media_video_max_size
-	ynh_app_setting_set --app=$app --key=media_description_min_chars --value=$media_description_min_chars
-	ynh_app_setting_set --app=$app --key=media_description_max_chars --value=$media_description_max_chars
-	ynh_app_setting_set --app=$app --key=media_remote_cache_days --value=$media_remote_cache_days
-	ynh_app_setting_set --app=$app --key=statuses_max_chars --value=$statuses_max_chars
-	ynh_app_setting_set --app=$app --key=statuses_cw_max_chars --value=$statuses_cw_max_chars
-	ynh_app_setting_set --app=$app --key=statuses_poll_max_options --value=$statuses_poll_max_options
-	ynh_app_setting_set --app=$app --key=statuses_poll_option_max_chars --value=$statuses_poll_option_max_chars
-	ynh_app_setting_set --app=$app --key=statuses_media_max_files --value=$statuses_media_max_files
+	ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
+	ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
+	ynh_app_setting_set --app="$app" --key=media_video_max_size --value="$media_video_max_size"
+	ynh_app_setting_set --app="$app" --key=media_description_min_chars --value="$media_description_min_chars"
+	ynh_app_setting_set --app="$app" --key=media_description_max_chars --value="$media_description_max_chars"
+	ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
+	ynh_app_setting_set --app="$app" --key=statuses_max_chars --value="$statuses_max_chars"
+	ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_cw_max_chars"
+	ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
+	ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
+	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
 	# registration of converted parameters
-	ynh_app_setting_set --app=$app --key=statuses_media_max_files --value=$registration_open
-	ynh_app_setting_set --app=$app --key=statuses_media_max_files --value=$registration_approval
-	ynh_app_setting_set --app=$app --key=statuses_media_max_files --value=$registration_reason
+	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$registration_open"
+	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$registration_approval"
+	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$registration_reason"
 fi
 
 #=================================================
@@ -132,7 +132,7 @@ fi
 ynh_script_progression --message="Making sure dedicated system user exists..."
 
 # Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app --home_dir="$final_path"
+ynh_system_user_create --username="$app" --home_dir="$final_path"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -146,7 +146,7 @@ then
 	architecture=$(detect_arch)
 	
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path" --source_id=$architecture --keep="config.yaml"
+	ynh_setup_source --dest_dir="$final_path" --source_id="$architecture" --keep="config.yaml"
 fi
 
 # FIXME: this should be managed by the core in the future
@@ -157,7 +157,7 @@ fi
 # this will be treated as a security issue.
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chown -R "$app:www-data" "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -172,7 +172,7 @@ ynh_add_nginx_config
 #=================================================
 ynh_script_progression --message="Upgrading dependencies..."
 
-ynh_install_app_dependencies $pkg_dependencies
+ynh_install_app_dependencies "$pkg_dependencies"
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -190,7 +190,7 @@ ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
 # You may need to use chmod 600 instead of 400,
 # for example if the app is expected to be able to modify its own config
 chmod 400 "$final_path/config.yaml"
-chown $app:$app "$final_path/config.yaml"
+chown "$app:$app" "$final_path/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
@@ -215,14 +215,14 @@ ynh_use_logrotate --non-append
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..."
 
-yunohost service add $app --description="Gotosocial server" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # RELOAD NGINX

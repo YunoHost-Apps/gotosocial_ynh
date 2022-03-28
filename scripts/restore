@@ -26,44 +26,44 @@ ynh_abort_if_errors
 #=================================================
 ynh_script_progression --message="Loading installation settings..." --weight=1
 
-app=$YNH_APP_INSTANCE_NAME
+app="$YNH_APP_INSTANCE_NAME"
 
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-port=$(ynh_app_setting_get --app=$app --key=port)
-path_url=$(ynh_app_setting_get --app=$app --key=path_url)
+domain=$(ynh_app_setting_get --app="$app" --key=domain)
+port=$(ynh_app_setting_get --app="$app" --key=port)
+path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
 
-client_max_body_size=$(ynh_app_setting_get --app=$app --key=client_max_body_size)
+client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
 
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
+db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
 db_user=$db_name
-db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
+db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
-registration_open=$(ynh_app_setting_get --app=$app --key=registration_open)
-registration_approval=$(ynh_app_setting_get --app=$app --key=registration_approval)
-registration_reason=$(ynh_app_setting_get --app=$app --key=registration_reason)
+registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 
-media_image_max_size=$(ynh_app_setting_get --app=$app --key=media_image_max_size)
-media_video_max_size=$(ynh_app_setting_get --app=$app --key=media_video_max_size)
-media_description_min_chars=$(ynh_app_setting_get --app=$app --key=media_description_min_chars)
-media_description_max_chars=$(ynh_app_setting_get --app=$app --key=media_description_max_chars)
-media_remote_cache_days=$(ynh_app_setting_get --app=$app --key=media_remote_cache_days)
+media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
+media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
+media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
+media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
+media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
 
-statuses_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_max_chars)
-statuses_cw_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_cw_max_chars)
-statuses_poll_max_options=$(ynh_app_setting_get --app=$app --key=statuses_poll_max_options)
-statuses_poll_option_max_chars=$(ynh_app_setting_get --app=$app --key=statuses_poll_option_max_chars)
-statuses_media_max_files=$(ynh_app_setting_get --app=$app --key=statuses_media_max_files)
+statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
+statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
+statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
+statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
+statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
 #=================================================
 ynh_script_progression --message="Validating restoration parameters..." --weight=1
 
-test ! -d $final_path \
+test ! -d "$final_path" \
 	|| ynh_die --message="There is already a directory: $final_path "
 
 #=================================================
@@ -81,7 +81,7 @@ ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
 ynh_script_progression --message="Recreating the dedicated system user..." --weight=1
 
 # Create the dedicated user (if not existing)
-ynh_system_user_create --username=$app --home_dir="$final_path"
+ynh_system_user_create --username="$app" --home_dir="$final_path"
 
 #=================================================
 # RESTORE THE APP MAIN DIR
@@ -98,7 +98,7 @@ ynh_restore_file --origin_path="$final_path"
 # this will be treated as a security issue.
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chown -R "$app:www-data" "$final_path"
 
 #=================================================
 # RESTORE THE DATA DIRECTORY
@@ -107,7 +107,7 @@ ynh_script_progression --message="Restoring the data directory..." --weight=5
 
 ynh_restore_file --origin_path="$datadir" --not_mandatory
 
-mkdir -p $datadir
+mkdir -p "$datadir"
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
@@ -117,7 +117,7 @@ mkdir -p $datadir
 # this will be treated as a security issue.
 chmod 750 "$datadir"
 chmod -R o-rwx "$datadir"
-chown -R $app:www-data "$datadir"
+chown -R "$app:www-data" "$datadir"
 
 #=================================================
 # SPECIFIC RESTORATION
@@ -127,7 +127,7 @@ chown -R $app:www-data "$datadir"
 ynh_script_progression --message="Reinstalling dependencies..." --weight=5
 
 # Define and install dependencies
-ynh_install_app_dependencies $pkg_dependencies
+ynh_install_app_dependencies "$pkg_dependencies"
 
 #=================================================
 # RESTORE THE POSTGRESQL DATABASE
@@ -135,18 +135,18 @@ ynh_install_app_dependencies $pkg_dependencies
 ynh_script_progression --message="Restoring the PostgreSQL database..." --weight=5
 
 ynh_psql_test_if_first_run
-ynh_psql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
-ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS unaccent;" --database=$db_name
-ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS pg_trgm;" --database=$db_name
-ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS citext;" --database=$db_name
-ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";" --database=$db_name
+ynh_psql_setup_db --db_user="$db_user" --db_name="$db_name" --db_pwd="$db_pwd"
+ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS unaccent;" --database="$db_name"
+ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS pg_trgm;" --database="$db_name"
+ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS citext;" --database="$db_name"
+ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";" --database="$db_name"
 ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
 
 #=================================================
 # RESTORE VARIOUS FILES
 #=================================================
 
-mkdir -p /var/log/$app
+mkdir -p "/var/log/$app"
 
 #=================================================
 # RESTORE SYSTEMD
@@ -154,21 +154,21 @@ mkdir -p /var/log/$app
 ynh_script_progression --message="Restoring the systemd configuration..." --weight=1
 
 ynh_restore_file --origin_path="/etc/systemd/system/$app.service"
-systemctl enable $app.service --quiet
+systemctl enable "$app.service" --quiet
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Gotosocial server" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # RESTORE THE LOGROTATE CONFIGURATION
