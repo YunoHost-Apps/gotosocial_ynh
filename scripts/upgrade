@@ -105,6 +105,9 @@ then
 	registration_open=$(convert_bool "$registration_open")
 	registration_approval=$(convert_bool "$registration_approval")
 	registration_reason=$(convert_bool "$registration_reason")
+	# fix db_user existence
+	db_user=$db_name
+	ynh_app_setting_set --app=$app --key=db_user --value=$db_user
 	# registration of new parameters
 	ynh_app_setting_set --app=$app --key=client_max_body_size --value=$client_max_body_size
 	ynh_app_setting_set --app=$app --key=media_image_max_size --value=$media_image_max_size
