@@ -128,7 +128,7 @@ ynh_system_user_create --username="$app" --home_dir="$final_path"
 ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
 
 db_name=$(ynh_sanitize_dbid --db_name="$app")
-db_user="$db_name"
+db_user=$db_name
 db_pwd=$(ynh_string_random --length=30)
 ynh_app_setting_set --app="$app" --key=db_name --value="$db_name"
 ynh_app_setting_set --app="$app" --key=db_pwd --value="$db_pwd"
