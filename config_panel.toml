@@ -22,28 +22,31 @@ help = "Config pertaining to creation and maintenance of accounts on the server,
 ask.en = "Open registrations?"
 ask.fr = "Inscriptions ouvertes ?"
 bind = "accounts-registration-open:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
 default = "false"
 help.en = "Do we want people to be able to just submit sign up requests, or do we want invite only?"
 help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
-type = "boolean"
+type = "select"
 
 [gotosocial.accounts.approval_required]
 ask.en = "Approval required?"
 ask.fr = "Validation requise ?"
 bind = "accounts-approval-required:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
 default = "true"
 help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
 help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
-type = "boolean"
+type = "select"
 
 [gotosocial.accounts.reason_required]
 ask.en = "Reason required?"
 ask.fr = "Motif requis ?"
 bind = "accounts-reason-required:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
 default = "true"
 help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
 help.fr = "Les demandes d'inscription doivent-elles être motivées (par exemple, par une explication de la raison pour laquelle la personne souhaite rejoindre l'instance) ?"
-type = "boolean"
+type = "select"
 
 #################
 #### MEDIA CONFIG
