@@ -24,22 +24,22 @@ ynh_abort_if_errors
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-app=$YNH_APP_INSTANCE_NAME
+app="$YNH_APP_INSTANCE_NAME"
 
-domain=$YNH_APP_ARG_DOMAIN
+domain="$YNH_APP_ARG_DOMAIN"
 path_url="/"
 
 client_max_body_size="100M"
 
-admin=$YNH_APP_ARG_ADMIN
-email=$YNH_APP_ARG_EMAIL
-password=$YNH_APP_ARG_PASSWORD
+admin="$YNH_APP_ARG_ADMIN"
+email="$YNH_APP_ARG_EMAIL"
+password="$YNH_APP_ARG_PASSWORD"
 
 # Config stuff:
 
-registration_open=$(convert_bool $YNH_APP_ARG_REGISTRATION_OPEN)
-registration_approval=$(convert_bool $YNH_APP_ARG_REGISTRATION_APPROVAL)
-registration_reason=$(convert_bool $YNH_APP_ARG_REGISTRATION_REASON)
+registration_open=$(convert_bool "$YNH_APP_ARG_REGISTRATION_OPEN")
+registration_approval=$(convert_bool "$YNH_APP_ARG_REGISTRATION_APPROVAL")
+registration_reason=$(convert_bool "$YNH_APP_ARG_REGISTRATION_REASON")
 
 media_image_max_size="2097152"
 media_video_max_size="10485760"
@@ -59,42 +59,42 @@ statuses_media_max_files="6"
 
 ynh_script_progression --message="Validating installation parameters..." --weight=1
 
-final_path=/var/www/$app
+final_path="/var/www/$app"
 test ! -e "$final_path" || ynh_die --message="This path already contains a folder"
 
-ynh_webpath_register --app=$app --domain=$domain --path_url=$path_url
+ynh_webpath_register --app="$app" --domain="$domain" --path_url="$path_url"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
 ynh_script_progression --message="Storing installation settings..." --weight=1
 
-ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+ynh_app_setting_set --app="$app" --key=final_path --value="$final_path"
 
-ynh_app_setting_set --app=$app --key=domain --value=$domain
-ynh_app_setting_set --app=$app --key=path_url --value=$path_url
+ynh_app_setting_set --app="$app" --key=domain --value="$domain"
+ynh_app_setting_set --app="$app" --key=path_url --value="$path_url"
 
-ynh_app_setting_set --app=$app --key=client_max_body_size --value=$client_max_body_size
+ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 
-ynh_app_setting_set --app=$app --key=admin --value=$admin
-ynh_app_setting_set --app=$app --key=email --value=$email
-ynh_app_setting_set --app=$app --key=password --value=$password
+ynh_app_setting_set --app="$app" --key=admin --value="$admin"
+ynh_app_setting_set --app="$app" --key=email --value="$email"
+ynh_app_setting_set --app="$app" --key=password --value="$password"
 
-ynh_app_setting_set --app=$app --key=registration_open --value=$registration_open
-ynh_app_setting_set --app=$app --key=registration_approval --value=$registration_approval
-ynh_app_setting_set --app=$app --key=registration_reason --value=$registration_reason
+ynh_app_setting_set --app="$app" --key=registration_open --value="$registration_open"
+ynh_app_setting_set --app="$app" --key=registration_approval --value="$registration_approval"
+ynh_app_setting_set --app="$app" --key=registration_reason --value="$registration_reason"
 
-ynh_app_setting_set --app=$app --key=media_image_max_size --value=$media_image_max_size
-ynh_app_setting_set --app=$app --key=media_video_max_size --value=$media_video_max_size
-ynh_app_setting_set --app=$app --key=media_description_min_chars --value=$media_description_min_chars
-ynh_app_setting_set --app=$app --key=media_description_max_chars --value=$media_description_max_chars
-ynh_app_setting_set --app=$app --key=media_remote_cache_days --value=$media_remote_cache_days
+ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
+ynh_app_setting_set --app="$app" --key=media_video_max_size --value="$media_video_max_size"
+ynh_app_setting_set --app="$app" --key=media_description_min_chars --value="$media_description_min_chars"
+ynh_app_setting_set --app="$app" --key=media_description_max_chars --value="$media_description_max_chars"
+ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
 
-ynh_app_setting_set --app=$app --key=statuses_max_chars --value=$statuses_max_chars
-ynh_app_setting_set --app=$app --key=statuses_cw_max_chars --value=$statuses_cw_max_chars
-ynh_app_setting_set --app=$app --key=statuses_poll_max_options --value=$statuses_poll_max_options
-ynh_app_setting_set --app=$app --key=statuses_poll_option_max_chars --value=$statuses_poll_option_max_chars
-ynh_app_setting_set --app=$app --key=statuses_media_max_files --value=$statuses_media_max_files
+ynh_app_setting_set --app="$app" --key=statuses_max_chars --value="$statuses_max_chars"
+ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_cw_max_chars"
+ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
+ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
+ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
 
 #=================================================
 # STANDARD MODIFICATIONS
@@ -105,14 +105,14 @@ ynh_script_progression --message="Finding an available port..." --weight=1
 
 # Find an available port
 port=$(ynh_find_port --port=8095)
-ynh_app_setting_set --app=$app --key=port --value=$port
+ynh_app_setting_set --app="$app" --key=port --value="$port"
 
 #=================================================
 # INSTALL DEPENDENCIES
 #=================================================
 ynh_script_progression --message="Installing dependencies..." --weight=5
 
-ynh_install_app_dependencies $pkg_dependencies
+ynh_install_app_dependencies "$pkg_dependencies"
 
 #=================================================
 # CREATE DEDICATED USER
@@ -120,20 +120,20 @@ ynh_install_app_dependencies $pkg_dependencies
 ynh_script_progression --message="Configuring system user..." --weight=1
 
 # Create a system user
-ynh_system_user_create --username=$app --home_dir="$final_path"
+ynh_system_user_create --username="$app" --home_dir="$final_path"
 
 #=================================================
 # CREATE A POSTGRESQL DATABASE
 #=================================================
 ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
 
-db_name=$(ynh_sanitize_dbid --db_name=$app)
-db_user=$db_name
+db_name=$(ynh_sanitize_dbid --db_name="$app")
+db_user="$db_name"
 db_pwd=$(ynh_string_random --length=30)
-ynh_app_setting_set --app=$app --key=db_name --value=$db_name
-ynh_app_setting_set --app=$app --key=db_pwd --value=$db_pwd
+ynh_app_setting_set --app="$app" --key=db_name --value="$db_name"
+ynh_app_setting_set --app="$app" --key=db_pwd --value="$db_pwd"
 ynh_psql_test_if_first_run
-ynh_psql_setup_db --db_user=$db_user --db_name=$db_name --db_pwd=$db_pwd
+ynh_psql_setup_db --db_user="$db_user" --db_name="$db_name" --db_pwd="$db_pwd"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -148,7 +148,7 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 architecture=$(detect_arch)
 
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$final_path" --source_id=$architecture
+ynh_setup_source --dest_dir="$final_path" --source_id="$architecture"
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
@@ -158,7 +158,7 @@ ynh_setup_source --dest_dir="$final_path" --source_id=$architecture
 # this will be treated as a security issue.
 chmod 750 "$final_path"
 chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chown -R "$app:www-data" "$final_path"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -174,9 +174,9 @@ ynh_add_nginx_config
 ynh_script_progression --message="Creating a data directory..." --weight=1
 
 datadir=/home/yunohost.app/$app
-ynh_app_setting_set --app=$app --key=datadir --value=$datadir
+ynh_app_setting_set --app="$app" --key=datadir --value="$datadir"
 
-mkdir -p $datadir
+mkdir -p "$datadir"
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
@@ -186,7 +186,7 @@ mkdir -p $datadir
 # this will be treated as a security issue.
 chmod 750 "$datadir"
 chmod -R o-rwx "$datadir"
-chown -R $app:www-data "$datadir"
+chown -R "$app:www-data" "$datadir"
 
 #=================================================
 # ADD A CONFIGURATION
@@ -199,7 +199,7 @@ ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
 # You may need to use chmod 600 instead of 400,
 # for example if the app is expected to be able to modify its own config
 chmod 400 "$final_path/config.yaml"
-chown $app:$app "$final_path/config.yaml"
+chown "$app:$app" "$final_path/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
@@ -224,7 +224,7 @@ ynh_use_logrotate
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
 
-yunohost service add $app --description="Gotosocial server" --log="/var/log/$app/$app.log"
+yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # CREATE ADMIN USER
@@ -243,7 +243,7 @@ ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # SETUP SSOWAT
