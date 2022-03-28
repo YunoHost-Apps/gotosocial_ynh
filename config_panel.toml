@@ -14,7 +14,7 @@ help = "Here you can easily configure some things about your GoToSocial instance
 
 [gotosocial.accounts]
 
-name = "Accounts configuration"
+name = "Accounts config"
 
 help = "Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts."
 
