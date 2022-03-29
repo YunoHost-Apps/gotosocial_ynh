@@ -14,14 +14,14 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression --message="Loading installation settings..." --weight=1
 
-app=$YNH_APP_INSTANCE_NAME
+app="$YNH_APP_INSTANCE_NAME"
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-port=$(ynh_app_setting_get --app=$app --key=port)
-db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-db_user=$db_name
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
-datadir=$(ynh_app_setting_get --app=$app --key=datadir)
+domain=$(ynh_app_setting_get --app="$app" --key=domain)
+port=$(ynh_app_setting_get --app="$app" --key=port)
+db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
+db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
+final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
+datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
 #=================================================
 # STANDARD REMOVE
@@ -30,10 +30,10 @@ datadir=$(ynh_app_setting_get --app=$app --key=datadir)
 #=================================================
 
 # Remove the service from the list of services known by YunoHost (added from `yunohost service add`)
-if ynh_exec_warn_less yunohost service status $app >/dev/null
+if ynh_exec_warn_less yunohost service status "$app" >/dev/null
 then
 	ynh_script_progression --message="Removing $app service integration..." --weight=1
-	yunohost service remove $app
+	yunohost service remove "$app"
 fi
 
 #=================================================
@@ -50,7 +50,7 @@ ynh_remove_systemd_config
 ynh_script_progression --message="Removing the PostgreSQL database..." --weight=5
 
 # Remove a database if it exists, along with the associated user
-ynh_psql_remove_db --db_user=$db_user --db_name=$db_name
+ynh_psql_remove_db --db_user="$db_user" --db_name="$db_name"
 
 #=================================================
 # REMOVE DEPENDENCIES
@@ -99,7 +99,7 @@ ynh_remove_logrotate
 if yunohost firewall list | grep -q "\- $port$"
 then
 	ynh_script_progression --message="Closing port $port..." --weight=1
-	ynh_exec_warn_less yunohost firewall disallow TCP $port
+	ynh_exec_warn_less yunohost firewall disallow TCP "$port"
 fi
 
 #=================================================
@@ -120,7 +120,7 @@ ynh_secure_remove --file="/var/log/$app"
 ynh_script_progression --message="Removing the dedicated system user..." --weight=1
 
 # Delete a system user
-ynh_system_user_delete --username=$app
+ynh_system_user_delete --username="$app"
 
 #=================================================
 # END OF SCRIPT
