@@ -54,11 +54,11 @@ You can login to [gts.superseriousbusiness.org/admin](https://gts.superseriousbu
 
 In this administration interface, you can configure the following things:
 
-- The name of your instance
-- Its description
-- Your contact e-mail address
-- The referring user
-- Blocked domains (not to federate with)
+* The name of your instance
+* Its description
+* Your contact e-mail address
+* The referring user
+* Blocked domains (not to federate with)
 
 #### Configuration
 
@@ -67,24 +67,24 @@ You can configure your instance using the config panel integrated in Yunohost, y
 
 In this control panel you can configure the following things:
 
-- Account configuration :
-  - Are registrations open?
-  - Manual validation of registrations?
-  - Required reason for registration?
-- Media configuration
-  - Maximum image size
-  - Maximum video size
-  - Minimum number of characters for media descriptions
-  - Maximum number of characters for media descriptions
-  - Number of days media can be cached
-- Post configuration
-  - Maximum number of characters for a new post
-  - Maximum number of characters in a Content Warning / subject of a new post
-  - Maximum number of options for a poll
-  - Maximum number of characters for a poll option
-  - Maximum number of media that can be added to a post
+* Account configuration :
+  * Are registrations open?
+  * Manual validation of registrations?
+  * Required reason for registration?
+* Media configuration
+  * Maximum image size
+  * Maximum video size
+  * Minimum number of characters for media descriptions
+  * Maximum number of characters for media descriptions
+  * Number of days media can be cached
+* Post configuration
+  * Maximum number of characters for a new post
+  * Maximum number of characters in a Content Warning / subject of a new post
+  * Maximum number of options for a poll
+  * Maximum number of characters for a poll option
+  * Maximum number of media that can be added to a post
 
-Note: **Do not edit** the `config.yaml` file by hand. Always use this control panel instead.
+Note: **Do not edit** the `config.yaml` file by hand. Always use this control panel instead. Otherwise your changes will be deleted at each update!
 
 #### Command line (CLI)
 

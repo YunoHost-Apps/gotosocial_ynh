@@ -50,11 +50,11 @@ Vous pouvez vous connecter sur [gts.superseriousbusiness.org/admin](https://gts.
 
 Dans cette interface d'administration, vous pouvez paramétrer les choses suivantes :
 
-- Le nom de votre instance
-- Sa description
-- Votre adresse e-mail de contact
-- L'utilisateurice référent-e
-- Les domaines bloqués (pour ne pas fédérer avec)
+* Le nom de votre instance
+* Sa description
+* Votre adresse e-mail de contact
+* L'utilisateurice référent-e
+* Les domaines bloqués (pour ne pas fédérer avec)
 
 #### Configuration
 
@@ -63,24 +63,24 @@ Vous pouvez configurer votre instance en utilisant le panneau de configuration i
 
 Dans ce panneau de configuration, vous pouvez configurer les choses suivantes :
 
-- Configuration des comptes :
-  - Ouverture des inscriptions ?
-  - Validation manuelle des inscriptions ?
-  - Motif d'inscription requis ?
-- Configuration des médias
-  - Taille maximale des images
-  - Taille maximale des vidéos
-  - Nombre minimum de caractères pour les descriptions des médias
-  - Nombre maximum de caractères pour les descriptions des médias
-  - Nombre de jour de mise en cache des médias
-- Configuration des posts
-  - Nombre maximum de caractères pour un nouveau post
-  - Nombre maximum de caractères dans un Content Warning / sujet d'un nouveau post
-  - Nombre maximum d'options pour un sondage
-  - Nombre maximum de caractères pour une option d'un sondage
-  - Nombre maximum de médias pouvant etre ajoutés à un post
+* Configuration des comptes :
+  * Ouverture des inscriptions ?
+  * Validation manuelle des inscriptions ?
+  * Motif d'inscription requis ?
+* Configuration des médias
+  * Taille maximale des images
+  * Taille maximale des vidéos
+  * Nombre minimum de caractères pour les descriptions des médias
+  * Nombre maximum de caractères pour les descriptions des médias
+  * Nombre de jour de mise en cache des médias
+* Configuration des posts
+  * Nombre maximum de caractères pour un nouveau post
+  * Nombre maximum de caractères dans un Content Warning / sujet d'un nouveau post
+  * Nombre maximum d'options pour un sondage
+  * Nombre maximum de caractères pour une option d'un sondage
+  * Nombre maximum de médias pouvant etre ajoutés à un post
 
-N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours ce panneau de configuration à la place.
+N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours ce panneau de configuration à la place. Sinon vos modifications seront effacées à chaque mise à jour !
 
 #### Ligne de commande
 
