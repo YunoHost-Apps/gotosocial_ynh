@@ -48,7 +48,7 @@ Dans ce panneau de configuration, vous pouvez configurer les choses suivantes :
   - Nombre maximum de caractères pour une option d'un sondage
   - Nombre maximum de médias pouvant etre ajoutés à un post
 
-N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours ce panneau de configuration à la place.
+N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours ce panneau de configuration à la place. Sinon vos modifications seront effacées à chaque mise à jour !
 
 #### Ligne de commande
 
