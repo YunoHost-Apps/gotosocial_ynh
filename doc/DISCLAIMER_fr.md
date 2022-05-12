@@ -12,8 +12,8 @@ Vous devrez utiliser un client compatible avec Mastodon comme [Tusky](https://tu
 
 #### Administration
 
-Vous pouvez vous connecter sur [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) pour administrer votre insance GoToSocial.
-[Le code source de cette interface d'administration](https://github.com/superseriousbusiness/gotosocial-admin) est consultable sur github.
+Vous pouvez vous connecter sur [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) pour administrer votre insance GoToSocial.  
+[Le code source de cette interface d'administration](https://github.com/superseriousbusiness/gotosocial-admin) est consultable sur github.  
 [La documentation de l'interface d'administration de GoToSocial](https://docs.gotosocial.org/en/latest/admin/admin_panel/).
 
 Dans cette interface d'administration, vous pouvez paramétrer les choses suivantes :
@@ -26,7 +26,7 @@ Dans cette interface d'administration, vous pouvez paramétrer les choses suivan
 
 #### Configuration
 
-Vous pouvez configurer votre instance en utilisant le panneau de configuration intégré à YuNohost, vous le trouverez dans l'interface d'administration de votre Yunohost en suivant ces étapes :
+Vous pouvez configurer votre instance en utilisant le panneau de configuration intégré à YuNohost, vous le trouverez dans l'interface d'administration de votre Yunohost en suivant ces étapes :  
 `Applications > gotosocial > Configurez cette application (Panneau de configuration)`
 
 Dans ce panneau de configuration, vous pouvez configurer les choses suivantes :
@@ -52,8 +52,8 @@ N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours 
 
 #### Ligne de commande
 
-Pour utiliser la ligne de commande de GoToSocial, vous devez d'abord vous placer dans le répertoire de votre instance :
-`cd /var/www/gotosocial/` ou `cd /var/www/gotosocial__x/` (où `x` est le numéro de votre installation, dans la cas d'une installation de multiples instances)
+Pour utiliser la ligne de commande de GoToSocial, vous devez d'abord vous placer dans le répertoire de votre instance :  
+`cd /var/www/gotosocial/` ou `cd /var/www/gotosocial__x/` (où `x` est le numéro de votre installation, dans la cas d'une installation de multiples instances)  
 N'hésitez pas à vous référer à la [https://docs.gotosocial.org/en/latest/admin/cli/](documentation de la ligne de commande de GoToSocial).
 
 #### Création de compte utilisateur
