@@ -19,11 +19,14 @@ GoToSocial is an [ActivityPub](https://activitypub.rocks/) social network server
 
 With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
 
-![](./doc/logo_sloth.png)
+![GoToSocial's logo, a stylized sloth head](./doc/logo_sloth.png)
 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
+
 **Shipped version:** 0.3.1~ynh1
+
+
 
 ## Screenshots
 
@@ -107,23 +110,22 @@ gotosocial admin account promote --username some_username
 
 ## Documentation and resources
 
-* Official app website: <https://docs.gotosocial.org/>
-* Official user documentation: <https://docs.gotosocial.org/en/latest/>
-* Official admin documentation: <https://docs.gotosocial.org/en/latest/>
-* Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>
-* YunoHost documentation for this app: <https://yunohost.org/app_gotosocial>
-* Report a bug: <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
+* Official app website: https://docs.gotosocial.org/
+* Official user documentation: https://docs.gotosocial.org/en/latest/
+* Official admin documentation: https://docs.gotosocial.org/en/latest/
+* Upstream app code repository: https://github.com/superseriousbusiness/gotosocial
+* YunoHost documentation for this app: https://yunohost.org/app_gotosocial
+* Report a bug: https://github.com/YunoHost-Apps/gotosocial_ynh/issues
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-
 ```
 sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
+**More info regarding app packaging:** https://yunohost.org/packaging_apps
