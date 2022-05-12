@@ -48,8 +48,8 @@ You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.
 
 #### Administration
 
-You can login to [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) to administrate your GoToSocial instance.
-[The source code of this administration panel](https://github.com/superseriousbusiness/gotosocial-admin) is available on github.
+You can login to [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) to administrate your GoToSocial instance.  
+[The source code of this administration panel](https://github.com/superseriousbusiness/gotosocial-admin) is available on github.  
 [The GTS admin panel documentation](https://docs.gotosocial.org/en/latest/admin/admin_panel/).
 
 In this administration interface, you can configure the following things:
@@ -62,7 +62,7 @@ In this administration interface, you can configure the following things:
 
 #### Configuration
 
-You can configure your instance using the config panel integrated in Yunohost, you will find it in the admin interface of your Yunohost by following these steps:
+You can configure your instance using the config panel integrated in Yunohost, you will find it in the admin interface of your Yunohost by following these steps:  
 `Applications > gotosocial > Configure this app (Config Panel)`
 
 In this control panel you can configure the following things:
@@ -88,8 +88,8 @@ Note: **Do not edit** the `config.yaml` file by hand. Always use this control pa
 
 #### Command line (CLI)
 
-To use the GoToSocial command line, you first need to place yourself in the folder of your instance:
-`cd /var/www/gotosocial/` or `cd /var/www/gotosocial__x/` (where `x` is the installation number of your instance, in the case of multi-installation)
+To use the GoToSocial command line, you first need to place yourself in the folder of your instance:  
+`cd /var/www/gotosocial/` or `cd /var/www/gotosocial__x/` (where `x` is the installation number of your instance, in the case of multi-installation)  
 Feel free to refer to the [https://docs.gotosocial.org/en/latest/admin/cli/](GoToSocial command line documentation).
 
 #### User creation
