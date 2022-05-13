@@ -54,7 +54,7 @@ N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours 
 
 Pour utiliser la ligne de commande de GoToSocial, vous devez d'abord vous placer dans le répertoire de votre instance :  
 `cd /var/www/gotosocial/` ou `cd /var/www/gotosocial__x/` (où `x` est le numéro de votre installation, dans la cas d'une installation de multiples instances)  
-N'hésitez pas à vous référer à la [https://docs.gotosocial.org/en/latest/admin/cli/](documentation de la ligne de commande de GoToSocial).
+N'hésitez pas à vous référer à la [documentation de la ligne de commande de GoToSocial](https://docs.gotosocial.org/en/latest/admin/cli/).
 
 #### Création de compte utilisateur
 
