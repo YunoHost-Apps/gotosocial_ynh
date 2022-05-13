@@ -61,7 +61,7 @@ N'hésitez pas à vous référer à la [https://docs.gotosocial.org/en/latest/ad
 Pour créer un nouveau compte utilisateur, procédez comme suit :
 
 ``` bash
-./gotosocial admin account create --username nom_dutilisateur  --email utilisateur@example.org --password 'UnMotDePasseTrèsComplexe'
+./gotosocial admin account create --username nom_dutilisateur --email utilisateur@example.org --password 'UnMotDePasseTrèsComplexe'
 
 ./gotosocial admin account confirm --username nom_dutilisateur
 ```
