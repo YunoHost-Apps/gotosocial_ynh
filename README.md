@@ -97,15 +97,15 @@ Feel free to refer to the [https://docs.gotosocial.org/en/latest/admin/cli/](GoT
 To create a new user, proceed as follows:
 
 ``` bash
-gotosocial admin account create --username some_username  --email someuser@example.org --password 'somelongandcomplicatedpassword'
+./gotosocial admin account create --username some_username  --email someuser@example.org --password 'somelongandcomplicatedpassword'
 
-gotosocial admin account confirm --username some_username
+./gotosocial admin account confirm --username some_username
 ```
 
 And to promote them as an administrator of your instance:
 
 ``` bash
-gotosocial admin account promote --username some_username
+./gotosocial admin account promote --username some_username
 ```
 
 ## Documentation and resources
