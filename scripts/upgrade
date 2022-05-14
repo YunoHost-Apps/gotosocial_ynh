@@ -87,7 +87,7 @@ ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$a
 ynh_script_progression --message="Ensuring downward compatibility..."
 
 # Upgrade from <0.2.1~ynh4:
-if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -n "$db_user" ]
+if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -z "$db_user" ]
 then
 	# declaration of new parameters
 	client_max_body_size="100M"
