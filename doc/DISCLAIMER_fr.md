@@ -61,13 +61,13 @@ N'hésitez pas à vous référer à la [documentation de la ligne de commande de
 Pour créer un nouveau compte utilisateur, procédez comme suit :
 
 ``` bash
-./gotosocial admin account create --username nom_dutilisateur --email utilisateur@example.org --password 'UnMotDePasseTrèsComplexe'
+./gotosocial --config-path config.yaml admin account create --username nom_dutilisateur --email utilisateur@example.org --password 'UnMotDePasseTrèsComplexe'
 
-./gotosocial admin account confirm --username nom_dutilisateur
+./gotosocial --config-path config.yaml admin account confirm --username nom_dutilisateur
 ```
 
 Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 
 ``` bash
-./gotosocial admin account promote --username nom_dutilisateur
+./gotosocial --config-path config.yaml admin account promote --username nom_dutilisateur
 ```
