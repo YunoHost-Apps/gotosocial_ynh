@@ -84,7 +84,7 @@ In this control panel you can configure the following things:
   * Maximum number of characters for a poll option
   * Maximum number of media that can be added to a post
 
-Note: **Do not edit** the `config.yaml` file by hand. Always use this control panel instead. Otherwise your changes will be deleted at each update!
+Note: **Do not edit** the `config.yaml` file by hand. Always use this config panel instead. Otherwise your changes will be deleted at each update!
 
 #### Command line (CLI)
 
