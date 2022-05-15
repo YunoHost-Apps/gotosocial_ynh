@@ -32,6 +32,14 @@
     "arguments": {
         "install": [
             {
+                "name": "alpha_software",
+                "type": "display_text",
+                "ask": {
+                    "en": "Please note that GoToSocial is in early development stage. It may contain changing or unstable features, bugs, and security vulnerability.",
+                    "fr": "Veuillez noter que GoToSocial est au tout début de son développment. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité."
+                }
+            },
+            {
                 "name": "domain",
                 "type": "domain"
             },
