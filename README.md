@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # GoToSocial for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Working status](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)  
 [![Install GoToSocial with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -24,13 +24,11 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.3.3~ynh2
-
-
+**Shipped version:** 0.3.4~ynh1
 
 ## Screenshots
 
-![](./doc/screenshots/screenshot.jpg)
+![Screenshot of GoToSocial](./doc/screenshots/screenshot.jpg)
 
 ## Disclaimers / important information
 
@@ -110,22 +108,23 @@ And to promote them as an administrator of your instance:
 
 ## Documentation and resources
 
-* Official app website: https://docs.gotosocial.org/
-* Official user documentation: https://docs.gotosocial.org/en/latest/
-* Official admin documentation: https://docs.gotosocial.org/en/latest/
-* Upstream app code repository: https://github.com/superseriousbusiness/gotosocial
-* YunoHost documentation for this app: https://yunohost.org/app_gotosocial
-* Report a bug: https://github.com/YunoHost-Apps/gotosocial_ynh/issues
+* Official app website: <https://docs.gotosocial.org/>
+* Official user documentation: <https://docs.gotosocial.org/en/latest/>
+* Official admin documentation: <https://docs.gotosocial.org/en/latest/>
+* Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>
+* YunoHost documentation for this app: <https://yunohost.org/app_gotosocial>
+* Report a bug: <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
