@@ -1,5 +1,5 @@
 SOURCE_URL=https://github.com/superseriousbusiness/gotosocial/releases/download/v0.3.6/gotosocial_0.3.6_linux_amd64.tar.gz
-SOURCE_SUM=
+SOURCE_SUM=eb0a75eea24d8f953296398eb652ec9888de354b349519f74dac7f02a73ed762
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_EXTRACT=true
