@@ -133,7 +133,7 @@ then
 	instance_expose_peers="false"
 	instance_expose_suspended="false"
 	# conversion of old parameters
-	if [ "$accounts_registration_open" = "true" ] || [ "$accounts_registration_open" = "false" ]; then
+	if [ "$registration_open" = "true" ] || [ "$registration_open" = "false" ]; then
 		accounts_registration_open=$registration_open
 		accounts_approval_required=$registration_approval
 		accounts_reason_required=$registration_reason
