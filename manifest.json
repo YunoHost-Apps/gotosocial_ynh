@@ -74,7 +74,7 @@
                 }
             },
             {
-                "name": "registration_open",
+                "name": "accounts_registration_open",
                 "type": "boolean",
                 "ask": {
                     "en": "Open registration?",
@@ -87,7 +87,7 @@
                 "default": false
             },
             {
-                "name": "registration_approval",
+                "name": "accounts_approval_required",
                 "type": "boolean",
                 "ask": {
                     "en": "Registration approval?",
@@ -100,7 +100,7 @@
                 "default": true
             },
             {
-                "name": "registration_reason",
+                "name": "accounts_reason_required",
                 "type": "boolean",
                 "ask": {
                     "en": "Request registration reason?",

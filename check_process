@@ -19,6 +19,7 @@
 		setup_public=1
 		upgrade=1
 		upgrade=1	from_commit=460048e78df8a195b1eca5994a4699079954b312
+		upgrade=1	from_commit=29c7d0df5dd6e3d90070f242b74cce980676cd72
 		backup_restore=1
 		multi_instance=1
 		port_already_use=1
@@ -29,3 +30,5 @@ Notification=none
 ;;; Upgrade options
 	; commit=460048e78df8a195b1eca5994a4699079954b312
 		name=0.2.1~ynh3
+	; commit=29c7d0df5dd6e3d90070f242b74cce980676cd72
+		name=0.3.6~ynh1

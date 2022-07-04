@@ -121,9 +121,38 @@ then
 	ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
 	# registration of converted parameters
-	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$registration_open"
-	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$registration_approval"
-	ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$registration_reason"
+	ynh_app_setting_set --app="$app" --key=registration_open --value="$registration_open"
+	ynh_app_setting_set --app="$app" --key=registration_approval --value="$registration_approval"
+	ynh_app_setting_set --app="$app" --key=registration_reason --value="$registration_reason"
+fi
+
+# Upgrade from <0.3.7~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "$instance_expose_peers" ]
+then
+	# declaration of new parameters
+	instance_expose_peers="false"
+	instance_expose_suspended="false"
+	# conversion of old parameters
+	if [ "$accounts_registration_open" = "true" ] || [ "$accounts_registration_open" = "false" ]; then
+		accounts_registration_open=$registration_open
+		accounts_approval_required=$registration_approval
+		accounts_reason_required=$registration_reason
+	else
+		accounts_registration_open="false"
+		accounts_approval_required="true"
+		accounts_reason_required="false"
+	fi
+	# registration of new parameters
+	ynh_app_setting_set --app="$app" --key=instance_expose_peers --value="$instance_expose_peers"
+	ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$instance_expose_suspended"
+	# registration of converted parameters
+	ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
+	ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
+	ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
+	# deletion of old parameters
+	ynh_app_setting_delete  --app="$app" --key=registration_open
+	ynh_app_setting_delete  --app="$app" --key=registration_approval
+	ynh_app_setting_delete  --app="$app" --key=registration_reason
 fi
 
 #=================================================

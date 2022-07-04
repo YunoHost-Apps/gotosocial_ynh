@@ -165,3 +165,33 @@ default = "6"
 help.en = "Default: 6. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 6. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
+
+####################
+#### INSTANCE CONFIG
+####################
+
+[gotosocial.instance]
+
+name = "Instance config"
+
+help = "Config pertaining to instance federation settings, pages to hide/expose, etc."
+
+[gotosocial.instance.expose-peers]
+ask.en = "API: Expose peers?"
+ask.fr = "API : Exposer les pairs ?"
+bind = "instance-expose-peers:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order to see a list of instances that this instance 'peers' with. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
+help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
+type = "select"
+
+[gotosocial.instance.expose-suspended]
+ask.en = "API: Expose suspended?"
+ask.fr = "API : Exposer les instances bloquées ?"
+bind = "instance-expose-suspended:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated users to see the list through the web UI. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
+help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
+type = "select"
