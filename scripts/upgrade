@@ -30,19 +30,8 @@ db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
 datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
-<<<<<<< HEAD
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
-
-accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
-accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
-accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
-=======
-# reliquat <0.3.7~ynh1
-registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
->>>>>>> f6dad82 (fix ynh_app_setting_get for accounts settings)
 
 accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
 accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
@@ -147,6 +136,10 @@ fi
 # Upgrade from <0.3.7~ynh1:
 if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "$instance_expose_peers" ]
 then
+	# import old parameters
+	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# import old parameters
 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
