@@ -6,7 +6,7 @@
         "en": "An ActivityPub social network server, written in Golang.",
         "fr": "Un serveur de réseau social basé sur ActivityPub écrit en Golang."
     },
-    "version": "0.3.6~ynh1",
+    "version": "0.3.7~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "AGPL-3.0-only",
@@ -74,7 +74,7 @@
                 }
             },
             {
-                "name": "registration_open",
+                "name": "accounts_registration_open",
                 "type": "boolean",
                 "ask": {
                     "en": "Open registration?",
@@ -87,7 +87,7 @@
                 "default": false
             },
             {
-                "name": "registration_approval",
+                "name": "accounts_approval_required",
                 "type": "boolean",
                 "ask": {
                     "en": "Registration approval?",
@@ -100,7 +100,7 @@
                 "default": true
             },
             {
-                "name": "registration_reason",
+                "name": "accounts_reason_required",
                 "type": "boolean",
                 "ask": {
                     "en": "Request registration reason?",
