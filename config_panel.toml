@@ -183,7 +183,7 @@ bind = "instance-expose-peers:__FINALPATH__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order to see a list of instances that this instance 'peers' with. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
-help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
+help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=open afin d'afficher la liste des instances avec lesquelles votre instance est en relation. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
 type = "select"
 
 [gotosocial.instance.expose-suspended]
@@ -193,5 +193,5 @@ bind = "instance-expose-suspended:__FINALPATH__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated users to see the list through the web UI. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
-help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
+help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=suspended afin de voir la liste des instances bloquées ou suspendues par votre instance. Cela permettra également aux utilisateurs non authentifiés de consulter la liste via l'interface Web. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
 type = "select"
