@@ -30,9 +30,14 @@ db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
 datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
+# reliquat <0.3.7~ynh1
 registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
 registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
 registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+
+accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
+accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
+accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
 
 media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
 media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
