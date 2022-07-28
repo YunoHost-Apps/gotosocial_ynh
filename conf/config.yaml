@@ -215,12 +215,12 @@ accounts-reason-required: __ACCOUNTS_REASON_REQUIRED__
 
 # Int. Maximum allowed image upload size in bytes.
 # Examples: [2097152, 10485760]
-# Default: 2097152 -- aka 2MB
+# Default: 10485760 -- aka 10MB
 media-image-max-size: __MEDIA_IMAGE_MAX_SIZE__
 
 # Int. Maximum allowed video upload size in bytes.
 # Examples: [2097152, 10485760]
-# Default: 10485760 -- aka 10MB
+# Default: 41943040 -- aka 40MB
 media-video-max-size: __MEDIA_VIDEO_MAX_SIZE__
 
 # Int. Minimum amount of characters required as an image or video description.

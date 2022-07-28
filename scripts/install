@@ -44,8 +44,8 @@ accounts_reason_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REASON_REQUIRED")
 instance_expose_peers="false"
 instance_expose_suspended="false"
 
-media_image_max_size="2097152"
-media_video_max_size="10485760"
+media_image_max_size="10485760"
+media_video_max_size="41943040"
 media_description_min_chars="0"
 media_description_max_chars="500"
 media_remote_cache_days="30"
