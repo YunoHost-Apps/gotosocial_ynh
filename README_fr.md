@@ -24,7 +24,7 @@ Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et p
 Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Version incluse :** 0.3.7~ynh1
+**Version incluse :** 0.3.8~ynh1
 
 ## Captures d'écran
 
