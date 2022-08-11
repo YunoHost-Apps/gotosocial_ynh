@@ -140,10 +140,6 @@ then
 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
-	# import old parameters
-	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	instance_expose_peers="false"
 	instance_expose_suspended="false"
