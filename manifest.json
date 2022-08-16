@@ -16,7 +16,7 @@
         "userdoc": "https://docs.gotosocial.org/en/latest/",
         "code": "https://github.com/superseriousbusiness/gotosocial"
     },
-    "license": "WTFPL",
+    "license": "AGPL-3.0-only",
     "maintainer": {
         "name": "OniriCorpe",
         "email": ""
