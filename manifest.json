@@ -6,7 +6,7 @@
         "en": "An ActivityPub social network server, written in Golang.",
         "fr": "Un serveur de réseau social basé sur ActivityPub écrit en Golang."
     },
-    "version": "0.3.8~ynh2",
+    "version": "0.3.8~ynh3",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "AGPL-3.0-only",
@@ -16,7 +16,7 @@
         "userdoc": "https://docs.gotosocial.org/en/latest/",
         "code": "https://github.com/superseriousbusiness/gotosocial"
     },
-    "license": "WTFPL",
+    "license": "AGPL-3.0-only",
     "maintainer": {
         "name": "OniriCorpe",
         "email": ""
