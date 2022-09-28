@@ -32,16 +32,20 @@ datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
+instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
 
 accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
 accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
 accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
+accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
 
 media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
 media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
 media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
 media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
 media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
+media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
+media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
 
 statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
 statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
@@ -164,6 +168,21 @@ then
 	ynh_app_setting_delete  --app="$app" --key=registration_open
 	ynh_app_setting_delete  --app="$app" --key=registration_approval
 	ynh_app_setting_delete  --app="$app" --key=registration_reason
+fi
+
+# Upgrade from <0.5.0~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.5.0~ynh1 || [ -z "$accounts_allow_custom_css" ]
+then
+	# declaration of new parameters
+	accounts_allow_custom_css="false"
+	instance_deliver_to_shared_inboxes="true"
+	media_emoji_local_max_size="51200"
+	media_emoji_remote_max_size="102400"
+	# registration of new parameters
+	ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
+	ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
+	ynh_app_setting_set --app="$app" --key=media_emoji_local_max_size --value="$media_emoji_local_max_size"
+	ynh_app_setting_set --app="$app" --key=media_emoji_remote_max_size --value="$media_emoji_remote_max_size"
 fi
 
 #=================================================

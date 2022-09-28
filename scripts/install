@@ -40,15 +40,19 @@ password="$YNH_APP_ARG_PASSWORD"
 accounts_registration_open=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REGISTRATION_OPEN")
 accounts_approval_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_APPROVAL_REQUIRED")
 accounts_reason_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REASON_REQUIRED")
+accounts_allow_custom_css="false"
 
 instance_expose_peers="false"
 instance_expose_suspended="false"
+instance_deliver_to_shared_inboxes="true"
 
 media_image_max_size="10485760"
 media_video_max_size="41943040"
 media_description_min_chars="0"
 media_description_max_chars="500"
 media_remote_cache_days="30"
+media_emoji_local_max_size="51200"
+media_emoji_remote_max_size="102400"
 
 statuses_max_chars="5000"
 statuses_cw_max_chars="100"
@@ -86,15 +90,19 @@ ynh_app_setting_set --app="$app" --key=password --value="$password"
 ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
 ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
 ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
+ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
 
 ynh_app_setting_set --app="$app" --key=instance_expose_peers --value="$instance_expose_peers"
 ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$instance_expose_suspended"
+ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
 
 ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
 ynh_app_setting_set --app="$app" --key=media_video_max_size --value="$media_video_max_size"
 ynh_app_setting_set --app="$app" --key=media_description_min_chars --value="$media_description_min_chars"
 ynh_app_setting_set --app="$app" --key=media_description_max_chars --value="$media_description_max_chars"
 ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
+ynh_app_setting_set --app="$app" --key=media_emoji_local_max_size --value="$media_emoji_local_max_size"
+ynh_app_setting_set --app="$app" --key=media_emoji_remote_max_size --value="$media_emoji_remote_max_size"
 
 ynh_app_setting_set --app="$app" --key=statuses_max_chars --value="$statuses_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_cw_max_chars"

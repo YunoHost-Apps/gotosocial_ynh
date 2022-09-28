@@ -186,6 +186,19 @@ instance-expose-peers: __INSTANCE_EXPOSE_PEERS__
 # Default: false
 instance-expose-suspended: __INSTANCE_EXPOSE_SUSPENDED__
 
+# Bool. This flag tweaks whether GoToSocial will deliver ActivityPub messages
+# to the shared inbox of a recipient, if one is available, instead of delivering
+# each message to each actor who should receive a message individually.
+#
+# Shared inbox delivery can significantly reduce network load when delivering
+# to multiple recipients share an inbox (eg., on large Mastodon instances).
+#
+# See: https://www.w3.org/TR/activitypub/#shared-inbox-delivery
+#
+# Options: [true, false]
+# Default: true
+instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
+
 ###########################
 ##### ACCOUNTS CONFIG #####
 ###########################
@@ -207,11 +220,27 @@ accounts-approval-required: __ACCOUNTS_APPROVAL_REQUIRED__
 # Default: true
 accounts-reason-required: __ACCOUNTS_REASON_REQUIRED__
 
+# Bool. Allow accounts on this instance to set custom CSS for their profile pages and statuses.
+# Enabling this setting will allow accounts to upload custom CSS via the /user settings page,
+# which will then be rendered on the web view of the account's profile and statuses.
+#
+# For instances with public sign ups, it is **HIGHLY RECOMMENDED** to leave this setting on 'false',
+# since setting it to true allows malicious accounts to make their profile pages misleading, unusable
+# or even dangerous to visitors. In other words, you should only enable this setting if you trust
+# the users on your instance not to produce harmful CSS.
+#
+# Regardless of what this value is set to, any uploaded CSS will not be federated to other instances,
+# it will only be shown on profiles and statuses on *this* instance.
+#
+# Options: [true, false]
+# Default: false
+accounts-allow-custom-css: __ACCOUNTS_ALLOW_CUSTOM_CSS__
+
 ########################
 ##### MEDIA CONFIG #####
 ########################
 
-# Config pertaining to user media uploads (videos, image, image descriptions).
+# Config pertaining to media uploads (videos, image, image descriptions, emoji).
 
 # Int. Maximum allowed image upload size in bytes.
 # Examples: [2097152, 10485760]
@@ -243,6 +272,22 @@ media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 # Examples: [30, 60, 7, 0]
 # Default: 30
 media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
+
+# Int. Max size in bytes of emojis uploaded to this instance via the admin API.
+# The default is the same as the Mastodon size limit for emojis (50kb), which allows
+# for good interoperability. Raising this limit may cause issues with federation
+# of your emojis to other instances, so beware.
+# Examples: [51200, 102400]
+# Default: 51200
+media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
+
+# Int. Max size in bytes of emojis to download from other instances.
+# By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.
+# This strikes a good balance between decent interoperability with instances that have
+# higher emoji size limits, and not taking up too much space in storage.
+# Examples: [51200, 102400]
+# Default: 51200
+media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
 
 ##########################
 ##### STORAGE CONFIG #####
