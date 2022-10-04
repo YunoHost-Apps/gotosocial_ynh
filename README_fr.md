@@ -24,7 +24,7 @@ Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et p
 Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Version incluse :** 0.5.2~ynh1 *(:warning: Il s'agit de la branche `ci-auto-update-v0.5.2`. La [branche `master`](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/master) utilisée dans le catalogue est actuellement en 0.5.1\~ynh1.)*
+**Version incluse :** 0.5.2~ynh1 *(:warning: Il s'agit de la branche `testing`. La [branche `master`](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/master) utilisée dans le catalogue est actuellement en 0.5.1\~ynh1.)*
 
 
 ## Captures d'écran
