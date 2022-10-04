@@ -24,7 +24,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.5.0~ynh1
+**Shipped version:** 0.5.2~ynh1 *(:warning: This is the `ci-auto-update-v0.5.2` branch. The [`master` branch](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/master) used in the catalog is currently on version 0.5.1\~ynh1.)*
 
 
 ## Screenshots
@@ -106,6 +106,10 @@ And to promote them as an administrator of your instance:
 ``` bash
 ./gotosocial --config-path config.yaml admin account promote --username some_username
 ```
+
+## :red_circle: Antifeatures
+
+- **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
 
 ## Documentation and resources
 
