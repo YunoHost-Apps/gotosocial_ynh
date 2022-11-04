@@ -14,7 +14,7 @@ admindoc = "https://docs.gotosocial.org/en/latest/"
 code = "https://github.com/superseriousbusiness/gotosocial" 
 cpe = "???" # FIXME: optional but recommended if relevant, this is meant to contain the Common Platform Enumeration, which is sort of a standard id for applications defined by the NIST. In particular, Yunohost may use this is in the future to easily track CVE (=security reports) related to apps. The CPE may be obtained by searching here: https://nvd.nist.gov/products/cpe/search. For example, for Nextcloud, the CPE is 'cpe:2.3:a:nextcloud:nextcloud' (no need to include the version number)
 demo = "" 
-fund = "https://github.com/superseriousbusiness/gotosocial#sponsorship--funding" # FIXME: optional but recommended (or remove if irrelevant / not applicable). This is meant to be an URL where people can financially support this app, especially when its development is based on volunteers and/or financed by its community. YunoHost may later advertise it in the webadmin.
+fund = "https://github.com/superseriousbusiness/gotosocial#sponsorship--funding" 
 license = "AGPL-3.0-only" 
 userdoc = "https://docs.gotosocial.org/en/latest/" 
 website = "https://docs.gotosocial.org/" 
