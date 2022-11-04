@@ -1,0 +1,103 @@
+packaging_format = 2
+
+id = "gotosocial"
+name = "GoToSocial"
+description.en = "An ActivityPub social network server, written in Golang."
+description.fr = "Un serveur de réseau social basé sur ActivityPub écrit en Golang."
+
+version = "0.5.2~ynh1"
+
+maintainers = ["OniriCorpe"]
+
+[upstream]
+license = "AGPL-3.0-only"
+website = "https://docs.gotosocial.org/"
+demo = ""
+admindoc = "https://docs.gotosocial.org/en/latest/"
+userdoc = "https://docs.gotosocial.org/en/latest/"
+code = "https://github.com/superseriousbusiness/gotosocial"
+cpe = "???" # FIXME: optional but recommended if relevant, this is meant to contain the Common Platform Enumeration, which is sort of a standard id for applications defined by the NIST. In particular, Yunohost may use this is in the future to easily track CVE (=security reports) related to apps. The CPE may be obtained by searching here: https://nvd.nist.gov/products/cpe/search. For example, for Nextcloud, the CPE is 'cpe:2.3:a:nextcloud:nextcloud' (no need to include the version number)
+fund = "???" # FIXME: optional but recommended (or remove if irrelevant / not applicable). This is meant to be an URL where people can financially support this app, especially when its development is based on volunteers and/or financed by its community. YunoHost may later advertise it in the webadmin.
+
+[integration]
+yunohost = ">= 11.0.6"
+architectures = "all" # FIXME: can be replaced by a list of supported archs using the dpkg --print-architecture nomenclature (amd64/i386/armhf/arm64/armel), for example: ["amd64", "i386"]
+multi_instance = true
+ldap = "?" # FIXME: replace with true, false, or "not_relevant"
+sso = "?" # FIXME: replace with true, false, or "not_relevant"
+disk = "50M" # FIXME: replace with an **estimate** minimum disk requirement. e.g. 20M, 400M, 1G, ...
+ram.build = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+ram.runtime = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+
+[install]
+    [install.alpha_software]
+    ask.en = "Please note that GoToSocial is in early development stage. It may contain changing or unstable features, bugs, and security vulnerability."
+    ask.fr = "Veuillez noter que GoToSocial est au tout début de son développment. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité."
+    type = "display_text"
+
+    [install.domain]
+    # this is a generic question - ask strings are automatically handled by Yunohost's core
+    type = "domain"
+    full_domain = true
+
+    [install.admin]
+    # this is a generic question - ask strings are automatically handled by Yunohost's core
+    help.en = "Must be in lower case and without special characters."
+    help.fr = "Doit être en minuscule et sans caractère special."
+    type = "string"
+    example = "johndoe"
+
+    [install.email]
+    ask.en = "The email adress of your admin account."
+    ask.fr = "L'adresse e-mail de votre compte admin."
+    type = "string"
+    example = "johndoe@example.com"
+
+    [install.password]
+    # this is a generic question - ask strings are automatically handled by Yunohost's core
+    help.en = "Must contain: upper case, lower case, number and special character."
+    help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+    type = "password"
+
+    [install.accounts_registration_open]
+    ask.en = "Open registration?"
+    ask.fr = "Inscriptions ouvertes ?"
+    help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
+    help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+    type = "boolean"
+    default = false
+
+    [install.accounts_approval_required]
+    ask.en = "Registration approval?"
+    ask.fr = "Vérification manuelle des inscriptions ?"
+    help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
+    help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
+    type = "boolean"
+    default = true
+
+    [install.accounts_reason_required]
+    ask.en = "Request registration reason?"
+    ask.fr = "Demande de motif pour les inscriptions ?"
+    help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
+    help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
+    type = "boolean"
+    default = true
+
+[resources]
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.data_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.ports]
+    main.default = 8095
+
+    [resources.apt]
+    packages = "postgresql, postgresql-contrib"
+
+    [resources.database]
+    type = "postgresql"
