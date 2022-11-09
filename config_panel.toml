@@ -127,31 +127,27 @@ Si la valeur 0 est attribuée à ce paramètre, les médias des instances distan
 type = "number"
 
 [gotosocial.media.media_emoji_local_max_size]
-ask.en = "Number of days to cache media from remote instances before they are removed from the cache."
-ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
+ask.en = "Max size in bytes of emojis uploaded to this instance via the admin API."
+ask.fr = "Taille maximale en octets des emojis téléchargés vers cette instance via l'API d'administration."
 bind = "media-emoji-local-max-size:__FINALPATH__/config.yaml"
 default = "51200"
 help.en = """Default: 51200\
-Max size in bytes of emojis uploaded to this instance via the admin API.\
 The default is the same as the Mastodon size limit for emojis (50kb), which allows for good interoperability.\
 Raising this limit may cause issues with federation of your emojis to other instances, so beware."""
 help.fr = """Valeur par défaut : 51200\
-Taille maximale en octets des emojis téléchargés vers cette instance via l'API d'administration.\
 La valeur par défaut est la même que la limite de taille des emojis de Mastodon (50 ko), ce qui permet une bonne interopérabilité.\
 Si vous augmentez cette limite, vous risquez d'avoir des problèmes avec la fédération de vos emojis à d'autres instances, alors faites preuve de prudence."""
 type = "number"
 
 [gotosocial.media.media_emoji_remote_max_size]
-ask.en = "Number of days to cache media from remote instances before they are removed from the cache."
-ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
+ask.en = "Max size in bytes of emojis to download from other instances."
+ask.fr = "Taille maximale en octets des emojis téléchargeables à partir d'autres instances."
 bind = "media-emoji-remote-max-size:__FINALPATH__/config.yaml"
 default = "102400"
 help.en = """Default: 102400\
-Max size in bytes of emojis to download from other instances.\
 By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.\
 This strikes a good balance between decent interoperability with instances that have higher emoji size limits, and not taking up too much space in storage."""
 help.fr = """Valeur par défaut : 102400\
-Taille maximale en octets des emojis à télécharger depuis d'autres instances.\
 Par défaut, cette taille est de 100 Ko, soit le double de la taille par défaut de media-emoji-local-max-size (le paramètre précédent).\
 Cette valeur représente un bon équilibre entre une interopérabilité décente avec les instances qui ont des limites de taille d'emoji plus élevées et le fait de ne pas prendre trop d'espace de stockage."""
 type = "number"
