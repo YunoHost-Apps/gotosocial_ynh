@@ -23,6 +23,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
+
 **Shipped version:** 0.5.2~ynh1
 
 ## Screenshots
@@ -107,7 +108,7 @@ And to promote them as an administrator of your instance:
 
 ## :red_circle: Antifeatures
 
-* **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
+- **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
 
 ## Documentation and resources
 
