@@ -26,7 +26,6 @@ Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 **Shipped version:** 0.5.2~ynh1
 
-
 ## Screenshots
 
 ![Screenshot of GoToSocial](./doc/screenshots/screenshot.jpg)
