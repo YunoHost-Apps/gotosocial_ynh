@@ -24,8 +24,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.5.2~ynh1 *(:warning: This is the `testing` branch. The [`master` branch](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/master) used in the catalog is currently on version 0.5.1\~ynh1.)*
-
+**Shipped version:** 0.5.2~ynh1
 
 ## Screenshots
 
