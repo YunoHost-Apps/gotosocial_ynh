@@ -1,10 +1,11 @@
 version = "1.0"
 
-[gotosocial]
+[main]
 
 services = ["__APP__"]
 
-name = "GoToSocial configuration panel"
+name.en = "Main configuration"
+name.fr = "Configuration principale"
 
 help = "Here you can easily configure some things about your GoToSocial instance."
 
@@ -12,13 +13,13 @@ help = "Here you can easily configure some things about your GoToSocial instance
 #### ACCOUNTS CONFIG
 ####################
 
-[gotosocial.accounts]
+[main.accounts]
 
 name = "Accounts config"
 
 help = "Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts."
 
-[gotosocial.accounts.registration_open]
+[main.accounts.registration_open]
 ask.en = "Open registrations?"
 ask.fr = "Inscriptions ouvertes ?"
 bind = "accounts-registration-open:__FINALPATH__/config.yaml"
@@ -28,7 +29,7 @@ help.en = "Do we want people to be able to just submit sign up requests, or do w
 help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
 type = "select"
 
-[gotosocial.accounts.approval_required]
+[main.accounts.approval_required]
 ask.en = "Approval required?"
 ask.fr = "Validation requise ?"
 bind = "accounts-approval-required:__FINALPATH__/config.yaml"
@@ -38,7 +39,7 @@ help.en = "Do sign up requests require approval from an admin/moderator before a
 help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
 type = "select"
 
-[gotosocial.accounts.reason_required]
+[main.accounts.reason_required]
 ask.en = "Reason required?"
 ask.fr = "Motif requis ?"
 bind = "accounts-reason-required:__FINALPATH__/config.yaml"
@@ -48,7 +49,7 @@ help.en = "Are sign up requests required to submit a reason for the request (eg.
 help.fr = "Les demandes d'inscription doivent-elles être motivées (par exemple, par une explication de la raison pour laquelle la personne souhaite rejoindre l'instance) ?"
 type = "select"
 
-[gotosocial.accounts.allow_custom_css]
+[main.accounts.allow_custom_css]
 ask.en = "Allow custom CSS?"
 ask.fr = "Autoriser le CSS personnalisé ?"
 bind = "accounts-allow-custom-css:__FINALPATH__/config.yaml"
@@ -68,12 +69,12 @@ type = "select"
 #### MEDIA CONFIG
 #################
 
-[gotosocial.media]
+[main.media]
 name = "Media config"
 
 help = "Config pertaining to user media uploads (videos, image, image descriptions)."
 
-[gotosocial.media.media_image_max_size]
+[main.media.media_image_max_size]
 ask.en = "Maximum allowed image upload size in bytes."
 ask.fr = "Taille maximale autorisée pour le téléchargement d'images, en octets."
 bind = "media-image-max-size:__FINALPATH__/config.yaml"
@@ -82,7 +83,7 @@ help.en = "Default: 2097152 -- aka 2MB"
 help.fr = "Valeur par défaut : 2097152 (soit 2 Mo)"
 type = "number"
 
-[gotosocial.media.media_video_max_size]
+[main.media.media_video_max_size]
 ask.en = "Maximum allowed video upload size in bytes."
 ask.fr = "Taille maximale autorisée pour le téléchargement de vidéos, en octets."
 bind = "media-video-max-size:__FINALPATH__/config.yaml"
@@ -91,7 +92,7 @@ help.en = "Default: 10485760 -- aka 10MB"
 help.fr = "Valeur par défaut : 10485760 (soit 10 Mo)"
 type = "number"
 
-[gotosocial.media.media_description_min_chars]
+[main.media.media_description_min_chars]
 ask.en = "Minimum amount of characters required as an image or video description."
 ask.fr = "Nombre minimum de caractères requis pour la description d'une image ou d'une vidéo."
 bind = "media-description-min-chars:__FINALPATH__/config.yaml"
@@ -100,7 +101,7 @@ help.en = "Default: 0 (not required)"
 help.fr = "Valeur par défaut : 0 (non obligatoire)"
 type = "number"
 
-[gotosocial.media.media_description_max_chars]
+[main.media.media_description_max_chars]
 ask.en = "Maximum amount of characters permitted in an image or video description."
 ask.fr = "Nombre maximum de caractères requis pour la description d'une image ou d'une vidéo."
 bind = "media-description-max-chars:__FINALPATH__/config.yaml"
@@ -109,7 +110,7 @@ help.en = "Default: 500"
 help.fr = "Valeur par défaut : 500"
 type = "number"
 
-[gotosocial.media.media_remote_cache_days]
+[main.media.media_remote_cache_days]
 ask.en = "Number of days to cache media from remote instances before they are removed from the cache."
 ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
 bind = "media-remote-cache-days:__FINALPATH__/config.yaml"
@@ -126,7 +127,7 @@ Si la valeur 0 est attribuée à ce paramètre, les médias des instances distan
 """
 type = "number"
 
-[gotosocial.media.media_emoji_local_max_size]
+[main.media.media_emoji_local_max_size]
 ask.en = "Max size in bytes of emojis uploaded to this instance via the admin API."
 ask.fr = "Taille maximale en octets des emojis téléchargés vers cette instance via l'API d'administration."
 bind = "media-emoji-local-max-size:__FINALPATH__/config.yaml"
@@ -139,7 +140,7 @@ La valeur par défaut est la même que la limite de taille des emojis de Mastodo
 Si vous augmentez cette limite, vous risquez d'avoir des problèmes avec la fédération de vos emojis à d'autres instances, alors faites preuve de prudence."""
 type = "number"
 
-[gotosocial.media.media_emoji_remote_max_size]
+[main.media.media_emoji_remote_max_size]
 ask.en = "Max size in bytes of emojis to download from other instances."
 ask.fr = "Taille maximale en octets des emojis téléchargeables à partir d'autres instances."
 bind = "media-emoji-remote-max-size:__FINALPATH__/config.yaml"
@@ -156,12 +157,12 @@ type = "number"
 ### STATUSES CONFIG
 ###################
 
-[gotosocial.statuses]
+[main.statuses]
 name = "Status config"
 
 help = "Config pertaining to the creation of statuses/posts, and permitted limits."
 
-[gotosocial.statuses.statuses_max_chars]
+[main.statuses.statuses_max_chars]
 ask.en = "Maximum amount of characters permitted for a new status."
 ask.fr = "Nombre maximal de caractères autorisés pour un nouveau statut."
 bind = "statuses-max-chars:__FINALPATH__/config.yaml"
@@ -170,7 +171,7 @@ help.en = "Default: 5000. Note that going way higher than the default might brea
 help.fr = "Valeur par défaut : 5000. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.statuses_cw_max_chars]
+[main.statuses.statuses_cw_max_chars]
 ask.en = "Maximum amount of characters allowed in the CW/subject header of a status."
 ask.fr = "Nombre maximum de caractères autorisés dans l'en-tête CW/sujet d'un statut."
 bind = "statuses-cw-max-chars:__FINALPATH__/config.yaml"
@@ -179,7 +180,7 @@ help.en = "Default: 100. Note that going way higher than the default might break
 help.fr = "Valeur par défaut : 100. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.statuses_poll_max_options]
+[main.statuses.statuses_poll_max_options]
 ask.en = "Maximum amount of options to permit when creating a new poll."
 ask.fr = "Nombre maximum d'options autorisées lors de la création d'un nouveau sondage."
 bind = "statuses-poll-max-options:__FINALPATH__/config.yaml"
@@ -188,7 +189,7 @@ help.en = "Default: 6. Note that going way higher than the default might break f
 help.fr = "Valeur par défaut : 6. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.statuses_poll_option_max_chars]
+[main.statuses.statuses_poll_option_max_chars]
 ask.en = "Maximum amount of characters to permit per poll option when creating a new poll."
 ask.fr = "Nombre maximal de caractères autorisés par option de sondage lors de la création d'un nouveau sondage."
 bind = "statuses-poll-option-max-chars:__FINALPATH__/config.yaml"
@@ -197,7 +198,7 @@ help.en = "Default: 50. Note that going way higher than the default might break 
 help.fr = "Valeur par défaut : 50. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
 type = "number"
 
-[gotosocial.statuses.statuses_media_max_files]
+[main.statuses.statuses_media_max_files]
 ask.en = "Maximum amount of media files that can be attached to a new status."
 ask.fr = "Quantité maximale de fichiers multimédias qui peuvent être joints à un nouveau statut."
 bind = "statuses-media-max-files:__FINALPATH__/config.yaml"
@@ -210,13 +211,13 @@ type = "number"
 #### INSTANCE CONFIG
 ####################
 
-[gotosocial.instance]
+[main.instance]
 
 name = "Instance config"
 
 help = "Config pertaining to instance federation settings, pages to hide/expose, etc."
 
-[gotosocial.instance.instance_expose_peers]
+[main.instance.instance_expose_peers]
 ask.en = "API: Expose peers?"
 ask.fr = "API : Exposer les pairs ?"
 bind = "instance-expose-peers:__FINALPATH__/config.yaml"
@@ -226,7 +227,7 @@ help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers
 help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=open afin d'afficher la liste des instances avec lesquelles votre instance est en relation. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
 type = "select"
 
-[gotosocial.instance.instance_expose_suspended]
+[main.instance.instance_expose_suspended]
 ask.en = "API: Expose suspended?"
 ask.fr = "API : Exposer les instances bloquées ?"
 bind = "instance-expose-suspended:__FINALPATH__/config.yaml"
@@ -236,7 +237,7 @@ help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers
 help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=suspended afin de voir la liste des instances bloquées ou suspendues par votre instance. Cela permettra également aux utilisateurs non authentifiés de consulter la liste via l'interface Web. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
 type = "select"
 
-[gotosocial.instance.instance_deliver_to_shared_inboxes]
+[main.instance.instance_deliver_to_shared_inboxes]
 ask.en = "Deliver to shared inboxes?"
 ask.fr = "Envoi en boites partagées ?"
 bind = "instance-deliver-to-shared-inboxes:__FINALPATH__/config.yaml"
@@ -249,3 +250,65 @@ help.fr = """Ce paramètre détermine si GoToSocial livrera les messages Activit
 La livraison dans la boîte de réception partagée peut réduire de manière significative la charge du réseau lorsque la livraison à plusieurs destinataires partagent une boîte de réception (par exemple, sur les grandes instances Mastodon).\
 Voir : https://www.w3.org/TR/activitypub/#shared-inbox-delivery"""
 type = "select"
+
+####################
+#### STORAGE SETTINGS
+####################
+
+[storage]
+
+name.en = "Storage configuration"
+name.fr = "Configuration du stockage"
+
+services = ["__APP__"]
+
+[storage.storage]
+
+name = "Storage settings"
+
+help = "Config pertaining to storage of user-created uploads (videos, images, etc)."
+
+####################
+#### ADVANCED SETTINGS
+####################
+
+[advanced]
+
+name.en = "Advanced configuration"
+name.fr = "Configuration avancée"
+
+services = ["__APP__"]
+
+[advanced.advanced]
+
+name = "Advanced settings"
+
+help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠️ ONLY ADJUST THESE SETTINGS IF YOU KNOW WHAT YOU ARE DOING! ⚠️"
+
+[gotosocial.advanced.advanced-cookies-samesite]
+ask.en = "Value of the SameSite attribute of cookies set by GoToSocial."
+ask.fr = ""
+bind = "advanced-cookies-samesite:__FINALPATH__/config.yaml"
+choices = ["lax", "strict"]
+default = "lax"
+help.en = """Defaults to 'lax' to ensure that the OIDC flow does not break, which is fine in most cases.\
+If you want to harden your instance against CSRF attacks and don't mind if some login-related things might break, you can set this to 'strict' instead.\
+For an overview of what this does, see:\
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite"""
+help.fr = ""
+type = "select"
+
+[gotosocial.advanced.advanced-rate-limit-requests]
+ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
+ask.fr = ""
+bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
+default = "1000"
+help.en = """Default: 1000\
+If this amount is exceeded, a 429 HTTP error code will be returned.\
+See https://docs.gotosocial.org/en/latest/api/swagger/#rate-limit.\
+If you find yourself adjusting this limit because it's regularly being exceeded, you should first verify that your settings for `trusted-proxies` are correct.\
+In many cases, when the rate limit is exceeded it is because your instance sees all incoming requests as coming from the *same IP address* (you can verify this by looking at the client IPs in your instance logs).\
+If this is the case, try adding that IP address to your `trusted-proxies` *BEFORE* you go adjusting this rate limit setting!\
+If you set this to 0 or less, rate limiting will be disabled entirely."""
+help.fr = "Valeur par défaut : 1000"
+type = "number"
