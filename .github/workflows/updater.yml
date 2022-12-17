@@ -4,13 +4,9 @@
 # It calls updater.sh, which is where you should put the app-specific update steps.
 name: Check for new upstream releases
 on:
-
-  # Triggers the workflow on push or pull request events but only for the "testing" branch
-  push:
-    branches: [ "testing" ]
-  pull_request:
-    branches: [ "testing" ]
-
+  workflow_run:
+    branches:
+      - 'testing'
   # Allow to manually trigger the workflow
   workflow_dispatch:
   # Run it every day at 6:00 UTC
