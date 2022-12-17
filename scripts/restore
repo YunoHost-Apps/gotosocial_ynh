@@ -30,6 +30,8 @@ app="$YNH_APP_INSTANCE_NAME"
 
 final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 
+landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
+
 domain=$(ynh_app_setting_get --app="$app" --key=domain)
 port=$(ynh_app_setting_get --app="$app" --key=port)
 path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
@@ -37,26 +39,44 @@ path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
 client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
 
 db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
-db_user=$db_name
+db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
 db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
 datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
-registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
+instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
+instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
+instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
+
+accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
+accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
+accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
+accounts_allow_custom_css=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
 
 media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
 media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
 media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
 media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
 media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
+media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
+media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
+
+storage_backend=$(ynh_app_setting_get --app="$app" --key=storage_backend)
+storage_s3_endpoint=$(ynh_app_setting_get --app="$app" --key=storage_s3_endpoint)
+storage_s3_proxy=$(ynh_app_setting_get --app="$app" --key=storage_s3_proxy)
+storage_s3_access_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_access_key)
+storage_s3_secret_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_secret_key)
+storage_s3_bucket=$(ynh_app_setting_get --app="$app" --key=storage_s3_bucket)
 
 statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
 statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
 statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
 statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
 statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
+
+advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
+advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
 
 #=================================================
 # CHECK IF THE APP CAN BE RESTORED
