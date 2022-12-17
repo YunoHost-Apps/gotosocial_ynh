@@ -217,6 +217,15 @@ name = "Instance config"
 
 help = "Config pertaining to instance federation settings, pages to hide/expose, etc."
 
+[main.instance.landing_page_user]
+ask.en = "Landing page user"
+ask.fr = "Utilisateurice en tant que page d'accueil"
+bind = "landing-page-user:__FINALPATH__/config.yaml"
+default = ""
+help.en = "The user that will be shown instead of the landing page. if no user is set, the landing page will be shown."
+help.fr = "L'utilisateurice qui sera affiché-e à la place de la page d'accueil. Si le champ est laissé vide, la page d'accueil normale sera affichée."
+type = "string"
+
 [main.instance.instance_expose_peers]
 ask.en = "API: Expose peers?"
 ask.fr = "API : Exposer les pairs ?"
@@ -235,6 +244,16 @@ choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated users to see the list through the web UI. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
 help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=suspended afin de voir la liste des instances bloquées ou suspendues par votre instance. Cela permettra également aux utilisateurs non authentifiés de consulter la liste via l'interface Web. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
+type = "select"
+
+[main.instance.instance_expose_public_timeline]
+ask.en = "API: Expose public timeline?"
+ask.fr = "API : Exposer la timeline publique ?"
+bind = "instance-expose-public-timeline:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Allow unauthenticated users to make queries to /api/v1/timelines/public in order to see a list of public posts on this server. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
+help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes sur /api/v1/timelines/public afin de voir la liste des messages publics sur ce serveur. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
 type = "select"
 
 [main.instance.instance_deliver_to_shared_inboxes]
