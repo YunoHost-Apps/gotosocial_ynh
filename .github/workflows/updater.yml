@@ -5,6 +5,7 @@
 name: Check for new upstream releases
 on:
   workflow_run:
+    workflows: [Check for new upstream releases]
     branches:
       - 'testing'
   # Allow to manually trigger the workflow
