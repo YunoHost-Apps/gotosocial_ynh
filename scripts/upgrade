@@ -18,6 +18,8 @@ app="$YNH_APP_INSTANCE_NAME"
 
 final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 
+landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
+
 domain=$(ynh_app_setting_get --app="$app" --key=domain)
 port=$(ynh_app_setting_get --app="$app" --key=port)
 path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
@@ -32,6 +34,7 @@ datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
+instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
 instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
 
 accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
@@ -47,11 +50,21 @@ media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_ca
 media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
 media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
 
+storage_backend=$(ynh_app_setting_get --app="$app" --key=storage_backend)
+storage_s3_endpoint=$(ynh_app_setting_get --app="$app" --key=storage_s3_endpoint)
+storage_s3_proxy=$(ynh_app_setting_get --app="$app" --key=storage_s3_proxy)
+storage_s3_access_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_access_key)
+storage_s3_secret_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_secret_key)
+storage_s3_bucket=$(ynh_app_setting_get --app="$app" --key=storage_s3_bucket)
+
 statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
 statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
 statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
 statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
 statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
+
+advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
+advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
 
 #=================================================
 # CHECK VERSION
@@ -183,6 +196,33 @@ then
 	ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
 	ynh_app_setting_set --app="$app" --key=media_emoji_local_max_size --value="$media_emoji_local_max_size"
 	ynh_app_setting_set --app="$app" --key=media_emoji_remote_max_size --value="$media_emoji_remote_max_size"
+fi
+
+# Upgrade from <0.6.0~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.6.0~ynh1 || [ -z "$instance_expose_public_timeline" ]
+then
+	# declaration of new parameters
+	landing_page_user=""
+	instance_expose_public_timeline="false"
+	storage_backend="local"
+	storage_s3_endpoint=""
+	storage_s3_proxy="false"
+	storage_s3_access_key=""
+	storage_s3_secret_key=""
+	storage_s3_bucket=""
+	advanced_cookies_samesite="lax"
+	advanced_rate_limit_requests="1000"
+	# registration of new parameters
+	ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
+	ynh_app_setting_set --app="$app" --key=instance_expose_public_timeline --value="$instance_expose_public_timeline"
+	ynh_app_setting_set --app="$app" --key=storage_backend --value="$storage_backend"
+	ynh_app_setting_set --app="$app" --key=storage_s3_endpoint --value="$storage_s3_endpoint"
+	ynh_app_setting_set --app="$app" --key=storage_s3_proxy --value="$storage_s3_proxy"
+	ynh_app_setting_set --app="$app" --key=storage_s3_access_key --value="$storage_s3_access_key"
+	ynh_app_setting_set --app="$app" --key=storage_s3_secret_key --value="$storage_s3_secret_key"
+	ynh_app_setting_set --app="$app" --key=storage_s3_bucket --value="$storage_s3_bucket"
+	ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
+	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 fi
 
 #=================================================
