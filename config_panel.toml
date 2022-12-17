@@ -287,6 +287,64 @@ name = "Storage settings"
 
 help = "Config pertaining to storage of user-created uploads (videos, images, etc)."
 
+[storage.storage.storage-backend]
+ask.en = "Type of storage backend to use."
+ask.fr = "Le type de stockage à utiliser"
+bind = "storage-backend:__FINALPATH__/config.yaml"
+choices = ["local", "s3"]
+default = "local"
+help.en = "Default: local"
+help.fr = "Par défaut : local"
+type = "select"
+
+[storage.storage.S3]
+
+name = "S3 storage settings"
+
+help = "Config pertaining to S3 compatible service. Use ONLY if you KNOW what you're doing! Only required when running with the s3 storage backend."
+
+[storage.storage.S3.storage-s3-endpoint]
+ask.en = "API endpoint of the S3 compatible service."
+ask.fr = "Point de terminaison de l'API du service compatible S3."
+bind = "storage-s3-endpoint:__FINALPATH__/config.yaml"
+default = ""
+type = "string"
+
+[storage.storage.S3.storage-s3-proxy]
+ask.en = "If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL."
+ask.fr = "Si les données stockées dans S3 doivent être proxifiées par GoToSocial au lieu de rediriger vers une URL présignée."
+bind = "storage-s3-proxy:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Default: false"
+help.fr = "Par défaut : false"
+type = "select"
+
+[storage.storage.S3.storage-s3-access-key]
+ask.en = "Access key part of the S3 credentials."
+ask.fr = "Clé d'accès du service compatible S3."
+bind = "storage-s3-access-key:__FINALPATH__/config.yaml"
+default = ""
+type = "string"
+
+[storage.storage.S3.storage-s3-secret-key]
+ask.en = "Secret key part of the S3 credentials."
+ask.fr = "Clé secrète du service compatible S3."
+bind = "storage-s3-secret-key:__FINALPATH__/config.yaml"
+default = ""
+type = "string"
+
+[storage.storage.S3.storage-s3-bucket]
+ask.en = "Name of the storage bucket."
+ask.fr = "Nom du bucket de stockage."
+bind = "storage-s3-bucket:__FINALPATH__/config.yaml"
+default = ""
+help.en = """If you have already encoded your bucket name in the storage-s3-endpoint, this value will be used as a directory containing your data.\
+The bucket must exist prior to starting GoToSocial"""
+help.fr = """Si vous avez déjà encodé votre nom de bucket dans le point de terminaison storage-s3, cette valeur sera utilisée comme répertoire contenant vos données.\
+Le bucket doit exister avant le démarrage de GoToSocial."""
+type = "string"
+
 ####################
 #### ADVANCED SETTINGS
 ####################
@@ -304,7 +362,7 @@ name = "Advanced settings"
 
 help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠️ ONLY ADJUST THESE SETTINGS IF YOU KNOW WHAT YOU ARE DOING! ⚠️"
 
-[gotosocial.advanced.advanced-cookies-samesite]
+[advanced.advanced-cookies-samesite]
 ask.en = "Value of the SameSite attribute of cookies set by GoToSocial."
 ask.fr = ""
 bind = "advanced-cookies-samesite:__FINALPATH__/config.yaml"
@@ -317,7 +375,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite"""
 help.fr = ""
 type = "select"
 
-[gotosocial.advanced.advanced-rate-limit-requests]
+[advanced.advanced-rate-limit-requests]
 ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
 ask.fr = ""
 bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
