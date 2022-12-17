@@ -205,7 +205,7 @@ instance-expose-suspended: __INSTANCE_EXPOSE_SUSPENDED__
 # users (members of the instance) will still be able to query the endpoint.
 # Options: [true, false]
 # Default: false
-instance-expose-public-timeline: __INSTANCE_EXPOSE_PUBLIC TIMELINE__
+instance-expose-public-timeline: __INSTANCE_EXPOSE_PUBLIC_TIMELINE__
 
 # Bool. This flag tweaks whether GoToSocial will deliver ActivityPub messages
 # to the shared inbox of a recipient, if one is available, instead of delivering
