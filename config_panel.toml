@@ -332,6 +332,7 @@ ask.en = "Secret key part of the S3 credentials."
 ask.fr = "Clé secrète du service compatible S3."
 bind = "storage-s3-secret-key:__FINALPATH__/config.yaml"
 default = ""
+redact = true
 type = "string"
 
 [storage.storage.S3.storage-s3-bucket]
