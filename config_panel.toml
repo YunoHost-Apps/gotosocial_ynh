@@ -286,7 +286,7 @@ name = "Storage settings"
 
 help = "Config pertaining to storage of user-created uploads (videos, images, etc)."
 
-[storage.storage.storage-backend]
+[storage.storage.storage_backend]
 ask.en = "Type of storage backend to use."
 ask.fr = "Le type de stockage à utiliser"
 bind = "storage-backend:__FINALPATH__/config.yaml"
@@ -303,13 +303,13 @@ name = "S3 storage settings"
 help = "Use ONLY if you KNOW what you're doing! Only required when running with the s3 storage backend."
 visible = "storage-backend == 's3'"
 
-[storage.s3.storage-s3-endpoint]
+[storage.s3.storage_s3_endpoint]
 ask.en = "API endpoint of the S3 compatible service."
 ask.fr = "Point de terminaison de l'API du service compatible S3."
 bind = "storage-s3-endpoint:__FINALPATH__/config.yaml"
 type = "string"
 
-[storage.s3.storage-s3-proxy]
+[storage.s3.storage_s3_proxy]
 ask.en = "If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL."
 ask.fr = "Si les données stockées dans S3 doivent être proxifiées par GoToSocial au lieu de rediriger vers une URL présignée."
 bind = "storage-s3-proxy:__FINALPATH__/config.yaml"
@@ -319,19 +319,19 @@ help.en = "Default: false"
 help.fr = "Par défaut : false"
 type = "select"
 
-[storage.s3.storage-s3-access-key]
+[storage.s3.storage_s3_access_key]
 ask.en = "Access key part of the S3 credentials."
 ask.fr = "Clé d'accès du service compatible S3."
 bind = "storage-s3-access-key:__FINALPATH__/config.yaml"
 type = "string"
 
-[storage.s3.storage-s3-secret-key]
+[storage.s3.storage_s3_secret_key]
 ask.en = "Secret key part of the S3 credentials."
 ask.fr = "Clé secrète du service compatible S3."
 bind = "storage-s3-secret-key:__FINALPATH__/config.yaml"
 type = "password"
 
-[storage.s3.storage-s3-bucket]
+[storage.s3.storage_s3_bucket]
 ask.en = "Name of the storage bucket."
 ask.fr = "Nom du bucket de stockage."
 bind = "storage-s3-bucket:__FINALPATH__/config.yaml"
@@ -358,7 +358,7 @@ name = "Advanced settings"
 
 help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠️ ONLY ADJUST THESE SETTINGS IF YOU KNOW WHAT YOU ARE DOING! ⚠️"
 
-[advanced.advanced-cookies-samesite]
+[advanced.advanced_cookies_samesite]
 ask.en = "Value of the SameSite attribute of cookies set by GoToSocial."
 ask.fr = "Valeur de l'attribut SameSite des cookies définis par GoToSocial."
 bind = "advanced-cookies-samesite:__FINALPATH__/config.yaml"
@@ -371,7 +371,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite"""
 help.fr = ""
 type = "select"
 
-[advanced.advanced-rate-limit-requests]
+[advanced.advanced_rate_limit_requests]
 ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
 ask.fr = "Nombre de requêtes autorisées à partir d'une seule adresse IP dans un délai de 5 minutes."
 bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
