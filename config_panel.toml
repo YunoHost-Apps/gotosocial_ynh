@@ -221,7 +221,6 @@ help = "Config pertaining to instance federation settings, pages to hide/expose,
 ask.en = "Landing page user"
 ask.fr = "Utilisateurice en tant que page d'accueil"
 bind = "landing-page-user:__FINALPATH__/config.yaml"
-default = ""
 help.en = "The user that will be shown instead of the landing page. if no user is set, the landing page will be shown."
 help.fr = "L'utilisateurice qui sera affiché-e à la place de la page d'accueil. Si le champ est laissé vide, la page d'accueil normale sera affichée."
 type = "string"
@@ -307,7 +306,6 @@ help = "Config pertaining to S3 compatible service. Use ONLY if you KNOW what yo
 ask.en = "API endpoint of the S3 compatible service."
 ask.fr = "Point de terminaison de l'API du service compatible S3."
 bind = "storage-s3-endpoint:__FINALPATH__/config.yaml"
-default = ""
 type = "string"
 
 [storage.storage.S3.storage-s3-proxy]
@@ -324,14 +322,12 @@ type = "select"
 ask.en = "Access key part of the S3 credentials."
 ask.fr = "Clé d'accès du service compatible S3."
 bind = "storage-s3-access-key:__FINALPATH__/config.yaml"
-default = ""
 type = "string"
 
 [storage.storage.S3.storage-s3-secret-key]
 ask.en = "Secret key part of the S3 credentials."
 ask.fr = "Clé secrète du service compatible S3."
 bind = "storage-s3-secret-key:__FINALPATH__/config.yaml"
-default = ""
 redact = true
 type = "string"
 
@@ -339,7 +335,6 @@ type = "string"
 ask.en = "Name of the storage bucket."
 ask.fr = "Nom du bucket de stockage."
 bind = "storage-s3-bucket:__FINALPATH__/config.yaml"
-default = ""
 help.en = """If you have already encoded your bucket name in the storage-s3-endpoint, this value will be used as a directory containing your data.\
 The bucket must exist prior to starting GoToSocial"""
 help.fr = """Si vous avez déjà encodé votre nom de bucket dans le point de terminaison storage-s3, cette valeur sera utilisée comme répertoire contenant vos données.\
