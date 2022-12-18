@@ -365,7 +365,7 @@ help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠�
 
 [advanced.advanced-cookies-samesite]
 ask.en = "Value of the SameSite attribute of cookies set by GoToSocial."
-ask.fr = ""
+ask.fr = "Valeur de l'attribut SameSite des cookies définis par GoToSocial."
 bind = "advanced-cookies-samesite:__FINALPATH__/config.yaml"
 choices = ["lax", "strict"]
 default = "lax"
@@ -378,7 +378,7 @@ type = "select"
 
 [advanced.advanced-rate-limit-requests]
 ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
-ask.fr = ""
+ask.fr = "Nombre de requêtes autorisées à partir d'une seule adresse IP dans un délai de 5 minutes."
 bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
 default = "1000"
 help.en = """Default: 1000\
