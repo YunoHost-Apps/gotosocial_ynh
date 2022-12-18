@@ -296,19 +296,20 @@ help.en = "Default: local"
 help.fr = "Par défaut : local"
 type = "select"
 
-[storage.storage.s3]
+[storage.s3]
 
 name = "S3 storage settings"
 
-help = "Config pertaining to S3 compatible service. Use ONLY if you KNOW what you're doing! Only required when running with the s3 storage backend."
+help = "Use ONLY if you KNOW what you're doing! Only required when running with the s3 storage backend."
+visible = "storage-backend == 's3'"
 
-[storage.storage.s3.storage-s3-endpoint]
+[storage.s3.storage-s3-endpoint]
 ask.en = "API endpoint of the S3 compatible service."
 ask.fr = "Point de terminaison de l'API du service compatible S3."
 bind = "storage-s3-endpoint:__FINALPATH__/config.yaml"
 type = "string"
 
-[storage.storage.s3.storage-s3-proxy]
+[storage.s3.storage-s3-proxy]
 ask.en = "If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL."
 ask.fr = "Si les données stockées dans S3 doivent être proxifiées par GoToSocial au lieu de rediriger vers une URL présignée."
 bind = "storage-s3-proxy:__FINALPATH__/config.yaml"
@@ -318,19 +319,19 @@ help.en = "Default: false"
 help.fr = "Par défaut : false"
 type = "select"
 
-[storage.storage.s3.storage-s3-access-key]
+[storage.s3.storage-s3-access-key]
 ask.en = "Access key part of the S3 credentials."
 ask.fr = "Clé d'accès du service compatible S3."
 bind = "storage-s3-access-key:__FINALPATH__/config.yaml"
 type = "string"
 
-[storage.storage.s3.storage-s3-secret-key]
+[storage.s3.storage-s3-secret-key]
 ask.en = "Secret key part of the S3 credentials."
 ask.fr = "Clé secrète du service compatible S3."
 bind = "storage-s3-secret-key:__FINALPATH__/config.yaml"
 type = "password"
 
-[storage.storage.s3.storage-s3-bucket]
+[storage.s3.storage-s3-bucket]
 ask.en = "Name of the storage bucket."
 ask.fr = "Nom du bucket de stockage."
 bind = "storage-s3-bucket:__FINALPATH__/config.yaml"
