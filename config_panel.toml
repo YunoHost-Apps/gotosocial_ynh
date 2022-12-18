@@ -306,7 +306,7 @@ type = "select"
 name = "S3 storage settings"
 
 help = "Use ONLY if you KNOW what you're doing! Only required when running with the s3 storage backend."
-visible = "storage_backend == 's3'"
+# visible = "storage_backend == 's3'"
 
 [storage.storage.s3.storage_s3_endpoint]
 ask.en = "API endpoint of the S3 compatible service."
