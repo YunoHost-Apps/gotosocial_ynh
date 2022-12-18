@@ -296,6 +296,10 @@ help.en = "Default: local"
 help.fr = "Par défaut : local"
 type = "select"
 
+####################
+#### S3 SETTINGS
+####################
+
 [storage.s3]
 
 name = "S3 storage settings"
@@ -358,7 +362,7 @@ name = "Advanced settings"
 
 help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠️ ONLY ADJUST THESE SETTINGS IF YOU KNOW WHAT YOU ARE DOING! ⚠️"
 
-[advanced.advanced_cookies_samesite]
+[advanced.advanced.advanced_cookies_samesite]
 ask.en = "Value of the SameSite attribute of cookies set by GoToSocial."
 ask.fr = "Valeur de l'attribut SameSite des cookies définis par GoToSocial."
 bind = "advanced-cookies-samesite:__FINALPATH__/config.yaml"
@@ -371,7 +375,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite"""
 help.fr = ""
 type = "select"
 
-[advanced.advanced_rate_limit_requests]
+[advanced.advanced.advanced_rate_limit_requests]
 ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
 ask.fr = "Nombre de requêtes autorisées à partir d'une seule adresse IP dans un délai de 5 minutes."
 bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
