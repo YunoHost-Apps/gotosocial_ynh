@@ -270,27 +270,6 @@ Voir : https://www.w3.org/TR/activitypub/#shared-inbox-delivery"""
 type = "select"
 
 ####################
-#### STORAGE SETTINGS
-####################
-
-[main.storage]
-
-name = "Storage settings"
-
-help = "Config pertaining to storage of user-created uploads (videos, images, etc)."
-
-[main.storage.storage_backend]
-ask.en = "Type of storage backend to use."
-ask.fr = "Le type de stockage à utiliser"
-bind = "storage-backend:__FINALPATH__/config.yaml"
-choices.local = "local"
-choices.s3 = "s3"
-default = "local"
-help.en = "Default: local"
-help.fr = "Par défaut : local"
-type = "select"
-
-####################
 #### ADVANCED SETTINGS
 ####################
 
