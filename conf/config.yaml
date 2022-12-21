@@ -35,6 +35,11 @@ log-db-queries: false
 # Default: "gotosocial"
 application-name: "__APP__"
 
+# String. The user that will be shown instead of the landing page. if no user is set, the landing page will be shown.
+# Examples: "admin"
+# Default: ""
+landing-page-user: "__LANDING_PAGE_USER__"
+
 # String. Hostname that this server will be reachable at. Defaults to localhost for local testing,
 # but you should *definitely* change this when running for real, or your server won't work at all.
 # DO NOT change this after your server has already run once, or you will break things!
@@ -45,12 +50,20 @@ host: "__DOMAIN__"
 # String. Domain to use when federating profiles. This is useful when you want your server to be at
 # eg., "gts.example.org", but you want the domain on accounts to be "example.org" because it looks better
 # or is just shorter/easier to remember.
+#
 # To make this setting work properly, you need to redirect requests at "example.org/.well-known/webfinger"
 # to "gts.example.org/.well-known/webfinger" so that GtS can handle them properly.
+#
 # You should also redirect requests at "example.org/.well-known/nodeinfo" in the same way.
 # An empty string (ie., not set) means that the same value as 'host' will be used.
+#
 # DO NOT change this after your server has already run once, or you will break things!
+#
 # Examples: ["example.org","server.com"]
+#
+# Please read the appropriate section of the installation guide before you go messing around with this setting:
+# https://docs.gotosocial.org/installation_guide/advanced/#can-i-host-my-instance-at-fediexampleorg-but-have-just-exampleorg-in-my-username
+#
 # Default: ""
 account-domain: ""
 
@@ -84,9 +97,10 @@ port: __PORT__
 # If you're running inside a Docker container behind Traefik or Nginx, for example, add the subnet of your docker network,
 # or the gateway of the docker network, and/or the address of the reverse proxy (if it's not running on the host network).
 # Example: ["127.0.0.1/32", "172.20.0.1"]
-# Default: ["127.0.0.1/32"] (localhost)
+# Default: ["127.0.0.1/32", "::1"] (localhost ipv4 + ipv6)
 trusted-proxies:
   - "127.0.0.1/32"
+  - "::1"
 
 ############################
 ##### DATABASE CONFIG ######
@@ -185,6 +199,13 @@ instance-expose-peers: __INSTANCE_EXPOSE_PEERS__
 # Options: [true, false]
 # Default: false
 instance-expose-suspended: __INSTANCE_EXPOSE_SUSPENDED__
+
+# Bool. Allow unauthenticated users to make queries to /api/v1/timelines/public in order
+# to see a list of public posts on this server. Even if set to 'false', then authenticated
+# users (members of the instance) will still be able to query the endpoint.
+# Options: [true, false]
+# Default: false
+instance-expose-public-timeline: __INSTANCE_EXPOSE_PUBLIC_TIMELINE__
 
 # Bool. This flag tweaks whether GoToSocial will deliver ActivityPub messages
 # to the shared inbox of a recipient, if one is available, instead of delivering
@@ -298,12 +319,12 @@ media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
 # String. Type of storage backend to use.
 # Examples: ["local", "s3"]
 # Default: "local" (storage on local disk)
-# NOTE: s3 storage is not yet supported!
-storage-backend: "local"
+storage-backend: "__STORAGE_BACKEND__"
 
 # String. Directory to use as a base path for storing files.
 # Make sure whatever user/group gotosocial is running as has permission to access
 # this directory, and create new subdirectories and files within it.
+# Only required when running with the local storage backend.
 # Examples: ["/home/gotosocial/storage", "/opt/gotosocial/datastorage"]
 # Default: "/gotosocial/storage"
 storage-local-base-path: "__DATADIR__"
@@ -312,20 +333,25 @@ storage-local-base-path: "__DATADIR__"
 # Only required when running with the s3 storage backend.
 # Examples: ["minio:9000", "s3.nl-ams.scw.cloud", "s3.us-west-002.backblazeb2.com"]
 # Default: ""
-storage-s3-endpoint: ""
+storage-s3-endpoint: "__STORAGE_S3_ENDPOINT__"
+
+# Bool. If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL.
+#
+# Default: false
+storage-s3-proxy: __STORAGE_S3_PROXY__
 
 # String. Access key part of the S3 credentials.
 # Consider setting this value using environment variables to avoid leaking it via the config file
 # Only required when running with the s3 storage backend.
 # Examples: ["AKIAJSIE27KKMHXI3BJQ","miniouser"]
 # Default: ""
-storage-s3-access-key: ""
+storage-s3-access-key: "__STORAGE_S3_ACCESS_KEY__"
 # String. Secret key part of the S3 credentials.
 # Consider setting this value using environment variables to avoid leaking it via the config file
 # Only required when running with the s3 storage backend.
 # Examples: ["5bEYu26084qjSFyclM/f2pz4gviSfoOg+mFwBH39","miniopassword"]
 # Default: ""
-storage-s3-secret-key: ""
+storage-s3-secret-key: "__STORAGE_S3_SECRET_KEY__"
 # String. Name of the storage bucket.
 #
 # If you have already encoded your bucket name in the storage-s3-endpoint, this
@@ -336,7 +362,7 @@ storage-s3-secret-key: ""
 # Only required when running with the s3 storage backend.
 # Examples: ["gts","cool-instance"]
 # Default: ""
-storage-s3-bucket: ""
+storage-s3-bucket: "__STORAGE_S3_BUCKET__"
 
 ###########################
 ##### STATUSES CONFIG #####
@@ -550,4 +576,21 @@ syslog-address: "localhost:514"
 #
 # Options: ["lax", "strict"]
 # Default: "lax"
-advanced-cookies-samesite: "lax"
+advanced-cookies-samesite: "__ADVANCED_COOKIES_SAMESITE__"
+
+# Int. Amount of requests to permit from a single IP address within a span of 5 minutes.
+# If this amount is exceeded, a 429 HTTP error code will be returned.
+# See https://docs.gotosocial.org/en/latest/api/swagger/#rate-limit.
+#
+# If you find yourself adjusting this limit because it's regularly being exceeded,
+# you should first verify that your settings for `trusted-proxies` (above) are correct.
+# In many cases, when the rate limit is exceeded it is because your instance sees all
+# incoming requests as coming from the *same IP address* (you can verify this by looking
+# at the client IPs in your instance logs). If this is the case, try adding that IP
+# address to your `trusted-proxies` *BEFORE* you go adjusting this rate limit setting!
+#
+# If you set this to 0 or less, rate limiting will be disabled entirely.
+#
+# Examples: [1000, 500, 0]
+# Default: 1000
+advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
