@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # GoToSocial pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
 [![Installer GoToSocial avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
 *[Read this readme in english.](./README.md)*
