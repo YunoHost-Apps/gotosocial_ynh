@@ -10,23 +10,11 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-#REMOVEME? #REMOVEME? ynh_clean_setup () {
-	### Remove this function if there's nothing to clean before calling the remove script.
-	true
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? #REMOVEME? ynh_abort_if_errors
-
-#=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
 #REMOVEME? #REMOVEME? app="$YNH_APP_INSTANCE_NAME"
 
-#REMOVEME? #REMOVEME? domain="$YNH_APP_ARG_DOMAIN"
 path="/"
 
 client_max_body_size="100M"
@@ -59,17 +47,6 @@ statuses_cw_max_chars="100"
 statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
-
-#=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Validating installation parameters..." --weight=1
-
-#REMOVEME? install_dir="/var/www/$app"
-#REMOVEME? test ! -e "$install_dir" || ynh_die --message="This path already contains a folder"
-
-#REMOVEME? #REMOVEME? ynh_webpath_register --app="$app" --domain="$domain" --path="$path"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
@@ -109,32 +86,6 @@ ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_
 ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
 ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
-
-#=================================================
-# STANDARD MODIFICATIONS
-#=================================================
-# FIND AND OPEN A PORT
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Finding an available port..." --weight=1
-
-# Find an available port
-#REMOVEME? #REMOVEME? port=$(ynh_find_port --port=8095)
-#REMOVEME? #REMOVEME? ynh_app_setting_set --app="$app" --key=port --value="$port"
-
-#=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Installing dependencies..." --weight=5
-
-#REMOVEME? #REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Configuring system user..." --weight=1
-
-# Create a system user
-#REMOVEME? #REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
 
 #=================================================
 # CREATE A POSTGRESQL DATABASE
@@ -259,14 +210,6 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
-
-#=================================================
-# SETUP SSOWAT
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Configuring permissions..." --weight=1
-
-# Everyone can access the app.
-#REMOVEME? #REMOVEME? ynh_permission_update --permission="main" --add="visitors"
 
 #=================================================
 # RELOAD NGINX

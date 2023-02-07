@@ -11,62 +11,6 @@ source ../settings/scripts/_common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-#REMOVEME? #REMOVEME? ynh_clean_setup () {
-	#### Remove this function if there's nothing to clean before calling the remove script.
-	true
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? #REMOVEME? ynh_abort_if_errors
-
-#=================================================
-# LOAD SETTINGS
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Loading installation settings..." --weight=1
-
-#REMOVEME? #REMOVEME? app="$YNH_APP_INSTANCE_NAME"
-
-#REMOVEME? #REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
-
-#REMOVEME? #REMOVEME? domain=$(ynh_app_setting_get --app="$app" --key=domain)
-#REMOVEME? #REMOVEME? port=$(ynh_app_setting_get --app="$app" --key=port)
-#REMOVEME? #REMOVEME? path=$(ynh_app_setting_get --app="$app" --key=path)
-
-#REMOVEME? #REMOVEME? client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
-
-#REMOVEME? #REMOVEME? db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
-#REMOVEME? db_user=$db_name
-#REMOVEME? #REMOVEME? db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
-
-#REMOVEME? #REMOVEME? data_dir=$(ynh_app_setting_get --app="$app" --key=data_dir)
-
-#REMOVEME? #REMOVEME? registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-#REMOVEME? #REMOVEME? registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-#REMOVEME? #REMOVEME? registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
-
-#REMOVEME? #REMOVEME? media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
-#REMOVEME? #REMOVEME? media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
-#REMOVEME? #REMOVEME? media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
-#REMOVEME? #REMOVEME? media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
-#REMOVEME? #REMOVEME? media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
-
-#REMOVEME? #REMOVEME? statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
-#REMOVEME? #REMOVEME? statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
-#REMOVEME? #REMOVEME? statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
-#REMOVEME? #REMOVEME? statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
-#REMOVEME? #REMOVEME? statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
-
-#=================================================
-# CHECK IF THE APP CAN BE RESTORED
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Validating restoration parameters..." --weight=1
-
-#REMOVEME? test ! -d "$install_dir" \
-	|| ynh_die --message="There is already a directory: $install_dir "
-
-#=================================================
 # STANDARD RESTORATION STEPS
 #=================================================
 # RESTORE THE NGINX CONFIGURATION
@@ -74,14 +18,6 @@ source /usr/share/yunohost/helpers
 ynh_script_progression --message="Restoring the NGINX configuration..." --weight=1
 
 ynh_restore_file --origin_path="/etc/nginx/conf.d/$domain.d/$app.conf"
-
-#=================================================
-# RECREATE THE DEDICATED USER
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Recreating the dedicated system user..." --weight=1
-
-# Create the dedicated user (if not existing)
-#REMOVEME? #REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
 
 #=================================================
 # RESTORE THE APP MAIN DIR
@@ -118,16 +54,6 @@ mkdir -p "$data_dir"
 chmod 750 "$data_dir"
 chmod -R o-rwx "$data_dir"
 chown -R "$app:www-data" "$data_dir"
-
-#=================================================
-# SPECIFIC RESTORATION
-#=================================================
-# REINSTALL DEPENDENCIES
-#=================================================
-#REMOVEME? #REMOVEME? ynh_script_progression --message="Reinstalling dependencies..." --weight=5
-
-# Define and install dependencies
-#REMOVEME? #REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
 
 #=================================================
 # RESTORE THE POSTGRESQL DATABASE
