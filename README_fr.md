@@ -5,15 +5,15 @@ It shall NOT be edited by hand.
 
 # GoToSocial pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)  
 [![Installer GoToSocial avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer GoToSocial rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer GoToSocial rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Un serveur de réseau social basé sur [ActivityPub](https://activitypub.rocks/) écrit en Golang.
 
@@ -26,9 +26,9 @@ Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](http
 
 **Version incluse :** 0.6.0~ynh1
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de GoToSocial](./doc/screenshots/screenshot.jpg)
+![Capture d’écran de GoToSocial](./doc/screenshots/screenshot.jpg)
 
 ## Avertissements / informations importantes
 
@@ -112,10 +112,10 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://docs.gotosocial.org/>
+* Site officiel de l’app : <https://docs.gotosocial.org/>
 * Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
-* Documentation officielle de l'admin : <https://docs.gotosocial.org/en/latest/>
-* Dépôt de code officiel de l'app : <https://github.com/superseriousbusiness/gotosocial>
+* Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
+* Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_gotosocial>
 * Signaler un bug : <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
@@ -131,4 +131,4 @@ ou
 sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
