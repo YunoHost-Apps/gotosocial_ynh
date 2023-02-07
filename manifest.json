@@ -3,10 +3,10 @@
     "id": "gotosocial",
     "packaging_format": 1,
     "description": {
-        "en": "An ActivityPub social network server, written in Golang.",
-        "fr": "Un serveur de réseau social basé sur ActivityPub écrit en Golang."
+        "en": "ActivityPub social network server",
+        "fr": "Serveur de réseau social basé sur ActivityPub"
     },
-    "version": "0.5.2~ynh1",
+    "version": "0.6.0~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "AGPL-3.0-only",
@@ -33,10 +33,10 @@
         "install": [
             {
                 "name": "alpha_software",
-                "type": "display_text",
+                "type": "alert",
                 "ask": {
-                    "en": "Please note that GoToSocial is in early development stage. It may contain changing or unstable features, bugs, and security vulnerability.",
-                    "fr": "Veuillez noter que GoToSocial est au tout début de son développment. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité."
+                    "en": "⚠️ Please note that GoToSocial is in early development stage. It may contain changing or unstable features, bugs, and security vulnerability.",
+                    "fr": "⚠️ Veuillez noter que GoToSocial est au début de son développment. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité."
                 }
             },
             {
