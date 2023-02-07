@@ -13,7 +13,6 @@ maintainers = ["OniriCorpe"]
 admindoc = "https://docs.gotosocial.org/en/latest/" 
 code = "https://github.com/superseriousbusiness/gotosocial" 
 cpe = "???" # FIXME: optional but recommended if relevant, this is meant to contain the Common Platform Enumeration, which is sort of a standard id for applications defined by the NIST. In particular, Yunohost may use this is in the future to easily track CVE (=security reports) related to apps. The CPE may be obtained by searching here: https://nvd.nist.gov/products/cpe/search. For example, for Nextcloud, the CPE is 'cpe:2.3:a:nextcloud:nextcloud' (no need to include the version number)
-demo = "" 
 fund = "https://github.com/superseriousbusiness/gotosocial#sponsorship--funding" 
 license = "AGPL-3.0-only" 
 userdoc = "https://docs.gotosocial.org/en/latest/" 
@@ -28,12 +27,12 @@ architectures = [
   "armv7",
 ]
 disk = "100M"
-ldap = "false"
+ldap = false
 multi_instance = true
 ram.build = "50M"
 ram.runtime = "200M"
-sso = "false"
-yunohost = ">= 11.1.2"
+sso = false
+yunohost = ">= 11.1.6"
 
 [install]
 [install.alpha_software]
@@ -42,12 +41,10 @@ ask.fr = "Veuillez noter que GoToSocial est au tout début de son développment.
 type = "display_text"
 
 [install.domain]
-# this is a generic question - ask strings are automatically handled by Yunohost's core
 full_domain = true
 type = "domain"
 
 [install.admin]
-# this is a generic question - ask strings are automatically handled by Yunohost's core
 example = "johndoe"
 help.en = "Must be in lower case and without special characters."
 help.fr = "Doit être en minuscule et sans caractère special."
@@ -60,7 +57,6 @@ example = "johndoe@example.com"
 type = "string"
 
 [install.password]
-# this is a generic question - ask strings are automatically handled by Yunohost's core
 help.en = "Must contain: upper case, lower case, number and special character."
 help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
 type = "password"
@@ -100,7 +96,6 @@ type = "boolean"
 main.url = "/"
 
 [resources.ports]
-main.default = 8095
 
 [resources.apt]
 packages = "postgresql, postgresql-contrib"

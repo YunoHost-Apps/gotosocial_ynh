@@ -12,46 +12,46 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-#REMOVEME? ynh_script_progression --message="Loading installation settings..."
+#REMOVEME? #REMOVEME? ynh_script_progression --message="Loading installation settings..."
 
-#REMOVEME? app="$YNH_APP_INSTANCE_NAME"
+#REMOVEME? #REMOVEME? app="$YNH_APP_INSTANCE_NAME"
 
-#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
+#REMOVEME? #REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
 
-#REMOVEME? domain=$(ynh_app_setting_get --app="$app" --key=domain)
-#REMOVEME? port=$(ynh_app_setting_get --app="$app" --key=port)
-#REMOVEME? path=$(ynh_app_setting_get --app="$app" --key=path)
+#REMOVEME? #REMOVEME? domain=$(ynh_app_setting_get --app="$app" --key=domain)
+#REMOVEME? #REMOVEME? port=$(ynh_app_setting_get --app="$app" --key=port)
+#REMOVEME? #REMOVEME? path=$(ynh_app_setting_get --app="$app" --key=path)
 
-#REMOVEME? client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
+#REMOVEME? #REMOVEME? client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
 
-#REMOVEME? db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
-#REMOVEME? db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
-#REMOVEME? db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
+#REMOVEME? #REMOVEME? db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
+#REMOVEME? #REMOVEME? db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
+#REMOVEME? #REMOVEME? db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
-#REMOVEME? data_dir=$(ynh_app_setting_get --app="$app" --key=data_dir)
+#REMOVEME? #REMOVEME? data_dir=$(ynh_app_setting_get --app="$app" --key=data_dir)
 
-#REMOVEME? instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
-#REMOVEME? instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
-#REMOVEME? instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
+#REMOVEME? #REMOVEME? instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
+#REMOVEME? #REMOVEME? instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
+#REMOVEME? #REMOVEME? instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
 
-#REMOVEME? accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
-#REMOVEME? accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
-#REMOVEME? accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
-#REMOVEME? accounts_allow_custom_css=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
+#REMOVEME? #REMOVEME? accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
+#REMOVEME? #REMOVEME? accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
+#REMOVEME? #REMOVEME? accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
+#REMOVEME? #REMOVEME? accounts_allow_custom_css=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
 
-#REMOVEME? media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
-#REMOVEME? media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
-#REMOVEME? media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
-#REMOVEME? media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
-#REMOVEME? media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
-#REMOVEME? media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
-#REMOVEME? media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
+#REMOVEME? #REMOVEME? media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
+#REMOVEME? #REMOVEME? media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
+#REMOVEME? #REMOVEME? media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
+#REMOVEME? #REMOVEME? media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
+#REMOVEME? #REMOVEME? media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
+#REMOVEME? #REMOVEME? media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
+#REMOVEME? #REMOVEME? media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
 
-#REMOVEME? statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
-#REMOVEME? statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
-#REMOVEME? statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
-#REMOVEME? statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
-#REMOVEME? statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
+#REMOVEME? #REMOVEME? statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
+#REMOVEME? #REMOVEME? statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
+#REMOVEME? #REMOVEME? statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
+#REMOVEME? #REMOVEME? statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
+#REMOVEME? #REMOVEME? statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
 #=================================================
 # CHECK VERSION
@@ -68,16 +68,16 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
+#REMOVEME? #REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
 
 # Backup the current version of the app
-#REMOVEME? ynh_backup_before_upgrade
-#REMOVEME? ynh_clean_setup () {
+#REMOVEME? #REMOVEME? ynh_backup_before_upgrade
+#REMOVEME? #REMOVEME? ynh_clean_setup () {
 	# Restore it if the upgrade fails
-#REMOVEME? 	ynh_restore_upgradebackup
+#REMOVEME? #REMOVEME? 	ynh_restore_upgradebackup
 }
 # Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
+#REMOVEME? #REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -97,9 +97,9 @@ ynh_script_progression --message="Ensuring downward compatibility..."
 if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -z "$db_user" ]
 then
 	# import old parameters
-#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-#REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-#REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+#REMOVEME? #REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+#REMOVEME? #REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+#REMOVEME? #REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	client_max_body_size="100M"
 	media_image_max_size="2097152"
@@ -118,7 +118,7 @@ then
 	registration_reason=$(convert_bool "$registration_reason")
 	# fix db_user existence
 	db_user=$db_name
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
+#REMOVEME? #REMOVEME? 	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
 	# registration of new parameters
 	ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 	ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
@@ -141,9 +141,9 @@ fi
 if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "$instance_expose_peers" ]
 then
 	# import old parameters
-#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-#REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-#REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+#REMOVEME? #REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+#REMOVEME? #REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+#REMOVEME? #REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	instance_expose_peers="false"
 	instance_expose_suspended="false"
@@ -188,10 +188,10 @@ fi
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-#REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..."
+#REMOVEME? #REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..."
 
 # Create a dedicated user (if not existing)
-#REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
+#REMOVEME? #REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -229,9 +229,9 @@ ynh_add_nginx_config
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
-#REMOVEME? ynh_script_progression --message="Upgrading dependencies..."
+#REMOVEME? #REMOVEME? ynh_script_progression --message="Upgrading dependencies..."
 
-#REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
+#REMOVEME? #REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
 
 #=================================================
 # UPDATE A CONFIG FILE
