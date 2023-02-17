@@ -644,11 +644,8 @@ advanced-cookies-samesite: "__ADVANCED_COOKIES_SAMESITE__"
 # If you set this to 0 or less, rate limiting will be disabled entirely.
 #
 # Examples: [1000, 500, 0]
-# Default: 1000
-advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
-
 # Default: 300
-advanced-rate-limit-requests: 300
+advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
 
 # Int. Amount of open requests to permit per CPU, per router grouping, before applying http
 # request throttling. Any requests beyond the calculated limit are held in a backlog queue for
