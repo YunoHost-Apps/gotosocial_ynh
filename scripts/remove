@@ -82,6 +82,8 @@ ynh_secure_remove --file="$datadir"
 #=================================================
 ynh_script_progression --message="Removing NGINX web server configuration..." --weight=1
 
+main_domain="$domain"
+
 # Remove the dedicated NGINX config of the main domain
 ynh_remove_nginx_config
 
@@ -89,13 +91,12 @@ ynh_remove_nginx_config
 if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
 
 	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
-	domain_backup="$domain"
 	domain="$account_domain"
 
 	ynh_remove_nginx_config
 
 	# undo the trick
-	domain="$domain_backup"
+	domain="$main_domain"
 fi
 
 #=================================================

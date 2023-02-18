@@ -278,6 +278,8 @@ chown -R "$app:www-data" "$final_path"
 #=================================================
 ynh_script_progression --message="Upgrading NGINX web server configuration..."
 
+main_domain="$domain"
+
 # Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
 
@@ -285,13 +287,12 @@ ynh_add_nginx_config
 if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
 
 	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
-	domain_backup="$domain"
 	domain="$account_domain"
 
 	ynh_add_nginx_config
 
 	# undo the trick
-	domain="$domain_backup"
+	domain="$main_domain"
 fi
 
 #=================================================
