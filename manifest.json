@@ -40,22 +40,9 @@
                 }
             },
             {
-                "name": "main_domain",
+                "name": "domain",
                 "type": "domain",
                 "example": "gts.example.org"
-            },
-            {
-                "name": "account_domain",
-                "type": "domain",
-                "ask": {
-                    "en": "Domain to use when federating profiles.",
-                    "fr": "Domaine à utiliser lors de la fédération des profils."
-                },
-                "help": {
-                    "en": "This is useful when you want your server to be at eg., \"gts.example.org\", but you want the domain on accounts to be \"example.org\" because it looks better or is just shorter/easier to remember. ⚠️ WARNING: The domain filled in must be parent to the one previously filled in. This cannot be changed after installation, as the main domain parameter. By default, set this parameter to the same as the previously defined domain.",
-                    "fr": "Cette option est utile lorsque vous souhaitez que votre serveur se trouve à l'adresse \"gts.example.org\", par exemple, mais que vous souhaitez que le domaine des comptes soit \"example.org\" parce que c'est plus joli, plus court ou plus facile à retenir. ⚠️ ATTENTION : Le domaine renseigné doit être parent à celui renseigné précédemment ! Ce paramètre ne peut etre modifié après installation, tout comme le paramètre du domaine principal. Par défaut, mettez ce paramètre à l'identique du domaine renseigné précédemment."
-                },
-                "example": "example.org"
             },
             {
                 "name": "admin",

@@ -21,7 +21,6 @@ final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
 
 domain=$(ynh_app_setting_get --app="$app" --key=domain)
-account_domain=$(ynh_app_setting_get --app="$app" --key=account_domain)
 port=$(ynh_app_setting_get --app="$app" --key=port)
 path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
 
@@ -233,11 +232,9 @@ then
 	advanced_rate_limit_requests="300"
 	# declaration of new parameter
 	instance_expose_suspended_web="false"
-	account_domain=""
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
-	ynh_app_setting_set --app="$app" --key=account_domain --value="$account_domain"
 fi
 
 #=================================================
@@ -278,22 +275,8 @@ chown -R "$app:www-data" "$final_path"
 #=================================================
 ynh_script_progression --message="Upgrading NGINX web server configuration..."
 
-main_domain="$domain"
-
 # Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
-
-# Create a dedicated NGINX config for the account domain, if applicable
-if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
-
-	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
-	domain="$account_domain"
-
-	ynh_add_nginx_config
-
-	# undo the trick
-	domain="$main_domain"
-fi
 
 #=================================================
 # UPGRADE DEPENDENCIES

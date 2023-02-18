@@ -29,7 +29,6 @@ ynh_print_info --message="Loading installation settings..."
 app="$YNH_APP_INSTANCE_NAME"
 
 domain=$(ynh_app_setting_get --app="$app" --key=domain)
-account_domain=$(ynh_app_setting_get --app="$app" --key=account_domain)
 
 db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
 
@@ -64,7 +63,6 @@ ynh_backup --src_path="$datadir" --is_big
 #=================================================
 
 ynh_backup --src_path="/etc/nginx/conf.d/$domain.d/$app.conf"
-ynh_backup --src_path="/etc/nginx/conf.d/$account_domain.d/$app.conf"
 
 #=================================================
 # SPECIFIC BACKUP

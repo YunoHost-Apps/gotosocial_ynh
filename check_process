@@ -5,8 +5,6 @@
 
 ;; Test complet
 	; Manifest
-		main_domain="gts.domain.tld"
-		account_domain="domain.tld"
 		admin="xana"
 		email="user@example.com"
 		password="1Strong-Password"
