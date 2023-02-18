@@ -202,7 +202,7 @@ ynh_setup_source --dest_dir="$final_path" --source_id="$architecture"
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
 chmod 750 "$final_path"
-chmod -R o-rwx "$final_path")
+chmod -R o-rwx "$final_path"
 chown -R "$app:www-data" "$final_path"
 
 #=================================================
@@ -225,7 +225,6 @@ if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then
 	# undo the trick
 	domain="$domain_backup"
 fi
-
 
 #=================================================
 # CREATE DATA DIRECTORY
