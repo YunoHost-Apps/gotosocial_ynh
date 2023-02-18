@@ -210,8 +210,21 @@ chown -R "$app:www-data" "$final_path"
 #=================================================
 ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 
-# Create a dedicated NGINX config
+# Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
+
+# Create a dedicated NGINX config for the account domain, if applicable
+if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
+
+	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
+	domain="$account_domain"
+
+	ynh_add_nginx_config
+
+	# undo the trick
+	account_domain="$domain"
+fi
+
 
 #=================================================
 # CREATE DATA DIRECTORY

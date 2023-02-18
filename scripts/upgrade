@@ -21,6 +21,7 @@ final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
 landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
 
 domain=$(ynh_app_setting_get --app="$app" --key=domain)
+account_domain=$(ynh_app_setting_get --app="$app" --key=account_domain)
 port=$(ynh_app_setting_get --app="$app" --key=port)
 path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
 
@@ -277,8 +278,20 @@ chown -R "$app:www-data" "$final_path"
 #=================================================
 ynh_script_progression --message="Upgrading NGINX web server configuration..."
 
-# Create a dedicated NGINX config
+# Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
+
+# Create a dedicated NGINX config for the account domain, if applicable
+if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
+
+	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
+	domain="$account_domain"
+
+	ynh_add_nginx_config
+
+	# undo the trick
+	account_domain="$domain"
+fi
 
 #=================================================
 # UPGRADE DEPENDENCIES
