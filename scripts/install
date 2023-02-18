@@ -29,7 +29,7 @@ app="$YNH_APP_INSTANCE_NAME"
 landing_page_user=""
 
 domain="$YNH_APP_ARG_DOMAIN"
-account_domain"$YNH_APP_ARG_ACCOUNT_DOMAIN"
+account_domain="$YNH_APP_ARG_ACCOUNT_DOMAIN"
 path_url="/"
 
 client_max_body_size="100M"
