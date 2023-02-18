@@ -28,7 +28,7 @@ app="$YNH_APP_INSTANCE_NAME"
 
 landing_page_user=""
 
-domain="$YNH_APP_ARG_DOMAIN"
+domain="$YNH_APP_ARG_MAIN_DOMAIN"
 account_domain="$YNH_APP_ARG_ACCOUNT_DOMAIN"
 path_url="/"
 
