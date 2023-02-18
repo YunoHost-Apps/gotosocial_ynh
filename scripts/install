@@ -202,7 +202,7 @@ ynh_setup_source --dest_dir="$final_path" --source_id="$architecture"
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
 chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
+chmod -R o-rwx "$final_path")
 chown -R "$app:www-data" "$final_path"
 
 #=================================================
@@ -217,12 +217,13 @@ ynh_add_nginx_config
 if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
 
 	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
+	domain_backup="$domain"
 	domain="$account_domain"
 
 	ynh_add_nginx_config
 
 	# undo the trick
-	account_domain="$domain"
+	domain="$domain_backup"
 fi
 
 

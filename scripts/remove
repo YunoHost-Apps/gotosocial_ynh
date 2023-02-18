@@ -89,12 +89,13 @@ ynh_remove_nginx_config
 if [ "$domain" != "$account_domain" ] && [ -n "$account_domain" ]; then 
 
 	# switching domain name for tricking ynh_add_nginx_config (who supports only the 'domain' variable)
+	domain_backup="$domain"
 	domain="$account_domain"
 
 	ynh_remove_nginx_config
 
 	# undo the trick
-	account_domain="$domain"
+	domain="$domain_backup"
 fi
 
 #=================================================
