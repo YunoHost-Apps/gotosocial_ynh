@@ -5,7 +5,6 @@
 
 ;; Test complet
 	; Manifest
-		domain="goto.domain.tld"
 		account_domain="sub.domain.tld"
 		admin="xana"
 		email="user@example.com"
