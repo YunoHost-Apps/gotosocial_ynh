@@ -232,9 +232,11 @@ then
 	advanced_rate_limit_requests="300"
 	# declaration of new parameter
 	instance_expose_suspended_web="false"
+	account_domain=""
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
+	ynh_app_setting_set --app="$app" --key=account_domain --value="$account_domain"
 fi
 
 #=================================================

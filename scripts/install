@@ -29,6 +29,7 @@ app="$YNH_APP_INSTANCE_NAME"
 landing_page_user=""
 
 domain="$YNH_APP_ARG_DOMAIN"
+account_domain"$YNH_APP_ARG_ACCOUNT_DOMAIN"
 path_url="/"
 
 client_max_body_size="100M"
@@ -95,6 +96,7 @@ ynh_app_setting_set --app="$app" --key=final_path --value="$final_path"
 ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
 
 ynh_app_setting_set --app="$app" --key=domain --value="$domain"
+ynh_app_setting_set --app="$app" --key=account_domain --value="$account_domain"
 ynh_app_setting_set --app="$app" --key=path_url --value="$path_url"
 
 ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
