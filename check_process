@@ -5,8 +5,8 @@
 
 ;; Test complet
 	; Manifest
-		domain="goto.domain.tld"
-		account_domain="domain.tld"
+		domain="goto.test.domain.tld"
+		account_domain="test.domain.tld"
 		admin="xana"
 		email="user@example.com"
 		password="1Strong-Password"
