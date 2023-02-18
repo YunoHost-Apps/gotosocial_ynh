@@ -40,7 +40,7 @@
                 }
             },
             {
-                "name": "domain",
+                "name": "main_domain",
                 "type": "domain",
                 "example": "gts.example.org"
             },
