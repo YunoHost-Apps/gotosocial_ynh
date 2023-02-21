@@ -6,6 +6,7 @@ It shall NOT be edited by hand.
 # GoToSocial pour YunoHost
 
 [![Niveau d’intégration](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+
 [![Installer GoToSocial avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
 *[Read this readme in english.](./README.md)*
@@ -24,7 +25,7 @@ Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et p
 Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Version incluse :** 0.6.0~ynh1
+**Version incluse :** 0.7.1~ynh1
 
 ## Captures d’écran
 

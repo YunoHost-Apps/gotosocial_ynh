@@ -81,7 +81,7 @@ ynh_secure_remove --file="$datadir"
 #=================================================
 ynh_script_progression --message="Removing NGINX web server configuration..." --weight=1
 
-# Remove the dedicated NGINX config
+# Remove the dedicated NGINX config of the main domain
 ynh_remove_nginx_config
 
 #=================================================

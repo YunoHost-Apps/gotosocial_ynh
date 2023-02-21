@@ -34,6 +34,7 @@ datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
+instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
 instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
 instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
 
@@ -225,6 +226,18 @@ then
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 fi
 
+# Upgrade from <0.7.1~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.7.1~ynh1 || [ -z "$instance_expose_suspended_web" ]
+then
+	# updating parameters
+	advanced_rate_limit_requests="300"
+	# declaration of new parameter
+	instance_expose_suspended_web="false"
+	# registration of parameters
+	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
+	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
+fi
+
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
@@ -263,7 +276,7 @@ chown -R "$app:www-data" "$final_path"
 #=================================================
 ynh_script_progression --message="Upgrading NGINX web server configuration..."
 
-# Create a dedicated NGINX config
+# Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
 
 #=================================================

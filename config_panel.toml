@@ -245,6 +245,16 @@ help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers
 help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=suspended afin de voir la liste des instances bloquées ou suspendues par votre instance. Cela permettra également aux utilisateurs non authentifiés de consulter la liste via l'interface Web. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
 type = "select"
 
+[main.instance.instance_expose_suspended_web]
+ask.en = "API: Expose suspended on Web (/about/suspended)?"
+ask.fr = "API : Exposer les instances bloquées sur le Web (/about/suspended) ?"
+bind = "instance-expose-suspended_web:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Allow unauthenticated users to view /about/suspended, showing the HTML rendered list of instances that this instance blocks/suspends."
+help.fr = "Permet aux utilisateurs non authentifiés d'afficher /about/suspended, montrant la liste rendue en HTML des instances que cette instance bloque ou suspend."
+type = "select"
+
 [main.instance.instance_expose_public_timeline]
 ask.en = "API: Expose public timeline?"
 ask.fr = "API : Exposer la timeline publique ?"
@@ -296,8 +306,8 @@ type = "select"
 ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
 ask.fr = "Nombre de requêtes autorisées à partir d'une seule adresse IP dans un délai de 5 minutes."
 bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
-default = "1000"
-help.en = """Default: 1000\
+default = "300"
+help.en = """Default: 300\
 If this amount is exceeded, a 429 HTTP error code will be returned.\
 See https://docs.gotosocial.org/en/latest/api/swagger/#rate-limit.\
 If you find yourself adjusting this limit because it's regularly being exceeded, you should first verify that your settings for `trusted-proxies` are correct.\
