@@ -248,7 +248,7 @@ type = "select"
 [main.instance.instance_expose_suspended_web]
 ask.en = "API: Expose suspended on Web (/about/suspended)?"
 ask.fr = "API : Exposer les instances bloquées sur le Web (/about/suspended) ?"
-bind = "instance-expose-suspended_web:__FINALPATH__/config.yaml"
+bind = "instance-expose-suspended-web:__FINALPATH__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to view /about/suspended, showing the HTML rendered list of instances that this instance blocks/suspends."
