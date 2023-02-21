@@ -41,8 +41,7 @@
             },
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "gts.example.org"
+                "type": "domain"
             },
             {
                 "name": "admin",
