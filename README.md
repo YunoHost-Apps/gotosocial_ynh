@@ -113,7 +113,7 @@ And to promote them as an administrator of your instance:
 
 ## Documentation and resources
 
-* Official app website: <https://docs.gotosocial.org/>
+* Official app website: <https://gotosocial.org/>
 * Official user documentation: <https://docs.gotosocial.org/en/latest/>
 * Official admin documentation: <https://docs.gotosocial.org/en/latest/>
 * Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>

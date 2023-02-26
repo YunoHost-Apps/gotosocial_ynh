@@ -113,7 +113,7 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://docs.gotosocial.org/>
+* Site officiel de l’app : <https://gotosocial.org/>
 * Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
 * Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
 * Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
