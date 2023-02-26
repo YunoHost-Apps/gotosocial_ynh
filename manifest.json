@@ -10,7 +10,7 @@
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "AGPL-3.0-only",
-        "website": "https://docs.gotosocial.org/",
+        "website": "https://gotosocial.org/",
         "demo": "",
         "admindoc": "https://docs.gotosocial.org/en/latest/",
         "userdoc": "https://docs.gotosocial.org/en/latest/",
