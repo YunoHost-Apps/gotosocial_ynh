@@ -55,6 +55,11 @@ host: "__DOMAIN__"
 # to "gts.example.org/.well-known/webfinger" so that GtS can handle them properly.
 #
 # You should also redirect requests at "example.org/.well-known/nodeinfo" in the same way.
+#
+# You should also redirect requests at "example.org/.well-known/host-meta" in the same way. This endpoint
+# is used by a number of clients to discover the API endpoint to use when the host and account domain are
+# different.
+#
 # An empty string (ie., not set) means that the same value as 'host' will be used.
 #
 # DO NOT change this after your server has already run once, or you will break things!
@@ -226,63 +231,95 @@ db-sqlite-cache-size: "8MiB"
 db-sqlite-busy-timeout: "5m"
 
 cache:
+  # Cache configuration options:
+  #
+  # max-size   = maximum cached objects count
+  # ttl        = cached object lifetime
+  # sweep-freq = frequency to look for stale cache objects
+  #              (zero will disable cache sweeping)
+
+  #############################
+  #### VISIBILITY CACHES ######
+  #############################
+  #
+  # Configure Status and account 
+  # visibility cache.
+
+  visibility-max-size: 2000
+  visibility-ttl: "30m"
+  visibility-sweep-freq: "1m"
+
   gts:
     ###########################
     #### DATABASE CACHES ######
     ###########################
     #
-    # Database cache configuration:
-    #
-    # Allows configuration of caches used
-    # when loading GTS models from the database.
-    #
-    # max-size   = maximum cached objects count
-    # ttl        = cached object lifetime
-    # sweep-freq = frequency to look for stale cache objects
+    # Configure GTS database
+    # model caches.
 
-    account-max-size: 100
-    account-ttl: "5m"
-    account-sweep-freq: "10s"
+    account-max-size: 2000
+    account-ttl: "30m"
+    account-sweep-freq: "1m"
 
     block-max-size: 100
-    block-ttl: "5m"
-    block-sweep-freq: "10s"
+    block-ttl: "30m"
+    block-sweep-freq: "1m"
 
-    domain-block-max-size: 1000
+    domain-block-max-size: 2000
     domain-block-ttl: "24h"
     domain-block-sweep-freq: "1m"
 
-    emoji-max-size: 500
-    emoji-ttl: "5m"
-    emoji-sweep-freq: "10s"
+    emoji-max-size: 2000
+    emoji-ttl: "30m"
+    emoji-sweep-freq: "1m"
 
     emoji-category-max-size: 100
-    emoji-category-ttl: "5m"
-    emoji-category-sweep-freq: "10s"
+    emoji-category-ttl: "30m"
+    emoji-category-sweep-freq: "1m"
 
-    mention-max-size: 500
-    mention-ttl: "5m"
-    mention-sweep-freq: "10s"
+    follow-max-size: 2000
+    follow-ttl: "30m"
+    follow-sweep-freq: "1m"
 
-    notification-max-size: 500
-    notification-ttl: "5m"
-    notification-sweep-freq: "10s"
+    follow-request-max-size: 2000
+    follow-request-ttl: "30m"
+    follow-request-sweep-freq: "1m"
+
+    media-max-size: 1000
+    media-ttl: "30m"
+    media-sweep-freq: "1m"
+
+    mention-max-size: 2000
+    mention-ttl: "30m"
+    mention-sweep-freq: "1m"
+
+    notification-max-size: 1000
+    notification-ttl: "30m"
+    notification-sweep-freq: "1m"
 
     report-max-size: 100
-    report-ttl: "5m"
-    report-sweep-freq: "10s"
+    report-ttl: "30m"
+    report-sweep-freq: "1m"
 
-    status-max-size: 500
-    status-ttl: "5m"
-    status-sweep-freq: "10s"
+    status-max-size: 2000
+    status-ttl: "30m"
+    status-sweep-freq: "1m"
 
-    tombstone-max-size: 100
-    tombstone-ttl: "5m"
-    tombstone-sweep-freq: "10s"
+    status-fave-max-size: 2000
+    status-fave-ttl: "30m"
+    status-fave-sweep-freq: "1m"
 
-    user-max-size: 100
-    user-ttl: "5m"
-    user-sweep-freq: "10s"
+    tombstone-max-size: 500
+    tombstone-ttl: "30m"
+    tombstone-sweep-freq: "1m"
+
+    user-max-size: 500
+    user-ttl: "30m"
+    user-sweep-freq: "1m"
+
+    webfinger-max-size": 250
+    webfinger-ttl: "24h"
+    webfinger-sweep-freq": "1m"
 
 ######################
 ##### WEB CONFIG #####
@@ -573,6 +610,22 @@ letsencrypt-cert-dir: "/gotosocial/storage/certs"
 # Default: ""
 letsencrypt-email-address: ""
 
+##############################
+##### MANUAL TLS CONFIG  #####
+##############################
+
+# String. Path to a PEM-encoded file on disk that includes the certificate chain 
+# and the public key
+# Examples: ["/gotosocial/storage/certs/chain.pem"]
+# Default: ""
+tls-certificate-chain: ""
+
+# String. Path to a PEM-encoded file on disk containing the private key for the
+# associated tls-certificate-chain
+# Examples: ["/gotosocial/storage/certs/private.pem"]
+# Default: ""
+tls-certificate-key: ""
+
 #######################
 ##### OIDC CONFIG #####
 #######################
@@ -618,7 +671,7 @@ oidc-client-secret: ""
 # Array of string. Scopes to request from the OIDC provider. The returned values will be used to
 # populate users created in GtS as a result of the authentication flow. 'openid' and 'email' are required.
 # 'profile' is used to extract a username for the newly created user.
-# 'groups' is optional and can be used to determine if a user is an admin (if they're in the group 'admin' or 'admins').
+# 'groups' is optional and can be used to determine if a user is an admin based on oidc-admin-groups.
 # Examples: See eg., https://auth0.com/docs/scopes/openid-connect-scopes
 # Default: ["openid", "email", "profile", "groups"]
 oidc-scopes:
@@ -633,6 +686,11 @@ oidc-scopes:
 # Options: [true, false]
 # Default: false
 oidc-link-existing: false
+
+# Array of string. If the returned ID token contains a 'groups' claim that matches one of the
+# groups in oidc-admin-groups, then this user will be granted admin rights on the GtS instance
+# Default: []
+oidc-admin-groups: []
 
 #######################
 ##### SMTP CONFIG #####
@@ -668,6 +726,18 @@ smtp-password: ""
 # Examples: ["mail@example.org"]
 # Default: ""
 smtp-from: "GoToSocial@__DOMAIN__"
+
+# Bool. If true, when an email is sent that has multiple recipients, each recipient
+# will be included in the To field, so that each recipient can see who else got the
+# email, and they can 'reply all' to the other recipients if they want to.
+#
+# If false, email will be sent to Undisclosed Recipients, and each recipient will not
+# be able to see who else received the email.
+#
+# It might be useful to change this setting to 'true' if you want to be able to discuss
+# new moderation reports with other admins by 'replying-all' to the notification email.
+# Default: false
+smtp-disclose-recipients: false
 
 #########################
 ##### SYSLOG CONFIG #####
