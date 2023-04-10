@@ -253,7 +253,7 @@ then
 	smtp_port="25"
 	smtp_username=""
 	smtp_password=""
-	smtp_from="GoToSocial@$domain"
+	smtp_from="noreply@$domain"
 	smtp_disclose_recipients="false"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
