@@ -702,30 +702,30 @@ oidc-admin-groups: []
 # If this is not set, smtp will not be used to send emails, and you can ignore the other settings.
 # Examples: ["mail.example.org", "localhost"]
 # Default: ""
-smtp-host: "localhost"
+smtp-host: "__SMTP_HOST__"
 
 # Int. Port to use to connect to the smtp server.
 # Examples: []
 # Default: 0
-smtp-port: 25
+smtp-port: __SMTP_PORT__
 
 # String. Username to use when authenticating with the smtp server.
 # This should have been provided to you by your smtp host.
 # This is often, but not always, an email address.
 # Examples: ["maillord@example.org"]
 # Default: ""
-smtp-username: ""
+smtp-username: "__SMTP_USERNAME__"
 
 # String. Password to use when authenticating with the smtp server.
 # This should have been provided to you by your smtp host.
 # Examples: ["1234", "password"]
 # Default: ""
-smtp-password: ""
+smtp-password: "__SMTP_PASSWORD__"
 
 # String. 'From' address for sent emails.
 # Examples: ["mail@example.org"]
 # Default: ""
-smtp-from: "GoToSocial@__DOMAIN__"
+smtp-from: "__SMTP_FROM__"
 
 # Bool. If true, when an email is sent that has multiple recipients, each recipient
 # will be included in the To field, so that each recipient can see who else got the
@@ -737,7 +737,7 @@ smtp-from: "GoToSocial@__DOMAIN__"
 # It might be useful to change this setting to 'true' if you want to be able to discuss
 # new moderation reports with other admins by 'replying-all' to the notification email.
 # Default: false
-smtp-disclose-recipients: false
+smtp-disclose-recipients: __SMTP_DISCLOSE_RECIPIENTS__
 
 #########################
 ##### SYSLOG CONFIG #####
