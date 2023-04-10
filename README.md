@@ -25,7 +25,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.7.1~ynh2
+**Shipped version:** 0.8.0~ynh1
 
 ## Screenshots
 
@@ -97,8 +97,6 @@ To create a new user, proceed as follows:
 
 ``` bash
 ./gotosocial --config-path config.yaml admin account create --username some_username --email someuser@example.org --password 'SomeLongAndComplicatedPassword'
-
-./gotosocial --config-path config.yaml admin account confirm --username some_username
 ```
 
 And to promote them as an administrator of your instance:
@@ -113,7 +111,7 @@ And to promote them as an administrator of your instance:
 
 ## Documentation and resources
 
-* Official app website: <https://docs.gotosocial.org/>
+* Official app website: <https://gotosocial.org/>
 * Official user documentation: <https://docs.gotosocial.org/en/latest/>
 * Official admin documentation: <https://docs.gotosocial.org/en/latest/>
 * Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>

@@ -276,8 +276,6 @@ ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
 
 "$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
 
-"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account confirm --username "$admin"
-
 "$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
 
 #=================================================

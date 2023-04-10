@@ -62,8 +62,6 @@ To create a new user, proceed as follows:
 
 ``` bash
 ./gotosocial --config-path config.yaml admin account create --username some_username --email someuser@example.org --password 'SomeLongAndComplicatedPassword'
-
-./gotosocial --config-path config.yaml admin account confirm --username some_username
 ```
 
 And to promote them as an administrator of your instance:
