@@ -294,8 +294,8 @@ ask.en = "SMTP Server Hostname"
 ask.fr = "Nom d'hôte du serveur SMTP"
 bind = "smtp-host:__FINALPATH__/config.yaml"
 default = "localhost"
-help.en = "The hostname of the smtp server you want to use. Examples: mail.example.org, localhost"
-help.fr = "Le nom d'hôte du serveur smtp que vous souhaitez utiliser. Exemples: mail.example.org, localhost"
+help.en = "The hostname of the SMTP server you want to use. Examples: mail.example.org, localhost"
+help.fr = "Le nom d'hôte du serveur SMTP que vous souhaitez utiliser. Exemples: mail.example.org, localhost"
 type = "string"
 
 [main.smtp.smtp_port]
@@ -303,8 +303,8 @@ ask.en = "SMTP Port"
 ask.fr = "Port SMTP"
 bind = "smtp-port:__FINALPATH__/config.yaml"
 default = "25"
-help.en = "Port to use to connect to the smtp server"
-help.fr = "Port à utiliser pour se connecter au serveur smtp"
+help.en = "Port to use to connect to the SMTP server"
+help.fr = "Port à utiliser pour se connecter au serveur SMTP"
 type = "number"
 
 [main.smtp.smtp_username]
@@ -312,8 +312,8 @@ ask.en = "SMTP Username"
 ask.fr = "Nom d'utilisateur SMTP"
 bind = "smtp-username:__FINALPATH__/config.yaml"
 default = ""
-help.en = "Username to use when authenticating with the smtp server"
-help.fr = "Nom d'utilisateur à utiliser lors de l'authentification avec le serveur smtp"
+help.en = "Username to use when authenticating with the SMTP server"
+help.fr = "Nom d'utilisateur à utiliser lors de l'authentification avec le serveur SMTP"
 type = "string"
 
 [main.smtp.smtp_password]
@@ -321,8 +321,8 @@ ask.en = "SMTP Password"
 ask.fr = "Mot de passe SMTP"
 bind = "smtp-password:__FINALPATH__/config.yaml"
 default = ""
-help.en = "Password to use when authenticating with the smtp server"
-help.fr = "Mot de passe à utiliser lors de l'authentification avec le serveur smtp"
+help.en = "Password to use when authenticating with the SMTP server"
+help.fr = "Mot de passe à utiliser lors de l'authentification avec le serveur SMTP"
 type = "password"
 
 [main.smtp.smtp_from]
@@ -331,7 +331,7 @@ ask.fr = "Adresse d'expédition SMTP"
 bind = "smtp-from:__FINALPATH__/config.yaml"
 default = "GoToSocial@__DOMAIN__"
 help.en = "From address for sent emails"
-help.fr = "De l'adresse pour les e-mails envoyés"
+help.fr = "L'adresse utilisée pour les e-mails envoyés"
 type = "email"
 
 [main.smtp.smtp_disclose_recipients]
@@ -342,8 +342,8 @@ choices = ["true", "false"]
 default = "false"
 help.en = """true: Disclose all recipients in the To field\
 false: Email will be sent to Undisclosed Recipients"""
-help.fr = """vrai : divulguer tous les destinataires dans le champ À\
-false : l'e-mail sera envoyé aux destinataires non divulgués"""
+help.fr = """true : divulguer tous les destinataires dans le champ À\
+false : l'e-mail sera envoyé sans divulguer les destinataires"""
 type = "select"
 
 ####################
