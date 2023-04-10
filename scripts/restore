@@ -76,6 +76,13 @@ statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll
 statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
 statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
+smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
+smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
+smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)
+smtp_password=$(ynh_app_setting_get --app="$app" --key=smtp_password)
+smtp_from=$(ynh_app_setting_get --app="$app" --key=smtp_from)
+smtp_disclose_recipients=$(ynh_app_setting_get --app="$app" --key=smtp_disclose_recipients)
+
 advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
 advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
 

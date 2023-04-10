@@ -64,6 +64,13 @@ statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll
 statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
 statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
+smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
+smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
+smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)
+smtp_password=$(ynh_app_setting_get --app="$app" --key=smtp_password)
+smtp_from=$(ynh_app_setting_get --app="$app" --key=smtp_from)
+smtp_disclose_recipients=$(ynh_app_setting_get --app="$app" --key=smtp_disclose_recipients)
+
 advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
 advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
 
@@ -236,6 +243,25 @@ then
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
+fi
+
+# Upgrade from <0.8.0~ynh2:
+if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "$smtp_host" ]
+then
+	# declaration of new parameter
+	smtp_host="localhost"
+	smtp_port="25"
+	smtp_username=""
+	smtp_password=""
+	smtp_from="noreply@$domain"
+	smtp_disclose_recipients="false"
+	# registration of parameters
+	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
+	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+	ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
+	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+	ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
+	ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 fi
 
 #=================================================

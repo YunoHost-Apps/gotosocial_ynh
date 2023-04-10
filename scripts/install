@@ -71,6 +71,13 @@ statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
 
+smtp_host="localhost"
+smtp_port="25"
+smtp_username=""
+smtp_password=""
+smtp_from="noreply@$domain"
+smtp_disclose_recipients="false"
+
 advanced_cookies_samesite="lax"
 advanced_rate_limit_requests="300"
 
@@ -134,6 +141,13 @@ ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_
 ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
 ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
+
+ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
+ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
+ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
+ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 
 ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
 ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
