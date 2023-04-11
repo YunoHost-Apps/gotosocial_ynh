@@ -276,18 +276,22 @@ then
     if [ -n "$allow_custom_css" ]
     then
         ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="allow_custom_css"
+	ynh_app_setting_delete --app="$app" --key=allow_custom_css 
     fi
     if [ -n "$approval_required" ]
     then
         ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="approval_required"
+	ynh_app_setting_delete --app="$app" --key=approval_required 
     fi
     if [ -n "$reason_required" ]
     then
         ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="reason_required"
+	ynh_app_setting_delete --app="$app" --key=reason_required 
     fi
     if [ -n "$registration_open" ]
     then
         ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="registration_open"
+	ynh_app_setting_delete --app="$app" --key=registration_open 
     fi
 
 #=================================================
