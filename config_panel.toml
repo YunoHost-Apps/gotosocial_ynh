@@ -19,7 +19,7 @@ name = "Accounts config"
 
 help = "Config pertaining to creation and maintenance of accounts on the server, as well as defaults for new accounts."
 
-[main.accounts.registration_open]
+[main.accounts.accounts_registration_open]
 ask.en = "Open registrations?"
 ask.fr = "Inscriptions ouvertes ?"
 bind = "accounts-registration-open:__FINALPATH__/config.yaml"
@@ -29,7 +29,7 @@ help.en = "Do we want people to be able to just submit sign up requests, or do w
 help.fr = "Voulez-vous que les gens puissent simplement envoyer des demandes d'inscription, ou voulez-vous qu'iels doivent être invité-e-s ?"
 type = "select"
 
-[main.accounts.approval_required]
+[main.accounts.accounts_approval_required]
 ask.en = "Approval required?"
 ask.fr = "Validation requise ?"
 bind = "accounts-approval-required:__FINALPATH__/config.yaml"
@@ -39,7 +39,7 @@ help.en = "Do sign up requests require approval from an admin/moderator before a
 help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter/utiliser le serveur ?"
 type = "select"
 
-[main.accounts.reason_required]
+[main.accounts.accounts_reason_required]
 ask.en = "Reason required?"
 ask.fr = "Motif requis ?"
 bind = "accounts-reason-required:__FINALPATH__/config.yaml"
@@ -49,7 +49,7 @@ help.en = "Are sign up requests required to submit a reason for the request (eg.
 help.fr = "Les demandes d'inscription doivent-elles être motivées (par exemple, par une explication de la raison pour laquelle la personne souhaite rejoindre l'instance) ?"
 type = "select"
 
-[main.accounts.allow_custom_css]
+[main.accounts.accounts_allow_custom_css]
 ask.en = "Allow custom CSS?"
 ask.fr = "Autoriser le CSS personnalisé ?"
 bind = "accounts-allow-custom-css:__FINALPATH__/config.yaml"
