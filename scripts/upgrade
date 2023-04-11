@@ -293,6 +293,7 @@ then
         ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="registration_open"
 	ynh_app_setting_delete --app="$app" --key=registration_open 
     fi
+fi
 
 #=================================================
 # CREATE DEDICATED USER
