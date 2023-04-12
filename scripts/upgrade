@@ -267,32 +267,32 @@ fi
 # Upgrade from <0.8.0~ynh3:
 if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh3
 then
-    # get settings from problem key
-    allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
-    approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
-    reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
-    registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-    # apply setting to correct key if set on old key
-    if [ -n "$allow_custom_css" ]
-    then
-        ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$allow_custom_css"
-	ynh_app_setting_delete --app="$app" --key=allow_custom_css 
-    fi
-    if [ -n "$approval_required" ]
-    then
-        ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$approval_required"
-	ynh_app_setting_delete --app="$app" --key=approval_required 
-    fi
-    if [ -n "$reason_required" ]
-    then
-        ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$reason_required"
-	ynh_app_setting_delete --app="$app" --key=reason_required 
-    fi
-    if [ -n "$registration_open" ]
-    then
-        ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$registration_open"
-	ynh_app_setting_delete --app="$app" --key=registration_open 
-    fi
+	# get settings from problem key
+	allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
+	approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
+	reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
+	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+	# apply setting to correct key if set on old key
+	if [ -n "$allow_custom_css" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$allow_custom_css"
+		ynh_app_setting_delete --app="$app" --key=allow_custom_css 
+	fi
+	if [ -n "$approval_required" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$approval_required"
+		ynh_app_setting_delete --app="$app" --key=approval_required 
+	fi
+	if [ -n "$reason_required" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$reason_required"
+		ynh_app_setting_delete --app="$app" --key=reason_required 
+	fi
+	if [ -n "$registration_open" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$registration_open"
+		ynh_app_setting_delete --app="$app" --key=registration_open 
+	fi
 fi
 
 #=================================================
