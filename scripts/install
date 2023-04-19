@@ -17,10 +17,6 @@ landing_page_user=""
 client_max_body_size="100M"
 
 # Config stuff:
-
-#REMOVEME? accounts_registration_open=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REGISTRATION_OPEN")
-#REMOVEME? accounts_approval_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_APPROVAL_REQUIRED")
-#REMOVEME? accounts_reason_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REASON_REQUIRED")
 accounts_allow_custom_css="false"
 
 instance_expose_peers="false"
@@ -65,18 +61,9 @@ advanced_rate_limit_requests="300"
 #=================================================
 #REMOVEME? ynh_script_progression --message="Storing installation settings..." --weight=1
 
-#REMOVEME? ynh_app_setting_set --app="$app" --key=install_dir --value="$install_dir"
-
 ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
-
-#REMOVEME? ynh_app_setting_set --app="$app" --key=domain --value="$domain"
-#REMOVEME? ynh_app_setting_set --app="$app" --key=path --value="$path"
-
 ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
-
-#REMOVEME? ynh_app_setting_set --app="$app" --key=admin --value="$admin"
 ynh_app_setting_set --app="$app" --key=email --value="$email"
-#REMOVEME? ynh_app_setting_set --app="$app" --key=password --value="$password"
 
 ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
 ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
@@ -111,9 +98,9 @@ ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$
 ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
 
 ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
-#REMOVEME? ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
 ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
-#REMOVEME? ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
 ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
 ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 
