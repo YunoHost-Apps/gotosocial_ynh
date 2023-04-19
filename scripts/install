@@ -34,6 +34,7 @@ accounts_allow_custom_css="false"
 
 instance_expose_peers="false"
 instance_expose_suspended="false"
+instance_expose_suspended_web="false"
 instance_expose_public_timeline="false"
 instance_deliver_to_shared_inboxes="true"
 
@@ -58,8 +59,15 @@ statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
 
+smtp_host="localhost"
+smtp_port="25"
+smtp_username=""
+smtp_password=""
+smtp_from="noreply@$domain"
+smtp_disclose_recipients="false"
+
 advanced_cookies_samesite="lax"
-advanced_rate_limit_requests="1000"
+advanced_rate_limit_requests="300"
 
 #=================================================
 # STORE SETTINGS FROM MANIFEST
@@ -86,6 +94,7 @@ ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accou
 
 ynh_app_setting_set --app="$app" --key=instance_expose_peers --value="$instance_expose_peers"
 ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$instance_expose_suspended"
+ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
 ynh_app_setting_set --app="$app" --key=instance_expose_public_timeline --value="$instance_expose_public_timeline"
 ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
 
@@ -109,6 +118,13 @@ ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_
 ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
 ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
+
+ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
+ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
+ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
+ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 
 ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
 ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
@@ -157,7 +173,7 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 
-# Create a dedicated NGINX config
+# Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
 
 #=================================================

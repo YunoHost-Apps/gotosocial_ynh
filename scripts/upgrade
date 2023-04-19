@@ -154,6 +154,68 @@ then
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 fi
 
+# Upgrade from <0.7.1~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.7.1~ynh1 || [ -z "$instance_expose_suspended_web" ]
+then
+	# updating parameters
+	advanced_rate_limit_requests="300"
+	# declaration of new parameter
+	instance_expose_suspended_web="false"
+	# registration of parameters
+	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
+	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
+fi
+
+# Upgrade from <0.8.0~ynh2:
+if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "$smtp_host" ]
+then
+	# declaration of new parameter
+	smtp_host="localhost"
+	smtp_port="25"
+	smtp_username=""
+	smtp_password=""
+	smtp_from="noreply@$domain"
+	smtp_disclose_recipients="false"
+	# registration of parameters
+	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
+	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+	ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
+	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+	ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
+	ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
+fi
+
+# Upgrade from <0.8.0~ynh3:
+if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh3
+then
+	# get settings from problem key
+	allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
+	approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
+	reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
+	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+	# apply setting to correct key if set on old key
+	if [ -n "$allow_custom_css" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$allow_custom_css"
+		ynh_app_setting_delete --app="$app" --key=allow_custom_css 
+	fi
+	if [ -n "$approval_required" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$approval_required"
+		ynh_app_setting_delete --app="$app" --key=approval_required 
+	fi
+	if [ -n "$reason_required" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$reason_required"
+		ynh_app_setting_delete --app="$app" --key=reason_required 
+	fi
+	if [ -n "$registration_open" ]
+	then
+		ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$registration_open"
+		ynh_app_setting_delete --app="$app" --key=registration_open 
+	fi
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
@@ -184,7 +246,7 @@ chown -R "$app:www-data" "$install_dir"
 #=================================================
 ynh_script_progression --message="Upgrading NGINX web server configuration..."
 
-# Create a dedicated NGINX config
+# Create a dedicated NGINX config for the main domain
 ynh_add_nginx_config
 
 #=================================================

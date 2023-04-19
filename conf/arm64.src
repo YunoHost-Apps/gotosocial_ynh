@@ -1,7 +1,7 @@
-SOURCE_URL=https://github.com/superseriousbusiness/gotosocial/releases/download/v0.6.0/gotosocial_0.6.0_linux_arm64.tar.gz
-SOURCE_SUM=a97b3aad81f72b990e9982686e6906599522cc8ec442d1e2d02ebba03b125168
+SOURCE_URL=https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_arm64.tar.gz
+SOURCE_SUM=671d66a6c7cd6b96b7499bf3e6419a1c4cc9278ff532191c0bcecc025fd4a0db
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_EXTRACT=true
 SOURCE_IN_SUBDIR=false
-SOURCE_FILENAME=gotosocial_0.6.0_linux_arm64.tar.gz
+SOURCE_FILENAME=gotosocial_0.8.1_linux_arm64.tar.gz
