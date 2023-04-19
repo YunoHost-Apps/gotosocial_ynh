@@ -10,95 +10,10 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
-#=================================================
-#REMOVEME? ynh_script_progression --message="Loading installation settings..."
-
-#REMOVEME? app="$YNH_APP_INSTANCE_NAME"
-
-#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
-
-#REMOVEME? landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
-
-#REMOVEME? domain=$(ynh_app_setting_get --app="$app" --key=domain)
-#REMOVEME? port=$(ynh_app_setting_get --app="$app" --key=port)
-#REMOVEME? path=$(ynh_app_setting_get --app="$app" --key=path)
-
-#REMOVEME? client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
-
-#REMOVEME? db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
-#REMOVEME? db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
-#REMOVEME? db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
-
-#REMOVEME? data_dir=$(ynh_app_setting_get --app="$app" --key=data_dir)
-
-#REMOVEME? instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
-#REMOVEME? instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
-#REMOVEME? instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
-#REMOVEME? instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
-#REMOVEME? instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
-
-#REMOVEME? accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
-#REMOVEME? accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
-#REMOVEME? accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
-#REMOVEME? accounts_allow_custom_css=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
-
-#REMOVEME? media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
-#REMOVEME? media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
-#REMOVEME? media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
-#REMOVEME? media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
-#REMOVEME? media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
-#REMOVEME? media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
-#REMOVEME? media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
-
-#REMOVEME? storage_backend=$(ynh_app_setting_get --app="$app" --key=storage_backend)
-#REMOVEME? storage_s3_endpoint=$(ynh_app_setting_get --app="$app" --key=storage_s3_endpoint)
-#REMOVEME? storage_s3_proxy=$(ynh_app_setting_get --app="$app" --key=storage_s3_proxy)
-#REMOVEME? storage_s3_access_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_access_key)
-#REMOVEME? storage_s3_secret_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_secret_key)
-#REMOVEME? storage_s3_bucket=$(ynh_app_setting_get --app="$app" --key=storage_s3_bucket)
-
-#REMOVEME? statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
-#REMOVEME? statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
-#REMOVEME? statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
-#REMOVEME? statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
-#REMOVEME? statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
-
-#REMOVEME? smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
-#REMOVEME? smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
-#REMOVEME? smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)
-#REMOVEME? smtp_password=$(ynh_app_setting_get --app="$app" --key=smtp_password)
-#REMOVEME? smtp_from=$(ynh_app_setting_get --app="$app" --key=smtp_from)
-#REMOVEME? smtp_disclose_recipients=$(ynh_app_setting_get --app="$app" --key=smtp_disclose_recipients)
-
-#REMOVEME? advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
-#REMOVEME? advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
-
-#=================================================
 # CHECK VERSION
 #=================================================
 
-### This helper will compare the version of the currently installed app and the version of the upstream package.
-### $upgrade_type can have 2 different values
-### - UPGRADE_APP if the upstream app version has changed
-### - UPGRADE_PACKAGE if only the YunoHost package has changed
-### ynh_check_app_version_changed will stop the upgrade if the app is up to date.
-### UPGRADE_APP should be used to upgrade the core app only if there's an upgrade to do.
 upgrade_type=$(ynh_check_app_version_changed)
-
-#=================================================
-# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
-#=================================================
-#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
-
-# Backup the current version of the app
-#REMOVEME? ynh_backup_before_upgrade
-#REMOVEME? ynh_clean_setup () {
-	# Restore it if the upgrade fails
-#REMOVEME? 	ynh_restore_upgradebackup
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -296,35 +211,17 @@ then
 fi
 
 #=================================================
-# CREATE DEDICATED USER
-#=================================================
-#REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..."
-
-# Create a dedicated user (if not existing)
-#REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..."
-
-	# detect_arch comes from _common.sh / personnal helpers
-	architecture=$(detect_arch)
 	
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir="$install_dir"  --keep="config.yaml"
 fi
 
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
-# this will be treated as a security issue.
-chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
 
@@ -337,27 +234,12 @@ ynh_script_progression --message="Upgrading NGINX web server configuration..."
 ynh_add_nginx_config
 
 #=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-#REMOVEME? ynh_script_progression --message="Upgrading dependencies..."
-
-#REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
-
-#=================================================
 # UPDATE A CONFIG FILE
 #=================================================
 ynh_script_progression --message="Updating a configuration file..."
 
-### Same as during install
-###
-### The file will automatically be backed-up if it's found to be manually modified (because
-### ynh_add_config keeps track of the file's checksum)
-
 ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 
-# FIXME: this should be handled by the core in the future
-# You may need to use chmod 600 instead of 400,
-# for example if the app is expected to be able to modify its own config
 chmod 400 "$install_dir/config.yaml"
 chown "$app:$app" "$install_dir/config.yaml"
 
@@ -392,13 +274,6 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 ynh_script_progression --message="Starting a systemd service..."
 
 ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..."
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
