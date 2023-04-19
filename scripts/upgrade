@@ -12,67 +12,67 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..."
+#REMOVEME? ynh_script_progression --message="Loading installation settings..."
 
-app="$YNH_APP_INSTANCE_NAME"
+#REMOVEME? app="$YNH_APP_INSTANCE_NAME"
 
-final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
+#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app="$app" --key=install_dir)
 
-landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
+#REMOVEME? landing_page_user=$(ynh_app_setting_get --app="$app" --key=landing_page_user)
 
-domain=$(ynh_app_setting_get --app="$app" --key=domain)
-port=$(ynh_app_setting_get --app="$app" --key=port)
-path_url=$(ynh_app_setting_get --app="$app" --key=path_url)
+#REMOVEME? domain=$(ynh_app_setting_get --app="$app" --key=domain)
+#REMOVEME? port=$(ynh_app_setting_get --app="$app" --key=port)
+#REMOVEME? path=$(ynh_app_setting_get --app="$app" --key=path)
 
-client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
+#REMOVEME? client_max_body_size=$(ynh_app_setting_get --app="$app" --key=client_max_body_size)
 
-db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
-db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
-db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
+#REMOVEME? db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
+#REMOVEME? db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
+#REMOVEME? db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
-datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
+#REMOVEME? data_dir=$(ynh_app_setting_get --app="$app" --key=data_dir)
 
-instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
-instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
-instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
-instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
-instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
+#REMOVEME? instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
+#REMOVEME? instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
+#REMOVEME? instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
+#REMOVEME? instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
+#REMOVEME? instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
 
-accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
-accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
-accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
-accounts_allow_custom_css=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
+#REMOVEME? accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
+#REMOVEME? accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
+#REMOVEME? accounts_reason_required=$(ynh_app_setting_get --app="$app" --key=accounts_reason_required)
+#REMOVEME? accounts_allow_custom_css=$(ynh_app_setting_get --app="$app" --key=accounts_allow_custom_css)
 
-media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
-media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
-media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
-media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
-media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
-media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
-media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
+#REMOVEME? media_image_max_size=$(ynh_app_setting_get --app="$app" --key=media_image_max_size)
+#REMOVEME? media_video_max_size=$(ynh_app_setting_get --app="$app" --key=media_video_max_size)
+#REMOVEME? media_description_min_chars=$(ynh_app_setting_get --app="$app" --key=media_description_min_chars)
+#REMOVEME? media_description_max_chars=$(ynh_app_setting_get --app="$app" --key=media_description_max_chars)
+#REMOVEME? media_remote_cache_days=$(ynh_app_setting_get --app="$app" --key=media_remote_cache_days)
+#REMOVEME? media_emoji_local_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_local_max_size)
+#REMOVEME? media_emoji_remote_max_size=$(ynh_app_setting_get --app="$app" --key=media_emoji_remote_max_size)
 
-storage_backend=$(ynh_app_setting_get --app="$app" --key=storage_backend)
-storage_s3_endpoint=$(ynh_app_setting_get --app="$app" --key=storage_s3_endpoint)
-storage_s3_proxy=$(ynh_app_setting_get --app="$app" --key=storage_s3_proxy)
-storage_s3_access_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_access_key)
-storage_s3_secret_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_secret_key)
-storage_s3_bucket=$(ynh_app_setting_get --app="$app" --key=storage_s3_bucket)
+#REMOVEME? storage_backend=$(ynh_app_setting_get --app="$app" --key=storage_backend)
+#REMOVEME? storage_s3_endpoint=$(ynh_app_setting_get --app="$app" --key=storage_s3_endpoint)
+#REMOVEME? storage_s3_proxy=$(ynh_app_setting_get --app="$app" --key=storage_s3_proxy)
+#REMOVEME? storage_s3_access_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_access_key)
+#REMOVEME? storage_s3_secret_key=$(ynh_app_setting_get --app="$app" --key=storage_s3_secret_key)
+#REMOVEME? storage_s3_bucket=$(ynh_app_setting_get --app="$app" --key=storage_s3_bucket)
 
-statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
-statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
-statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
-statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
-statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
+#REMOVEME? statuses_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_max_chars)
+#REMOVEME? statuses_cw_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_cw_max_chars)
+#REMOVEME? statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll_max_options)
+#REMOVEME? statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
+#REMOVEME? statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
-smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
-smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
-smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)
-smtp_password=$(ynh_app_setting_get --app="$app" --key=smtp_password)
-smtp_from=$(ynh_app_setting_get --app="$app" --key=smtp_from)
-smtp_disclose_recipients=$(ynh_app_setting_get --app="$app" --key=smtp_disclose_recipients)
+#REMOVEME? smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
+#REMOVEME? smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
+#REMOVEME? smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)
+#REMOVEME? smtp_password=$(ynh_app_setting_get --app="$app" --key=smtp_password)
+#REMOVEME? smtp_from=$(ynh_app_setting_get --app="$app" --key=smtp_from)
+#REMOVEME? smtp_disclose_recipients=$(ynh_app_setting_get --app="$app" --key=smtp_disclose_recipients)
 
-advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
-advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
+#REMOVEME? advanced_cookies_samesite=$(ynh_app_setting_get --app="$app" --key=advanced_cookies_samesite)
+#REMOVEME? advanced_rate_limit_requests=$(ynh_app_setting_get --app="$app" --key=advanced_rate_limit_requests)
 
 #=================================================
 # CHECK VERSION
@@ -89,16 +89,16 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
+#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
 
 # Backup the current version of the app
-ynh_backup_before_upgrade
-ynh_clean_setup () {
+#REMOVEME? ynh_backup_before_upgrade
+#REMOVEME? ynh_clean_setup () {
 	# Restore it if the upgrade fails
-	ynh_restore_upgradebackup
+#REMOVEME? 	ynh_restore_upgradebackup
 }
 # Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -118,9 +118,9 @@ ynh_script_progression --message="Ensuring downward compatibility..."
 if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -z "$db_user" ]
 then
 	# import old parameters
-	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+#REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+#REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	client_max_body_size="100M"
 	media_image_max_size="2097152"
@@ -139,7 +139,7 @@ then
 	registration_reason=$(convert_bool "$registration_reason")
 	# fix db_user existence
 	db_user=$db_name
-	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
+#REMOVEME? 	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
 	# registration of new parameters
 	ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 	ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
@@ -162,9 +162,9 @@ fi
 if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "$instance_expose_peers" ]
 then
 	# import old parameters
-	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+#REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+#REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	instance_expose_peers="false"
 	instance_expose_suspended="false"
@@ -257,9 +257,9 @@ then
 	smtp_disclose_recipients="false"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
-	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
 	ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
-	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
 	ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
 	ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 fi
@@ -268,10 +268,10 @@ fi
 if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh3
 then
 	# get settings from problem key
-	allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
-	approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
-	reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
-	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+#REMOVEME? 	allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
+#REMOVEME? 	approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
+#REMOVEME? 	reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
+#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
 	# apply setting to correct key if set on old key
 	if [ -n "$allow_custom_css" ]
 	then
@@ -298,10 +298,10 @@ fi
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Making sure dedicated system user exists..."
+#REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..."
 
 # Create a dedicated user (if not existing)
-ynh_system_user_create --username="$app" --home_dir="$final_path"
+#REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -315,7 +315,7 @@ then
 	architecture=$(detect_arch)
 	
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path" --source_id="$architecture" --keep="config.yaml"
+	ynh_setup_source --dest_dir="$install_dir"  --keep="config.yaml"
 fi
 
 # FIXME: this should be managed by the core in the future
@@ -324,9 +324,9 @@ fi
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
 # this will be treated as a security issue.
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R "$app:www-data" "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -339,9 +339,9 @@ ynh_add_nginx_config
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Upgrading dependencies..."
+#REMOVEME? ynh_script_progression --message="Upgrading dependencies..."
 
-ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
+#REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
 
 #=================================================
 # UPDATE A CONFIG FILE
@@ -353,13 +353,13 @@ ynh_script_progression --message="Updating a configuration file..."
 ### The file will automatically be backed-up if it's found to be manually modified (because
 ### ynh_add_config keeps track of the file's checksum)
 
-ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
+ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 
 # FIXME: this should be handled by the core in the future
 # You may need to use chmod 600 instead of 400,
 # for example if the app is expected to be able to modify its own config
-chmod 400 "$final_path/config.yaml"
-chown "$app:$app" "$final_path/config.yaml"
+chmod 400 "$install_dir/config.yaml"
+chown "$app:$app" "$install_dir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
@@ -396,9 +396,9 @@ ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..."
+#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..."
 
-ynh_systemd_action --service_name=nginx --action=reload
+#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT
