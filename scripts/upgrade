@@ -33,9 +33,9 @@ ynh_script_progression --message="Ensuring downward compatibility..."
 if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -z "$db_user" ]
 then
 	# import old parameters
-#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-#REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-#REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	client_max_body_size="100M"
 	media_image_max_size="2097152"
@@ -52,9 +52,7 @@ then
 	registration_open=$(convert_bool "$registration_open")
 	registration_approval=$(convert_bool "$registration_approval")
 	registration_reason=$(convert_bool "$registration_reason")
-	# fix db_user existence
-	db_user=$db_name
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
+
 	# registration of new parameters
 	ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 	ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
@@ -77,14 +75,14 @@ fi
 if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "$instance_expose_peers" ]
 then
 	# import old parameters
-#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
-#REMOVEME? 	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
-#REMOVEME? 	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
+	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+	registration_approval=$(ynh_app_setting_get --app="$app" --key=registration_approval)
+	registration_reason=$(ynh_app_setting_get --app="$app" --key=registration_reason)
 	# declaration of new parameters
 	instance_expose_peers="false"
 	instance_expose_suspended="false"
 	# conversion of old parameters
-	if [ "$registration_open" = "true" ] || [ "$registration_open" = "false" ]; then
+	if [ "${registration_open:-}" = "true" ] || [ "${registration_open:-}" = "false" ]; then
 		accounts_registration_open=$registration_open
 		accounts_approval_required=$registration_approval
 		accounts_reason_required=$registration_reason
@@ -172,9 +170,9 @@ then
 	smtp_disclose_recipients="false"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
 	ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
 	ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
 	ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 fi
@@ -183,27 +181,27 @@ fi
 if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh3
 then
 	# get settings from problem key
-#REMOVEME? 	allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
-#REMOVEME? 	approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
-#REMOVEME? 	reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
-#REMOVEME? 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
+	allow_custom_css=$(ynh_app_setting_get --app="$app" --key=allow_custom_css)
+	approval_required=$(ynh_app_setting_get --app="$app" --key=approval_required)
+	reason_required=$(ynh_app_setting_get --app="$app" --key=reason_required)
+	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
 	# apply setting to correct key if set on old key
-	if [ -n "$allow_custom_css" ]
+	if [ -n "${allow_custom_css:-}" ]
 	then
 		ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$allow_custom_css"
 		ynh_app_setting_delete --app="$app" --key=allow_custom_css 
 	fi
-	if [ -n "$approval_required" ]
+	if [ -n "${approval_required:-}" ]
 	then
 		ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$approval_required"
 		ynh_app_setting_delete --app="$app" --key=approval_required 
 	fi
-	if [ -n "$reason_required" ]
+	if [ -n "${reason_required:-}" ]
 	then
 		ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$reason_required"
 		ynh_app_setting_delete --app="$app" --key=reason_required 
 	fi
-	if [ -n "$registration_open" ]
+	if [ -n "${registration_open:-}" ]
 	then
 		ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$registration_open"
 		ynh_app_setting_delete --app="$app" --key=registration_open 
