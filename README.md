@@ -25,7 +25,7 @@ With GoToSocial, you can keep in touch with your friends, post, read, and share 
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.8.0~ynh3
+**Shipped version:** 0.8.1~ynh1
 
 ## Screenshots
 
