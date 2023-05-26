@@ -1,8 +1,5 @@
 test_format = 1.0
 
-<<<<<<< Updated upstream
-[default]
-=======
 [default]
 
     # -------------------------------
@@ -10,4 +7,3 @@ test_format = 1.0
     # -------------------------------
 
     args.admin="xana"
->>>>>>> Stashed changes
