@@ -13,8 +13,6 @@ source /usr/share/yunohost/helpers
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-admin="$YNH_APP_ARG_ADMIN"
-
 landing_page_user=""
 client_max_body_size="100M"
 
@@ -61,8 +59,6 @@ advanced_rate_limit_requests="300"
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
-
-ynh_app_setting_set --app="$app" --key=admin --value="$admin"
 
 ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
 ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
