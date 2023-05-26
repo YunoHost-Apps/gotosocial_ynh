@@ -28,20 +28,13 @@ ram.build = "50M"
 ram.runtime = "50M"
 
 [install]
-    [install.alpha_software]
-    ask.en = "⚠️ Please note that GoToSocial is in early development stage. It may contain changing or unstable features, bugs, and security vulnerability."
-    ask.fr = "⚠️ Veuillez noter que GoToSocial est au début de son développment. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité."
-    type = "alert"
 
     [install.domain]
     type = "domain"
     full_domain = true
 
     [install.admin]
-    help.en = "Must be in lower case and without special characters."
-    help.fr = "Doit être en minuscule et sans caractère special."
-    type = "string"
-    example = "johndoe"
+    type = "user"
 
     [install.email]
     ask.en = "The email adress of your admin account."
