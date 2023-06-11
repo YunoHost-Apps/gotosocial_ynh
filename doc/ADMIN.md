@@ -1,10 +1,3 @@
-GoToSocial is still in alpha and **may be unstable**. You can read [the roadmap](https://github.com/superseriousbusiness/gotosocial/blob/main/ROADMAP.md) to check the progress of GoToSocial's features.
-
-GoToSocial require a **dedicated root domain**, for example: gotosocial.domain.tld.
-
-This package is not-working SSO (single-sign on) or LDAP integration.  
-You will have a separate account from the rest of your Yunohost server, potentially with a different username and password.
-
 GoToSocial **does not provide a user interface**.  
 You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.app/) on Android or an instance of [Pinafore](https://pinafore.social/) on the Web.
 
@@ -26,7 +19,7 @@ In this administration interface, you can configure the following things:
 
 #### Configuration
 
-You can configure your instance using the config panel integrated in Yunohost, you will find it in the admin interface of your Yunohost by following these steps:  
+You can configure your instance using the config panel integrated in Yunohost, you will find it in the admin interface of your YunoHost by following these steps:  
 `Applications > gotosocial > Configure this app (Config Panel)`
 
 In this control panel you can configure the following things:
@@ -53,7 +46,7 @@ Note: **Do not edit** the `config.yaml` file by hand. Always use this config pan
 #### Command line (CLI)
 
 To use the GoToSocial command line, you first need to place yourself in the folder of your instance:  
-`cd /var/www/gotosocial/` or `cd /var/www/gotosocial__x/` (where `x` is the installation number of your instance, in the case of multi-installation)  
+`cd __INSTALL_DIR__`
 Feel free to refer to the [GoToSocial command line documentation](https://docs.gotosocial.org/en/latest/admin/cli/).
 
 #### User creation

@@ -1,10 +1,3 @@
-GoToSocial est encore en alpha et **peut etre instable**. Vous pouvez consulter [la roadmap](https://github.com/superseriousbusiness/gotosocial/blob/main/ROADMAP.md) pour vérifier l'avancée des fonctionnalités de GoToSocial.
-
-GoToSocial nécessite un **nom de domaine dédié**, par exemple : gotosocial.domain.tld.
-
-Ce paquet ne fonctionne pas avec l'authentification unique (SSO) ou l'intégration LDAP.  
-Vous aurez un compte séparé du reste de votre serveur Yunohost, avec potentiellement un nom d'utilisateur et un mot de passe différent.
-
 GoToSocial **ne dispose pas d'une interface utilisateur-ice**.  
 Vous devrez utiliser un client compatible avec Mastodon comme [Tusky](https://tusky.app/) sur Android ou une instance de [Pinafore](https://pinafore.social/) en Web.
 
@@ -13,7 +6,7 @@ Vous devrez utiliser un client compatible avec Mastodon comme [Tusky](https://tu
 #### Administration
 
 Vous pouvez vous connecter avec votre utilisateur admin (celui créé automatiquement à l'installation) à l'interface d'administration à l'adresse votre-instance.com/**admin** ou sur l'instance publique [gts.superseriousbusiness.org/admin](https://gts.superseriousbusiness.org/admin/) pour administrer votre insance GoToSocial.  
-[Le code source de cette interface d'administration](https://github.com/superseriousbusiness/gotosocial-admin) est consultable sur github.  
+[Le code source de cette interface d'administration](https://github.com/superseriousbusiness/gotosocial-admin) est consultable sur GitHub.  
 [La documentation de l'interface d'administration de GoToSocial](https://docs.gotosocial.org/en/latest/admin/admin_panel/).
 
 Dans cette interface d'administration, vous pouvez paramétrer les choses suivantes :
@@ -26,7 +19,7 @@ Dans cette interface d'administration, vous pouvez paramétrer les choses suivan
 
 #### Configuration
 
-Vous pouvez configurer votre instance en utilisant le panneau de configuration intégré à YuNohost, vous le trouverez dans l'interface d'administration de votre Yunohost en suivant ces étapes :  
+Vous pouvez configurer votre instance en utilisant le panneau de configuration intégré à YunoHost, vous le trouverez dans l'interface d'administration de votre YunoHost en suivant ces étapes :  
 `Applications > gotosocial > Configurez cette application (Panneau de configuration)`
 
 Dans ce panneau de configuration, vous pouvez configurer les choses suivantes :
@@ -53,7 +46,7 @@ N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours 
 #### Ligne de commande
 
 Pour utiliser la ligne de commande de GoToSocial, vous devez d'abord vous placer dans le répertoire de votre instance :  
-`cd /var/www/gotosocial/` ou `cd /var/www/gotosocial__x/` (où `x` est le numéro de votre installation, dans la cas d'une installation de multiples instances)  
+`cd __INSTALL_DIR__` 
 N'hésitez pas à vous référer à la [documentation de la ligne de commande de GoToSocial](https://docs.gotosocial.org/en/latest/admin/cli/).
 
 #### Création de compte utilisateur
