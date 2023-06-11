@@ -5,7 +5,7 @@ name = "GoToSocial"
 description.en = "ActivityPub social network server"
 description.fr = "Serveur de réseau social basé sur ActivityPub"
 
-version = "0.8.1~ynh1"
+version = "0.9.0~ynh1"
 
 maintainers = ["OniriCorpe"]
 
@@ -18,7 +18,7 @@ userdoc = "https://docs.gotosocial.org/en/latest/"
 code = "https://github.com/superseriousbusiness/gotosocial"
 
 [integration]
-yunohost = ">= 11.1.19"
+yunohost = ">= 11.1.20"
 architectures = "all"
 multi_instance = true
 ldap = false
@@ -74,16 +74,16 @@ ram.runtime = "50M"
 [resources]
         [resources.sources.main]
         in_subdir = false
-        arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_arm64.tar.gz"
-        arm64.sha256 = "671d66a6c7cd6b96b7499bf3e6419a1c4cc9278ff532191c0bcecc025fd4a0db"
-        armel.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_armv6.tar.gz"
-        armel.sha256 = "207aed157dd418d6a4a7e4cff74de0724e08b0be24cf7208122988a2d9da44cc"
-        armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_armv7.tar.gz"
-        armhf.sha256 = "54117d643829ec0c3a8e47d036d2485747d301299964dd33178308e560e1b265"
-        i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_386.tar.gz"
-        i386.sha256 = "8d1436b1eab293e97f3de3572b3631da1efb12b23dc29ffcdb76b40f8f925a0c"
-        amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_amd64.tar.gz"
-        amd64.sha256 = "32475bc78db64dbcfadb61b6c9b63542d9687fb9d42fa4c866f8136d86f8cf6d"
+        arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.9.0/gotosocial_0.9.0_linux_arm64.tar.gz"
+        arm64.sha256 = "6b3f543ef9e86953b74b859556996ee533a73fa2ec7ea035b9f392589e3c188b"
+        armel.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.9.0/gotosocial_0.9.0_linux_armv6.tar.gz"
+        armel.sha256 = "6a7508c40309a621246f351e95c2bef763b37fda5a8e1f3fe2485d7805973eb1"
+        armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.9.0/gotosocial_0.9.0_linux_armv7.tar.gz"
+        armhf.sha256 = "41f932878ed3da809aa80dbfab51f0d84c6edc8283ee1893b46ee0338eb7ac01"
+        i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.9.0/gotosocial_0.9.0_linux_386.tar.gz"
+        i386.sha256 = "73cf171ae72a06dd3da669ffedd03da545a143c4965dd9585ad3586a25c734c2"
+        amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.9.0/gotosocial_0.9.0_linux_amd64.tar.gz"
+        amd64.sha256 = "9b802061eb694508f1876486738b3a4062474eb4df9d864c5e293283c1756337"
 
     [resources.ports]
 
