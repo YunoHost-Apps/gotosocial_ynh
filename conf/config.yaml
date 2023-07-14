@@ -439,7 +439,7 @@ accounts-allow-custom-css: __ACCOUNTS_ALLOW_CUSTOM_CSS__
 #
 # Examples: [500, 5000, 9999]
 # Default: 10000
-accounts-custom-css-length: 10000
+accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
 
 ########################
 ##### MEDIA CONFIG #####
