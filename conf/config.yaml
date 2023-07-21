@@ -232,8 +232,8 @@ db-sqlite-cache-size: "8MiB"
 # If set to empty string or zero, the sqlite default will be used.
 # See: https://www.sqlite.org/pragma.html#pragma_busy_timeout
 # Examples: ["0s", "1s", "30s", "1m", "5m"]
-# Default: "5s"
-db-sqlite-busy-timeout: "5m"
+# Default: "30m"
+db-sqlite-busy-timeout: "30m"
 
 cache:
   # Cache configuration options:
@@ -247,7 +247,7 @@ cache:
   #### VISIBILITY CACHES ######
   #############################
   #
-  # Configure Status and account 
+  # Configure Status and account
   # visibility cache.
 
   visibility-max-size: 2000
@@ -266,7 +266,7 @@ cache:
     account-ttl: "30m"
     account-sweep-freq: "1m"
 
-    block-max-size: 100
+    block-max-size: 1000
     block-ttl: "30m"
     block-sweep-freq: "1m"
 
@@ -289,6 +289,10 @@ cache:
     follow-request-max-size: 2000
     follow-request-ttl: "30m"
     follow-request-sweep-freq: "1m"
+
+    instance-max-size: 2000
+    instance-ttl: "30m"
+    instance-sweep-freq: "1m"
 
     list-max-size: 2000
     list-ttl: "30m"
@@ -332,7 +336,7 @@ cache:
 
     webfinger-max-size: 250
     webfinger-ttl: "24h"
-    webfinger-sweep-freq: "1m"
+    webfinger-sweep-freq: "15m"
 
 ######################
 ##### WEB CONFIG #####
@@ -491,7 +495,7 @@ media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
 # This strikes a good balance between decent interoperability with instances that have
 # higher emoji size limits, and not taking up too much space in storage.
 # Examples: [51200, 102400]
-# Default: 51200
+# Default: 102400
 media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
 
 ##########################
@@ -516,7 +520,7 @@ storage-local-base-path: "__DATADIR__"
 # String. API endpoint of the S3 compatible service.
 # Only required when running with the s3 storage backend.
 # Examples: ["minio:9000", "s3.nl-ams.scw.cloud", "s3.us-west-002.backblazeb2.com"]
-# GoToSocial uses "DNS-style" when accessing buckets. 
+# GoToSocial uses "DNS-style" when accessing buckets.
 # If you are using Scaleways object storage, please remove the "bucket name" from the endpoint address
 # Default: ""
 storage-s3-endpoint: "__STORAGE_S3_ENDPOINT__"
@@ -539,12 +543,14 @@ storage-s3-use-ssl: true
 # Examples: ["AKIAJSIE27KKMHXI3BJQ","miniouser"]
 # Default: ""
 storage-s3-access-key: "__STORAGE_S3_ACCESS_KEY__"
+
 # String. Secret key part of the S3 credentials.
 # Consider setting this value using environment variables to avoid leaking it via the config file
 # Only required when running with the s3 storage backend.
 # Examples: ["5bEYu26084qjSFyclM/f2pz4gviSfoOg+mFwBH39","miniopassword"]
 # Default: ""
 storage-s3-secret-key: "__STORAGE_S3_SECRET_KEY__"
+
 # String. Name of the storage bucket.
 #
 # If you have already encoded your bucket name in the storage-s3-endpoint, this
@@ -634,7 +640,7 @@ letsencrypt-email-address: ""
 ##### MANUAL TLS CONFIG  #####
 ##############################
 
-# String. Path to a PEM-encoded file on disk that includes the certificate chain 
+# String. Path to a PEM-encoded file on disk that includes the certificate chain
 # and the public key
 # Examples: ["/gotosocial/storage/certs/chain.pem"]
 # Default: ""
@@ -777,7 +783,7 @@ syslog-enabled: false
 
 # String. Protocol to use when directing logs to syslog. Leave empty to connect to local syslog.
 # Options: ["udp", "tcp", ""]
-# Default: "tcp"
+# Default: "udp"
 syslog-protocol: "udp"
 
 # String. Address:port to send syslog logs to. Leave empty to connect to local syslog.
@@ -941,7 +947,7 @@ advanced-throttling-multiplier: 8
 # Minimum resolution is 1 second.
 #
 # Examples: [30s, 10s, 5s, 1m]
-# Default: 30s
+# Default: "30s"
 advanced-throttling-retry-after: "30s"
 
 # Int. CPU multiplier for the amount of goroutines to spawn in order to send messages via ActivityPub.
