@@ -29,7 +29,7 @@ Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 ## Screenshots
 
-![Screenshot of GoToSocial](./doc/screenshots/screenshot.jpg)
+![Screenshot of GoToSocial](./doc/screenshots/screenshot.png)
 
 ## Disclaimers / important information
 

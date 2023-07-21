@@ -29,7 +29,7 @@ Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](http
 
 ## Captures d’écran
 
-![Capture d’écran de GoToSocial](./doc/screenshots/screenshot.jpg)
+![Capture d’écran de GoToSocial](./doc/screenshots/screenshot.png)
 
 ## Avertissements / informations importantes
 
