@@ -65,6 +65,15 @@ Pour les instances avec des inscriptions publiques, il est **HAUTEMENT RECOMMAND
 Quelle que soit la valeur de ce paramètre, tout CSS téléchargé ne sera pas fédéré à d'autres instances, il ne sera affiché que sur les profils et les statuts de *cette* instance."""
 type = "select"
 
+[main.accounts.accounts_custom_css_length]
+ask.en = "Custom CSS length?"
+ask.fr = "Longueur du CSS personnalisé ?"
+bind = "accounts-custom-css-length:__FINALPATH__/config.yaml"
+default = "10000"
+help.en = "If accounts-allow-custom-css is 'true', this is the permitted length in characters for CSS uploaded by accounts on this instance. No effect if accounts-allow-custom-css is 'false'. Default: 10000"
+help.fr = "Si accounts-allow-custom-css est 'true', il s'agit de la longueur autorisée en caractères pour les feuilles de style CSS qui sont fournies par les comptes sur cette instance. Aucun effet si accounts-allow-custom-css est 'false'. Valeur par défaut : 10000"
+type = "number"
+
 #################
 #### MEDIA CONFIG
 #################
