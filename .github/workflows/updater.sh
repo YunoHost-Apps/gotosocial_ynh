@@ -16,9 +16,6 @@
 # FETCHING LATEST RELEASE AND ITS ASSETS
 #=================================================
 
-# Access the branch 'testing'
-git checkout testing
-
 # Fetching information
 current_version=$(jq -j '.version|split("~")[0]' manifest.json)
 repo=$(jq -j '.upstream.code|split("https://github.com/")[1]' manifest.json)
