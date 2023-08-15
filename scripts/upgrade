@@ -208,6 +208,15 @@ then
 	fi
 fi
 
+# Upgrade from <0.10.0~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.10.0~ynh1 || [ -z "$accounts_custom_css_length" ]
+then
+	# declaration of new parameter
+	accounts_custom_css_length="10000"
+	# registration of parameter
+	ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================

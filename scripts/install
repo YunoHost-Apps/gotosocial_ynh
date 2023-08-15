@@ -18,6 +18,7 @@ client_max_body_size="100M"
 
 # Config stuff:
 accounts_allow_custom_css="false"
+accounts_custom_css_length="10000"
 
 instance_expose_peers="false"
 instance_expose_suspended="false"
@@ -68,6 +69,7 @@ ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$acco
 ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
 ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
 ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
+ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
 
 ynh_app_setting_set --app="$app" --key=instance_expose_peers --value="$instance_expose_peers"
 ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$instance_expose_suspended"

@@ -23,7 +23,7 @@ Un serveur de réseau social basé sur [ActivityPub](https://activitypub.rocks/)
 
 ## Captures d’écran
 
-![Capture d’écran de GoToSocial](./doc/screenshots/screenshot.jpg)
+![Capture d’écran de GoToSocial](./doc/screenshots/screenshot.png)
 
 ## :red_circle: Fonctions indésirables
 
