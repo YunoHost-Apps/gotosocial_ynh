@@ -389,7 +389,7 @@ media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 # are kept so that it can be fetched again if requested by a user.
 #
 # If this is set to 0, then media from remote instances will be cached indefinitely.
-# Examples: 7
+# Examples: [30, 60, 7, 0]
 # Default: 7
 media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
 
