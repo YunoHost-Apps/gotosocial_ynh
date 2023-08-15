@@ -313,6 +313,8 @@ then
 	instance_inject_mastodon_version="false"
 	# update default config
 	if [ "$media_remote_cache_days" == "30" ]; then
+		# "30" is the old default value, "7" the new one
+		# updating to the new default only if the old default value is used (to not overwrite an user modified value) 
 		media_remote_cache_days="7"
 		ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
 	fi
