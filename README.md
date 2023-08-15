@@ -20,12 +20,10 @@ GoToSocial is an [ActivityPub](https://activitypub.rocks/) social network server
 
 With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
 
-![GoToSocial's logo, a stylized sloth head](./doc/logo_sloth.png)
-
 Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
 
 
-**Shipped version:** 0.8.1~ynh1
+**Shipped version:** 0.5.2~ynh1
 
 ## Screenshots
 
@@ -111,7 +109,7 @@ And to promote them as an administrator of your instance:
 
 ## Documentation and resources
 
-* Official app website: <https://gotosocial.org/>
+* Official app website: <https://docs.gotosocial.org/>
 * Official user documentation: <https://docs.gotosocial.org/en/latest/>
 * Official admin documentation: <https://docs.gotosocial.org/en/latest/>
 * Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>

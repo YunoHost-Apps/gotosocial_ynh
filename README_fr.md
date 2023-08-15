@@ -20,12 +20,8 @@ Un serveur de réseau social basé sur [ActivityPub](https://activitypub.rocks/)
 
 Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !
 
-![Le logo de GoToSocial, une tête de paresseux stylisée](./doc/logo_sloth.png)
 
-Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
-
-
-**Version incluse :** 0.8.1~ynh1
+**Version incluse :** 0.5.2~ynh1
 
 ## Captures d’écran
 
@@ -111,7 +107,7 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://gotosocial.org/>
+* Site officiel de l’app : <https://docs.gotosocial.org/>
 * Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
 * Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
 * Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
