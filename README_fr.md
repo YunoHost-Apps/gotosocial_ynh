@@ -21,7 +21,7 @@ Un serveur de réseau social basé sur [ActivityPub](https://activitypub.rocks/)
 Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !
 
 
-**Version incluse :** 0.5.2~ynh1
+**Version incluse :** 0.9.0~ynh1
 
 ## Captures d’écran
 
