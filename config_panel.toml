@@ -384,7 +384,7 @@ help = "Settings pertaining to... the cache"
 [main.cache.cache_memory_target]
 ask.en = "Value of the cache target"
 ask.fr = "Valeur du niveau de cache"
-bind = "cache-memory-target:__FINALPATH__/config.yaml"
+bind = "memory-target:__FINALPATH__/config.yaml"
 default = "100MiB"
 help.en = """Sets a target limit that the application will try to keep it's caches within.\
 This is based on estimated sizes of in-memory objects, and so NOT AT ALL EXACT.
