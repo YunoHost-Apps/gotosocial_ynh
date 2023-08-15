@@ -10,12 +10,12 @@ version = "0.9.0~ynh1"
 maintainers = ["OniriCorpe"]
 
 [upstream]
-admindoc = "https://docs.gotosocial.org/en/latest/"
-code = "https://github.com/superseriousbusiness/gotosocial"
-fund = "https://github.com/superseriousbusiness/gotosocial#sponsorship--funding"
 license = "AGPL-3.0-only"
+admindoc = "https://docs.gotosocial.org/en/latest/"
 userdoc = "https://docs.gotosocial.org/en/latest/"
 website = "https://docs.gotosocial.org/"
+code = "https://github.com/superseriousbusiness/gotosocial"
+fund = "https://github.com/superseriousbusiness/gotosocial#sponsorship--funding"
 
 [integration]
 yunohost = ">= 11.2"
