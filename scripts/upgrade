@@ -32,11 +32,14 @@ db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
 datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
+cache_memory_target=$(ynh_app_setting_get --app="$app" --key=cache_memory_target)
+
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
 instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
 instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
 instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
+instance_inject_mastodon_version=$(ynh_app_setting_get --app="$app" --key=instance_inject_mastodon_version)
 
 accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
 accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
@@ -303,6 +306,24 @@ then
 	accounts_custom_css_length="10000"
 	# registration of parameter
 	ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
+fi
+
+# Upgrade from <0.11.0~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.11.0~ynh1 || [ -z "$cache_memory_target" ]
+then
+	# declaration of new parameter
+	cache_memory_target="100MiB"
+	instance_inject_mastodon_version="false"
+	# update default config
+	if [ "$media_remote_cache_days" == "30" ]; then
+		# "30" is the old default value, "7" the new one
+		# updating to the new default only if the old default value is used (to not overwrite an user modified value) 
+		media_remote_cache_days="7"
+		ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
+	fi
+	# registration of parameter
+	ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
+	ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
 fi
 
 #=================================================
