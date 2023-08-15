@@ -32,11 +32,14 @@ db_pwd=$(ynh_app_setting_get --app="$app" --key=db_pwd)
 
 datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
+cache_memory_target=$(ynh_app_setting_get --app="$app" --key=cache_memory_target)
+
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
 instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
 instance_expose_public_timeline=$(ynh_app_setting_get --app="$app" --key=instance_expose_public_timeline)
 instance_deliver_to_shared_inboxes=$(ynh_app_setting_get --app="$app" --key=instance_deliver_to_shared_inboxes)
+instance_inject_mastodon_version=$(ynh_app_setting_get --app="$app" --key=instance_inject_mastodon_version)
 
 accounts_registration_open=$(ynh_app_setting_get --app="$app" --key=accounts_registration_open)
 accounts_approval_required=$(ynh_app_setting_get --app="$app" --key=accounts_approval_required)
