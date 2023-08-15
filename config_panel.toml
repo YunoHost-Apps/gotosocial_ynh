@@ -288,6 +288,22 @@ La livraison dans la boîte de réception partagée peut réduire de manière si
 Voir : https://www.w3.org/TR/activitypub/#shared-inbox-delivery"""
 type = "select"
 
+[main.instance.instance_inject_mastodon_version]
+ask.en = "Inject Mastodon version?"
+ask.fr = "Injecter une version Mastodon ?"
+bind = "instance-inject-mastodon-version:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = """This flag will inject a Mastodon version into the version field that is included in /api/v1/instance.\
+This version is often used by Mastodon clients to do API feature detection.\
+By injecting a Mastodon compatible version, it is possible to cajole those clients to behave correctly with GoToSocial.\
+Default: false"""
+help.fr = """Ce paramètre injecte une version de Mastodon dans le champ version qui est inclus dans /api/v1/instance.\
+Cette version est souvent utilisée par les clients Mastodon pour détecter les caractéristiques de l'API.\
+En injectant une version compatible avec Mastodon, il est possible d'inciter ces clients à se comporter correctement avec GoToSocial.
+Par défautl : false"""
+type = "select"
+
 ################
 #### SMTP CONFIG
 ################
@@ -354,6 +370,29 @@ false: Email will be sent to Undisclosed Recipients"""
 help.fr = """true : divulguer tous les destinataires dans le champ À\
 false : l'e-mail sera envoyé sans divulguer les destinataires"""
 type = "select"
+
+####################
+#### CACHE SETTINGS
+####################
+
+[main.cache]
+
+name = "Cache settings"
+
+help = "Settings pertaining to... the cache"
+
+[main.cache.cache_memory_target]
+ask.en = "Value of the cache target"
+ask.fr = "Valeur du niveau de cache"
+bind = "cache-memory-target:__FINALPATH__/config.yaml"
+default = "100MiB"
+help.en = """Sets a target limit that the application will try to keep it's caches within.\
+This is based on estimated sizes of in-memory objects, and so NOT AT ALL EXACT.
+Examples: 100MiB, 200MiB, 500MiB, 1GiB; Default: 100MiB"""
+help.fr = """Définit une limite cible que l'application essaiera de ne pas dépasser pour ses caches.\
+Cette limite est basée sur des estimations de la taille des objets en mémoire et N'EST DONC PAS DU TOUT EXACTE.
+Exemples : 100MiB, 200MiB, 500MiB, 1GiB; Par défaut : 100MiB"""
+type = "string"
 
 ####################
 #### ADVANCED SETTINGS
