@@ -15,3 +15,9 @@ test_format = 1.0
     args.admin = "xana"
     args.email = "user@example.com"
 
+    # -------------------------------
+    # Commits to test upgrade from
+    # -------------------------------
+
+    test_upgrade_from.00a1a6e7.name = "Upgrade from 5.4"
+
