@@ -6,7 +6,7 @@
         "en": "ActivityPub social network server",
         "fr": "Serveur de réseau social basé sur ActivityPub"
     },
-    "version": "0.11.0~ynh1",
+    "version": "0.11.1~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "AGPL-3.0-only",
