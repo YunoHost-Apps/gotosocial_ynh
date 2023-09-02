@@ -184,10 +184,17 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 ### `ynh_setup_source` use the file conf/app.src
 
 # detect_arch comes from _common.sh / personnal helpers
-architecture=$(detect_arch)
+architecture="$(detect_arch)"
 
-# Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$final_path" --source_id="$architecture" --keep="config.yaml"
+# compare is the system arch is different from the binary arch
+# if so, download the correct binary
+if [ "$architecture" != "$(file "$final_path"/gotosocial | cut -d ',' -f 2 | tr -d ' ')" ]
+then
+	ynh_script_progression --message="Migrating binary architecture..."
+
+	# Download, check integrity, uncompress and patch the source from app.src
+	ynh_setup_source --dest_dir="$final_path" --source_id="$architecture" --keep="config.yaml"
+fi
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
