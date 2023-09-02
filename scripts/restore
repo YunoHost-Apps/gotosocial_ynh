@@ -175,6 +175,31 @@ ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";" -
 ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
 
 #=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression --message="Setting up source files..." --weight=1
+
+### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
+### downloaded from an upstream source, like a git repository.
+### `ynh_setup_source` use the file conf/app.src
+
+# detect_arch comes from _common.sh / personnal helpers
+architecture=$(detect_arch)
+
+# Download, check integrity, uncompress and patch the source from app.src
+ynh_setup_source --dest_dir="$final_path" --source_id="$architecture" --keep="config.yaml"
+
+# FIXME: this should be managed by the core in the future
+# Here, as a packager, you may have to tweak the ownerhsip/permissions
+# such that the appropriate users (e.g. maybe www-data) can access
+# files in some cases.
+# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
+# this will be treated as a security issue.
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R "$app:www-data" "$final_path"
+
+#=================================================
 # RESTORE VARIOUS FILES
 #=================================================
 
