@@ -5,13 +5,15 @@ about: When creating a bug report, please use the following template to provide 
 ---
 
 **How to post a meaningful bug report**
+
 1. *Read this whole template first.*
 2. *Determine if you are on the right place:*
    - *If you were performing an action on the app from the webadmin or the CLI (install, update, backup, restore, change_url...), you are on the right place!*
    - *Otherwise, the issue may be due to the app itself. Refer to its documentation or repository for help.*
    - *When in doubt, post here and we will figure it out together.*
 3. *Delete the italic comments as you write over them below, and remove this guide.*
---- 
+
+---
 
 ### Describe the bug
 
@@ -30,9 +32,11 @@ about: When creating a bug report, please use the following template to provide 
 ### Steps to reproduce
 
 - *If you performed a command from the CLI, the command itself is enough. For example:*
+
     ```sh
     sudo yunohost app install the_app
     ```
+
 - *If you used the webadmin, please perform the equivalent command from the CLI first.*
 - *If the error occurs in your browser, explain what you did:*
    1. *Go to '...'*
@@ -47,6 +51,7 @@ about: When creating a bug report, please use the following template to provide 
 ### Logs
 
 *When an operation fails, YunoHost provides a simple way to share the logs.*
+
 - *In the webadmin, the error message contains a link to the relevant log page. On that page, you will be able to 'Share with Yunopaste'. If you missed it, the logs of previous operations are also available under Tools > Logs.*
 - *In command line, the command to share the logs is displayed at the end of the operation and looks like `yunohost log display [log name] --share`. If you missed it, you can find the log ID of a previous operation using `yunohost log list`.*
 
