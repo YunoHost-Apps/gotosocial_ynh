@@ -307,9 +307,9 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 #=================================================
 ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
 
-ynh_exec_warn_less "$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
 
-ynh_exec_warn_less "$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
+"$final_path"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
 
 #=================================================
 # START SYSTEMD SERVICE
