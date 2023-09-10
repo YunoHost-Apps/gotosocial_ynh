@@ -415,7 +415,7 @@ ynh_use_logrotate --non-append
 #=================================================
 
 # Create a dedicated Fail2Ban config
-ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
+ynh_add_fail2ban_config --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:" --max_retry=5
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
