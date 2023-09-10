@@ -285,6 +285,13 @@ ynh_script_progression --message="Configuring log rotation..." --weight=1
 ynh_use_logrotate
 
 #=================================================
+# SETUP FAIL2BAN
+#=================================================
+
+# Create a dedicated Fail2Ban config
+ynh_add_fail2ban_config --logpath="/var/log/nginx/${domain}-error.log" --failregex="Regex to match into the log for a failed login"
+
+#=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
