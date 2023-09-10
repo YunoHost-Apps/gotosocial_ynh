@@ -289,6 +289,9 @@ ynh_use_logrotate
 #=================================================
 ynh_script_progression --message="Configuring fail2ban..." --weight=1
 
+# Create the logfile, required before configuring fail2ban
+touch "/var/log/${app}/${app}.log"
+
 # Create a dedicated Fail2Ban config
 ynh_add_fail2ban_config --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:" --max_retry=5
 
