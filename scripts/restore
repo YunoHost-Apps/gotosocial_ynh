@@ -186,7 +186,7 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 # detect_arch comes from _common.sh / personnal helpers
 architecture="$(detect_arch)"
 
-# compare is the system arch is different from the binary arch
+# compare if the system arch is different from the binary arch
 # if so, download the correct binary
 if [ "$architecture" != "$(file "$final_path"/gotosocial | cut -d ',' -f 2 | tr -d ' ')" ]
 then
@@ -240,6 +240,14 @@ ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$
 ynh_script_progression --message="Restoring the logrotate configuration..." --weight=1
 
 ynh_restore_file --origin_path="/etc/logrotate.d/$app"
+
+#=================================================
+# RESTORE THE FAIL2BAN CONFIGURATION
+#=================================================
+
+ynh_restore_file --origin_path="/etc/fail2ban/jail.d/$app.conf"
+ynh_restore_file --origin_path="/etc/fail2ban/filter.d/$app.conf"
+ynh_systemd_action --action=restart --service_name=fail2ban
 
 #=================================================
 # GENERIC FINALIZATION
