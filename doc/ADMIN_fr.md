@@ -22,27 +22,6 @@ Dans cette interface d'administration, vous pouvez paramétrer les choses suivan
 Vous pouvez configurer votre instance en utilisant le panneau de configuration intégré à YunoHost, vous le trouverez dans l'interface d'administration de votre YunoHost en suivant ces étapes :  
 `Applications > gotosocial > Configurez cette application (Panneau de configuration)`
 
-Dans ce panneau de configuration, vous pouvez configurer les choses suivantes :
-
-* Configuration des comptes :
-  * Ouverture des inscriptions ?
-  * Validation manuelle des inscriptions ?
-  * Motif d'inscription requis ?
-* Configuration des médias
-  * Taille maximale des images
-  * Taille maximale des vidéos
-  * Nombre minimum de caractères pour les descriptions des médias
-  * Nombre maximum de caractères pour les descriptions des médias
-  * Nombre de jour de mise en cache des médias
-* Configuration des posts
-  * Nombre maximum de caractères pour un nouveau post
-  * Nombre maximum de caractères dans un Content Warning / sujet d'un nouveau post
-  * Nombre maximum d'options pour un sondage
-  * Nombre maximum de caractères pour une option d'un sondage
-  * Nombre maximum de médias pouvant etre ajoutés à un post
-
-N.B. : **N'éditez pas** le fichier `config.yaml` à la main. Utilisez toujours ce panneau de configuration à la place. Sinon vos modifications seront effacées à chaque mise à jour !
-
 #### Ligne de commande
 
 Pour utiliser la ligne de commande de GoToSocial, vous devez d'abord vous placer dans le répertoire de votre instance :  
