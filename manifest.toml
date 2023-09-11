@@ -31,7 +31,6 @@ ram.runtime = "50M"
 
     [install.domain]
     type = "domain"
-    full_domain = true
 
     [install.admin]
     type = "user"
@@ -97,7 +96,7 @@ ram.runtime = "50M"
     main.url = "/"
 
     [resources.apt]
-    packages = "postgresql postgresql-contrib"
+    packages = "postgresql, postgresql-contrib"
 
     [resources.database]
     type = "postgresql"
