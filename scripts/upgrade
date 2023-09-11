@@ -217,6 +217,24 @@ then
 	ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
 fi
 
+# Upgrade from <0.11.0~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.11.0~ynh1 || [ -z "$cache_memory_target" ]
+then
+	# declaration of new parameter
+	cache_memory_target="100MiB"
+	instance_inject_mastodon_version="false"
+	# update default config
+	if [ "$media_remote_cache_days" == "30" ]; then
+		# "30" is the old default value, "7" the new one
+		# updating to the new default only if the old default value is used (to not overwrite an user modified value) 
+		media_remote_cache_days="7"
+		ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
+	fi
+	# registration of parameter
+	ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
+	ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
@@ -267,6 +285,14 @@ ynh_script_progression --message="Upgrading logrotate configuration..."
 
 # Use logrotate to manage app-specific logfile(s)
 ynh_use_logrotate --non-append
+
+#=================================================
+# SETUP FAIL2BAN
+#=================================================
+ynh_script_progression --message="Upgrading fail2ban configuration..."
+
+# Create a dedicated Fail2Ban config
+ynh_add_fail2ban_config --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:" --max_retry=5
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST

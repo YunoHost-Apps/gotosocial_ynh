@@ -25,12 +25,13 @@ instance_expose_suspended="false"
 instance_expose_suspended_web="false"
 instance_expose_public_timeline="false"
 instance_deliver_to_shared_inboxes="true"
+instance_inject_mastodon_version="false"
 
 media_image_max_size="10485760"
 media_video_max_size="41943040"
 media_description_min_chars="0"
 media_description_max_chars="500"
-media_remote_cache_days="30"
+media_remote_cache_days="7"
 media_emoji_local_max_size="51200"
 media_emoji_remote_max_size="102400"
 
@@ -65,6 +66,8 @@ ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_
 ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 ynh_app_setting_set --app="$app" --key=email --value="$email"
 
+ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
+
 ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
 ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
 ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
@@ -76,6 +79,7 @@ ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$insta
 ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
 ynh_app_setting_set --app="$app" --key=instance_expose_public_timeline --value="$instance_expose_public_timeline"
 ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
+ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
 
 ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
 ynh_app_setting_set --app="$app" --key=media_video_max_size --value="$media_video_max_size"
@@ -154,6 +158,17 @@ ynh_script_progression --message="Configuring log rotation..." --weight=1
 
 # Use logrotate to manage application logfile(s)
 ynh_use_logrotate
+
+#=================================================
+# SETUP FAIL2BAN
+#=================================================
+ynh_script_progression --message="Configuring fail2ban..." --weight=1
+
+# Create the logfile, required before configuring fail2ban
+touch "/var/log/${app}/${app}.log"
+
+# Create a dedicated Fail2Ban config
+ynh_add_fail2ban_config --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:" --max_retry=5
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST

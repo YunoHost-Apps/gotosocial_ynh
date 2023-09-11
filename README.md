@@ -19,7 +19,8 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 GoToSocial is an [ActivityPub](https://activitypub.rocks/) social network server, written in Golang. With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
 
 
-**Shipped version:** 0.11.0~ynh1
+**Shipped version:** 0.11.0~ynh4
+
 
 ## Screenshots
 

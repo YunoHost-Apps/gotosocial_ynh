@@ -238,7 +238,7 @@ cache:
   # in-memory objects, and so NOT AT ALL EXACT.
   # Examples: ["100MiB", "200MiB", "500MiB", "1GiB"]
   # Default: "100MiB"
-  memory-target: "100MiB"
+  memory-target: __CACHE_MEMORY_TARGET__
 
 ######################
 ##### WEB CONFIG #####
@@ -310,7 +310,7 @@ instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
 #
 # Options: [true, false]
 # Default: false
-instance-inject-mastodon-version: false
+instance-inject-mastodon-version: __INSTANCE_INJECT_MASTODON_VERSION__
 
 ###########################
 ##### ACCOUNTS CONFIG #####
@@ -389,7 +389,7 @@ media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 # are kept so that it can be fetched again if requested by a user.
 #
 # If this is set to 0, then media from remote instances will be cached indefinitely.
-# Examples: 7
+# Examples: [30, 60, 7, 0]
 # Default: 7
 media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
 
@@ -904,3 +904,21 @@ advanced-throttling-retry-after: "30s"
 # 2 cpu = 1 concurrent sender
 # 4 cpu = 1 concurrent sender
 advanced-sender-multiplier: 2
+
+# Array of string. Extra URIs to add to 'img-src' and 'media-src'
+# when building the Content-Security-Policy header for your instance.
+#
+# This can be used to allow the browser to load resources from additional
+# sources like S3 buckets and so on when viewing your instance's pages
+# and profiles in the browser.
+#
+# Since non-proxying S3 storage will be probed on instance launch to
+# generate a correct Content-Security-Policy, you probably won't need
+# to ever touch this setting, but it's included in the 'spirit of more
+# configurable (usually) means more good'.
+# 
+# See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+#
+# Example: ["s3.example.org", "some-bucket-name.s3.example.org"]
+# Default: []
+advanced-csp-extra-uris: []
