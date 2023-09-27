@@ -22,7 +22,7 @@ help = "Config pertaining to creation and maintenance of accounts on the server,
 [main.accounts.accounts_registration_open]
 ask.en = "Open registrations?"
 ask.fr = "Inscriptions ouvertes ?"
-bind = "accounts-registration-open:__FINALPATH__/config.yaml"
+bind = "accounts-registration-open:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Do we want people to be able to just submit sign up requests, or do we want invite only?"
@@ -32,7 +32,7 @@ type = "select"
 [main.accounts.accounts_approval_required]
 ask.en = "Approval required?"
 ask.fr = "Validation requise ?"
-bind = "accounts-approval-required:__FINALPATH__/config.yaml"
+bind = "accounts-approval-required:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "true"
 help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
@@ -42,7 +42,7 @@ type = "select"
 [main.accounts.accounts_reason_required]
 ask.en = "Reason required?"
 ask.fr = "Motif requis ?"
-bind = "accounts-reason-required:__FINALPATH__/config.yaml"
+bind = "accounts-reason-required:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "true"
 help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
@@ -52,7 +52,7 @@ type = "select"
 [main.accounts.accounts_allow_custom_css]
 ask.en = "Allow custom CSS?"
 ask.fr = "Autoriser le CSS personnalisé ?"
-bind = "accounts-allow-custom-css:__FINALPATH__/config.yaml"
+bind = "accounts-allow-custom-css:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = """Allow accounts on this instance to set custom CSS for their profile pages and statuses.\
@@ -68,7 +68,7 @@ type = "select"
 [main.accounts.accounts_custom_css_length]
 ask.en = "Custom CSS length?"
 ask.fr = "Longueur du CSS personnalisé ?"
-bind = "accounts-custom-css-length:__FINALPATH__/config.yaml"
+bind = "accounts-custom-css-length:__INSTALL_DIR__/config.yaml"
 default = "10000"
 help.en = "If accounts-allow-custom-css is 'true', this is the permitted length in characters for CSS uploaded by accounts on this instance. No effect if accounts-allow-custom-css is 'false'. Default: 10000"
 help.fr = "Si accounts-allow-custom-css est 'true', il s'agit de la longueur autorisée en caractères pour les feuilles de style CSS qui sont fournies par les comptes sur cette instance. Aucun effet si accounts-allow-custom-css est 'false'. Valeur par défaut : 10000"
@@ -86,7 +86,7 @@ help = "Config pertaining to user media uploads (videos, image, image descriptio
 [main.media.media_image_max_size]
 ask.en = "Maximum allowed image upload size in bytes."
 ask.fr = "Taille maximale autorisée pour le téléchargement d'images, en octets."
-bind = "media-image-max-size:__FINALPATH__/config.yaml"
+bind = "media-image-max-size:__INSTALL_DIR__/config.yaml"
 default = "2097152"
 help.en = "Default: 2097152 -- aka 2MB"
 help.fr = "Valeur par défaut : 2097152 (soit 2 Mo)"
@@ -95,7 +95,7 @@ type = "number"
 [main.media.media_video_max_size]
 ask.en = "Maximum allowed video upload size in bytes."
 ask.fr = "Taille maximale autorisée pour le téléchargement de vidéos, en octets."
-bind = "media-video-max-size:__FINALPATH__/config.yaml"
+bind = "media-video-max-size:__INSTALL_DIR__/config.yaml"
 default = "10485760"
 help.en = "Default: 10485760 -- aka 10MB"
 help.fr = "Valeur par défaut : 10485760 (soit 10 Mo)"
@@ -104,7 +104,7 @@ type = "number"
 [main.media.media_description_min_chars]
 ask.en = "Minimum amount of characters required as an image or video description."
 ask.fr = "Nombre minimum de caractères requis pour la description d'une image ou d'une vidéo."
-bind = "media-description-min-chars:__FINALPATH__/config.yaml"
+bind = "media-description-min-chars:__INSTALL_DIR__/config.yaml"
 default = "0"
 help.en = "Default: 0 (not required)"
 help.fr = "Valeur par défaut : 0 (non obligatoire)"
@@ -113,7 +113,7 @@ type = "number"
 [main.media.media_description_max_chars]
 ask.en = "Maximum amount of characters permitted in an image or video description."
 ask.fr = "Nombre maximum de caractères requis pour la description d'une image ou d'une vidéo."
-bind = "media-description-max-chars:__FINALPATH__/config.yaml"
+bind = "media-description-max-chars:__INSTALL_DIR__/config.yaml"
 default = "500"
 help.en = "Default: 500"
 help.fr = "Valeur par défaut : 500"
@@ -122,7 +122,7 @@ type = "number"
 [main.media.media_remote_cache_days]
 ask.en = "Number of days to cache media from remote instances before they are removed from the cache."
 ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
-bind = "media-remote-cache-days:__FINALPATH__/config.yaml"
+bind = "media-remote-cache-days:__INSTALL_DIR__/config.yaml"
 default = "30"
 help.en = """Default: 30\
 A job will run every day at midnight to clean up any remote media older than the given amount of days. \
@@ -139,7 +139,7 @@ type = "number"
 [main.media.media_emoji_local_max_size]
 ask.en = "Max size in bytes of emojis uploaded to this instance via the admin API."
 ask.fr = "Taille maximale en octets des emojis téléchargés vers cette instance via l'API d'administration."
-bind = "media-emoji-local-max-size:__FINALPATH__/config.yaml"
+bind = "media-emoji-local-max-size:__INSTALL_DIR__/config.yaml"
 default = "51200"
 help.en = """Default: 51200\
 The default is the same as the Mastodon size limit for emojis (50kb), which allows for good interoperability.\
@@ -152,7 +152,7 @@ type = "number"
 [main.media.media_emoji_remote_max_size]
 ask.en = "Max size in bytes of emojis to download from other instances."
 ask.fr = "Taille maximale en octets des emojis téléchargeables à partir d'autres instances."
-bind = "media-emoji-remote-max-size:__FINALPATH__/config.yaml"
+bind = "media-emoji-remote-max-size:__INSTALL_DIR__/config.yaml"
 default = "102400"
 help.en = """Default: 102400\
 By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.\
@@ -174,7 +174,7 @@ help = "Config pertaining to the creation of statuses/posts, and permitted limit
 [main.statuses.statuses_max_chars]
 ask.en = "Maximum amount of characters permitted for a new status."
 ask.fr = "Nombre maximal de caractères autorisés pour un nouveau statut."
-bind = "statuses-max-chars:__FINALPATH__/config.yaml"
+bind = "statuses-max-chars:__INSTALL_DIR__/config.yaml"
 default = "5000"
 help.en = "Default: 5000. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 5000. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
@@ -183,7 +183,7 @@ type = "number"
 [main.statuses.statuses_cw_max_chars]
 ask.en = "Maximum amount of characters allowed in the CW/subject header of a status."
 ask.fr = "Nombre maximum de caractères autorisés dans l'en-tête CW/sujet d'un statut."
-bind = "statuses-cw-max-chars:__FINALPATH__/config.yaml"
+bind = "statuses-cw-max-chars:__INSTALL_DIR__/config.yaml"
 default = "100"
 help.en = "Default: 100. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 100. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
@@ -192,7 +192,7 @@ type = "number"
 [main.statuses.statuses_poll_max_options]
 ask.en = "Maximum amount of options to permit when creating a new poll."
 ask.fr = "Nombre maximum d'options autorisées lors de la création d'un nouveau sondage."
-bind = "statuses-poll-max-options:__FINALPATH__/config.yaml"
+bind = "statuses-poll-max-options:__INSTALL_DIR__/config.yaml"
 default = "6"
 help.en = "Default: 6. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 6. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
@@ -201,7 +201,7 @@ type = "number"
 [main.statuses.statuses_poll_option_max_chars]
 ask.en = "Maximum amount of characters to permit per poll option when creating a new poll."
 ask.fr = "Nombre maximal de caractères autorisés par option de sondage lors de la création d'un nouveau sondage."
-bind = "statuses-poll-option-max-chars:__FINALPATH__/config.yaml"
+bind = "statuses-poll-option-max-chars:__INSTALL_DIR__/config.yaml"
 default = "50"
 help.en = "Default: 50. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 50. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
@@ -210,7 +210,7 @@ type = "number"
 [main.statuses.statuses_media_max_files]
 ask.en = "Maximum amount of media files that can be attached to a new status."
 ask.fr = "Quantité maximale de fichiers multimédias qui peuvent être joints à un nouveau statut."
-bind = "statuses-media-max-files:__FINALPATH__/config.yaml"
+bind = "statuses-media-max-files:__INSTALL_DIR__/config.yaml"
 default = "6"
 help.en = "Default: 6. Note that going way higher than the default might break federation."
 help.fr = "Valeur par défaut : 6. Notez que si vous dépassez la valeur par défaut, vous risquez de compromettre la fédération."
@@ -229,7 +229,7 @@ help = "Config pertaining to instance federation settings, pages to hide/expose,
 [main.instance.landing_page_user]
 ask.en = "Landing page user"
 ask.fr = "Utilisateurice en tant que page d'accueil"
-bind = "landing-page-user:__FINALPATH__/config.yaml"
+bind = "landing-page-user:__INSTALL_DIR__/config.yaml"
 help.en = "The user that will be shown instead of the landing page. if no user is set, the landing page will be shown."
 help.fr = "L'utilisateurice qui sera affiché-e à la place de la page d'accueil. Si le champ est laissé vide, la page d'accueil normale sera affichée."
 type = "string"
@@ -237,7 +237,7 @@ type = "string"
 [main.instance.instance_expose_peers]
 ask.en = "API: Expose peers?"
 ask.fr = "API : Exposer les pairs ?"
-bind = "instance-expose-peers:__FINALPATH__/config.yaml"
+bind = "instance-expose-peers:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order to see a list of instances that this instance 'peers' with. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
@@ -247,7 +247,7 @@ type = "select"
 [main.instance.instance_expose_suspended]
 ask.en = "API: Expose suspended?"
 ask.fr = "API : Exposer les instances bloquées ?"
-bind = "instance-expose-suspended:__FINALPATH__/config.yaml"
+bind = "instance-expose-suspended:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated users to see the list through the web UI. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
@@ -257,7 +257,7 @@ type = "select"
 [main.instance.instance_expose_suspended_web]
 ask.en = "API: Expose suspended on Web (/about/suspended)?"
 ask.fr = "API : Exposer les instances bloquées sur le Web (/about/suspended) ?"
-bind = "instance-expose-suspended-web:__FINALPATH__/config.yaml"
+bind = "instance-expose-suspended-web:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to view /about/suspended, showing the HTML rendered list of instances that this instance blocks/suspends."
@@ -267,7 +267,7 @@ type = "select"
 [main.instance.instance_expose_public_timeline]
 ask.en = "API: Expose public timeline?"
 ask.fr = "API : Exposer la timeline publique ?"
-bind = "instance-expose-public-timeline:__FINALPATH__/config.yaml"
+bind = "instance-expose-public-timeline:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = "Allow unauthenticated users to make queries to /api/v1/timelines/public in order to see a list of public posts on this server. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
@@ -277,7 +277,7 @@ type = "select"
 [main.instance.instance_deliver_to_shared_inboxes]
 ask.en = "Deliver to shared inboxes?"
 ask.fr = "Envoi en boites partagées ?"
-bind = "instance-deliver-to-shared-inboxes:__FINALPATH__/config.yaml"
+bind = "instance-deliver-to-shared-inboxes:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "true"
 help.en = """This flag tweaks whether GoToSocial will deliver ActivityPub messages to the shared inbox of a recipient, if one is available, instead of delivering each message to each actor who should receive a message individually.\
@@ -291,7 +291,7 @@ type = "select"
 [main.instance.instance_inject_mastodon_version]
 ask.en = "Inject Mastodon version?"
 ask.fr = "Injecter une version Mastodon ?"
-bind = "instance-inject-mastodon-version:__FINALPATH__/config.yaml"
+bind = "instance-inject-mastodon-version:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = """This flag will inject a Mastodon version into the version field that is included in /api/v1/instance.\
@@ -317,7 +317,7 @@ help = "Config for sending emails via an smtp server."
 [main.smtp.smtp_host]
 ask.en = "SMTP Server Hostname"
 ask.fr = "Nom d'hôte du serveur SMTP"
-bind = "smtp-host:__FINALPATH__/config.yaml"
+bind = "smtp-host:__INSTALL_DIR__/config.yaml"
 default = "localhost"
 help.en = "The hostname of the SMTP server you want to use. Examples: mail.example.org, localhost"
 help.fr = "Le nom d'hôte du serveur SMTP que vous souhaitez utiliser. Exemples: mail.example.org, localhost"
@@ -326,7 +326,7 @@ type = "string"
 [main.smtp.smtp_port]
 ask.en = "SMTP Port"
 ask.fr = "Port SMTP"
-bind = "smtp-port:__FINALPATH__/config.yaml"
+bind = "smtp-port:__INSTALL_DIR__/config.yaml"
 default = "25"
 help.en = "Port to use to connect to the SMTP server"
 help.fr = "Port à utiliser pour se connecter au serveur SMTP"
@@ -335,7 +335,7 @@ type = "number"
 [main.smtp.smtp_username]
 ask.en = "SMTP Username"
 ask.fr = "Nom d'utilisateur SMTP"
-bind = "smtp-username:__FINALPATH__/config.yaml"
+bind = "smtp-username:__INSTALL_DIR__/config.yaml"
 default = ""
 help.en = "Username to use when authenticating with the SMTP server"
 help.fr = "Nom d'utilisateur à utiliser lors de l'authentification avec le serveur SMTP"
@@ -344,7 +344,7 @@ type = "string"
 [main.smtp.smtp_password]
 ask.en = "SMTP Password"
 ask.fr = "Mot de passe SMTP"
-bind = "smtp-password:__FINALPATH__/config.yaml"
+bind = "smtp-password:__INSTALL_DIR__/config.yaml"
 default = ""
 help.en = "Password to use when authenticating with the SMTP server"
 help.fr = "Mot de passe à utiliser lors de l'authentification avec le serveur SMTP"
@@ -353,7 +353,7 @@ type = "password"
 [main.smtp.smtp_from]
 ask.en = "SMTP From Address"
 ask.fr = "Adresse d'expédition SMTP"
-bind = "smtp-from:__FINALPATH__/config.yaml"
+bind = "smtp-from:__INSTALL_DIR__/config.yaml"
 default = "GoToSocial@__DOMAIN__"
 help.en = "From address for sent emails"
 help.fr = "L'adresse utilisée pour les e-mails envoyés"
@@ -362,7 +362,7 @@ type = "email"
 [main.smtp.smtp_disclose_recipients]
 ask.en = "SMTP Disclose Recipients"
 ask.fr = "SMTP Divulguer les destinataires"
-bind = "smtp-disclose-recipients:__FINALPATH__/config.yaml"
+bind = "smtp-disclose-recipients:__INSTALL_DIR__/config.yaml"
 choices = ["true", "false"]
 default = "false"
 help.en = """true: Disclose all recipients in the To field\
@@ -384,7 +384,7 @@ help = "Settings pertaining to... the cache"
 [main.cache.cache_memory_target]
 ask.en = "Value of the cache target"
 ask.fr = "Valeur du niveau de cache"
-bind = "memory-target:__FINALPATH__/config.yaml"
+bind = "memory-target:__INSTALL_DIR__/config.yaml"
 default = "100MiB"
 help.en = """Sets a target limit that the application will try to keep it's caches within.\
 This is based on estimated sizes of in-memory objects, and so NOT AT ALL EXACT.
@@ -407,7 +407,7 @@ help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠�
 [main.advanced.advanced_cookies_samesite]
 ask.en = "Value of the SameSite attribute of cookies set by GoToSocial."
 ask.fr = "Valeur de l'attribut SameSite des cookies définis par GoToSocial."
-bind = "advanced-cookies-samesite:__FINALPATH__/config.yaml"
+bind = "advanced-cookies-samesite:__INSTALL_DIR__/config.yaml"
 choices = ["lax", "strict"]
 default = "lax"
 help.en = """Defaults to 'lax' to ensure that the OIDC flow does not break, which is fine in most cases.\
@@ -420,7 +420,7 @@ type = "select"
 [main.advanced.advanced_rate_limit_requests]
 ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
 ask.fr = "Nombre de requêtes autorisées à partir d'une seule adresse IP dans un délai de 5 minutes."
-bind = "advanced-rate-limit-requests:__FINALPATH__/config.yaml"
+bind = "advanced-rate-limit-requests:__INSTALL_DIR__/config.yaml"
 default = "300"
 help.en = """Default: 300\
 If this amount is exceeded, a 429 HTTP error code will be returned.\
