@@ -426,7 +426,7 @@ storage-backend: "__STORAGE_BACKEND__"
 # Only required when running with the local storage backend.
 # Examples: ["/home/gotosocial/storage", "/opt/gotosocial/datastorage"]
 # Default: "/gotosocial/storage"
-storage-local-base-path: "__DATADIR__"
+storage-local-base-path: "__DATA_DIR__"
 
 # String. API endpoint of the S3 compatible service.
 # Only required when running with the s3 storage backend.

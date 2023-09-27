@@ -1,0 +1,106 @@
+packaging_format = 2
+
+id = "gotosocial"
+name = "GoToSocial"
+description.en = "ActivityPub social network server"
+description.fr = "Serveur de réseau social basé sur ActivityPub"
+
+version = "0.11.1~ynh4"
+
+maintainers = ["OniriCorpe"]
+
+[upstream]
+license = "AGPL-3.0-only"
+website = "https://gotosocial.org/"
+demo = ""
+admindoc = "https://docs.gotosocial.org/en/latest/"
+userdoc = "https://docs.gotosocial.org/en/latest/"
+code = "https://github.com/superseriousbusiness/gotosocial"
+cpe = "???" # FIXME: optional but recommended if relevant, this is meant to contain the Common Platform Enumeration, which is sort of a standard id for applications defined by the NIST. In particular, Yunohost may use this is in the future to easily track CVE (=security reports) related to apps. The CPE may be obtained by searching here: https://nvd.nist.gov/products/cpe/search. For example, for Nextcloud, the CPE is 'cpe:2.3:a:nextcloud:nextcloud' (no need to include the version number)
+fund = "???" # FIXME: optional but recommended (or remove if irrelevant / not applicable). This is meant to be an URL where people can financially support this app, especially when its development is based on volunteers and/or financed by its community. YunoHost may later advertise it in the webadmin.
+
+[integration]
+yunohost = ">= 11.0.6"
+architectures = "all" # FIXME: can be replaced by a list of supported archs using the dpkg --print-architecture nomenclature (amd64/i386/armhf/arm64), for example: ["amd64", "i386"]
+multi_instance = true
+ldap = "?" # FIXME: replace with true, false, or "not_relevant". Not to confuse with the "sso" key : the "ldap" key corresponds to wether or not a user *can* login on the app using its YunoHost credentials.
+sso = "?" # FIXME: replace with true, false, or "not_relevant". Not to confuse with the "ldap" key : the "sso" key corresponds to wether or not a user is *automatically logged-in* on the app when logged-in on the YunoHost portal.
+disk = "50M" # FIXME: replace with an **estimate** minimum disk requirement. e.g. 20M, 400M, 1G, ...
+ram.build = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+ram.runtime = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+
+[install]
+    [install.domain]
+    # this is a generic question - ask strings are automatically handled by Yunohost's core
+    type = "domain"
+    full_domain = true
+
+    [install.admin]
+    # this is a generic question - ask strings are automatically handled by Yunohost's core
+    help.en = "Must be in lower case and without special characters."
+    help.fr = "Doit être en minuscule et sans caractère special."
+    type = "string"
+    example = "johndoe"
+
+    [install.email]
+    ask.en = "The email adress of your admin account."
+    ask.fr = "L'adresse e-mail de votre compte admin."
+    type = "string"
+    example = "johndoe@example.com"
+
+    [install.password]
+    # this is a generic question - ask strings are automatically handled by Yunohost's core
+    help.en = "Must contain: upper case, lower case, number and special character."
+    help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+    type = "password"
+
+    [install.accounts_registration_open]
+    ask.en = "Open registration?"
+    ask.fr = "Inscriptions ouvertes ?"
+    help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
+    help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+    type = "boolean"
+    default = false
+
+    [install.accounts_approval_required]
+    ask.en = "Registration approval?"
+    ask.fr = "Vérification manuelle des inscriptions ?"
+    help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
+    help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
+    type = "boolean"
+    default = true
+
+    [install.accounts_reason_required]
+    ask.en = "Request registration reason?"
+    ask.fr = "Demande de motif pour les inscriptions ?"
+    help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
+    help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
+    type = "boolean"
+    default = true
+
+[resources]
+        [resources.sources.main]
+        in_subdir = false
+        arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_arm64.tar.gz"
+        arm64.sha256 = "d5478c5833df4c7a0510b452546640e10575d2fa45fa43dbbc2e2714f762362a"
+        armel.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_armv6.tar.gz"
+        armel.sha256 = "aadd5ecab1d2a42923ca34bdea7791ab5682ef46b36e9b515a57b55217f397bc"
+        armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_armv7.tar.gz"
+        armhf.sha256 = "6c19c23f7476ab0cd5e7e698bfd47bafa582eba84b810dcb8539e97a419cc136"
+        i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_386.tar.gz"
+        i386.sha256 = "f66f455c7406ac40ff04320cb8f030b5affe8acd39937a8727b0ea53887c7227"
+        amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_amd64.tar.gz"
+        amd64.sha256 = "4e44a5cb4044a523c51b5d178dfd06efb077a17dac22a9a170d6204cb7aed407"
+
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.data_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.database]
+    type = "postgresql"
