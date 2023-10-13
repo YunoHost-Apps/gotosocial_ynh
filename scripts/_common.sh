@@ -15,7 +15,7 @@ pkg_dependencies="postgresql postgresql-contrib"
 # ($YNH_ARCH returns armhf for both...)
 detect_arch(){
 	local architecture
-	if [ -n "$(uname -m | grep arm64)" ] || [ -n "$(uname -m | grep aarch64)" ]; then
+	if [ -n "$(uname -m | grep [arm64,aarch64]; then
 		architecture="arm64"
 	elif [ -n "$(uname -m | grep 64)" ]; then
 		architecture="x86-64"
