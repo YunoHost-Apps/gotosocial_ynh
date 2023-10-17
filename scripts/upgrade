@@ -34,6 +34,7 @@ datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
 cache_memory_target=$(ynh_app_setting_get --app="$app" --key=cache_memory_target)
 
+instance_federation_mode=$(ynh_app_setting_get --app="$app" --key=instance_federation_mode)
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
 instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)
@@ -324,6 +325,15 @@ then
 	# registration of parameter
 	ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
 	ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
+fi
+
+# Upgrade from <0.12.0~ynh1:
+if ynh_compare_current_package_version --comparison lt --version 0.12.0~ynh1 || [ -z "$instance_federation_mode" ]
+then
+	# declaration of new parameter
+	instance_federation_mode="blocklist"
+	# registration of parameter
+	ynh_app_setting_set --app="$app" --key=instance_federation_mode --value="$instance_federation_mode"
 fi
 
 #=================================================
