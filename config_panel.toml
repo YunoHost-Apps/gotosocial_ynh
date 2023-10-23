@@ -4,8 +4,8 @@ version = "1.0"
 
 services = ["__APP__"]
 
-name.en = "Main configuration"
-name.fr = "Configuration principale"
+name.en = "Config panel"
+name.fr = "Panneau de configuration"
 
 help = "Here you can easily configure some things about your GoToSocial instance."
 
