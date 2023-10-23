@@ -3,8 +3,8 @@
     "id": "gotosocial",
     "packaging_format": 1,
     "description": {
-        "en": "ActivityPub social network server",
-        "fr": "Serveur de réseau social basé sur ActivityPub"
+        "en": "Fast ActivityPub social network server written in Go",
+        "fr": "Serveur de réseau social véloce basé sur ActivityPub écrit en Go"
     },
     "version": "0.12.0~ynh2",
     "url": "https://github.com/superseriousbusiness/gotosocial",
