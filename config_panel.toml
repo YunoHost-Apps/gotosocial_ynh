@@ -226,6 +226,18 @@ name = "Instance config"
 
 help = "Config pertaining to instance federation settings, pages to hide/expose, etc."
 
+[main.instance.instance_federation_mode]
+ask.en = "Federation mode to use for this instance"
+ask.fr = "Le mode de fédération à utiliser pour cette instance"
+bind = "instance-federation-mode:__FINALPATH__/config.yaml"
+choices = ["blocklist", "allowlist"]
+default = "blocklist"
+help.en = """blocklist: open federation by default. Only instances that are explicitly blocked will be denied (unless they are also explicitly allowed).\
+allowlist: closed federation by default. Only instances that are explicitly allowed will be able to interact with this instance."""
+help.fr = """blocklist : fédération ouverte par défaut. Seules les instances explicitement bloquées seront exclues (à moins qu'elles ne soient également explicitement autorisées).\
+allowlist : fédération fermée par défaut. Seules les instances explicitement autorisées pourront interagir avec cette instance."""
+type = "select"
+
 [main.instance.landing_page_user]
 ask.en = "Landing page user"
 ask.fr = "Utilisateurice en tant que page d'accueil"

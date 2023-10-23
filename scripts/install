@@ -47,6 +47,7 @@ accounts_reason_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REASON_REQUIRED")
 accounts_allow_custom_css="false"
 accounts_custom_css_length="10000"
 
+instance_federation_mode="blocklist"
 instance_expose_peers="false"
 instance_expose_suspended="false"
 instance_expose_suspended_web="false"
@@ -122,6 +123,7 @@ ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accoun
 ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
 ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
 
+ynh_app_setting_set --app="$app" --key=instance_federation_mode --value="$instance_federation_mode"
 ynh_app_setting_set --app="$app" --key=instance_expose_peers --value="$instance_expose_peers"
 ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$instance_expose_suspended"
 ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"

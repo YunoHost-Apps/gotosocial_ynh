@@ -46,6 +46,7 @@ datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
 
 cache_memory_target=$(ynh_app_setting_get --app="$app" --key=cache_memory_target)
 
+instance_federation_mode=$(ynh_app_setting_get --app="$app" --key=instance_federation_mode)
 instance_expose_peers=$(ynh_app_setting_get --app="$app" --key=instance_expose_peers)
 instance_expose_suspended=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended)
 instance_expose_suspended_web=$(ynh_app_setting_get --app="$app" --key=instance_expose_suspended_web)

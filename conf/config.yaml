@@ -35,6 +35,17 @@ log-db-queries: false
 # Default: true
 log-client-ip: true
 
+# String. Format to use for the timestamp in log lines.
+# If set to the empty string, the timestamp will be
+# ommitted from the logs entirely.
+#
+# The format must be compatible with Go's time.Layout, as
+# documented on https://pkg.go.dev/time#pkg-constants.
+#
+# Examples: [true, false]
+# Default: "02/01/2006 15:04:05.000"
+log-timestamp-format: "02/01/2006 15:04:05.000"
+
 # String. Application name to use internally.
 # Examples: ["My Application","gotosocial"]
 # Default: "gotosocial"
@@ -72,7 +83,7 @@ host: "__DOMAIN__"
 # Examples: ["example.org","server.com"]
 #
 # Please read the appropriate section of the installation guide before you go messing around with this setting:
-# https://docs.gotosocial.org/installation_guide/advanced/#can-i-host-my-instance-at-fediexampleorg-but-have-just-exampleorg-in-my-username
+# https://docs.gotosocial.org/en/latest/advanced/host-account-domain/
 #
 # Default: ""
 account-domain: ""
@@ -262,6 +273,21 @@ web-asset-base-dir: "./web/assets/"
 
 # Config pertaining to instance federation settings, pages to hide/expose, etc.
 
+# String. Federation mode to use for this instance.
+#
+# "blocklist" -- open federation by default. Only instances that are explicitly 
+#                blocked will be denied (unless they are also explicitly allowed).
+#
+# "allowlist" -- closed federation by default. Only instances that are explicitly
+#                allowed will be able to interact with this instance.
+#
+# For more details on blocklist and allowlist modes, check the documentation at:
+# https://docs.gotosocial.org/en/latest/admin/federation_modes
+#
+# Options: ["blocklist", "allowlist"]
+# Default: "blocklist"
+instance-federation-mode: "__INSTANCE_FEDERATION_MODE__"
+
 # Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order
 # to see a list of instances that this instance 'peers' with. Even if set to 'false', then authenticated
 # users (members of the instance) will still be able to query the endpoint.
@@ -270,9 +296,12 @@ web-asset-base-dir: "./web/assets/"
 instance-expose-peers: __INSTANCE_EXPOSE_PEERS__
 
 # Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order
-# to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated
-# users to see the list through the web UI. Even if set to 'false', then authenticated users (members
-# of the instance) will still be able to query the endpoint.
+# to see a list of instances that this instance blocks/suspends. Even if set to 'false', then authenticated
+# users (members of the instance) will still be able to query the endpoint.
+#
+# WARNING: Setting this variable to 'true' may result in your instance being scraped by blocklist scrapers.
+# See: https://docs.gotosocial.org/en/latest/admin/domain_blocks/#block-announce-bots
+#
 # Options: [true, false]
 # Default: false
 instance-expose-suspended: __INSTANCE_EXPOSE_SUSPENDED__
@@ -714,21 +743,19 @@ request-id-header: "X-Request-Id"
 # Default: false
 tracing-enabled: false
 
-# String. Set the transport protocol for the tracing system. Can either be "grpc" for
-# OTLP gRPC or "jaeger" for jaeger based ingesters.
-# Options: ["grpc", "jaeger"]
+# String. Set the transport protocol for the tracing system. Can either be "grpc"
+# for OTLP gRPC, or "http" for OTLP HTTP.
+# Options: ["grpc", "http"]
 # Default: "grpc"
 tracing-transport: "grpc"
 
-# String. Endpoint of the trace ingester. When using the gRPC based transport, the
-# endpoint is usually a single address/port combination. For the jaeger transport it
-# should be a fully qualified URL.
-# OTLP gRPC or "jaeger" for jaeger based ingesters
-# Examples: ["localhost:4317", "http://localhost:14268/api/traces"]
+# String. Endpoint of the trace ingester. When using the gRPC or HTTP based transports,
+# provide the endpoint as a single address/port combination without a protocol scheme.
+# Examples: ["localhost:4317"]
 # Default: ""
 tracing-endpoint: ""
 
-# Bool. Disable HTTPS for the gRPC transport protocol.
+# Bool. Disable TLS for the gRPC and HTTP transport protocols.
 # Default: false
 tracing-insecure-transport: false
 
@@ -837,6 +864,34 @@ advanced-cookies-samesite: "__ADVANCED_COOKIES_SAMESITE__"
 # Examples: [1000, 500, 0]
 # Default: 1000
 advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
+
+# Array of string. CIDRs to except from rate limit restrictions.
+# Any IPs inside the CIDR range(s) will not have rate limiting
+# applied on their requests, and rate limit headers will not be
+# set for those requests.
+#
+# This can be useful in the following example cases (and probably
+# a bunch of others as well):
+#
+# 1. You've set up an automated service that uses the API, and
+#    it keeps getting rate limited, even though you trust it's
+#    not abusing the instance.
+#
+# 2. You live with multiple people who use the same instance,
+#    and you're all using the same router/NAT, so you all have
+#    the same IP address, and you keep rate limiting each other.
+#
+# 3. You mostly use your own home internet to access your instance,
+#    and you want to exempt your home internet from rate limiting.
+#
+# You should be careful when adjusting this setting, since you
+# might inadvertently make rate limiting useless if you set too
+# wide a range. If in doubt, be too restrictive rather than too
+# lenient, and adjust as you go.
+#
+# Example: ["192.168.0.0/16"]
+# Default: []
+advanced-rate-limit-exceptions: []
 
 # Int. Amount of open requests to permit per CPU, per router grouping, before applying http
 # request throttling. Any requests beyond the calculated limit are held in a backlog queue for
