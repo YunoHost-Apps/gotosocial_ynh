@@ -1,3 +1,11 @@
+# ⚠️ IMPORTANT WARNING: do NOT edit this config file by hand,
+# else your modifications will be ERASED at each update of the GTS package!
+# Instead, use the config panel in your web admin interface:
+# Applications ➡️ GoToSocial ➡️ Config panel ➡️ do your config edit ➡️ Save
+# Most of the relevant settings are available in the config panel, if you're
+# missing one, open an issue: https://github.com/YunoHost-Apps/gotosocial_ynh/issues
+
+
 #  GoToSocial
 #  Copyright (C) 2021-2023 GoToSocial Authors admin@gotosocial.org
 
