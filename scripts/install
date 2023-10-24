@@ -28,7 +28,6 @@ ynh_script_progression --message="Storing installation settings..." --weight=1
 ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
 ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
 ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
-ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
