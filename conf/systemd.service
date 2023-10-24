@@ -4,14 +4,13 @@ After=network.target postgresql.service nginx.service
 
 [Service]
 Type=exec
-Restart=on-failure
-
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
 ExecStart=__INSTALL_DIR__/gotosocial --config-path config.yaml server start
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
+Restart=on-failure
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these 
