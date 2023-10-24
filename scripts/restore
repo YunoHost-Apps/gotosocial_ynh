@@ -38,7 +38,8 @@ ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS unaccent;" --data
 ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS pg_trgm;" --database="$db_name"
 ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS citext;" --database="$db_name"
 ynh_psql_execute_as_root --sql="CREATE EXTENSION IF NOT EXISTS \"uuid-ossp\";" --database="$db_name"
-ynh_psql_execute_file_as_root --file="./db.sql" --database="$db_name"
+
+ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
 
 #=================================================
 # RESTORE SYSTEMD
