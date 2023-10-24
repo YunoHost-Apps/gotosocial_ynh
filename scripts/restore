@@ -34,7 +34,7 @@ chown -R "$app:www-data" "$data_dir"
 #=================================================
 ynh_script_progression --message="Restoring the PostgreSQL database..." --weight=5
 
-ynh_mysql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
+ynh_psql_connect_as --user=$db_user --password=$db_pwd --database=$db_name < ./db.sql
 
 #=================================================
 # RESTORE SYSTEMD
