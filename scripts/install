@@ -82,12 +82,10 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 #=================================================
 ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
 
-# using "/var/www/$app" instead of "$install_dir" as a temporary workaround for this bug:
-# bad_ynh_exec_syntax() false positive: https://github.com/YunoHost/package_linter/issues/123
-
-ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
-
-ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
+pushd $install_dir
+	ynh_exec_warn_less ./gotosocial --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
+	ynh_exec_warn_less ./gotosocial --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
+popd
 
 #=================================================
 # START SYSTEMD SERVICE
