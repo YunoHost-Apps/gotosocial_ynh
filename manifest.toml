@@ -5,7 +5,7 @@ name = "GoToSocial"
 description.en = "ActivityPub social network server"
 description.fr = "Serveur de réseau social basé sur ActivityPub"
 
-version = "0.11.1~ynh4"
+version = "0.12.0~ynh1"
 
 maintainers = ["OniriCorpe"]
 
@@ -70,14 +70,14 @@ ram.runtime = "50M"
 [resources]
         [resources.sources.main]
         in_subdir = false
-        arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_arm64.tar.gz"
-        arm64.sha256 = "d5478c5833df4c7a0510b452546640e10575d2fa45fa43dbbc2e2714f762362a"
-        armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_armv7.tar.gz"
-        armhf.sha256 = "6c19c23f7476ab0cd5e7e698bfd47bafa582eba84b810dcb8539e97a419cc136"
-        i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_386.tar.gz"
-        i386.sha256 = "f66f455c7406ac40ff04320cb8f030b5affe8acd39937a8727b0ea53887c7227"
-        amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.11.1/gotosocial_0.11.1_linux_amd64.tar.gz"
-        amd64.sha256 = "4e44a5cb4044a523c51b5d178dfd06efb077a17dac22a9a170d6204cb7aed407"
+        arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.12.0/gotosocial_0.12.0_linux_arm64.tar.gz"
+        arm64.sha256 = "846d0700d34358bcc9ed452ed1459ed072ba6abe0dcf760bad73a465579930a8"
+        armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.12.0/gotosocial_0.12.0_linux_armv7.tar.gz"
+        armhf.sha256 = "44c4ce23a50ef31020693a05f96ec0408dbd41f6e9bd928aa979bb820f96d84e"
+        i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.12.0/gotosocial_0.12.0_linux_386.tar.gz"
+        i386.sha256 = "e91e4af12341f73bb1be58d953679e09ab24f47a4ccfc417f1ec4e3fbf6a97c2"
+        amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.12.0/gotosocial_0.12.0_linux_amd64.tar.gz"
+        amd64.sha256 = "e1f309b1c8c7b224bfd12cefcd6c9111b15447d8ab7713e89d0066507ca06c45"
 
     [resources.system_user]
     allow_email = true
