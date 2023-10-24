@@ -78,6 +78,7 @@ ram.runtime = "50M"
         amd64.sha256 = "4e44a5cb4044a523c51b5d178dfd06efb077a17dac22a9a170d6204cb7aed407"
 
     [resources.system_user]
+    allow_email = true
 
     [resources.ports]
 
