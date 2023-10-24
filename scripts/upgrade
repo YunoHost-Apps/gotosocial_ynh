@@ -121,33 +121,6 @@ then
 	ynh_app_setting_set --app="$app" --key=media_emoji_remote_max_size --value="$media_emoji_remote_max_size"
 fi
 
-# Upgrade from <0.6.0~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.6.0~ynh1 || [ -z "$instance_expose_public_timeline" ]
-then
-	# declaration of new parameters
-	landing_page_user=""
-	instance_expose_public_timeline="false"
-	storage_backend="local"
-	storage_s3_endpoint=""
-	storage_s3_proxy="false"
-	storage_s3_access_key=""
-	storage_s3_secret_key=""
-	storage_s3_bucket=""
-	advanced_cookies_samesite="lax"
-	advanced_rate_limit_requests="1000"
-	# registration of new parameters
-	ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
-	ynh_app_setting_set --app="$app" --key=instance_expose_public_timeline --value="$instance_expose_public_timeline"
-	ynh_app_setting_set --app="$app" --key=storage_backend --value="$storage_backend"
-	ynh_app_setting_set --app="$app" --key=storage_s3_endpoint --value="$storage_s3_endpoint"
-	ynh_app_setting_set --app="$app" --key=storage_s3_proxy --value="$storage_s3_proxy"
-	ynh_app_setting_set --app="$app" --key=storage_s3_access_key --value="$storage_s3_access_key"
-	ynh_app_setting_set --app="$app" --key=storage_s3_secret_key --value="$storage_s3_secret_key"
-	ynh_app_setting_set --app="$app" --key=storage_s3_bucket --value="$storage_s3_bucket"
-	ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
-	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
-fi
-
 # Upgrade from <0.7.1~ynh1:
 if ynh_compare_current_package_version --comparison lt --version 0.7.1~ynh1 || [ -z "$instance_expose_suspended_web" ]
 then
@@ -158,25 +131,6 @@ then
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
-fi
-
-# Upgrade from <0.8.0~ynh2:
-if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "$smtp_host" ]
-then
-	# declaration of new parameter
-	smtp_host="localhost"
-	smtp_port="25"
-	smtp_username=""
-	smtp_password=""
-	smtp_from="noreply@$domain"
-	smtp_disclose_recipients="false"
-	# registration of parameters
-	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
-	ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
-	ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
-	ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 fi
 
 # Upgrade from <0.8.0~ynh3:
@@ -238,35 +192,17 @@ then
 fi
 
 #=================================================
-# CREATE DEDICATED USER
-#=================================================
-#REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..."
-
-# Create a dedicated user (if not existing)
-#REMOVEME? ynh_system_user_create --username="$app" --home_dir="$install_dir"
-
-#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..."
-
-	# detect_arch comes from _common.sh / personnal helpers
-	architecture=$(detect_arch)
 	
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir="$install_dir"  --keep="config.yaml"
 fi
 
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
-# this will be treated as a security issue.
-chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
 
@@ -279,27 +215,12 @@ ynh_script_progression --message="Upgrading NGINX web server configuration..."
 ynh_add_nginx_config
 
 #=================================================
-# UPGRADE DEPENDENCIES
-#=================================================
-#REMOVEME? ynh_script_progression --message="Upgrading dependencies..."
-
-#REMOVEME? ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
-
-#=================================================
 # UPDATE A CONFIG FILE
 #=================================================
 ynh_script_progression --message="Updating a configuration file..."
 
-### Same as during install
-###
-### The file will automatically be backed-up if it's found to be manually modified (because
-### ynh_add_config keeps track of the file's checksum)
-
 ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 
-# FIXME: this should be handled by the core in the future
-# You may need to use chmod 600 instead of 400,
-# for example if the app is expected to be able to modify its own config
 chmod 400 "$install_dir/config.yaml"
 chown "$app:$app" "$install_dir/config.yaml"
 
@@ -342,13 +263,6 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 ynh_script_progression --message="Starting a systemd service..."
 
 ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..."
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT

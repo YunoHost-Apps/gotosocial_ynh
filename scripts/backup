@@ -55,10 +55,6 @@ ynh_backup --src_path="/etc/fail2ban/filter.d/$app.conf"
 ynh_backup --src_path="/etc/systemd/system/$app.service"
 
 #=================================================
-# BACKUP VARIOUS FILES
-#=================================================
-
-#=================================================
 # BACKUP THE POSTGRESQL DATABASE
 #=================================================
 ynh_print_info --message="Backing up the PostgreSQL database..."

@@ -43,7 +43,7 @@ application-name: "__APP__"
 # String. The user that will be shown instead of the landing page. if no user is set, the landing page will be shown.
 # Examples: "admin"
 # Default: ""
-landing-page-user: "__LANDING_PAGE_USER__"
+landing-page-user: ""
 
 # String. Hostname that this server will be reachable at. Defaults to localhost for local testing,
 # but you should *definitely* change this when running for real, or your server won't work at all.
@@ -238,7 +238,7 @@ cache:
   # in-memory objects, and so NOT AT ALL EXACT.
   # Examples: ["100MiB", "200MiB", "500MiB", "1GiB"]
   # Default: "100MiB"
-  memory-target: __CACHE_MEMORY_TARGET__
+  memory-target: "100MiB"
 
 ######################
 ##### WEB CONFIG #####
@@ -267,7 +267,7 @@ web-asset-base-dir: "./web/assets/"
 # users (members of the instance) will still be able to query the endpoint.
 # Options: [true, false]
 # Default: false
-instance-expose-peers: __INSTANCE_EXPOSE_PEERS__
+instance-expose-peers: false
 
 # Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order
 # to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated
@@ -275,20 +275,20 @@ instance-expose-peers: __INSTANCE_EXPOSE_PEERS__
 # of the instance) will still be able to query the endpoint.
 # Options: [true, false]
 # Default: false
-instance-expose-suspended: __INSTANCE_EXPOSE_SUSPENDED__
+instance-expose-suspended: false
 
 # Bool. Allow unauthenticated users to view /about/suspended,
 # showing the HTML rendered list of instances that this instance blocks/suspends.
 # Options: [true, false]
 # Default: false
-instance-expose-suspended-web: __INSTANCE_EXPOSE_SUSPENDED_WEB__
+instance-expose-suspended-web: false
 
 # Bool. Allow unauthenticated users to make queries to /api/v1/timelines/public in order
 # to see a list of public posts on this server. Even if set to 'false', then authenticated
 # users (members of the instance) will still be able to query the endpoint.
 # Options: [true, false]
 # Default: false
-instance-expose-public-timeline: __INSTANCE_EXPOSE_PUBLIC_TIMELINE__
+instance-expose-public-timeline: false
 
 # Bool. This flag tweaks whether GoToSocial will deliver ActivityPub messages
 # to the shared inbox of a recipient, if one is available, instead of delivering
@@ -301,7 +301,7 @@ instance-expose-public-timeline: __INSTANCE_EXPOSE_PUBLIC_TIMELINE__
 #
 # Options: [true, false]
 # Default: true
-instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
+instance-deliver-to-shared-inboxes: true
 
 # Bool. This flag will inject a Mastodon version into the version field that
 # is included in /api/v1/instance. This version is often used by Mastodon clients
@@ -310,7 +310,7 @@ instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
 #
 # Options: [true, false]
 # Default: false
-instance-inject-mastodon-version: __INSTANCE_INJECT_MASTODON_VERSION__
+instance-inject-mastodon-version: false
 
 ###########################
 ##### ACCOUNTS CONFIG #####
@@ -347,14 +347,14 @@ accounts-reason-required: __ACCOUNTS_REASON_REQUIRED__
 #
 # Options: [true, false]
 # Default: false
-accounts-allow-custom-css: __ACCOUNTS_ALLOW_CUSTOM_CSS__
+accounts-allow-custom-css: false
 
 # Int. If accounts-allow-custom-css is true, this is the permitted length in characters for
 # CSS uploaded by accounts on this instance. No effect if accounts-allow-custom-css is false.
 #
 # Examples: [500, 5000, 9999]
 # Default: 10000
-accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
+accounts-custom-css-length: 10000
 
 ########################
 ##### MEDIA CONFIG #####
@@ -365,22 +365,22 @@ accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
 # Int. Maximum allowed image upload size in bytes.
 # Examples: [2097152, 10485760]
 # Default: 10485760 -- aka 10MB
-media-image-max-size: __MEDIA_IMAGE_MAX_SIZE__
+media-image-max-size: 10485760
 
 # Int. Maximum allowed video upload size in bytes.
 # Examples: [2097152, 10485760]
 # Default: 41943040 -- aka 40MB
-media-video-max-size: __MEDIA_VIDEO_MAX_SIZE__
+media-video-max-size: 41943040
 
 # Int. Minimum amount of characters required as an image or video description.
 # Examples: [500, 1000, 1500]
 # Default: 0 (not required)
-media-description-min-chars: __MEDIA_DESCRIPTION_MIN_CHARS__
+media-description-min-chars: 0
 
 # Int. Maximum amount of characters permitted in an image or video description.
 # Examples: [500, 1000, 1500]
 # Default: 500
-media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
+media-description-max-chars: 500
 
 # Int. Number of days to cache media from remote instances before they are removed from the cache.
 # A job will run every day at midnight to clean up any remote media older than the given amount of days.
@@ -391,7 +391,7 @@ media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 # If this is set to 0, then media from remote instances will be cached indefinitely.
 # Examples: [30, 60, 7, 0]
 # Default: 7
-media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
+media-remote-cache-days: 7
 
 # Int. Max size in bytes of emojis uploaded to this instance via the admin API.
 # The default is the same as the Mastodon size limit for emojis (50kb), which allows
@@ -399,7 +399,7 @@ media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
 # of your emojis to other instances, so beware.
 # Examples: [51200, 102400]
 # Default: 51200
-media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
+media-emoji-local-max-size: 51200
 
 # Int. Max size in bytes of emojis to download from other instances.
 # By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.
@@ -407,7 +407,7 @@ media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
 # higher emoji size limits, and not taking up too much space in storage.
 # Examples: [51200, 102400]
 # Default: 102400
-media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
+media-emoji-remote-max-size: 102400
 
 ##########################
 ##### STORAGE CONFIG #####
@@ -418,7 +418,7 @@ media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
 # String. Type of storage backend to use.
 # Examples: ["local", "s3"]
 # Default: "local" (storage on local disk)
-storage-backend: "__STORAGE_BACKEND__"
+storage-backend: "local"
 
 # String. Directory to use as a base path for storing files.
 # Make sure whatever user/group gotosocial is running as has permission to access
@@ -434,12 +434,12 @@ storage-local-base-path: "__DATA_DIR__"
 # GoToSocial uses "DNS-style" when accessing buckets.
 # If you are using Scaleways object storage, please remove the "bucket name" from the endpoint address
 # Default: ""
-storage-s3-endpoint: "__STORAGE_S3_ENDPOINT__"
+storage-s3-endpoint: ""
 
 # Bool. If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL.
 #
 # Default: false
-storage-s3-proxy: __STORAGE_S3_PROXY__
+storage-s3-proxy: false
 
 # Bool. Use SSL for S3 connections.
 #
@@ -453,14 +453,14 @@ storage-s3-use-ssl: true
 # Only required when running with the s3 storage backend.
 # Examples: ["AKIAJSIE27KKMHXI3BJQ","miniouser"]
 # Default: ""
-storage-s3-access-key: "__STORAGE_S3_ACCESS_KEY__"
+storage-s3-access-key: ""
 
 # String. Secret key part of the S3 credentials.
 # Consider setting this value using environment variables to avoid leaking it via the config file
 # Only required when running with the s3 storage backend.
 # Examples: ["5bEYu26084qjSFyclM/f2pz4gviSfoOg+mFwBH39","miniopassword"]
 # Default: ""
-storage-s3-secret-key: "__STORAGE_S3_SECRET_KEY__"
+storage-s3-secret-key: ""
 
 # String. Name of the storage bucket.
 #
@@ -472,7 +472,7 @@ storage-s3-secret-key: "__STORAGE_S3_SECRET_KEY__"
 # Only required when running with the s3 storage backend.
 # Examples: ["gts","cool-instance"]
 # Default: ""
-storage-s3-bucket: "__STORAGE_S3_BUCKET__"
+storage-s3-bucket: ""
 
 ###########################
 ##### STATUSES CONFIG #####
@@ -484,31 +484,31 @@ storage-s3-bucket: "__STORAGE_S3_BUCKET__"
 # Note that going way higher than the default might break federation.
 # Examples: [140, 500, 5000]
 # Default: 5000
-statuses-max-chars: __STATUSES_MAX_CHARS__
+statuses-max-chars: 5000
 
 # Int. Maximum amount of characters allowed in the CW/subject header of a status.
 # Note that going way higher than the default might break federation.
 # Examples: [100, 200]
 # Default: 100
-statuses-cw-max-chars: __STATUSES_CW_MAX_CHARS__
+statuses-cw-max-chars: 100
 
 # Int. Maximum amount of options to permit when creating a new poll.
 # Note that going way higher than the default might break federation.
 # Examples: [4, 6, 10]
 # Default: 6
-statuses-poll-max-options: __STATUSES_POLL_MAX_OPTIONS__
+statuses-poll-max-options: 6
 
 # Int. Maximum amount of characters to permit per poll option when creating a new poll.
 # Note that going way higher than the default might break federation.
 # Examples: [50, 100, 150]
 # Default: 50
-statuses-poll-option-max-chars: __STATUSES_POLL_OPTION_MAX_CHARS__
+statuses-poll-option-max-chars: 50
 
 # Int. Maximum amount of media files that can be attached to a new status.
 # Note that going way higher than the default might break federation.
 # Examples: [4, 6, 10]
 # Default: 6
-statuses-media-max-files: __STATUSES_MEDIA_MAX_FILES__
+statuses-media-max-files: 6
 
 ##############################
 ##### LETSENCRYPT CONFIG #####
@@ -639,30 +639,30 @@ oidc-admin-groups: []
 # If this is not set, smtp will not be used to send emails, and you can ignore the other settings.
 # Examples: ["mail.example.org", "localhost"]
 # Default: ""
-smtp-host: "__SMTP_HOST__"
+smtp-host: "localhost"
 
 # Int. Port to use to connect to the smtp server.
 # Examples: []
 # Default: 0
-smtp-port: __SMTP_PORT__
+smtp-port: 25
 
 # String. Username to use when authenticating with the smtp server.
 # This should have been provided to you by your smtp host.
 # This is often, but not always, an email address.
 # Examples: ["maillord@example.org"]
 # Default: ""
-smtp-username: "__SMTP_USERNAME__"
+smtp-username: "__APP__"
 
 # String. Password to use when authenticating with the smtp server.
 # This should have been provided to you by your smtp host.
 # Examples: ["1234", "password"]
 # Default: ""
-smtp-password: "__SMTP_PASSWORD__"
+smtp-password: "__MAIL_PWD__"
 
 # String. 'From' address for sent emails.
 # Examples: ["mail@example.org"]
 # Default: ""
-smtp-from: "__SMTP_FROM__"
+smtp-from: "noreply@__DOMAIN__"
 
 # Bool. If true, when an email is sent that has multiple recipients, each recipient
 # will be included in the To field, so that each recipient can see who else got the
@@ -674,7 +674,7 @@ smtp-from: "__SMTP_FROM__"
 # It might be useful to change this setting to 'true' if you want to be able to discuss
 # new moderation reports with other admins by 'replying-all' to the notification email.
 # Default: false
-smtp-disclose-recipients: __SMTP_DISCLOSE_RECIPIENTS__
+smtp-disclose-recipients: false
 
 #########################
 ##### SYSLOG CONFIG #####
@@ -820,7 +820,7 @@ http-client:
 #
 # Options: ["lax", "strict"]
 # Default: "lax"
-advanced-cookies-samesite: "__ADVANCED_COOKIES_SAMESITE__"
+advanced-cookies-samesite: "lax"
 
 # Int. Amount of requests to permit per router grouping from a single IP address within
 # a span of 5 minutes. If this amount is exceeded, a 429 HTTP error code will be returned.
@@ -836,7 +836,7 @@ advanced-cookies-samesite: "__ADVANCED_COOKIES_SAMESITE__"
 #
 # Examples: [1000, 500, 0]
 # Default: 1000
-advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
+advanced-rate-limit-requests: 1000
 
 # Int. Amount of open requests to permit per CPU, per router grouping, before applying http
 # request throttling. Any requests beyond the calculated limit are held in a backlog queue for

@@ -2,6 +2,15 @@ test_format = 1.0
 
 [default]
 
+
+    # -------------------------------
+    # Default args to use for install
+    # -------------------------------
+
+    args.accounts_registration_open = "false"
+    args.accounts_approval_required = "true"
+    args.accounts_reason_required = "true"
+
     # -------------------------------
     # Commits to test upgrade from
     # -------------------------------
