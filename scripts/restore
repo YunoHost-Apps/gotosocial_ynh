@@ -81,6 +81,13 @@ statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll
 statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
 statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
+oidc_enabled=$(ynh_app_setting_get --app="$app" --key=oidc_enabled)
+oidc_idp_name=$(ynh_app_setting_get --app="$app" --key=oidc_idp_name)
+oidc_skip_verification=$(ynh_app_setting_get --app="$app" --key=oidc_skip_verification)
+oidc_issuer=$(ynh_app_setting_get --app="$app" --key=oidc_issuer)
+oidc_client_id=$(ynh_app_setting_get --app="$app" --key=oidc_client_id)
+oidc_client_secret=$(ynh_app_setting_get --app="$app" --key=oidc_client_secret)
+
 smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
 smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
 smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)

@@ -69,6 +69,13 @@ statuses_poll_max_options=$(ynh_app_setting_get --app="$app" --key=statuses_poll
 statuses_poll_option_max_chars=$(ynh_app_setting_get --app="$app" --key=statuses_poll_option_max_chars)
 statuses_media_max_files=$(ynh_app_setting_get --app="$app" --key=statuses_media_max_files)
 
+oidc_enabled=$(ynh_app_setting_get --app="$app" --key=oidc_enabled)
+oidc_idp_name=$(ynh_app_setting_get --app="$app" --key=oidc_idp_name)
+oidc_skip_verification=$(ynh_app_setting_get --app="$app" --key=oidc_skip_verification)
+oidc_issuer=$(ynh_app_setting_get --app="$app" --key=oidc_issuer)
+oidc_client_id=$(ynh_app_setting_get --app="$app" --key=oidc_client_id)
+oidc_client_secret=$(ynh_app_setting_get --app="$app" --key=oidc_client_secret)
+
 smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
 smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
 smtp_username=$(ynh_app_setting_get --app="$app" --key=smtp_username)
@@ -334,6 +341,25 @@ then
 	instance_federation_mode="blocklist"
 	# registration of parameter
 	ynh_app_setting_set --app="$app" --key=instance_federation_mode --value="$instance_federation_mode"
+fi
+
+# Upgrade from <0.12.1~ynh2:
+if ynh_compare_current_package_version --comparison lt --version 0.12.1~ynh2 || [ -z "$oidc_enabled" ]
+then
+	# declaration of new parameter
+	oidc_enabled="false"
+	oidc_idp_name=""
+	oidc_skip_verification="false"
+	oidc_issuer=""
+	oidc_client_id=""
+	oidc_client_secret=""
+	# registration of parameter
+	ynh_app_setting_set --app="$app" --key=oidc_enabled --value="$oidc_enabled"
+	ynh_app_setting_set --app="$app" --key=oidc_idp_name --value="$oidc_idp_name"
+	ynh_app_setting_set --app="$app" --key=oidc_skip_verification --value="$oidc_skip_verification"
+	ynh_app_setting_set --app="$app" --key=oidc_issuer --value="$oidc_issuer"
+	ynh_app_setting_set --app="$app" --key=oidc_client_id --value="$oidc_client_id"
+	ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_client_secret"
 fi
 
 #=================================================

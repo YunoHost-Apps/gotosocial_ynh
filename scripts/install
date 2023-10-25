@@ -76,6 +76,13 @@ statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
 
+oidc_enabled="false"
+oidc_idp_name=""
+oidc_skip_verification="false"
+oidc_issuer=""
+oidc_client_id=""
+oidc_client_secret=""
+
 smtp_host="localhost"
 smtp_port="25"
 smtp_username=""
