@@ -37,6 +37,7 @@ You can read [the roadmap](https://github.com/superseriousbusiness/gotosocial/bl
 GoToSocial require a **dedicated domain (or subdomain) name**, for example: gotosocial.example.com
 
 This package is not-working with the SSO (single-sign on) or LDAP integration.  
+However, it can be configured to use the OpenID Connect protocol and Dex (a program that links LDAP and OpenID Connect) to enable connection with your YunoHost users, see [the relevant part of the doc](#openid-connect).
 You will have a **separate account from the rest of your Yunohost server**, potentially with a different username and password.
 
 GoToSocial **does not provide a user interface**.  
