@@ -82,3 +82,11 @@ And to promote them as an administrator of your instance:
 ```bash
 ./gotosocial --config-path config.yaml admin account promote --username some_username
 ```
+
+#### OpenID Connect
+
+To use OpenID Connect, the YunoHost admin must:
+
+* install the [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) package
+* configure Dex properly during the installation (all entered information will be used in the next step, so keep it in a safe place)
+* configure GTS using the config panel's OIDC form: `Applications > GoToSocial > Config Panel > OpenID Connect settings`
