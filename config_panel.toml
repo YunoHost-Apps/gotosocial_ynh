@@ -410,13 +410,13 @@ type = "string"
 #### OIDC SETTINGS
 ####################
 
-[main.OIDC]
+[main.oidc]
 
 name = "OpenID Connect settings"
 
 help = "Settings pertaining to... OpenID Connect"
 
-[main.OIDC.oidc_enabled]
+[main.oidc.oidc_enabled]
 ask.en = "Activate OpenID Connect?"
 ask.fr = "Activer OpenID Connect ?"
 bind = "oidc-enabled:__FINALPATH__/config.yaml"
@@ -426,7 +426,7 @@ help.en = "Enable authentication with external OIDC provider."
 help.fr = "Activer l'authentification avec un fournisseur OIDC externe"
 type = "select"
 
-[main.cache.oidc_idp_name]
+[main.oidc.oidc_idp_name]
 ask.en = "Name of the OIDC IDP (identity provider)"
 ask.fr = "Nom de l'OIDC IDP (identity provider)"
 bind = "oidc-idp-name:__FINALPATH__/config.yaml"
@@ -435,7 +435,7 @@ help.en = "This will be shown to users when they log in. Examples: \"Dex\" or \"
 help.fr = "Sera affiché aux utilisateurices lros de leur connexion. Exemples: \"Dex\" ou \"YunoHost\""
 type = "string"
 
-[main.OIDC.oidc_skip_verification]
+[main.oidc.oidc_skip_verification]
 ask.en = "Skip the normal verification flow of tokens returned from the OIDC provider"
 ask.fr = "Passer la vérification du flux des jetons renvoyés par le fournisseur OIDC"
 bind = "oidc-skip-verification:__FINALPATH__/config.yaml"
@@ -445,7 +445,7 @@ help.en = "ie. don't check the expiry or signature. This should only be used in 
 help.fr = "C'est-à-dire, ne pas vérifier l'expiration ou la signature. Cette méthode ne doit être utilisée qu'en cas de débogage ou de test, jamais dans un environnement de production, car elle est extrêmement dangereuse !"
 type = "select"
 
-[main.OIDC.oidc_issuer]
+[main.oidc.oidc_issuer]
 ask.en = "The OIDC issuer URI."
 ask.fr = "URI du fournisseur OIDC"
 bind = "oidc-issuer:__FINALPATH__/config.yaml"
@@ -454,7 +454,7 @@ help.en = "This is where GtS will redirect users to for login. Typically this wi
 help.fr = ""
 type = "string"
 
-[main.OIDC.oidc_client_id]
+[main.oidc.oidc_client_id]
 ask.en = "OIDC client ID"
 ask.fr = "Client ID du fournisseur OIDC"
 bind = "oidc-client-id:__FINALPATH__/config.yaml"
@@ -463,7 +463,7 @@ help.en = "The ID for this client as registered with the OIDC provider."
 help.fr = ""
 type = "string"
 
-[main.OIDC.oidc_client_secret]
+[main.oidc.oidc_client_secret]
 ask.en = "OIDC client secret (password)"
 ask.fr = "Client secret (mot de passe) du fournisseur OIDC"
 bind = "oidc-client-secret:__FINALPATH__/config.yaml"
