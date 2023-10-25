@@ -13,7 +13,7 @@ Vous devrez utiliser un client compatible avec Mastodon comme [Tusky](https://tu
 
 #### Administration
 
-Vous pouvez vous connecter avec votre utilisateur admin (celui créé automatiquement à l'installation) à l'interface d'administration à l'adresse votre-instance.com/**admin** pour administrer votre insance GoToSocial.  
+Vous pouvez vous connecter avec votre utilisateur admin (celui créé automatiquement lors de l'installation) à l'interface d'administration à l'adresse votre-instance.com/**admin** pour administrer votre insance GoToSocial.  
 [Le code source de cette interface d'administration](https://github.com/superseriousbusiness/gotosocial-admin) est consultable sur github.  
 [La documentation de l'interface d'administration de GoToSocial](https://docs.gotosocial.org/en/latest/admin/settings/).
 
