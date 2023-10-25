@@ -46,7 +46,7 @@ You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.
 
 #### Administration
 
-You can login with your admin user (the one automatically created at the instalaltion) to your-instance.com/**admin** to administrate your GoToSocial instance.  
+You can login with your admin user (the one automatically created during installation) to your-instance.com/**admin** to administrate your GoToSocial instance.  
 [The source code of this administration panel](https://github.com/superseriousbusiness/gotosocial-admin) is available on github.  
 [The GTS admin panel documentation](https://docs.gotosocial.org/en/latest/admin/settings/).
 
