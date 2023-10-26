@@ -9,5 +9,3 @@ You will have a **separate account from the rest of your Yunohost server**, pote
 
 GoToSocial **does not provide a user interface**.  
 You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.app/) on Android, [Feditext](https://fedi.software/@Feditext) for iOS or an instance of [Semaphore](https://semaphore.social/) on the Web.
-
-The docs [can be read here](./doc/DOCS.md) and the admin is **strongly encouraged to read it**!

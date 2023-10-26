@@ -20,7 +20,8 @@ GoToSocial is a fast [ActivityPub](https://activitypub.rocks/) social network se
 
 With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
 
-Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).
+Documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).  
+The docs for this YunoHost package [can be read here](./doc/DOCS.md) and the admin is **strongly encouraged to read it**!
 
 
 **Shipped version:** 0.12.1~ynh1
@@ -43,8 +44,6 @@ You will have a **separate account from the rest of your Yunohost server**, pote
 GoToSocial **does not provide a user interface**.  
 You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.app/) on Android, [Feditext](https://fedi.software/@Feditext) for iOS or an instance of [Semaphore](https://semaphore.social/) on the Web.
 
-The docs [can be read here](./doc/DOCS.md) and the admin is **strongly encouraged to read it**!
-
 ## :red_circle: Antifeatures
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
@@ -55,6 +54,7 @@ The docs [can be read here](./doc/DOCS.md) and the admin is **strongly encourage
 * Official user documentation: <https://docs.gotosocial.org/en/latest/>
 * Official admin documentation: <https://docs.gotosocial.org/en/latest/>
 * Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>
+* YunoHost Store: <https://apps.yunohost.org/app/gotosocial>
 * Report a bug: <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
 ## Developer info

@@ -20,7 +20,8 @@ Un serveur de réseau social véloce basé sur [ActivityPub](https://activitypub
 
 Avec GoToSocial, vous pouvez rester en contact avec vos amis, publier, lire et partager des images et des articles. Tout cela sans être pisté ni subir de publicité !
 
-Vous pouvez consulter la documentation à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).
+Vous pouvez consulter la documentation officielle à l'adresse : [docs.gotosocial.org](https://docs.gotosocial.org).  
+La documentation de ce paquet YunoHost [est lisible ici](./doc/DOCS_fr.md) et l'admin est **vivement encouragé-e à la lire** !
 
 
 **Version incluse :** 0.12.1~ynh1
@@ -43,8 +44,6 @@ Vous aurez un **compte séparé du reste de votre serveur Yunohost**, avec poten
 GoToSocial **ne dispose pas d'une interface utilisateur-ice**.  
 Vous devrez utiliser un client compatible avec Mastodon comme [Tusky](https://tusky.app/) sur Android, [Feditext](https://fedi.software/@Feditext) sur iOS ou une instance de [Semaphore](https://semaphore.social/) en Web.
 
-La documentation [est lisible ici](./doc/DOCS_fr.md) et l'admin est **vivement encouragé-e à la lire** !
-
 ## :red_circle: Fonctions indésirables
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
@@ -55,6 +54,7 @@ La documentation [est lisible ici](./doc/DOCS_fr.md) et l'admin est **vivement e
 * Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
 * Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
 * Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
+* YunoHost Store: <https://apps.yunohost.org/app/gotosocial>
 * Signaler un bug : <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
 ## Informations pour les développeurs
