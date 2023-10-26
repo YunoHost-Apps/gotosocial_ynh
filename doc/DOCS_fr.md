@@ -1,6 +1,6 @@
 # Documentation du package GoToSocial pour YunoHost
 
-*[Read this docs in english.](./doc/DOCS.md)*
+*[Read this docs in english.](./DOCS.md)*
 
 ## Administration
 

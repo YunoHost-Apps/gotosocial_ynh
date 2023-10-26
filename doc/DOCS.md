@@ -1,6 +1,6 @@
 # Docs of the GoToSocial's package for YunoHost
 
-*[Lire cette documentation en français.](./doc/DOCS_fr.md)*
+*[Lire cette documentation en français.](./DOCS_fr.md)*
 
 ## Administration
 
