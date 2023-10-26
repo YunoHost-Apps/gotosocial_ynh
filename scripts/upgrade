@@ -75,6 +75,7 @@ oidc_skip_verification=$(ynh_app_setting_get --app="$app" --key=oidc_skip_verifi
 oidc_issuer=$(ynh_app_setting_get --app="$app" --key=oidc_issuer)
 oidc_client_id=$(ynh_app_setting_get --app="$app" --key=oidc_client_id)
 oidc_client_secret=$(ynh_app_setting_get --app="$app" --key=oidc_client_secret)
+oidc_link_existing=$(ynh_app_setting_get --app="$app" --key=oidc_link_existing)
 
 smtp_host=$(ynh_app_setting_get --app="$app" --key=smtp_host)
 smtp_port=$(ynh_app_setting_get --app="$app" --key=smtp_port)
@@ -353,6 +354,7 @@ then
 	oidc_issuer=""
 	oidc_client_id=""
 	oidc_client_secret=""
+	oidc_link_existing="false"
 	# registration of parameter
 	ynh_app_setting_set --app="$app" --key=oidc_enabled --value="$oidc_enabled"
 	ynh_app_setting_set --app="$app" --key=oidc_idp_name --value="$oidc_idp_name"
@@ -360,6 +362,7 @@ then
 	ynh_app_setting_set --app="$app" --key=oidc_issuer --value="$oidc_issuer"
 	ynh_app_setting_set --app="$app" --key=oidc_client_id --value="$oidc_client_id"
 	ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_client_secret"
+	ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_link_existing"
 fi
 
 #=================================================
