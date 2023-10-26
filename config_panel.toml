@@ -451,7 +451,7 @@ ask.fr = "URI du fournisseur OIDC"
 bind = "oidc-issuer:__FINALPATH__/config.yaml"
 default = ""
 help.en = "This is where GtS will redirect users to for login. Typically this will look like a standard web URL. Examples: \"https://auth.example.org\", \"https://example.org/auth\""
-help.fr = ""
+help.fr = "C'est l'endroit où GtS redirigera les utilisateurs pour qu'ils se connectent. En règle générale, il s'agit d'une URL web standard. Exemples : \"https://auth.example.org\", \"https://example.org/auth\""
 type = "string"
 
 [main.oidc.oidc_client_id]
@@ -460,7 +460,7 @@ ask.fr = "Client ID du fournisseur OIDC"
 bind = "oidc-client-id:__FINALPATH__/config.yaml"
 default = ""
 help.en = "The ID for this client as registered with the OIDC provider."
-help.fr = ""
+help.fr = "L'identifiant pour ce client tel qu'enregistré auprès du fournisseur OIDC"
 type = "string"
 
 [main.oidc.oidc_client_secret]
@@ -469,7 +469,7 @@ ask.fr = "Client secret (mot de passe) du fournisseur OIDC"
 bind = "oidc-client-secret:__FINALPATH__/config.yaml"
 default = ""
 help.en = "The secret for this client as registered with the OIDC provider."
-help.fr = ""
+help.fr = "Le secret pour ce client tel qu'enregistré auprès du fournisseur OIDC"
 type = "string"
 
 [main.oidc.oidc_link_existing]
