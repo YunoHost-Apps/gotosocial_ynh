@@ -472,6 +472,16 @@ help.en = "The secret for this client as registered with the OIDC provider."
 help.fr = ""
 type = "string"
 
+[main.oidc.oidc_link_existing]
+ask.en = "Link OIDC users to existings ones (email based)?"
+ask.fr = "Lier les utilisateurices OIDC à ceux existants (basé sur leur email) ?"
+bind = "oidc-link-existing:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Link OIDC authenticated users to existing ones based on their email address. This is mostly intended for migration purposes if you were running previous versions of GTS which only correlated users with their email address. Should be set to false for most usecases."
+help.fr = "Lier les utilisateurs authentifiés par OIDC aux utilisateurs existants sur la base de leur adresse email. Ceci est principalement destiné à des fins de migration si vous utilisiez des versions antérieures de GTS qui ne corrélaient les utilisateurs qu'avec leur adresse email. Dans la plupart des cas, cette valeur doit être fixée à false."
+type = "select"
+
 ####################
 #### ADVANCED SETTINGS
 ####################
