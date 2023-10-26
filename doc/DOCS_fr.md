@@ -78,6 +78,6 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 
 Pour utiliser OpenID Connect, l'admin YunoHost doit:
 
-* installer le package [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) (Notez que votre serveur doit le compiler, ce qui peut être gourmand en ressources)
+* installer le package [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) (notez que votre serveur doit le compiler, ce qui peut être gourmand en ressources)
 * configurer Dex correctement durant l'installation (toutes les informations renseignées seront utilisées lors de l'étape suivante, donc conservez-les soigneusement)
 * configurer GTS en utilisant le formulaire OIDC du panneau de configuration : `Applications > GoToSocial > Panneau de configuration > OpenID Connect settings`
