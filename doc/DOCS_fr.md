@@ -91,7 +91,7 @@ Pour utiliser OpenID Connect, l'admin YunoHost doit:
   * Activer OpenID Connect : `true`
   * Nom de l'OIDC IDP : "Dex" ou n'importe quel nom qui vous semble correct
   * Passer la vérification du flux des jetons renvoyés : laisser sur `false` (ne **jamais** passer à `true` sauf si vous savez ce que vous faites !)
-  * URI du fournisseur OIDC : le nom de domaine auquel vous avez assigné Dex lors de l'étape rpécédente, par exemple `https://dex.gts.example.com` (ce **N'est PAS** l'URL de votre instance GTS)
+  * URI du fournisseur OIDC : le nom de domaine auquel vous avez assigné Dex lors de l'étape précédente, par exemple `https://dex.gts.example.com` (ce **N'est PAS** l'URL de votre instance GTS)
   * Client ID du fournisseur OIDC : le nom de l'app renseigné lors de l'étape d'installation de Dex (exemples : "GoToSocial", "GTS-test", "YNH-GoToSocial")
   * Client secret du fournisseur OIDC : le long mot de passé généré aléatoirement lors de l'étape d'installation de Dex
   * Sauvegardez, patientez le temps que GTS redémarre puis testez !
