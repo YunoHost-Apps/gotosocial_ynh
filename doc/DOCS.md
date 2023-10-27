@@ -76,6 +76,8 @@ And to promote them as an administrator of your instance:
 
 ## OpenID Connect
 
+You can read the [official GoToSocial documentation about OpenID Connect](https://docs.gotosocial.org/en/latest/configuration/oidc/) in support if you want.
+
 To use OpenID Connect, the YunoHost admin must:
 
 * Install the [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) package (note that your server must compile it, which can be resource-intensive)
