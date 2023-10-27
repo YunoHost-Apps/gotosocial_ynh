@@ -78,6 +78,18 @@ And to promote them as an administrator of your instance:
 
 To use OpenID Connect, the YunoHost admin must:
 
-* install the [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) package (note that your server must compile it, which can be resource-intensive)
-* configure Dex properly during the installation (all entered information will be used in the next step, so keep it in a safe place)
-* configure GTS using the config panel's OIDC form: `Applications > GoToSocial > Config Panel > OpenID Connect settings`
+* Install the [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) package (note that your server must compile it, which can be resource-intensive)
+* Configure Dex properly during the installation (all entered information will be used in the next step, so keep it in a safe place)
+  * Domain: as you wish (may be a sub-domain of your GTS instance, like "dex.gts.example.com")
+  * Path: only `/` if you wish to install it on a sub-domain of your instance, otherwise as you wish
+  * Name of the app: "GoToSocial", "GTS-test", "YNH-GoToSocial" or anything that makes sense to you and does not contain a space (it will be used as "client ID" in the next step)
+  * OIDC secret: a long and random password of at least 30 characters
+  * Callback URI: `https://gts.example.com/auth/callback` by replacing the `gts.example.com` by the domain name of your GTS instance
+* Configure GTS using the config panel's OIDC form: `Applications > GoToSocial > Config Panel > OpenID Connect settings`
+  * Activate OpenID Connect: `true`
+  * Name of the OIDC IDP: "Dex" or any other name that makes sense
+  * Skip the normal verification flow of tokens returned: keep on `false` ( **never** change to `true` unless you know what you're doing!)
+  * OIDC issuer URI: the domain name to which you assigned Dex in the previous step, e.g. `https://dex.gts.example.com` (this is **NOT** the URL of your GTS instance)
+  * OIDC client ID: the app name defined at the Dex installation step (e.g. "GoToSocial", "GTS-test", "YNH-GoToSocial")
+  * OIDC client secret: the long password randomly generated during Dex's installation step
+  * Save, wait until GTS reboots and test!
