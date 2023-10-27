@@ -80,7 +80,7 @@ Vous pouvez regarder la [documentation officielle de GoToSocial au sujet de Open
 
 Pour utiliser OpenID Connect, l'admin YunoHost doit:
 
-* Installer le package [dex_ynh](https://github.com/YunoHost-Apps/dex_ynh) (notez que votre serveur doit le compiler, ce qui peut être gourmand en ressources)
+* Installer le package [Dex](https://apps.yunohost.org/app/dex) (notez que votre serveur doit le compiler, ce qui peut être gourmand en ressources)
 * Configurer Dex correctement durant l'installation (toutes les informations renseignées seront utilisées lors de l'étape suivante, donc conservez-les soigneusement)
   * Nom de domaine : ce que vous voulez (peut-être un sous domaine de votre instance GTS, comme "dex.gts.example.com")
   * Chemin : juste `/` si vous souhaitez l'installer sur un sous domaine de votre instance, sinon comme vous voulez
