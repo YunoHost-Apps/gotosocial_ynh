@@ -126,6 +126,7 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 * Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
 * Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
 * Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
+* YunoHost Store: <https://apps.yunohost.org/app/gotosocial>
 * Signaler un bug : <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
 ## Informations pour les développeurs

@@ -126,6 +126,7 @@ And to promote them as an administrator of your instance:
 * Official user documentation: <https://docs.gotosocial.org/en/latest/>
 * Official admin documentation: <https://docs.gotosocial.org/en/latest/>
 * Upstream app code repository: <https://github.com/superseriousbusiness/gotosocial>
+* YunoHost Store: <https://apps.yunohost.org/app/gotosocial>
 * Report a bug: <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
 ## Developer info
