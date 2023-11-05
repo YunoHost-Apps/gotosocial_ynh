@@ -407,6 +407,82 @@ Exemples : 100MiB, 200MiB, 500MiB, 1GiB; Par défaut : 100MiB"""
 type = "string"
 
 ####################
+#### OIDC SETTINGS
+####################
+
+[main.oidc]
+
+name = "OpenID Connect settings"
+
+help = "Settings pertaining to... OpenID Connect"
+
+[main.oidc.oidc_enabled]
+ask.en = "Activate OpenID Connect?"
+ask.fr = "Activer OpenID Connect ?"
+bind = "oidc-enabled:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Enable authentication with external OIDC provider."
+help.fr = "Activer l'authentification avec un fournisseur OIDC externe"
+type = "select"
+
+[main.oidc.oidc_idp_name]
+ask.en = "Name of the OIDC IDP (identity provider)"
+ask.fr = "Nom de l'OIDC IDP (identity provider)"
+bind = "oidc-idp-name:__FINALPATH__/config.yaml"
+default = ""
+help.en = "This will be shown to users when they log in. Examples: \"Dex\" or \"YunoHost\""
+help.fr = "Sera affiché aux utilisateurices lros de leur connexion. Exemples: \"Dex\" ou \"YunoHost\""
+type = "string"
+
+[main.oidc.oidc_skip_verification]
+ask.en = "Skip the normal verification flow of tokens returned from the OIDC provider"
+ask.fr = "Passer la vérification du flux des jetons renvoyés par le fournisseur OIDC"
+bind = "oidc-skip-verification:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "ie. don't check the expiry or signature. This should only be used in debugging or testing, never ever in a production environment as it's extremely unsafe!"
+help.fr = "C'est-à-dire, ne pas vérifier l'expiration ou la signature. Cette méthode ne doit être utilisée qu'en cas de débogage ou de test, jamais dans un environnement de production, car elle est extrêmement dangereuse !"
+type = "select"
+
+[main.oidc.oidc_issuer]
+ask.en = "The OIDC issuer URI."
+ask.fr = "URI du fournisseur OIDC"
+bind = "oidc-issuer:__FINALPATH__/config.yaml"
+default = ""
+help.en = "This is where GtS will redirect users to for login. Typically this will look like a standard web URL. Examples: \"https://auth.example.org\", \"https://example.org/auth\""
+help.fr = "C'est l'endroit où GtS redirigera les utilisateurs pour qu'ils se connectent. En règle générale, il s'agit d'une URL web standard. Exemples : \"https://auth.example.org\", \"https://example.org/auth\""
+type = "string"
+
+[main.oidc.oidc_client_id]
+ask.en = "OIDC client ID"
+ask.fr = "Client ID du fournisseur OIDC"
+bind = "oidc-client-id:__FINALPATH__/config.yaml"
+default = ""
+help.en = "The ID for this client as registered with the OIDC provider."
+help.fr = "L'identifiant pour ce client tel qu'enregistré auprès du fournisseur OIDC"
+type = "string"
+
+[main.oidc.oidc_client_secret]
+ask.en = "OIDC client secret (password)"
+ask.fr = "Client secret (mot de passe) du fournisseur OIDC"
+bind = "oidc-client-secret:__FINALPATH__/config.yaml"
+default = ""
+help.en = "The secret for this client as registered with the OIDC provider."
+help.fr = "Le secret pour ce client tel qu'enregistré auprès du fournisseur OIDC"
+type = "string"
+
+[main.oidc.oidc_link_existing]
+ask.en = "Link OIDC users to existings ones (email based)?"
+ask.fr = "Lier les utilisateurices OIDC à ceux existants (basé sur leur email) ?"
+bind = "oidc-link-existing:__FINALPATH__/config.yaml"
+choices = ["true", "false"]
+default = "false"
+help.en = "Link OIDC authenticated users to existing ones based on their email address. This is mostly intended for migration purposes if you were running previous versions of GTS which only correlated users with their email address. Should be set to false for most usecases."
+help.fr = "Lier les utilisateurs authentifiés par OIDC aux utilisateurs existants sur la base de leur adresse email. Ceci est principalement destiné à des fins de migration si vous utilisiez des versions antérieures de GTS qui ne corrélaient les utilisateurs qu'avec leur adresse email. Dans la plupart des cas, cette valeur doit être fixée à false."
+type = "select"
+
+####################
 #### ADVANCED SETTINGS
 ####################
 
