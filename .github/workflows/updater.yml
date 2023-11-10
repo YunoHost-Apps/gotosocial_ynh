@@ -6,9 +6,9 @@ name: Check for new upstream releases
 on:
   # Allow to manually trigger the workflow
   workflow_dispatch:
-  # Run it every day at 6:00 UTC
+  # Run it every day at 0:00, 12:00 and 18:00 UTC
   schedule:
-    - cron:  '0 6 * * *'
+    - cron:  '0 0,12,18 * * *'
 jobs:
   updater:
     runs-on: ubuntu-latest
