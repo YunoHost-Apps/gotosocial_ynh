@@ -238,6 +238,12 @@ db-sqlite-synchronous: "NORMAL"
 # SQLite only -- unused otherwise.
 # If set to empty string or zero, the sqlite default (2MiB) will be used.
 # See: https://www.sqlite.org/pragma.html#pragma_cache_size
+#
+# More is not necessarily better for caches. They need to be tuned to the
+# workload. The defaults should be plenty for most instances and you shouldn't
+# change it. If you do change it, ensure you mention this when requesting help
+# in the GoToSocial Help channel.
+#
 # Examples: ["0", "2MiB", "8MiB", "64MiB"]
 # Default: "8MiB"
 db-sqlite-cache-size: "8MiB"
@@ -280,6 +286,21 @@ web-asset-base-dir: "./web/assets/"
 ###########################
 
 # Config pertaining to instance federation settings, pages to hide/expose, etc.
+
+# Array of string. BCP47 language tags to indicate preferred languages of users on this instance.
+#
+# If you provide these, you should provide these in order from most-preferred to least-preferred,
+# but note that leaving out a language from this array doesn't mean it can't be used on this instance,
+# it only means it won't be advertised as a preferred instance language.
+#
+# It is valid to provide no entries here; your instance will then have no particular preferred language.
+#
+# See here for commonly-used tags: https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags
+# See here for all current tags: https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+#
+# Example: ["nl", "en-gb", "fr"]
+# Default: []
+instance-languages: []
 
 # String. Federation mode to use for this instance.
 #
@@ -419,21 +440,10 @@ media-description-min-chars: __MEDIA_DESCRIPTION_MIN_CHARS__
 # Default: 500
 media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 
-# Int. Number of days to cache media from remote instances before they are removed from the cache.
-# A job will run every day at midnight to clean up any remote media older than the given amount of days.
-#
-# When remote media is removed from the cache, it is deleted from storage but the database entries for the media
-# are kept so that it can be fetched again if requested by a user.
-#
-# If this is set to 0, then media from remote instances will be cached indefinitely.
-# Examples: [30, 60, 7, 0]
-# Default: 7
-media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
-
 # Int. Max size in bytes of emojis uploaded to this instance via the admin API.
 # The default is the same as the Mastodon size limit for emojis (50kb), which allows
 # for good interoperability. Raising this limit may cause issues with federation
-# of your emojis to other instances, so beware.
+# of your emojis to other instances, so beware.media-emoji-remote-max-size: 102400
 # Examples: [51200, 102400]
 # Default: 51200
 media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
@@ -445,6 +455,37 @@ media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
 # Examples: [51200, 102400]
 # Default: 102400
 media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
+
+# The below media cleanup settings allow admins to customize when and
+# how often media cleanup + prune jobs run, while being set to a fairly
+# sensible default (every night @ midnight). For more information on exactly
+# what these settings do, with some customization examples, see the docs:
+# https://docs.gotosocial.org/en/latest/admin/media_caching#cleanup
+
+# Int. Number of days to cache media from remote instances before
+# they are removed from the cache. When remote media is removed from
+# the cache, it is deleted from storage but the database entries for
+# the media are kept so that it can be fetched again if requested by a user.
+#
+# If this is set to 0, then media from remote instances will be cached indefinitely.
+#
+# Examples: [30, 60, 7, 0]
+# Default: 7
+media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
+
+# String. 24hr time of day formatted as hh:mm.
+# Examples: ["14:30", "00:00", "04:00"]
+# Default: "00:00" (midnight). 
+media-cleanup-from: "00:00"
+
+# Duration. Period between media cleanup runs.
+# More than once per 24h is not recommended
+# is likely overkill. Setting this to something
+# very low like once every 10 minutes will probably
+# cause lag and possibly other issues.
+# Examples: ["24h", "72h", "12h"]
+# Default: "24h" (once per day).
+media-cleanup-every: "24h"
 
 ##########################
 ##### STORAGE CONFIG #####
@@ -766,6 +807,22 @@ tracing-endpoint: ""
 # Bool. Disable TLS for the gRPC and HTTP transport protocols.
 # Default: false
 tracing-insecure-transport: false
+
+# Bool. Enable OpenTelemetry based metrics support.
+# Default: false
+metrics-enabled: false
+
+# Bool. Enable HTTP Basic Authentication for Prometheus metrics endpoint.
+# Default: false
+metrics-auth-enabled: false
+
+# String. Username for Prometheus metrics endpoint.
+# Default: ""
+metrics-auth-username: ""
+
+# String. Password for Prometheus metrics endpoint.
+# Default: ""
+metrics-auth-password: ""
 
 ################################
 ##### HTTP CLIENT SETTINGS #####
