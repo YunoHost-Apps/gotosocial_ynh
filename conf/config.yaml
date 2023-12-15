@@ -443,7 +443,7 @@ media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 # Int. Max size in bytes of emojis uploaded to this instance via the admin API.
 # The default is the same as the Mastodon size limit for emojis (50kb), which allows
 # for good interoperability. Raising this limit may cause issues with federation
-# of your emojis to other instances, so beware.media-emoji-remote-max-size: 102400
+# of your emojis to other instances, so beware.
 # Examples: [51200, 102400]
 # Default: 51200
 media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
