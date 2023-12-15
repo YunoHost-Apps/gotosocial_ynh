@@ -6,7 +6,7 @@
         "en": "Fast ActivityPub social network server written in Go",
         "fr": "Serveur de réseau social véloce basé sur ActivityPub écrit en Go"
     },
-    "version": "0.12.2~ynh1",
+    "version": "0.13.0~ynh1",
     "url": "https://github.com/superseriousbusiness/gotosocial",
     "upstream": {
         "license": "AGPL-3.0-only",
@@ -22,7 +22,7 @@
         "email": ""
     },
     "requirements": {
-        "yunohost": ">= 11.0.6"
+        "yunohost": ">= 11.2.6"
     },
     "multi_instance": true,
     "services": [

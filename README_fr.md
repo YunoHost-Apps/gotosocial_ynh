@@ -24,7 +24,7 @@ Vous pouvez consulter la documentation officielle à l'adresse : [docs.gotosocia
 La documentation de ce paquet YunoHost [est lisible ici](./doc/DOCS_fr.md) et l'admin est **vivement encouragé-e à la lire** !
 
 
-**Version incluse :** 0.12.2~ynh1
+**Version incluse :** 0.13.0~ynh1
 
 ## Captures d’écran
 
