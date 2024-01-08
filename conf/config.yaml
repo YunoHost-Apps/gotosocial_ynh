@@ -729,18 +729,18 @@ smtp-port: __SMTP_PORT__
 # This is often, but not always, an email address.
 # Examples: ["maillord@example.org"]
 # Default: ""
-smtp-username: "__SMTP_USERNAME__"
+smtp-username: "__APP__"
 
 # String. Password to use when authenticating with the smtp server.
 # This should have been provided to you by your smtp host.
 # Examples: ["1234", "password"]
 # Default: ""
-smtp-password: "__SMTP_PASSWORD__"
+smtp-password: "__MAIL_PWD__"
 
 # String. 'From' address for sent emails.
 # Examples: ["mail@example.org"]
 # Default: ""
-smtp-from: "__SMTP_FROM__"
+smtp-from: "__APP__@__DOMAIN__"
 
 # Bool. If true, when an email is sent that has multiple recipients, each recipient
 # will be included in the To field, so that each recipient can see who else got the

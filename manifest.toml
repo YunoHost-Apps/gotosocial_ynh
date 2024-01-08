@@ -14,100 +14,101 @@ maintainers = ["OniriCorpe"]
 [upstream]
 license = "AGPL-3.0-only"
 website = "https://gotosocial.org/"
-demo = ""
 admindoc = "https://docs.gotosocial.org/en/latest/"
 userdoc = "https://docs.gotosocial.org/en/latest/"
 code = "https://github.com/superseriousbusiness/gotosocial"
-cpe = "???" # FIXME: optional but recommended if relevant, this is meant to contain the Common Platform Enumeration, which is sort of a standard id for applications defined by the NIST. In particular, Yunohost may use this is in the future to easily track CVE (=security reports) related to apps. The CPE may be obtained by searching here: https://nvd.nist.gov/products/cpe/search. For example, for Nextcloud, the CPE is 'cpe:2.3:a:nextcloud:nextcloud' (no need to include the version number)
-fund = "???" # FIXME: optional but recommended (or remove if irrelevant / not applicable). This is meant to be an URL where people can financially support this app, especially when its development is based on volunteers and/or financed by its community. YunoHost may later advertise it in the webadmin.
 
 [integration]
 yunohost = ">= 11.2.6"
-architectures = "all" # FIXME: can be replaced by a list of supported archs using the dpkg --print-architecture nomenclature (amd64/i386/armhf/arm64), for example: ["amd64", "i386"]
+architectures = ["amd64", "i386", "arm64", "armhf"]
 multi_instance = true
-ldap = "?" # FIXME: replace with true, false, or "not_relevant". Not to confuse with the "sso" key : the "ldap" key corresponds to wether or not a user *can* login on the app using its YunoHost credentials.
-sso = "?" # FIXME: replace with true, false, or "not_relevant". Not to confuse with the "ldap" key : the "sso" key corresponds to wether or not a user is *automatically logged-in* on the app when logged-in on the YunoHost portal.
-disk = "50M" # FIXME: replace with an **estimate** minimum disk requirement. e.g. 20M, 400M, 1G, ...
-ram.build = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
-ram.runtime = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "100M"
+ram.runtime = "100M"
 
 [install]
-    [install.domain]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
-    type = "domain"
+[install.domain]
+type = "domain"
 
-    [install.admin]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
-    help.en = "Must be in lower case and without special characters."
-    help.fr = "Doit être en minuscule et sans caractère special."
-    type = "string"
-    example = "johndoe"
+[install.admin]
+help.en = "Must be in lower case and without special characters."
+help.fr = "Doit être en minuscule et sans caractère special."
+type = "string"
+example = "johndoe"
 
-    [install.email]
-    ask.en = "The email adress of your admin account."
-    ask.fr = "L'adresse e-mail de votre compte admin."
-    type = "string"
-    example = "johndoe@example.com"
+[install.email]
+ask.en = "The email adress of your admin account."
+ask.fr = "L'adresse e-mail de votre compte admin."
+type = "string"
+example = "johndoe@example.com"
 
-    [install.password]
-    # this is a generic question - ask strings are automatically handled by Yunohost's core
-    help.en = "Must contain: upper case, lower case, number and special character."
-    help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
-    type = "password"
+[install.password]
+help.en = "Must contain: upper case, lower case, number and special character."
+help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+type = "password"
 
-    [install.accounts_registration_open]
-    ask.en = "Open registration?"
-    ask.fr = "Inscriptions ouvertes ?"
-    help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
-    help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
-    type = "boolean"
-    default = false
+[install.accounts_registration_open]
+ask.en = "Open registration?"
+ask.fr = "Inscriptions ouvertes ?"
+help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
+help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+type = "boolean"
+default = false
 
-    [install.accounts_approval_required]
-    ask.en = "Registration approval?"
-    ask.fr = "Vérification manuelle des inscriptions ?"
-    help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
-    help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
-    type = "boolean"
-    default = true
+[install.accounts_approval_required]
+ask.en = "Registration approval?"
+ask.fr = "Vérification manuelle des inscriptions ?"
+help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
+help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
+type = "boolean"
+default = true
 
-    [install.accounts_reason_required]
-    ask.en = "Request registration reason?"
-    ask.fr = "Demande de motif pour les inscriptions ?"
-    help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
-    help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
-    type = "boolean"
-    default = true
+[install.accounts_reason_required]
+ask.en = "Request registration reason?"
+ask.fr = "Demande de motif pour les inscriptions ?"
+help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
+help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
+type = "boolean"
+default = true
 
 [resources]
-        [resources.sources.main]
-        in_subdir = false
-        i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.0/gotosocial_0.13.0_linux_386.tar.gz"
-        i386.sha256 = "0b75d0c2b55877f6f2c1a8a1d723aa1c868bee902a9689f3cde8410c8b680d89"
-        amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.0/gotosocial_0.13.0_linux_amd64.tar.gz"
-        amd64.sha256 = "fce2f2e3cb0af23542f1f15887cf967dedcae849971c56ee9ce4284a4593a70c"
-        armel.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.0/gotosocial_0.13.0_linux_armv6.tar.gz"
-        armel.sha256 = "9d67def302645987279ea76a64e72eda2d05318bd2aea42109dce097e65b2087"
-        arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.0/gotosocial_0.13.0_linux_arm64.tar.gz"
-        arm64.sha256 = "cd93eb377ff86f241a3957fc81b08607b3df89bb70c3d857bb2ad107db917678"
-        armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.0/gotosocial_0.13.0_linux_armv7.tar.gz"
-        armhf.sha256 = "2bff982d96333528d6479aef16d3686038a9d01f11c5043a536f2b7a463fd881"
+[resources.sources.main]
+in_subdir = false
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_386.tar.gz"
+i386.sha256 = "8d1436b1eab293e97f3de3572b3631da1efb12b23dc29ffcdb76b40f8f925a0c"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_amd64.tar.gz"
+amd64.sha256 = "32475bc78db64dbcfadb61b6c9b63542d9687fb9d42fa4c866f8136d86f8cf6d"
+armv6.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_armv6.tar.gz"
+armv6.sha256 = "207aed157dd418d6a4a7e4cff74de0724e08b0be24cf7208122988a2d9da44cc"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_arm64.tar.gz"
+arm64.sha256 = "671d66a6c7cd6b96b7499bf3e6419a1c4cc9278ff532191c0bcecc025fd4a0db"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.8.1/gotosocial_0.8.1_linux_armv7.tar.gz"
+armhf.sha256 = "54117d643829ec0c3a8e47d036d2485747d301299964dd33178308e560e1b265"
 
+autoupdate.asset.i386 = "^gotosocial_.*_linux_386.tar.gz$"
+autoupdate.asset.amd64 = "^gotosocial_.*_linux_amd64.tar.gz$"
+autoupdate.asset.armv6 = "^gotosocial_.*_linux_armv6.tar.gz$"
+autoupdate.asset.arm64 = "^gotosocial_.*_linux_arm64.tar.gz$"
+autoupdate.asset.armhf = "^gotosocial_.*_linux_armv7.tar.gz$"
+autoupdate.strategy = "latest_github_release"
 
-    [resources.system_user]
+[resources.system_user]
+allow_email = true
 
-    [resources.install_dir]
+[resources.install_dir]
 
-    [resources.data_dir]
+[resources.data_dir]
 
-    [resources.permissions]
-    main.url = "/"
+[resources.permissions]
+main.url = "/"
 
-    [resources.ports]
-    main.default = 8095
+[resources.ports]
+main.default = 8095
 
-    [resources.apt]
-    packages = "postgresql, postgresql-contrib"
+[resources.apt]
+packages = "postgresql, postgresql-contrib"
 
-    [resources.database]
-    type = "postgresql"
+[resources.database]
+type = "postgresql"
