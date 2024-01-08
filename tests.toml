@@ -1,0 +1,28 @@
+test_format = 1.0
+
+[default]
+
+# -------------------------------
+# Default args to use for install
+# -------------------------------
+
+args.admin = "xana"
+args.email = "ci-test@example.com"
+args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
+# false by default
+args.accounts_registration_open = 1
+# true by default
+args.accounts_approval_required = 0
+args.accounts_reason_required = 0
+
+
+# -------------------------------
+# Commits to test upgrade from
+# -------------------------------
+
+test_upgrade_from.9a6d018337c7d83193282830ff9d9e9b0ae3a733.name = "Upgrade from 0.6.0~ynh1"
+test_upgrade_from.2750ec2d59df9c988b7a8624104063fcf7f1c198.name = "Upgrade from 0.11.0~ynh1"
+
+# -------------------------------
+# additional tests suite
+# -------------------------------
