@@ -5,7 +5,7 @@
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="postgresql postgresql-contrib"
+#REMOVEME? pkg_dependencies="postgresql postgresql-contrib"
 
 #=================================================
 # PERSONAL HELPERS

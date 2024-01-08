@@ -1,7 +1,0 @@
-SOURCE_URL=https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.0/gotosocial_0.13.0_linux_armv7.tar.gz
-SOURCE_SUM=2bff982d96333528d6479aef16d3686038a9d01f11c5043a536f2b7a463fd881
-SOURCE_SUM_PRG=sha256sum
-SOURCE_FORMAT=tar.gz
-SOURCE_EXTRACT=true
-SOURCE_IN_SUBDIR=false
-SOURCE_FILENAME=gotosocial_0.13.0_linux_armv7.tar.gz
