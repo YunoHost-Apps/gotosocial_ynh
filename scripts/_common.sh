@@ -28,6 +28,7 @@ detect_arch(){
 	else
 		ynh_die --message="The script can't identify a valid architecture. Please report this error."
 	fi
+	echo $architecture
 }
 
 # custom function to change bash bool 0/1 to false/true
