@@ -18,7 +18,7 @@ detect_arch(){
 	if uname -m | grep -q -E "arm64|aarch64" ; then
 		architecture="arm64"
 	elif uname -m | grep -q "64" ; then
-		architecture="x86-64"
+		architecture="amd64"
 	elif uname -m | grep -q "86" ; then
 		architecture="i386"
 	elif uname -m | grep -q "armv6" ; then
