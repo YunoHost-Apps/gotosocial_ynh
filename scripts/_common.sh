@@ -26,9 +26,8 @@ detect_arch(){
 	elif uname -m | grep -q "armv7" ; then
 		architecture="armv7"
 	else
-		architecture="unknown"
+		ynh_die --message="The script can't identify a valid architecture. Please report this error."
 	fi
-	ynh_die --message="The script can't identify a valid architecture. Please report this error."
 }
 
 # custom function to change bash bool 0/1 to false/true
