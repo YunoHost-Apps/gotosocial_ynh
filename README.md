@@ -24,7 +24,7 @@ The official documentation is at [docs.gotosocial.org](https://docs.gotosocial.o
 The documentation for this YunoHost package [can be read here](./doc/DOCS.md) and the admin is **strongly encouraged to read it**!
 
 
-**Shipped version:** 0.13.0~ynh1
+**Shipped version:** 0.13.1~ynh1
 
 ## Screenshots
 
