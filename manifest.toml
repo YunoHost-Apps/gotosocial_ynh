@@ -20,7 +20,7 @@ code = "https://github.com/superseriousbusiness/gotosocial"
 
 [integration]
 yunohost = ">= 11.2.6"
-architectures = ["amd64", "i386", "arm64", "armhf"]
+architectures = "all"
 multi_instance = true
 ldap = false
 sso = false
@@ -33,6 +33,8 @@ ram.runtime = "100M"
 type = "domain"
 
 [install.admin]
+ask.en = "Name your admin user for GoToSocial"
+ask.fr = "Nommez votre compte administrateur pour GoToSocial"
 help.en = "Must be in lower case and without special characters."
 help.fr = "Doit être en minuscule et sans caractère special."
 type = "string"
