@@ -267,6 +267,12 @@ then
 	ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_link_existing"
 fi
 
+# fix a dumb "i set the setting to the wrong key in the past so i need to fix this shit"
+if [ -z "$oidc_link_existing" ]; then
+	oidc_link_existing="false"
+	ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_link_existing"
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
