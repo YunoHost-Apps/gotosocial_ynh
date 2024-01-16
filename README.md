@@ -30,10 +30,6 @@ The documentation for this YunoHost package [can be read here](./doc/DOCS.md) an
 
 ![Screenshot of GoToSocial](./doc/screenshots/screenshot.png)
 
-## Disclaimers / important information
-
-You can read [the roadmap](https://github.com/superseriousbusiness/gotosocial/blob/main/ROADMAP.md) to check the progress of GoToSocial's features.
-
 ## :red_circle: Antifeatures
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
