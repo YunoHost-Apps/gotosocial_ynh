@@ -160,15 +160,15 @@ then
 	ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
 fi
 
-# Upgrade from <0.8.0~ynh2:
-if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "$smtp_host" ]
+# Upgrade from <0.8.0~ynh2: (also upgrade from packaging v1)
+if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "$smtp_host" ] || [ -z "$smtp_username" ]
 then
 	# declaration of new parameter
-	smtp_host="localhost"
+	smtp_host="127.0.0.1"
 	smtp_port="25"
-	smtp_username=""
-	smtp_password=""
-	smtp_from="noreply@$domain"
+	smtp_username="$app"
+	smtp_password="$mail_pwd"
+	smtp_from="noreply-$app@$domain"
 	smtp_disclose_recipients="false"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
