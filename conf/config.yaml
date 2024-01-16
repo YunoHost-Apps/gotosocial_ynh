@@ -113,7 +113,7 @@ protocol: "https"
 # so that the proxy can't be bypassed.
 # Examples: ["0.0.0.0", "172.128.0.16", "localhost", "[::]", "[2001:db8::fed1]"]
 # Default: "0.0.0.0"
-bind-address: "0.0.0.0"
+bind-address: "127.0.0.1"
 
 # Int. Listen port for the GoToSocial webserver + API. If you're running behind a reverse proxy and/or in a docker,
 # container, just set this to whatever you like (or leave the default), and make sure it's forwarded properly.
