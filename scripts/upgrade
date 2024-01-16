@@ -30,7 +30,7 @@ ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$a
 ynh_script_progression --message="Ensuring downward compatibility..."
 
 # Upgrade from <0.2.1~ynh4:
-if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -z "$db_user" ]
+if ynh_compare_current_package_version --comparison lt --version 0.2.1~ynh4 || [ -z "${db_user:-}" ]
 then
 	# import old parameters
 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
@@ -74,7 +74,7 @@ then
 fi
 
 # Upgrade from <0.3.7~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "$instance_expose_peers" ]
+if ynh_compare_current_package_version --comparison lt --version 0.3.7~ynh1 || [ -z "${instance_expose_peers:-}" ]
 then
 	# import old parameters
 	registration_open=$(ynh_app_setting_get --app="$app" --key=registration_open)
@@ -107,7 +107,7 @@ then
 fi
 
 # Upgrade from <0.5.0~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.5.0~ynh1 || [ -z "$accounts_allow_custom_css" ]
+if ynh_compare_current_package_version --comparison lt --version 0.5.0~ynh1 || [ -z "${accounts_allow_custom_css:-}" ]
 then
 	# declaration of new parameters
 	accounts_allow_custom_css="false"
@@ -122,7 +122,7 @@ then
 fi
 
 # Upgrade from <0.6.0~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.6.0~ynh1 || [ -z "$instance_expose_public_timeline" ]
+if ynh_compare_current_package_version --comparison lt --version 0.6.0~ynh1 || [ -z "${instance_expose_public_timeline:-}" ]
 then
 	# declaration of new parameters
 	landing_page_user=""
@@ -149,7 +149,7 @@ then
 fi
 
 # Upgrade from <0.7.1~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.7.1~ynh1 || [ -z "$instance_expose_suspended_web" ]
+if ynh_compare_current_package_version --comparison lt --version 0.7.1~ynh1 || [ -z "${instance_expose_suspended_web:-}" ]
 then
 	# updating parameters
 	advanced_rate_limit_requests="300"
@@ -161,7 +161,7 @@ then
 fi
 
 # Upgrade from <0.8.0~ynh2: (also upgrade from packaging v1)
-if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "$smtp_host" ] || [ -z "$smtp_username" ]
+if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "${smtp_host:-}" ] || [ -z "${smtp_username:-}" ]
 then
 	# declaration of new parameter
 	smtp_host="127.0.0.1"
@@ -211,7 +211,7 @@ then
 fi
 
 # Upgrade from <0.10.0~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.10.0~ynh1 || [ -z "$accounts_custom_css_length" ]
+if ynh_compare_current_package_version --comparison lt --version 0.10.0~ynh1 || [ -z "${accounts_custom_css_length:-}" ]
 then
 	# declaration of new parameter
 	accounts_custom_css_length="10000"
@@ -238,7 +238,7 @@ then
 fi
 
 # Upgrade from <0.12.0~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.12.0~ynh1 || [ -z "$instance_federation_mode" ]
+if ynh_compare_current_package_version --comparison lt --version 0.12.0~ynh1 || [ -z "${instance_federation_mode:-}" ]
 then
 	# declaration of new parameter
 	instance_federation_mode="blocklist"
@@ -247,7 +247,7 @@ then
 fi
 
 # Upgrade from <0.12.1~ynh2:
-if ynh_compare_current_package_version --comparison lt --version 0.12.1~ynh2 || [ -z "$oidc_enabled" ]
+if ynh_compare_current_package_version --comparison lt --version 0.12.1~ynh2 || [ -z "${oidc_enabled:-}" ]
 then
 	# declaration of new parameter
 	oidc_enabled="false"
@@ -268,7 +268,7 @@ then
 fi
 
 # fix a dumb "i set the setting to the wrong key in the past so i need to fix this shit"
-if [ -z "$oidc_link_existing" ]; then
+if [ -z "${oidc_link_existing:-}" ]; then
 	oidc_link_existing="false"
 	ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_link_existing"
 fi
