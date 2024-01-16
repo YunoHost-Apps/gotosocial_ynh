@@ -138,7 +138,7 @@ ynh_app_setting_set --app="$app" --key=oidc_skip_verification --value="$oidc_ski
 ynh_app_setting_set --app="$app" --key=oidc_issuer --value="$oidc_issuer"
 ynh_app_setting_set --app="$app" --key=oidc_client_id --value="$oidc_client_id"
 ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_client_secret"
-ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_link_existing"
+ynh_app_setting_set --app="$app" --key=oidc_link_existing --value="$oidc_link_existing"
 
 ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
 ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
