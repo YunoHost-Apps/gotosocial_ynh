@@ -105,9 +105,11 @@ allow_email = true
 
 [resources.permissions]
 main.url = "/"
+main.allowed = "visitors"
+main.protected = true
+main.show_tile = false
 
 [resources.ports]
-main.default = 8095
 
 [resources.apt]
 packages = "postgresql, postgresql-contrib"
