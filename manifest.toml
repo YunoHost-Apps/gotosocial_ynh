@@ -89,11 +89,11 @@ armv7.sha256 = "0ceb2331af54e8bdc16edc1e2cce4b58b32152112d8b77c001630e12e6891b8e
 arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.1/gotosocial_0.13.1_linux_arm64.tar.gz"
 arm64.sha256 = "be8f9caa2f86d5a11f6d20f52fe6567b045135b45688c25cadf1ee7db8828871"
 
-autoupdate.asset.i386 = "^gotosocial_.*_linux_386.tar.gz$"
-autoupdate.asset.amd64 = "^gotosocial_.*_linux_amd64.tar.gz$"
-autoupdate.asset.armv6 = "^gotosocial_.*_linux_armv6.tar.gz$"
-autoupdate.asset.armv7 = "^gotosocial_.*_linux_armv7.tar.gz$"
-autoupdate.asset.arm64 = "^gotosocial_.*_linux_arm64.tar.gz$"
+autoupdate.asset.i386 = "linux_386.tar.gz"
+autoupdate.asset.amd64 = "linux_amd64.tar.gz"
+autoupdate.asset.armv6 = "linux_armv6.tar.gz"
+autoupdate.asset.armv7 = "linux_armv7.tar.gz"
+autoupdate.asset.arm64 = "linux_arm64.tar.gz"
 autoupdate.strategy = "latest_github_release"
 
 [resources.system_user]
