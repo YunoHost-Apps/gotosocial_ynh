@@ -1,0 +1,31 @@
+test_format = 1.0
+
+[default]
+
+# GTS don't support it
+exclude = "change_url"
+
+# -------------------------------
+# Default args to use for install
+# -------------------------------
+
+args.admin = "xana"
+args.email = "ci-test@example.com"
+args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
+# false by default
+args.accounts_registration_open = 1
+# true by default
+args.accounts_approval_required = 0
+args.accounts_reason_required = 0
+
+# -------------------------------
+# Commits to test upgrade from
+# -------------------------------
+
+test_upgrade_from.9a6d0183.name = "Upgrade from 0.6.0~ynh1"
+test_upgrade_from.2750ec2d.name = "Upgrade from 0.11.0~ynh1"
+test_upgrade_from.4bc2d54d.name = "Upgrade from 0.13.1~ynh1 (latest packaging v1)"
+
+# -------------------------------
+# additional tests suite
+# -------------------------------

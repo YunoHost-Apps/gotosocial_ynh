@@ -10,20 +10,6 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# LOAD SETTINGS
-#=================================================
-ynh_script_progression --message="Loading installation settings..." --weight=1
-
-app="$YNH_APP_INSTANCE_NAME"
-
-domain=$(ynh_app_setting_get --app="$app" --key=domain)
-port=$(ynh_app_setting_get --app="$app" --key=port)
-db_name=$(ynh_app_setting_get --app="$app" --key=db_name)
-db_user=$(ynh_app_setting_get --app="$app" --key=db_user)
-final_path=$(ynh_app_setting_get --app="$app" --key=final_path)
-datadir=$(ynh_app_setting_get --app="$app" --key=datadir)
-
-#=================================================
 # STANDARD REMOVE
 #=================================================
 # REMOVE SERVICE INTEGRATION IN YUNOHOST
@@ -43,38 +29,6 @@ ynh_script_progression --message="Stopping and removing the systemd service..." 
 
 # Remove the dedicated systemd config
 ynh_remove_systemd_config
-
-#=================================================
-# REMOVE THE POSTGRESQL DATABASE
-#=================================================
-ynh_script_progression --message="Removing the PostgreSQL database..." --weight=5
-
-# Remove a database if it exists, along with the associated user
-ynh_psql_remove_db --db_user="$db_user" --db_name="$db_name"
-
-#=================================================
-# REMOVE DEPENDENCIES
-#=================================================
-ynh_script_progression --message="Removing dependencies..." --weight=5
-
-# Remove metapackage and its dependencies
-ynh_remove_app_dependencies
-
-#=================================================
-# REMOVE APP MAIN DIR
-#=================================================
-ynh_script_progression --message="Removing app main directory..." --weight=1
-
-# Remove the app directory securely
-ynh_secure_remove --file="$final_path"
-
-#=================================================
-# REMOVE APP DATA DIR
-#=================================================
-ynh_script_progression --message="Removing app data directory..." --weight=1
-
-# Remove the app directory securely
-ynh_secure_remove --file="$datadir"
 
 #=================================================
 # REMOVE NGINX CONFIGURATION
@@ -101,16 +55,6 @@ ynh_script_progression --message="Removing fail2ban configuration..." --weight=1
 ynh_remove_fail2ban_config
 
 #=================================================
-# CLOSE A PORT
-#=================================================
-
-if yunohost firewall list | grep -q "\- $port$"
-then
-	ynh_script_progression --message="Closing port $port..." --weight=1
-	ynh_exec_warn_less yunohost firewall disallow TCP "$port"
-fi
-
-#=================================================
 # SPECIFIC REMOVE
 #=================================================
 # REMOVE VARIOUS FILES
@@ -119,16 +63,6 @@ ynh_script_progression --message="Removing various files..." --weight=1
 
 # Remove the log files
 ynh_secure_remove --file="/var/log/$app"
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# REMOVE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Removing the dedicated system user..." --weight=1
-
-# Delete a system user
-ynh_system_user_delete --username="$app"
 
 #=================================================
 # END OF SCRIPT

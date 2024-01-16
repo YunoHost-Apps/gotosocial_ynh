@@ -10,32 +10,15 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-ynh_clean_setup () {
-	### Remove this function if there's nothing to clean before calling the remove script.
-	true
-}
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
-
-#=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
-
-app="$YNH_APP_INSTANCE_NAME"
 
 landing_page_user=""
 
 domain="$YNH_APP_ARG_DOMAIN"
-path_url="/"
+path="/"
 
 client_max_body_size="100M"
-
-admin="$YNH_APP_ARG_ADMIN"
-email="$YNH_APP_ARG_EMAIL"
-password="$YNH_APP_ARG_PASSWORD"
 
 # Config stuff:
 
@@ -84,38 +67,27 @@ oidc_client_id=""
 oidc_client_secret=""
 oidc_link_existing="false"
 
-smtp_host="localhost"
+smtp_host="127.0.0.1"
 smtp_port="25"
-smtp_username=""
-smtp_password=""
-smtp_from="noreply@$domain"
+smtp_username="$app"
+smtp_password="$mail_pwd"
+smtp_from="$app@$domain"
 smtp_disclose_recipients="false"
 
 advanced_cookies_samesite="lax"
 advanced_rate_limit_requests="300"
 
 #=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-
-ynh_script_progression --message="Validating installation parameters..." --weight=1
-
-final_path="/var/www/$app"
-test ! -e "$final_path" || ynh_die --message="This path already contains a folder"
-
-ynh_webpath_register --app="$app" --domain="$domain" --path_url="$path_url"
-
-#=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
 ynh_script_progression --message="Storing installation settings..." --weight=1
 
-ynh_app_setting_set --app="$app" --key=final_path --value="$final_path"
+ynh_app_setting_set --app="$app" --key=install_dir --value="$install_dir"
 
 ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
 
 ynh_app_setting_set --app="$app" --key=domain --value="$domain"
-ynh_app_setting_set --app="$app" --key=path_url --value="$path_url"
+ynh_app_setting_set --app="$app" --key=path --value="$path"
 
 ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 
@@ -166,7 +138,7 @@ ynh_app_setting_set --app="$app" --key=oidc_skip_verification --value="$oidc_ski
 ynh_app_setting_set --app="$app" --key=oidc_issuer --value="$oidc_issuer"
 ynh_app_setting_set --app="$app" --key=oidc_client_id --value="$oidc_client_id"
 ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_client_secret"
-ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_link_existing"
+ynh_app_setting_set --app="$app" --key=oidc_link_existing --value="$oidc_link_existing"
 
 ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
 ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
@@ -177,46 +149,6 @@ ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_d
 
 ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
 ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
-
-#=================================================
-# STANDARD MODIFICATIONS
-#=================================================
-# FIND AND OPEN A PORT
-#=================================================
-ynh_script_progression --message="Finding an available port..." --weight=1
-
-# Find an available port
-port=$(ynh_find_port --port=8095)
-ynh_app_setting_set --app="$app" --key=port --value="$port"
-
-#=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-ynh_script_progression --message="Installing dependencies..." --weight=5
-
-ynh_exec_warn_less ynh_install_app_dependencies "$pkg_dependencies"
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Configuring system user..." --weight=1
-
-# Create a system user
-ynh_system_user_create --username="$app" --home_dir="$final_path"
-
-#=================================================
-# CREATE A POSTGRESQL DATABASE
-#=================================================
-ynh_script_progression --message="Creating a PostgreSQL database..." --weight=5
-
-db_name=$(ynh_sanitize_dbid --db_name="$app")
-db_user="$db_name"
-db_pwd=$(ynh_string_random --length=30)
-ynh_app_setting_set --app="$app" --key=db_name --value="$db_name"
-ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
-ynh_app_setting_set --app="$app" --key=db_pwd --value="$db_pwd"
-ynh_psql_test_if_first_run
-ynh_psql_setup_db --db_user="$db_user" --db_name="$db_name" --db_pwd="$db_pwd"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -231,7 +163,7 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 architecture=$(detect_arch)
 
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$final_path" --source_id="$architecture"
+ynh_setup_source --dest_dir="$install_dir" 
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
@@ -239,9 +171,9 @@ ynh_setup_source --dest_dir="$final_path" --source_id="$architecture"
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R "$app:www-data" "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -252,37 +184,17 @@ ynh_script_progression --message="Configuring NGINX web server..." --weight=1
 ynh_add_nginx_config
 
 #=================================================
-# CREATE DATA DIRECTORY
-#=================================================
-ynh_script_progression --message="Creating a data directory..." --weight=1
-
-datadir=/home/yunohost.app/$app
-ynh_app_setting_set --app="$app" --key=datadir --value="$datadir"
-
-mkdir -p "$datadir"
-
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder -
-# this will be treated as a security issue.
-chmod 750 "$datadir"
-chmod -R o-rwx "$datadir"
-chown -R "$app:www-data" "$datadir"
-
-#=================================================
 # ADD A CONFIGURATION
 #=================================================
 ynh_script_progression --message="Adding a configuration file..." --weight=1
 
-ynh_add_config --template="config.yaml" --destination="$final_path/config.yaml"
+ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
 
 # FIXME: this should be handled by the core in the future
 # You may need to use chmod 600 instead of 400,
 # for example if the app is expected to be able to modify its own config
-chmod 400 "$final_path/config.yaml"
-chown "$app:$app" "$final_path/config.yaml"
+chmod 400 "$install_dir/config.yaml"
+chown "$app:$app" "$install_dir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
@@ -322,12 +234,12 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 #=================================================
 ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
 
-# using "/var/www/$app" instead of "$final_path" as a temporary workaround for this bug:
+# using "/var/www/$app" instead of "$install_dir" as a temporary workaround for this bug:
 # bad_ynh_exec_syntax() false positive: https://github.com/YunoHost/package_linter/issues/123
 
-ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$final_path/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
+ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
 
-ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$final_path/config.yaml" admin account promote --username "$admin"
+ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
 
 #=================================================
 # START SYSTEMD SERVICE
@@ -336,21 +248,6 @@ ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
 ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
-
-#=================================================
-# SETUP SSOWAT
-#=================================================
-ynh_script_progression --message="Configuring permissions..." --weight=1
-
-# Everyone can access the app.
-ynh_permission_update --permission="main" --add="visitors"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --weight=1
-
-ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT

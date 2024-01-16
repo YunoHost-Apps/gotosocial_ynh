@@ -76,6 +76,11 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 
 ## OpenID Connect
 
+Ce paquet ne fonctionne pas avec l'authentification unique (SSO) ou l'intégration LDAP.  
+Cependant, il peut être configuré pour utiliser le protocole OpenID Connect et Dex (un programme qui fait la liaison LDAP et OpenID Connect) pour permettra la connection avec vos utilisateurs YunoHost.
+
+Vous aurez un **compte séparé du reste de votre serveur Yunohost**, avec potentiellement un nom d'utilisateur et un mot de passe différent.
+
 Vous pouvez regarder la [documentation officielle de GoToSocial au sujet de OpenID Connect](https://docs.gotosocial.org/en/latest/configuration/oidc/) en support si vous le souhaitez.
 
 Pour utiliser OpenID Connect, l'admin YunoHost doit:

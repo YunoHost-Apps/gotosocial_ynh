@@ -1,0 +1,118 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "gotosocial"
+name = "GoToSocial"
+description.en = "Fast ActivityPub social network server written in Go"
+description.fr = "Serveur de réseau social véloce basé sur ActivityPub écrit en Go"
+
+version = "0.13.1~ynh1"
+
+maintainers = ["OniriCorpe"]
+
+[upstream]
+license = "AGPL-3.0-only"
+website = "https://gotosocial.org/"
+admindoc = "https://docs.gotosocial.org/en/latest/"
+userdoc = "https://docs.gotosocial.org/en/latest/"
+code = "https://github.com/superseriousbusiness/gotosocial"
+
+[integration]
+yunohost = ">= 11.2.6"
+architectures = "all"
+multi_instance = true
+ldap = false
+sso = false
+disk = "50M"
+ram.build = "100M"
+ram.runtime = "100M"
+
+[install]
+[install.domain]
+type = "domain"
+
+[install.admin]
+ask.en = "Name your admin user for GoToSocial"
+ask.fr = "Nommez votre compte administrateur pour GoToSocial"
+help.en = "Must be in lower case and without special characters."
+help.fr = "Doit être en minuscule et sans caractère special."
+type = "string"
+example = "johndoe"
+
+[install.email]
+ask.en = "The email adress of your admin account."
+ask.fr = "L'adresse e-mail de votre compte admin."
+type = "string"
+example = "johndoe@example.com"
+
+[install.password]
+help.en = "Must contain: upper case, lower case, number and special character."
+help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+type = "password"
+
+[install.accounts_registration_open]
+ask.en = "Open registration?"
+ask.fr = "Inscriptions ouvertes ?"
+help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
+help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+type = "boolean"
+default = false
+
+[install.accounts_approval_required]
+ask.en = "Registration approval?"
+ask.fr = "Vérification manuelle des inscriptions ?"
+help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
+help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
+type = "boolean"
+default = true
+
+[install.accounts_reason_required]
+ask.en = "Request registration reason?"
+ask.fr = "Demande de motif pour les inscriptions ?"
+help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
+help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
+type = "boolean"
+default = true
+
+[resources]
+[resources.sources.main]
+in_subdir = false
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.1/gotosocial_0.13.1_linux_386.tar.gz"
+i386.sha256 = "5c5faaeffd06508ef0ce4c4a726b71b7b4d434dbb00c7a932a40207c28345710"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.1/gotosocial_0.13.1_linux_amd64.tar.gz"
+amd64.sha256 = "d62926e379dd210e4579e609b97bcd534eece20c738a72f958eebf2a3737f83e"
+armv6.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.1/gotosocial_0.13.1_linux_armv6.tar.gz"
+armv6.sha256 = "3e3bd922458b91cf429557fa912976a00a62082b0c6f045e2f33a66e48eba801"
+armv7.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.1/gotosocial_0.13.1_linux_armv7.tar.gz"
+armv7.sha256 = "0ceb2331af54e8bdc16edc1e2cce4b58b32152112d8b77c001630e12e6891b8e"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.1/gotosocial_0.13.1_linux_arm64.tar.gz"
+arm64.sha256 = "be8f9caa2f86d5a11f6d20f52fe6567b045135b45688c25cadf1ee7db8828871"
+
+autoupdate.asset.i386 = "linux_386.tar.gz"
+autoupdate.asset.amd64 = "linux_amd64.tar.gz"
+autoupdate.asset.armv6 = "linux_armv6.tar.gz"
+autoupdate.asset.armv7 = "linux_armv7.tar.gz"
+autoupdate.asset.arm64 = "linux_arm64.tar.gz"
+autoupdate.strategy = "latest_github_release"
+
+[resources.system_user]
+allow_email = true
+
+[resources.install_dir]
+
+[resources.data_dir]
+
+[resources.permissions]
+main.url = "/"
+main.allowed = "visitors"
+main.protected = true
+main.show_tile = false
+
+[resources.ports]
+
+[resources.apt]
+packages = "postgresql, postgresql-contrib"
+
+[resources.database]
+type = "postgresql"

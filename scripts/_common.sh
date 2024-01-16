@@ -4,9 +4,6 @@
 # COMMON VARIABLES
 #=================================================
 
-# dependencies used by the app
-pkg_dependencies="postgresql postgresql-contrib"
-
 #=================================================
 # PERSONAL HELPERS
 #=================================================
@@ -18,7 +15,7 @@ detect_arch(){
 	if uname -m | grep -q -E "arm64|aarch64" ; then
 		architecture="arm64"
 	elif uname -m | grep -q "64" ; then
-		architecture="x86-64"
+		architecture="amd64"
 	elif uname -m | grep -q "86" ; then
 		architecture="i386"
 	elif uname -m | grep -q "armv6" ; then
@@ -26,7 +23,7 @@ detect_arch(){
 	elif uname -m | grep -q "armv7" ; then
 		architecture="armv7"
 	else
-		architecture="unknown"
+		ynh_die --message="The script can't identify a valid architecture. Please report this error."
 	fi
 	echo $architecture
 }

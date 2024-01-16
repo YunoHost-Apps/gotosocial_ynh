@@ -113,7 +113,7 @@ protocol: "https"
 # so that the proxy can't be bypassed.
 # Examples: ["0.0.0.0", "172.128.0.16", "localhost", "[::]", "[2001:db8::fed1]"]
 # Default: "0.0.0.0"
-bind-address: "0.0.0.0"
+bind-address: "127.0.0.1"
 
 # Int. Listen port for the GoToSocial webserver + API. If you're running behind a reverse proxy and/or in a docker,
 # container, just set this to whatever you like (or leave the default), and make sure it's forwarded properly.
@@ -504,7 +504,7 @@ storage-backend: "__STORAGE_BACKEND__"
 # Only required when running with the local storage backend.
 # Examples: ["/home/gotosocial/storage", "/opt/gotosocial/datastorage"]
 # Default: "/gotosocial/storage"
-storage-local-base-path: "__DATADIR__"
+storage-local-base-path: "__DATA_DIR__"
 
 # String. API endpoint of the S3 compatible service.
 # Only required when running with the s3 storage backend.
@@ -729,18 +729,18 @@ smtp-port: __SMTP_PORT__
 # This is often, but not always, an email address.
 # Examples: ["maillord@example.org"]
 # Default: ""
-smtp-username: "__SMTP_USERNAME__"
+smtp-username: "__APP__"
 
 # String. Password to use when authenticating with the smtp server.
 # This should have been provided to you by your smtp host.
 # Examples: ["1234", "password"]
 # Default: ""
-smtp-password: "__SMTP_PASSWORD__"
+smtp-password: "__MAIL_PWD__"
 
 # String. 'From' address for sent emails.
 # Examples: ["mail@example.org"]
 # Default: ""
-smtp-from: "__SMTP_FROM__"
+smtp-from: "__APP__@__DOMAIN__"
 
 # Bool. If true, when an email is sent that has multiple recipients, each recipient
 # will be included in the To field, so that each recipient can see who else got the
