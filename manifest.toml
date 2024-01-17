@@ -7,7 +7,7 @@ name = "GoToSocial"
 description.en = "Fast ActivityPub social network server written in Go"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub écrit en Go"
 
-version = "0.13.1~ynh1"
+version = "0.13.1~ynh2"
 
 maintainers = ["OniriCorpe"]
 
