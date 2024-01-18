@@ -7,3 +7,5 @@ Please note the following points:
 - GoToSocial **does not provide a user interface**.
 
 You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.app/) on Android, [Feditext](https://fedi.software/@Feditext) for iOS or an instance of [Semaphore](https://semaphore.social/) on the Web.
+
+Also this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
