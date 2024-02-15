@@ -7,7 +7,7 @@ name = "GoToSocial"
 description.en = "Fast ActivityPub social network server written in Go"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub écrit en Go"
 
-version = "0.13.2~ynh1"
+version = "0.13.3~ynh1"
 
 maintainers = ["OniriCorpe"]
 
@@ -78,16 +78,16 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.2/gotosocial_0.13.2_linux_386.tar.gz"
-i386.sha256 = "d9d6728a779cabb1626762f8e363a8113d3b828f949a01f0ece22833332913a4"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.2/gotosocial_0.13.2_linux_amd64.tar.gz"
-amd64.sha256 = "ed9fc60ba505d236722657c5976d4d625d85ff4a8c96fb7bc419a71fa0b79d13"
-armv6.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.2/gotosocial_0.13.2_linux_armv6.tar.gz"
-armv6.sha256 = "9a270e59414e20f13a5569f9552310ceea17d71ce99f6ff55e9f00ecf81e14cc"
-armv7.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.2/gotosocial_0.13.2_linux_armv7.tar.gz"
-armv7.sha256 = "a6484413f5ff3b37cfd8809e24869ea4f199df7c98e80b994f65a2336741fec7"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.2/gotosocial_0.13.2_linux_arm64.tar.gz"
-arm64.sha256 = "d7c7c3eb49609cb3929ae0a2bedc2e0ca88531aff7468e37a4ed046e3269fba1"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.3/gotosocial_0.13.3_linux_386.tar.gz"
+i386.sha256 = "406150e2ed31f9a415810e14cdd1659954076370346a071c11ede2489cd97ec6"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.3/gotosocial_0.13.3_linux_amd64.tar.gz"
+amd64.sha256 = "ad45dd23c540a9c0417e62fcde06ea9fcc1a477c98a2948f0069bb7d8029f279"
+armv6.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.3/gotosocial_0.13.3_linux_armv6.tar.gz"
+armv6.sha256 = "62dd6fc0cff1202b4a1196d00796d6d5e4468bf30fa145f6067e5d991443305b"
+armv7.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.3/gotosocial_0.13.3_linux_armv7.tar.gz"
+armv7.sha256 = "8550d81f412e5a9750ca0eee286c753dcb413e6714041d5fb1990aecaa0713c8"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.13.3/gotosocial_0.13.3_linux_arm64.tar.gz"
+arm64.sha256 = "32bee12de98daac56867541197b9f170103cda04a92ca55f42b946a7b354f144"
 
 autoupdate.asset.i386 = "gotosocial_.*linux_386.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
