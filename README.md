@@ -36,6 +36,8 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
 
+- **Not totally free package**: The YunoHost package of this app is under an overall free licence, but with clauses that restrict its use.
+
 ## Documentation and resources
 
 * Official app website: <https://gotosocial.org/>
