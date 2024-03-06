@@ -126,7 +126,6 @@ ynh_app_setting_set --app="$app" --key=storage_s3_secret_key --value="$storage_s
 ynh_app_setting_set --app="$app" --key=storage_s3_bucket --value="$storage_s3_bucket"
 
 ynh_app_setting_set --app="$app" --key=statuses_max_chars --value="$statuses_max_chars"
-ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_cw_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
 ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
