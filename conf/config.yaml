@@ -564,12 +564,6 @@ storage-s3-bucket: "__STORAGE_S3_BUCKET__"
 # Default: 5000
 statuses-max-chars: __STATUSES_MAX_CHARS__
 
-# Int. Maximum amount of characters allowed in the CW/subject header of a status.
-# Note that going way higher than the default might break federation.
-# Examples: [100, 200]
-# Default: 100
-statuses-cw-max-chars: __STATUSES_CW_MAX_CHARS__
-
 # Int. Maximum amount of options to permit when creating a new poll.
 # Note that going way higher than the default might break federation.
 # Examples: [4, 6, 10]
