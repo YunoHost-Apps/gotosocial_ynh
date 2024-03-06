@@ -54,7 +54,6 @@ storage_s3_secret_key=""
 storage_s3_bucket=""
 
 statuses_max_chars="5000"
-statuses_cw_max_chars="100"
 statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
@@ -171,7 +170,7 @@ ynh_setup_source --dest_dir="$install_dir"
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
-chmod 750 "$install_dir"
+chmod -R 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
 
