@@ -5,22 +5,24 @@
 # Most of the relevant settings are available in the config panel, if you're
 # missing one, open an issue: https://github.com/YunoHost-Apps/gotosocial_ynh/issues
 
+---
 
-#  GoToSocial
-#  Copyright (C) 2021-2023 GoToSocial Authors admin@gotosocial.org
-
-#  This program is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU Affero General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
-
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU Affero General Public License for more details.
-
-#  You should have received a copy of the GNU Affero General Public License
-#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+# GoToSocial
+# Copyright (C) GoToSocial Authors admin@gotosocial.org
+# SPDX-License-Identifier: AGPL-3.0-or-later
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ###########################
 ##### GENERAL CONFIG ######
@@ -50,7 +52,7 @@ log-client-ip: true
 # The format must be compatible with Go's time.Layout, as
 # documented on https://pkg.go.dev/time#pkg-constants.
 #
-# Examples: [true, false]
+# Examples: ["2006-01-02T15:04:05.000Z07:00", ""]
 # Default: "02/01/2006 15:04:05.000"
 log-timestamp-format: "02/01/2006 15:04:05.000"
 
@@ -304,7 +306,7 @@ instance-languages: []
 
 # String. Federation mode to use for this instance.
 #
-# "blocklist" -- open federation by default. Only instances that are explicitly 
+# "blocklist" -- open federation by default. Only instances that are explicitly
 #                blocked will be denied (unless they are also explicitly allowed).
 #
 # "allowlist" -- closed federation by default. Only instances that are explicitly
@@ -316,6 +318,43 @@ instance-languages: []
 # Options: ["blocklist", "allowlist"]
 # Default: "blocklist"
 instance-federation-mode: "__INSTANCE_FEDERATION_MODE__"
+
+# Bool. Enable spam filtering heuristics for messages entering your instance
+# via the federation API. Regardless of what you set here, basic checks
+# for message relevancy will still be performed, but you can try enabling
+# this setting if you are being spammed with unwanted messages from other
+# instances, and want to more strictly filter out spam messages.
+#
+# THIS IS CURRENTLY AN EXPERIMENTAL SETTING, AND MAY FILTER OUT LEGITIMATE
+# MESSAGES, OR FAIL TO FILTER OUT SPAMMY MESSAGES. It is recommended to
+# only enable this setting when the fediverse is in the midst of a spam
+# wave, and you need to batten down the hatches to keep your instance usable.
+#
+# The decision of whether a message counts as spam or not is made based on
+# the following heuristics, in order, where receiver = the account on your
+# instance that received a message in their inbox, and requester = the
+# account on a remote instance that sent the message.
+#
+# First, basic relevancy checks
+#
+#  1. Receiver follows requester. Return OK.
+#  2. Statusable doesn't mention receiver. Return NotRelevant.
+#
+# If instance-federation-spam-filter = false, then return OK now.
+# Otherwise check:
+#
+#  3. Receiver is locked and is followed by requester. Return OK.
+#  4. Five or more people are mentioned. Return Spam.
+#  5. Receiver follow (requests) a mentioned account. Return OK.
+#  6. Statusable has a media attachment. Return Spam.
+#  7. Statusable contains non-mention, non-hashtag links. Return Spam.
+#
+# Messages identified as spam will be dropped from your instance, and not
+# inserted into the database, or into home timelines or notifications.
+#
+# Options: [true, false]
+# Default: false
+instance-federation-spam-filter: false
 
 # Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order
 # to see a list of instances that this instance 'peers' with. Even if set to 'false', then authenticated
@@ -370,6 +409,7 @@ instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
 # Default: false
 instance-inject-mastodon-version: __INSTANCE_INJECT_MASTODON_VERSION__
 
+
 ###########################
 ##### ACCOUNTS CONFIG #####
 ###########################
@@ -420,14 +460,22 @@ accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
 
 # Config pertaining to media uploads (videos, image, image descriptions, emoji).
 
-# Int. Maximum allowed image upload size in bytes.
-# Examples: [2097152, 10485760]
-# Default: 10485760 -- aka 10MB
+# Size. Maximum allowed image upload size in bytes.
+#
+# Raising this limit may cause other servers to not fetch media
+# attached to a post.
+#
+# Examples: [2097152, 10485760, 10MB, 10MiB]
+# Default: 10MiB (10485760 bytes)
 media-image-max-size: __MEDIA_IMAGE_MAX_SIZE__
 
-# Int. Maximum allowed video upload size in bytes.
-# Examples: [2097152, 10485760]
-# Default: 41943040 -- aka 40MB
+# Size. Maximum allowed video upload size in bytes.
+#
+# Raising this limit may cause other servers to not fetch media
+# attached to a post.
+#
+# Examples: [2097152, 10485760, 40MB, 40MiB]
+# Default: 40MiB (41943040 bytes)
 media-video-max-size: __MEDIA_VIDEO_MAX_SIZE__
 
 # Int. Minimum amount of characters required as an image or video description.
@@ -437,23 +485,28 @@ media-description-min-chars: __MEDIA_DESCRIPTION_MIN_CHARS__
 
 # Int. Maximum amount of characters permitted in an image or video description.
 # Examples: [500, 1000, 1500]
-# Default: 500
+# Examples: [1000, 1500, 3000]
+# Default: 1500
 media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 
-# Int. Max size in bytes of emojis uploaded to this instance via the admin API.
+# Size. Max size in bytes of emojis uploaded to this instance via the admin API.
+#
 # The default is the same as the Mastodon size limit for emojis (50kb), which allows
 # for good interoperability. Raising this limit may cause issues with federation
 # of your emojis to other instances, so beware.
-# Examples: [51200, 102400]
-# Default: 51200
+#
+# Examples: [51200, 102400, 50KB, 50KiB]
+# Default: 50KiB (51200 bytes)
 media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
 
-# Int. Max size in bytes of emojis to download from other instances.
+# Size. Max size in bytes of emojis to download from other instances.
+#
 # By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.
 # This strikes a good balance between decent interoperability with instances that have
 # higher emoji size limits, and not taking up too much space in storage.
-# Examples: [51200, 102400]
-# Default: 102400
+#
+# Examples: [51200, 102400, 100KB, 100KiB]
+# Default: 100KiB (102400 bytes)
 media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
 
 # The below media cleanup settings allow admins to customize when and
@@ -475,7 +528,7 @@ media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
 
 # String. 24hr time of day formatted as hh:mm.
 # Examples: ["14:30", "00:00", "04:00"]
-# Default: "00:00" (midnight). 
+# Default: "00:00" (midnight).
 media-cleanup-from: "00:00"
 
 # Duration. Period between media cleanup runs.
@@ -558,17 +611,14 @@ storage-s3-bucket: "__STORAGE_S3_BUCKET__"
 
 # Config pertaining to the creation of statuses/posts, and permitted limits.
 
-# Int. Maximum amount of characters permitted for a new status.
+# Int. Maximum amount of characters permitted for a new status,
+# including the content warning (if set).
+#
 # Note that going way higher than the default might break federation.
+#
 # Examples: [140, 500, 5000]
 # Default: 5000
 statuses-max-chars: __STATUSES_MAX_CHARS__
-
-# Int. Maximum amount of characters allowed in the CW/subject header of a status.
-# Note that going way higher than the default might break federation.
-# Examples: [100, 200]
-# Default: 100
-statuses-cw-max-chars: __STATUSES_CW_MAX_CHARS__
 
 # Int. Maximum amount of options to permit when creating a new poll.
 # Note that going way higher than the default might break federation.
@@ -701,6 +751,12 @@ oidc-scopes:
 # Options: [true, false]
 # Default: false
 oidc-link-existing: __OIDC_LINK_EXISTING__
+
+# Array of string. If the returned ID token contains a 'groups' claim that matches one of the
+# groups in oidc-allowed-groups, then this user will be granted access on the GtS instance. If the array is empty,
+# then all groups will be granted permission.
+# Default: []
+oidc-allowed-groups: []
 
 # Array of string. If the returned ID token contains a 'groups' claim that matches one of the
 # groups in oidc-admin-groups, then this user will be granted admin rights on the GtS instance
@@ -881,7 +937,7 @@ http-client:
   #
   # THIS SETTING SHOULD BE USED FOR TESTING ONLY! IF YOU TURN THIS
   # ON WHILE RUNNING IN PRODUCTION YOU ARE LEAVING YOUR SERVER WIDE
-  # OPEN TO MAN IN THE MIDDLE ATTACKS! DO NOT CHANGE THIS SETTING 
+  # OPEN TO MAN IN THE MIDDLE ATTACKS! DO NOT CHANGE THIS SETTING
   # UNLESS YOU KNOW EXACTLY WHAT YOU'RE DOING AND WHY YOU'RE DOING IT.
   #
   # Default: false
@@ -1036,9 +1092,26 @@ advanced-sender-multiplier: 2
 # generate a correct Content-Security-Policy, you probably won't need
 # to ever touch this setting, but it's included in the 'spirit of more
 # configurable (usually) means more good'.
-# 
+#
 # See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 #
 # Example: ["s3.example.org", "some-bucket-name.s3.example.org"]
 # Default: []
 advanced-csp-extra-uris: []
+
+# String. HTTP request header filtering mode to use for this instance.
+#
+# "block" -- only requests that are explicitly blocked by header filters
+#            will be denied (unless they are also explicitly allowed).
+#
+# "allow" -- only requests that are explicitly allowed by header filters
+#            will be accepted (unless they are also explicitly blocked).
+#
+#   ""    -- request header filtering disabled.
+#
+# For more details on block and allow modes, check the documentation at:
+# https://docs.gotosocial.org/en/latest/admin/request_filtering_modes
+#
+# Options: ["block", "allow", ""]
+# Default: ""
+advanced-header-filter-mode: ""

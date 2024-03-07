@@ -38,13 +38,13 @@ instance_expose_public_timeline="false"
 instance_deliver_to_shared_inboxes="true"
 instance_inject_mastodon_version="false"
 
-media_image_max_size="10485760"
-media_video_max_size="41943040"
+media_image_max_size="10MiB"
+media_video_max_size="40MiB"
 media_description_min_chars="0"
-media_description_max_chars="500"
+media_description_max_chars="1500"
 media_remote_cache_days="7"
-media_emoji_local_max_size="51200"
-media_emoji_remote_max_size="102400"
+media_emoji_local_max_size="50KiB"
+media_emoji_remote_max_size="100KiB"
 
 storage_backend="local"
 storage_s3_endpoint=""
@@ -54,7 +54,6 @@ storage_s3_secret_key=""
 storage_s3_bucket=""
 
 statuses_max_chars="5000"
-statuses_cw_max_chars="100"
 statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
@@ -127,7 +126,6 @@ ynh_app_setting_set --app="$app" --key=storage_s3_secret_key --value="$storage_s
 ynh_app_setting_set --app="$app" --key=storage_s3_bucket --value="$storage_s3_bucket"
 
 ynh_app_setting_set --app="$app" --key=statuses_max_chars --value="$statuses_max_chars"
-ynh_app_setting_set --app="$app" --key=statuses_cw_max_chars --value="$statuses_cw_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
 ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
@@ -171,7 +169,7 @@ ynh_setup_source --dest_dir="$install_dir"
 # files in some cases.
 # But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
 # this will be treated as a security issue.
-chmod 750 "$install_dir"
+chmod -R 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
 

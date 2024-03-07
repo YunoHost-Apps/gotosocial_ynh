@@ -26,7 +26,7 @@ The documentation for this YunoHost package [can be read here](./doc/DOCS.md) an
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**Shipped version:** 0.13.3~ynh1
+**Shipped version:** 0.14.0~ynh1
 
 ## Screenshots
 
@@ -35,6 +35,8 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 ## :red_circle: Antifeatures
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
+
+- **Not totally free package**: The YunoHost package of this app is under an overall free licence, but with clauses that restrict its use.
 
 ## Documentation and resources
 
