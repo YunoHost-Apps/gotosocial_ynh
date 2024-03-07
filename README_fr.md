@@ -32,20 +32,19 @@ Veuillez noter que ce paquet utilise la ["i'm so tired" software license 1.0](ht
 
 ![Capture d’écran de GoToSocial](./doc/screenshots/screenshot.png)
 
-## :red_circle: Fonctions indésirables
+## :red_circle: Anti-fonctionnalités
 
-- **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
-
-- **Not totally free package**: The YunoHost package of this app is under an overall free licence, but with clauses that restrict its use.
+- **Logiciel en version alpha** : Le logiciel est au tout début de son développement. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité.
+- **Package sous licence libre restreinte** : Le package YunoHost de cette application est sous une licence globalement libre, mais avec des clauses qui pourraient restreindre son utilisation.
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://gotosocial.org/>
-* Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
-* Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
-* Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
-* YunoHost Store: <https://apps.yunohost.org/app/gotosocial>
-* Signaler un bug : <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
+- Site officiel de l’app : <https://gotosocial.org/>
+- Documentation officielle utilisateur : <https://docs.gotosocial.org/en/latest/>
+- Documentation officielle de l’admin : <https://docs.gotosocial.org/en/latest/>
+- Dépôt de code officiel de l’app : <https://github.com/superseriousbusiness/gotosocial>
+- YunoHost Store : <https://apps.yunohost.org/app/gotosocial>
+- Signaler un bug : <https://github.com/YunoHost-Apps/gotosocial_ynh/issues>
 
 ## Informations pour les développeurs
 
