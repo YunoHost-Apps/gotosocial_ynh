@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install GoToSocial with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install GoToSocial quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -26,7 +26,7 @@ The documentation for this YunoHost package [can be read here](./doc/DOCS.md) an
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**Shipped version:** 0.14.2~ynh1
+**Shipped version:** 0.15.0~ynh1
 
 ## Screenshots
 
