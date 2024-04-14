@@ -108,6 +108,8 @@ armv6.url = "https://github.com/superseriousbusiness/gotosocial/releases/downloa
 armv6.sha256 = "dadce2162d336b61b84da7ca137a5bc8c613f2f982dcb3f68a50112ca582b117"
 armv7.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_armv7.tar.gz"
 armv7.sha256 = "50bb887000f98030c0fa1aab60cd11ceaa986e3debd315ddb5a8dfdee2b502d2"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_armv7.tar.gz"
+armhf.sha256 = "50bb887000f98030c0fa1aab60cd11ceaa986e3debd315ddb5a8dfdee2b502d2"
 arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_arm64.tar.gz"
 arm64.sha256 = "6c9f49da974bdad6d40a269e43cbfd8a62f6d8b3c8497d35b1c2a41128b523c0"
 
@@ -115,6 +117,7 @@ autoupdate.asset.i386 = "gotosocial_.*linux_386.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
 autoupdate.asset.armv6 = "gotosocial_.*linux_armv6.tar.gz$"
 autoupdate.asset.armv7 = "gotosocial_.*linux_armv7.tar.gz$"
+autoupdate.asset.armhf = "gotosocial_.*linux_armv7.tar.gz$"
 autoupdate.asset.arm64 = "gotosocial_.*linux_arm64.tar.gz$"
 autoupdate.strategy = "latest_github_release"
 
