@@ -385,9 +385,9 @@ help = "Config for sending emails via an smtp server."
     bind = "smtp-disclose-recipients:__INSTALL_DIR__/config.yaml"
     choices = [ "true", "false" ]
     default = "false"
-    help.en = """true: Disclose all recipients in the To field\
+    en = """true: Disclose all recipients in the To field\
 false: Email will be sent to Undisclosed Recipients"""
-    help.fr = """true : divulguer tous les destinataires dans le champ À\
+    fr = """true : divulguer tous les destinataires dans le champ À\
 false : l'e-mail sera envoyé sans divulguer les destinataires"""
     type = "select"
 
