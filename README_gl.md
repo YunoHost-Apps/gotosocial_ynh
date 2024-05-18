@@ -32,10 +32,10 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 ![Captura de pantalla de GoToSocial](./doc/screenshots/screenshot.png)
 
-## :red_circle: Caraterísticas cuestionables
+## :red_circle: Debes considerar
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
-- **Not totally free package**: The YunoHost package of this app is under an overall free licence, but with clauses that restrict its use.
+- **Not totally free package**: The YunoHost package of this app is under an overall free license, but with clauses that may restrict its use.
 
 ## Documentación e recursos
 
