@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 GoToSocial
+# YunoHost 上的 GoToSocial
 
 [![集成程度](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![工作状态](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
 
@@ -35,7 +35,7 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 ## :red_circle: 负面特征
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
-- **Not totally free package**: The YunoHost package of this app is under an overall free licence, but with clauses that restrict its use.
+- **Not totally free package**: The YunoHost package of this app is under an overall free license, but with clauses that may restrict its use.
 
 ## 文档与资源
 
