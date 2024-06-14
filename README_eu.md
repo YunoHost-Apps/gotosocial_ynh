@@ -34,7 +34,7 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 ## :red_circle: Ezaugarri zalantzagarriak
 
-- **Alfa softwarea**: Garapenaren hasierako fasean dago. Ezaugarri aldakor edo ezegonkorrak, erroreak eta segurtasuneko arazoak izan ditzazke.
+- **Alfa softwarea**: Garapenaren hasierako fasean dago. Ezaugarri aldakor edo ezegonkorrak, erroreak eta segurtasun-arazoak izan ditzazke.
 - **Paketea ez da erabat librea**: Aplikazio honen YunoHost paketeak lizentzia librea du orokorrean, baina bere erabilera mugatzen duten klausulekin.
 
 ## Dokumentazioa eta baliabideak
