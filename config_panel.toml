@@ -45,15 +45,16 @@ help = "Here you can easily configure some things about your GoToSocial instance
         bind = "accounts-allow-custom-css:__INSTALL_DIR__/config.yaml"
         choices = [ "true", "false" ]
         default = "false"
-        help.en = """Allow accounts on this instance to set custom CSS for their profile pages and statuses.\
+        type = "select"
+        [main.accounts.accounts_allow_custom_css.help]
+        en = """Allow accounts on this instance to set custom CSS for their profile pages and statuses.\
 Enabling this setting will allow accounts to upload custom CSS via the /user settings page, which will then be rendered on the web view of the account's profile and statuses.\
 For instances with public sign ups, it is **HIGHLY RECOMMENDED** to leave this setting on 'false', since setting it to true allows malicious accounts to make their profile pages misleading, unusable or even dangerous to visitors. In other words, you should only enable this setting if you trust the users on your instance not to produce harmful CSS.\
 Regardless of what this value is set to, any uploaded CSS will not be federated to other instances, it will only be shown on profiles and statuses on *this* instance."""
-        help.fr = """Autoriser les comptes de cette instance à définir un CSS personnalisé pour leurs pages de profil et leurs statuts.\
+        fr = """Autoriser les comptes de cette instance à définir un CSS personnalisé pour leurs pages de profil et leurs statuts.\
 En activant ce paramètre, les comptes pourront télécharger des feuilles de style CSS personnalisées via la page de configuration de l'utilisateur-ice /user, qui seront ensuite affichées sur la page Web du profil et des statuts du compte.\
 Pour les instances avec des inscriptions publiques, il est **HAUTEMENT RECOMMANDÉ** de laisser ce paramètre sur "false", car le mettre sur "true" permet aux comptes malveillants de rendre leurs pages de profil trompeuses, inutilisables ou même dangereuses pour les visiteurs. En d'autres termes, vous ne devez activer ce paramètre que si vous avez confiance dans le fait que les utilisateurs de votre instance ne produisent pas de CSS dangereux.\
 Quelle que soit la valeur de ce paramètre, tout CSS téléchargé ne sera pas fédéré à d'autres instances, il ne sera affiché que sur les profils et les statuts de *cette* instance."""
-        type = "select"
 
         [main.accounts.accounts_custom_css_length]
         ask.en = "Custom CSS max length?"
@@ -118,47 +119,51 @@ help = "Config pertaining to user media uploads (videos, image, image descriptio
     ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
     bind = "media-remote-cache-days:__INSTALL_DIR__/config.yaml"
     default = "30"
-    help.en = """Default: 30\
+    type = "number"
+    [main.media.media_remote_cache_days.help]
+    en = """Default: 30\
 A job will run every day at midnight to clean up any remote media older than the given amount of days. \
 When remote media is removed from the cache, it is deleted from storage but the database entries for the media are kept so that it can be fetched again if requested by a user.\
 If this is set to 0, then media from remote instances will be cached indefinitely.\
 """
-    help.fr = """Valeur par défaut : 30\
+    fr = """Valeur par défaut : 30\
 Une tâche est exécutée tous les soirs à minuit pour nettoyer les médias distants datant de plus d'un certain nombre de jours.\
 Lorsque le média distant est supprimé du cache, il est supprimé du stockage mais les entrées de la base de données pour le média sont conservées afin qu'il puisse être récupéré si un utilisateur le demande.\
 Si la valeur 0 est attribuée à ce paramètre, les médias des instances distantes sont mis en cache indéfiniment.\
 """
-    type = "number"
 
     [main.media.media_emoji_local_max_size]
     ask.en = "Max size in bytes of emojis uploaded to this instance via the admin API."
     ask.fr = "Taille maximale en octets des emojis téléchargés vers cette instance via l'API d'administration."
     bind = "media-emoji-local-max-size:__INSTALL_DIR__/config.yaml"
     default = "50KiB"
-    help.en = """Default: 50KiB (51200 bytes)\
-The default is the same as the Mastodon size limit for emojis (50kb), which allows for good interoperability.\
-Raising this limit may cause issues with federation of your emojis to other instances, so beware."""
-    help.fr = """Valeur par défaut : 50KiB (51200 octets)\
-La valeur par défaut est la même que la limite de taille des emojis de Mastodon (50 ko), ce qui permet une bonne interopérabilité.\
-Si vous augmentez cette limite, vous risquez d'avoir des problèmes avec la fédération de vos emojis à d'autres instances, alors faites preuve de prudence."""
     type = "string"
     pattern.regexp = "^[0-9]*(KB|KiB|MB|MiB)?$"
     pattern.error = "Should be a number with or without the following unit marker: KB, KiB, MB, MiB."
+    [main.media.media_emoji_local_max_size.help]
+    en = """Default: 50KiB (51200 bytes)\
+The default is the same as the Mastodon size limit for emojis (50kb), which allows for good interoperability.\
+Raising this limit may cause issues with federation of your emojis to other instances, so beware."""
+    fr = """Valeur par défaut : 50KiB (51200 octets)\
+La valeur par défaut est la même que la limite de taille des emojis de Mastodon (50 ko), ce qui permet une bonne interopérabilité.\
+Si vous augmentez cette limite, vous risquez d'avoir des problèmes avec la fédération de vos emojis à d'autres instances, alors faites preuve de prudence."""
+
 
     [main.media.media_emoji_remote_max_size]
     ask.en = "Max size in bytes of emojis to download from other instances."
     ask.fr = "Taille maximale en octets des emojis téléchargeables à partir d'autres instances."
     bind = "media-emoji-remote-max-size:__INSTALL_DIR__/config.yaml"
     default = "100KiB"
-    help.en = """Default: 100KiB\
-By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.\
-This strikes a good balance between decent interoperability with instances that have higher emoji size limits, and not taking up too much space in storage."""
-    help.fr = """Valeur par défaut : 100KiB\
-Par défaut, cette taille est de 100 Ko, soit le double de la taille par défaut de media-emoji-local-max-size (le paramètre précédent).\
-Cette valeur représente un bon équilibre entre une interopérabilité décente avec les instances qui ont des limites de taille d'emoji plus élevées et le fait de ne pas prendre trop d'espace de stockage."""
     type = "string"
     pattern.regexp = "^[0-9]*(KB|KiB|MB|MiB)?$"
-    pattern.error = "Should be a number with or without the following unit marker: KB, KiB, MB, MiB."
+    pattern.error = "Should be a number with or without the following unit marker: KB, KiB, MB, MiB."    
+    [main.media.media_emoji_remote_max_size.help]
+    en = """Default: 100KiB\
+By default this is 100kb, or twice the size of the default for media-emoji-local-max-size.\
+This strikes a good balance between decent interoperability with instances that have higher emoji size limits, and not taking up too much space in storage."""
+    fr = """Valeur par défaut : 100KiB\
+Par défaut, cette taille est de 100 Ko, soit le double de la taille par défaut de media-emoji-local-max-size (le paramètre précédent).\
+Cette valeur représente un bon équilibre entre une interopérabilité décente avec les instances qui ont des limites de taille d'emoji plus élevées et le fait de ne pas prendre trop d'espace de stockage."""
 
     ###################
     ### STATUSES CONFIG
@@ -221,11 +226,12 @@ help = "Config pertaining to instance federation settings, pages to hide/expose,
     bind = "instance-federation-mode:__INSTALL_DIR__/config.yaml"
     choices = [ "blocklist", "allowlist" ]
     default = "blocklist"
-    help.en = """blocklist: open federation by default. Only instances that are explicitly blocked will be denied (unless they are also explicitly allowed).\
-allowlist: closed federation by default. Only instances that are explicitly allowed will be able to interact with this instance."""
-    help.fr = """blocklist : fédération ouverte par défaut. Seules les instances explicitement bloquées seront exclues (à moins qu'elles ne soient également explicitement autorisées).\
-allowlist : fédération fermée par défaut. Seules les instances explicitement autorisées pourront interagir avec cette instance."""
     type = "select"
+    [main.instance.instance_federation_mode.help]
+    en = """blocklist: open federation by default. Only instances that are explicitly blocked will be denied (unless they are also explicitly allowed).\
+allowlist: closed federation by default. Only instances that are explicitly allowed will be able to interact with this instance."""
+    fr = """blocklist : fédération ouverte par défaut. Seules les instances explicitement bloquées seront exclues (à moins qu'elles ne soient également explicitement autorisées).\
+allowlist : fédération fermée par défaut. Seules les instances explicitement autorisées pourront interagir avec cette instance."""
 
     [main.instance.landing_page_user]
     ask.en = "Landing page user"
@@ -281,13 +287,14 @@ allowlist : fédération fermée par défaut. Seules les instances explicitement
     bind = "instance-deliver-to-shared-inboxes:__INSTALL_DIR__/config.yaml"
     choices = [ "true", "false" ]
     default = "true"
-    help.en = """This flag tweaks whether GoToSocial will deliver ActivityPub messages to the shared inbox of a recipient, if one is available, instead of delivering each message to each actor who should receive a message individually.\
+    type = "select"
+    [main.instance.instance_deliver_to_shared_inboxes.help]
+    en = """This flag tweaks whether GoToSocial will deliver ActivityPub messages to the shared inbox of a recipient, if one is available, instead of delivering each message to each actor who should receive a message individually.\
 Shared inbox delivery can significantly reduce network load when delivering to multiple recipients share an inbox (eg., on large Mastodon instances).\
 See: https://www.w3.org/TR/activitypub/#shared-inbox-delivery"""
-    help.fr = """Ce paramètre détermine si GoToSocial livrera les messages ActivityPub à la boîte de réception partagée d'un destinataire, si une boîte de réception est disponible, au lieu de livrer chaque message à chaque acteur qui devrait recevoir un message individuellement.\
+    fr = """Ce paramètre détermine si GoToSocial livrera les messages ActivityPub à la boîte de réception partagée d'un destinataire, si une boîte de réception est disponible, au lieu de livrer chaque message à chaque acteur qui devrait recevoir un message individuellement.\
 La livraison dans la boîte de réception partagée peut réduire de manière significative la charge du réseau lorsque la livraison à plusieurs destinataires partagent une boîte de réception (par exemple, sur les grandes instances Mastodon).\
 Voir : https://www.w3.org/TR/activitypub/#shared-inbox-delivery"""
-    type = "select"
 
     [main.instance.instance_inject_mastodon_version]
     ask.en = "Inject Mastodon version?"
@@ -295,15 +302,17 @@ Voir : https://www.w3.org/TR/activitypub/#shared-inbox-delivery"""
     bind = "instance-inject-mastodon-version:__INSTALL_DIR__/config.yaml"
     choices = [ "true", "false" ]
     default = "false"
-    help.en = """This flag will inject a Mastodon version into the version field that is included in /api/v1/instance.\
+    type = "select"
+    [main.instance.instance_inject_mastodon_version.help]
+    en = """This flag will inject a Mastodon version into the version field that is included in /api/v1/instance.\
 This version is often used by Mastodon clients to do API feature detection.\
 By injecting a Mastodon compatible version, it is possible to cajole those clients to behave correctly with GoToSocial.\
 Default: false"""
-    help.fr = """Ce paramètre injecte une version de Mastodon dans le champ version qui est inclus dans /api/v1/instance.\
+    fr = """Ce paramètre injecte une version de Mastodon dans le champ version qui est inclus dans /api/v1/instance.\
 Cette version est souvent utilisée par les clients Mastodon pour détecter les caractéristiques de l'API.\
 En injectant une version compatible avec Mastodon, il est possible d'inciter ces clients à se comporter correctement avec GoToSocial.
 Par défautl : false"""
-    type = "select"
+
 
     ################
     #### SMTP CONFIG
@@ -337,7 +346,6 @@ help = "Config for sending emails via an smtp server."
     ask.en = "SMTP Username"
     ask.fr = "Nom d'utilisateur SMTP"
     bind = "smtp-username:__INSTALL_DIR__/config.yaml"
-    default = ""
     help.en = "Username to use when authenticating with the SMTP server"
     help.fr = "Nom d'utilisateur à utiliser lors de l'authentification avec le serveur SMTP"
     type = "string"
@@ -346,7 +354,6 @@ help = "Config for sending emails via an smtp server."
     ask.en = "SMTP Password"
     ask.fr = "Mot de passe SMTP"
     bind = "smtp-password:__INSTALL_DIR__/config.yaml"
-    default = ""
     help.en = "Password to use when authenticating with the SMTP server"
     help.fr = "Mot de passe à utiliser lors de l'authentification avec le serveur SMTP"
     type = "password"
@@ -355,7 +362,6 @@ help = "Config for sending emails via an smtp server."
     ask.en = "SMTP From Address"
     ask.fr = "Adresse d'expédition SMTP"
     bind = "smtp-from:__INSTALL_DIR__/config.yaml"
-    default = "GoToSocial@__DOMAIN__"
     help.en = "From address for sent emails"
     help.fr = "L'adresse utilisée pour les e-mails envoyés"
     type = "email"
@@ -366,11 +372,12 @@ help = "Config for sending emails via an smtp server."
     bind = "smtp-disclose-recipients:__INSTALL_DIR__/config.yaml"
     choices = [ "true", "false" ]
     default = "false"
-    help.en = """true: Disclose all recipients in the To field\
-false: Email will be sent to Undisclosed Recipients"""
-    help.fr = """true : divulguer tous les destinataires dans le champ À\
-false : l'e-mail sera envoyé sans divulguer les destinataires"""
     type = "select"
+    [main.smtp.smtp_disclose_recipients.help]
+    en = """true: Disclose all recipients in the To field\
+false: Email will be sent to Undisclosed Recipients"""
+    fr = """true : divulguer tous les destinataires dans le champ À\
+false : l'e-mail sera envoyé sans divulguer les destinataires"""
 
     ####################
     #### CACHE SETTINGS
@@ -387,13 +394,14 @@ help = "Settings pertaining to... the cache"
     ask.fr = "Valeur du niveau de cache"
     bind = "memory-target:__INSTALL_DIR__/config.yaml"
     default = "100MiB"
-    help.en = """Sets a target limit that the application will try to keep it's caches within.\
+    type = "string"
+    [main.cache.cache_memory_target.help]
+    en = """Sets a target limit that the application will try to keep it's caches within.\
 This is based on estimated sizes of in-memory objects, and so NOT AT ALL EXACT.
 Examples: 100MiB, 200MiB, 500MiB, 1GiB; Default: 100MiB"""
-    help.fr = """Définit une limite cible que l'application essaiera de ne pas dépasser pour ses caches.\
+    fr = """Définit une limite cible que l'application essaiera de ne pas dépasser pour ses caches.\
 Cette limite est basée sur des estimations de la taille des objets en mémoire et N'EST DONC PAS DU TOUT EXACTE.
 Exemples : 100MiB, 200MiB, 500MiB, 1GiB; Par défaut : 100MiB"""
-    type = "string"
 
     ####################
     #### OIDC SETTINGS
@@ -419,7 +427,6 @@ help = "Settings pertaining to... OpenID Connect"
     ask.en = "Name of the OIDC IDP (identity provider)"
     ask.fr = "Nom de l'OIDC IDP (identity provider)"
     bind = "oidc-idp-name:__INSTALL_DIR__/config.yaml"
-    default = ""
     help.en = "This will be shown to users when they log in. Examples: \"Dex\" or \"YunoHost\""
     help.fr = "Sera affiché aux utilisateurices lros de leur connexion. Exemples: \"Dex\" ou \"YunoHost\""
     type = "string"
@@ -438,7 +445,6 @@ help = "Settings pertaining to... OpenID Connect"
     ask.en = "The OIDC issuer URI."
     ask.fr = "URI du fournisseur OIDC"
     bind = "oidc-issuer:__INSTALL_DIR__/config.yaml"
-    default = ""
     help.en = "This is where GtS will redirect users to for login. Typically this will look like a standard web URL. Examples: \"https://auth.example.org\", \"https://example.org/auth\""
     help.fr = "C'est l'endroit où GtS redirigera les utilisateurs pour qu'ils se connectent. En règle générale, il s'agit d'une URL web standard. Exemples : \"https://auth.example.org\", \"https://example.org/auth\""
     type = "string"
@@ -447,7 +453,6 @@ help = "Settings pertaining to... OpenID Connect"
     ask.en = "OIDC client ID"
     ask.fr = "Client ID du fournisseur OIDC"
     bind = "oidc-client-id:__INSTALL_DIR__/config.yaml"
-    default = ""
     help.en = "The ID for this client as registered with the OIDC provider."
     help.fr = "L'identifiant pour ce client tel qu'enregistré auprès du fournisseur OIDC"
     type = "string"
@@ -456,7 +461,6 @@ help = "Settings pertaining to... OpenID Connect"
     ask.en = "OIDC client secret (password)"
     ask.fr = "Client secret (mot de passe) du fournisseur OIDC"
     bind = "oidc-client-secret:__INSTALL_DIR__/config.yaml"
-    default = ""
     help.en = "The secret for this client as registered with the OIDC provider."
     help.fr = "Le secret pour ce client tel qu'enregistré auprès du fournisseur OIDC"
     type = "string"
@@ -487,24 +491,24 @@ help = "Settings pertaining to http timeouts, security, cookies, and more. ⚠�
     bind = "advanced-cookies-samesite:__INSTALL_DIR__/config.yaml"
     choices = [ "lax", "strict" ]
     default = "lax"
-    help.en = """Defaults to 'lax' to ensure that the OIDC flow does not break, which is fine in most cases.\
+    type = "select"
+    [main.advanced.advanced_cookies_samesite.help]
+    en = """Defaults to 'lax' to ensure that the OIDC flow does not break, which is fine in most cases.\
 If you want to harden your instance against CSRF attacks and don't mind if some login-related things might break, you can set this to 'strict' instead.\
 For an overview of what this does, see:\
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite"""
-    help.fr = ""
-    type = "select"
 
     [main.advanced.advanced_rate_limit_requests]
     ask.en = "Amount of requests to permit from a single IP address within a span of 5 minutes."
     ask.fr = "Nombre de requêtes autorisées à partir d'une seule adresse IP dans un délai de 5 minutes."
     bind = "advanced-rate-limit-requests:__INSTALL_DIR__/config.yaml"
     default = "300"
-    help.en = """Default: 300\
+    type = "number"
+    [main.advanced.advanced_rate_limit_requests.help]
+    en = """Default: 300\
 If this amount is exceeded, a 429 HTTP error code will be returned.\
 See https://docs.gotosocial.org/en/latest/api/swagger/#rate-limit.\
 If you find yourself adjusting this limit because it's regularly being exceeded, you should first verify that your settings for `trusted-proxies` are correct.\
 In many cases, when the rate limit is exceeded it is because your instance sees all incoming requests as coming from the *same IP address* (you can verify this by looking at the client IPs in your instance logs).\
 If this is the case, try adding that IP address to your `trusted-proxies` *BEFORE* you go adjusting this rate limit setting!\
 If you set this to 0 or less, rate limiting will be disabled entirely."""
-    help.fr = "Valeur par défaut : 1000"
-    type = "number"
