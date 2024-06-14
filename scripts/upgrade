@@ -287,9 +287,6 @@ fi
 if [ "$upgrade_type" == "UPGRADE_APP" ]
 then
 	ynh_script_progression --message="Upgrading source files..."
-
-	# detect_arch comes from _common.sh / personnal helpers
-	architecture=$(detect_arch)
 	
 	# Download, check integrity, uncompress and patch the source from app.src
 	ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.yaml"
