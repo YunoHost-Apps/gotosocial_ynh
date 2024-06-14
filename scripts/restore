@@ -67,9 +67,6 @@ ynh_psql_connect_as --user="$db_user" --password="$db_pwd" --database="$db_name"
 #=================================================
 ynh_script_progression --message="Setting up source files..." --weight=1
 
-# detect_arch comes from _common.sh / personnal helpers
-architecture="$(detect_arch)"
-
 # compare if the system arch is different from the binary arch
 # if so, download the correct binary
 if [ "$architecture" != "$(file "$install_dir"/gotosocial | cut -d ',' -f 2 | tr -d ' ')" ]
