@@ -69,7 +69,7 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 
 # compare if the system arch is different from the binary arch
 # if so, download the correct binary
-if [ "$architecture" != "$(file "$install_dir"/gotosocial | cut -d ',' -f 2 | tr -d ' ')" ]
+if [ "$YNH_ARCH" != "$(file "$install_dir"/gotosocial | cut -d ',' -f 2 | tr -d ' ')" ]
 then
 	ynh_script_progression --message="Migrating binary architecture..."
 
