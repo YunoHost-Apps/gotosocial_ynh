@@ -15,7 +15,6 @@ args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
 # false by default
 args.accounts_registration_open = 1
 # true by default
-args.accounts_approval_required = 0
 args.accounts_reason_required = 0
 
 # -------------------------------
