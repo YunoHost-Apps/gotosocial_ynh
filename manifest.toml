@@ -67,24 +67,12 @@ ask.ar = "التسجيلات مفتوحة؟"
 ask.gl = "Rexistro aberto?"
 ask.ca = "Registres oberts?"
 ask.fr = "Inscriptions ouvertes ?"
-help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
+help.en = "Allow people to submit new sign-up / registration requests via the form at `/signup`."
 help.gl = "Queres permitir que calquera poida solicitar unha conta (verdadeiro), ou queres que só sexa a través de convite (falso)?"
 help.ca = "Voleu que la gent puguin enviar peticions de registre (true), o voleu que les registres es facin únicament per invitació (false)?"
-help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+help.fr = "Permettre aux personnes de déposer de nouvelles demandes d'inscription via le formulaire à l'adresse `/signup`."
 type = "boolean"
 default = false
-
-[install.accounts_approval_required]
-ask.en = "Registration approval?"
-ask.gl = "Aprobar novas contas?"
-ask.ca = "Verificació manual dels registres?"
-ask.fr = "Vérification manuelle des inscriptions ?"
-help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
-help.gl = "Para indicar se, após crear unha conta, esta debe ser aprobada pola administración antes de poder usar o servidor"
-help.ca = "Ha d'aprovar manualment un administrador/moderador el registre abans que el compte pugui iniciar sessió al servidor?"
-help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
-type = "boolean"
-default = true
 
 [install.accounts_reason_required]
 ask.en = "Request registration reason?"
