@@ -27,7 +27,7 @@ multi_instance = true
 ldap = false
 sso = false
 disk = "50M"
-ram.build = "100M"
+ram.build = "200M"
 ram.runtime = "100M"
 
 [install]
@@ -67,24 +67,12 @@ ask.ar = "التسجيلات مفتوحة؟"
 ask.gl = "Rexistro aberto?"
 ask.ca = "Registres oberts?"
 ask.fr = "Inscriptions ouvertes ?"
-help.en = "Do you want people to be able to just submit sign up requests (true), or do you want invite only (false)?"
+help.en = "Allow people to submit new sign-up / registration requests via the form at `/signup`."
 help.gl = "Queres permitir que calquera poida solicitar unha conta (verdadeiro), ou queres que só sexa a través de convite (falso)?"
 help.ca = "Voleu que la gent puguin enviar peticions de registre (true), o voleu que les registres es facin únicament per invitació (false)?"
-help.fr = "Voulez-vous que les gens puissent envoyer des demandes d'inscription (true) ou voulez-vous que les inscriptions soient uniquement sur invitation (false) ?"
+help.fr = "Permettre aux personnes de déposer de nouvelles demandes d'inscription via le formulaire à l'adresse `/signup`."
 type = "boolean"
 default = false
-
-[install.accounts_approval_required]
-ask.en = "Registration approval?"
-ask.gl = "Aprobar novas contas?"
-ask.ca = "Verificació manual dels registres?"
-ask.fr = "Vérification manuelle des inscriptions ?"
-help.en = "Do sign up requests require approval from an admin/moderator before an account can sign in/use the server?"
-help.gl = "Para indicar se, após crear unha conta, esta debe ser aprobada pola administración antes de poder usar o servidor"
-help.ca = "Ha d'aprovar manualment un administrador/moderador el registre abans que el compte pugui iniciar sessió al servidor?"
-help.fr = "Les demandes d'inscription doivent-elles être approuvées par un-e administrateur-ice/modérateur-ice avant qu'un compte puisse se connecter et utiliser le serveur ?"
-type = "boolean"
-default = true
 
 [install.accounts_reason_required]
 ask.en = "Request registration reason?"
@@ -101,21 +89,18 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_386.tar.gz"
-i386.sha256 = "7c5158f010b752a559aa3446bf28920bb8d9542109ba94c2a33cf907b3058504"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_amd64.tar.gz"
-amd64.sha256 = "7819586a54869b2bfa2b27fbb2746f97e7eaa06f19fd154c7f2ad34aea3188d3"
-armv6.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_armv6.tar.gz"
-armv6.sha256 = "dadce2162d336b61b84da7ca137a5bc8c613f2f982dcb3f68a50112ca582b117"
-armv7.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_armv7.tar.gz"
-armv7.sha256 = "50bb887000f98030c0fa1aab60cd11ceaa986e3debd315ddb5a8dfdee2b502d2"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.15.0/gotosocial_0.15.0_linux_arm64.tar.gz"
-arm64.sha256 = "6c9f49da974bdad6d40a269e43cbfd8a62f6d8b3c8497d35b1c2a41128b523c0"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.16.0-rc3/gotosocial_0.16.0-rc3_linux_386.tar.gz"
+i386.sha256 = "7755365763749148e6278ec728aa9cb0827537735ca142165ffda901118354b2"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.16.0-rc3/gotosocial_0.16.0-rc3_linux_amd64.tar.gz"
+amd64.sha256 = "49ebdf55af3aaaf8eb48a5d877a75acdf9f46154cdf960e39805c564a9f91b1c"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.16.0-rc3/gotosocial_0.16.0-rc3_linux_armv7.tar.gz"
+armhf.sha256 = "24d631f2dc46dc73617d0c8db0cb4754d6cb8068112fa35ced2804e57069b1c0"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.16.0-rc3/gotosocial_0.16.0-rc3_linux_arm64.tar.gz"
+arm64.sha256 = "3a56ddb9babb6726e0980dec21b85859442b8247822e4388d3249c833aa3a830"
 
 autoupdate.asset.i386 = "gotosocial_.*linux_386.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
-autoupdate.asset.armv6 = "gotosocial_.*linux_armv6.tar.gz$"
-autoupdate.asset.armv7 = "gotosocial_.*linux_armv7.tar.gz$"
+autoupdate.asset.armhf = "gotosocial_.*linux_armv7.tar.gz$"
 autoupdate.asset.arm64 = "gotosocial_.*linux_arm64.tar.gz$"
 autoupdate.strategy = "latest_github_release"
 

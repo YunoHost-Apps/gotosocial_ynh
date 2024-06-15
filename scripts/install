@@ -25,7 +25,6 @@ client_max_body_size="100M"
 cache_memory_target="100MiB"
 
 accounts_registration_open=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REGISTRATION_OPEN")
-accounts_approval_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_APPROVAL_REQUIRED")
 accounts_reason_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REASON_REQUIRED")
 accounts_allow_custom_css="false"
 accounts_custom_css_length="10000"
@@ -97,7 +96,6 @@ ynh_app_setting_set --app="$app" --key=password --value="$password"
 ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
 
 ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
-ynh_app_setting_set --app="$app" --key=accounts_approval_required --value="$accounts_approval_required"
 ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
 ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
 ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
@@ -156,9 +154,6 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 ### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
 ### downloaded from an upstream source, like a git repository.
 ### `ynh_setup_source` use the file conf/app.src
-
-# detect_arch comes from _common.sh / personnal helpers
-architecture=$(detect_arch)
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir" 
