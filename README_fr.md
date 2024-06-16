@@ -26,7 +26,7 @@ La documentation de ce paquet YunoHost [est lisible ici](./doc/DOCS_fr.md) et l'
 Veuillez noter que ce paquet utilise la ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), veuillez la lire et l'accepter avant de procéder à l'installation.
 
 
-**Version incluse :** 0.15.0~ynh2
+**Version incluse :** 0.16.0~ynh1
 
 ## Captures d’écran
 
