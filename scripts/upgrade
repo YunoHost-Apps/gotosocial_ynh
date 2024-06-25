@@ -54,7 +54,7 @@ then
 	registration_reason=$(convert_bool "$registration_reason")
 	# fix db_user existence
 	db_user=$db_name
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
+ 	ynh_app_setting_set --app="$app" --key=db_user --value="$db_user"
 	# registration of new parameters
 	ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
 	ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
@@ -172,9 +172,9 @@ then
 	smtp_disclose_recipients="false"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
+ 	ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
 	ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
-#REMOVEME? 	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
+ 	ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
 	ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
 	ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 fi
