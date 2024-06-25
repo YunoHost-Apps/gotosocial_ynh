@@ -25,6 +25,7 @@ The documentation for this YunoHost package [can be read here](./doc/DOCS.md) an
 
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
+
 **Versión actual:** 0.16.0~ynh1
 
 ## Capturas
@@ -47,7 +48,7 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](<https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing>
+Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing
 
 Para probar la rama `testing`, sigue asÍ:
 
