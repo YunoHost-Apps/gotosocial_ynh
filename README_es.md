@@ -25,14 +25,13 @@ The documentation for this YunoHost package [can be read here](./doc/DOCS.md) an
 
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
-
 **Versión actual:** 0.16.0~ynh1
 
 ## Capturas
 
 ![Captura de GoToSocial](./doc/screenshots/screenshot.png)
 
-## :red_circle: funcionalidades no deseadas
+## :red_circle: Características no deseables
 
 - **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
 - **Not totally free package**: The YunoHost package of this app is under an overall free license, but with clauses that may restrict its use.
@@ -48,7 +47,7 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing
+Por favor enviar sus correcciones a la [`branch testing`](<https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing>
 
 Para probar la rama `testing`, sigue asÍ:
 
