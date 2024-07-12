@@ -5,7 +5,7 @@ NON debe editarse manualmente.
 
 # GoToSocial para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/gotosocial.svg)](https://dash.yunohost.org/appci/app/gotosocial) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![Nivel de integración](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
 
 [![Instalar GoToSocial con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
@@ -21,7 +21,8 @@ GoToSocial is a fast [ActivityPub](https://activitypub.rocks/) social network se
 With GoToSocial, you can keep in touch with your friends, post, read, and share images and articles. All without being tracked or advertised to!
 
 The official documentation is at [docs.gotosocial.org](https://docs.gotosocial.org).  
-The documentation for this YunoHost package [can be read here](./doc/DOCS.md) and the admin is **strongly encouraged to read it**!
+
+Admins are **strongly encouraged to read the documentation** of this package after installing it. It is available in the webadmin under Applications > gotosocial (at the bottom) or [here on the package's repository](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/doc/ADMIN.md)!
 
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
