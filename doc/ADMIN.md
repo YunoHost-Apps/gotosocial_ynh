@@ -1,7 +1,3 @@
-# Docs of the GoToSocial's package for YunoHost
-
-*[Lire cette documentation en français.](./DOCS_fr.md)*
-
 ## Administration
 
 You can login with your admin user (the one automatically created during installation) to your-instance.com/**admin** to administrate your GoToSocial instance.  
