@@ -1,7 +1,3 @@
-# Documentation du package GoToSocial pour YunoHost
-
-*[Read this docs in english.](./DOCS.md)*
-
 ## Administration
 
 Vous pouvez vous connecter avec votre utilisateur admin (celui créé automatiquement lors de l'installation) à l'interface d'administration à l'adresse votre-instance.com/**admin** pour administrer votre insance GoToSocial.  
