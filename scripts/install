@@ -72,6 +72,11 @@ smtp_password="$mail_pwd"
 smtp_from="$app@$domain"
 smtp_disclose_recipients="false"
 
+metrics_enabled="false"
+metrics_auth_enabled="false"
+metrics_auth_username=""
+metrics_auth_password=""
+
 advanced_cookies_samesite="lax"
 advanced_rate_limit_requests="300"
 
@@ -142,6 +147,11 @@ ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
 ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
 ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
 ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
+
+ynh_app_setting_set --app="$app" --key=metrics_enabled --value="$metrics_enabled"
+ynh_app_setting_set --app="$app" --key=metrics_auth_enabled --value="$metrics_auth_enabled"
+ynh_app_setting_set --app="$app" --key=metrics_auth_username --value="$metrics_auth_username"
+ynh_app_setting_set --app="$app" --key=metrics_auth_password --value="$metrics_auth_password"
 
 ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
 ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
