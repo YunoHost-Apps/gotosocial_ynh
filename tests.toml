@@ -21,16 +21,6 @@ args.accounts_reason_required = 0
 # Commits to test upgrade from
 # -------------------------------
 
-test_upgrade_from.9a6d0183.name = "Upgrade from 0.6.0~ynh1"
-test_upgrade_from.9a6d0183.args.accounts_registration_open = 1
-test_upgrade_from.9a6d0183.args.accounts_approval_required = 1
-test_upgrade_from.9a6d0183.args.accounts_reason_required = 0
-
-test_upgrade_from.2750ec2d.name = "Upgrade from 0.11.0~ynh1"
-test_upgrade_from.2750ec2d.args.accounts_registration_open = 1
-test_upgrade_from.2750ec2d.args.accounts_approval_required = 1
-test_upgrade_from.2750ec2d.args.accounts_reason_required = 0
-
 test_upgrade_from.4bc2d54d.name = "Upgrade from 0.13.1~ynh1 (latest packaging v1)"
 test_upgrade_from.4bc2d54d.args.accounts_registration_open = 1
 test_upgrade_from.4bc2d54d.args.accounts_approval_required = 1
