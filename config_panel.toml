@@ -476,6 +476,44 @@ help = "Settings pertaining to... OpenID Connect"
     type = "select"
 
     ####################
+    #### OBSERVABILITY SETTINGS
+    ####################
+
+[main.observability]
+
+name = "Metrics settings"
+
+help = "Settings pertaining to OpenTelemetry based metrics support."
+
+    [main.observability.metrics_enabled]
+    ask.en = "Enable OpenTelemetry based metrics support?"
+    ask.fr = "Activer les métriques basées sur OpenTelemetry ?"
+    bind = "metrics-enabled:__INSTALL_DIR__/config.yaml"
+    choices = [ "true", "false" ]
+    default = "false"
+    type = "select"
+
+    [main.observability.metrics_auth_enabled]
+    ask.en = "Enable HTTP Basic Authentication for Prometheus metrics endpoint?"
+    ask.fr = "Activer l'authentification basique HTTP pour le point de terminaison des métriques Prometheus ?"
+    bind = "metrics-auth-enabled:__INSTALL_DIR__/config.yaml"
+    choices = [ "true", "false" ]
+    default = "false"
+    type = "select"
+
+    [main.observability.metrics_auth_username]
+    ask.en = "Username for Prometheus metrics endpoint."
+    ask.fr = "Identifiant pour le point de terminaison des métriques Prometheus."
+    bind = "metrics-auth-username:__INSTALL_DIR__/config.yaml"
+    type = "string"
+
+    [main.observability.metrics_auth_password]
+    ask.en = "Password for Prometheus metrics endpoint."
+    ask.fr = "Mot de passe pour le point de terminaison des métriques Prometheus."
+    bind = "metrics-auth-password:__INSTALL_DIR__/config.yaml"
+    type = "password"
+
+    ####################
     #### ADVANCED SETTINGS
     ####################
 

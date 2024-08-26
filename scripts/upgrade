@@ -153,7 +153,7 @@ if ynh_compare_current_package_version --comparison lt --version 0.7.1~ynh1 || [
 then
 	# updating parameters
 	advanced_rate_limit_requests="300"
-	# declaration of new parameter
+	# declaration of new parameters
 	instance_expose_suspended_web="false"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
@@ -163,7 +163,7 @@ fi
 # Upgrade from <0.8.0~ynh2: (also upgrade from packaging v1)
 if ynh_compare_current_package_version --comparison lt --version 0.8.0~ynh2 || [ -z "${smtp_host:-}" ] || [ -z "${smtp_username:-}" ]
 then
-	# declaration of new parameter
+	# declaration of new parameters
 	smtp_host="127.0.0.1"
 	smtp_port="25"
 	smtp_username="$app"
@@ -213,16 +213,16 @@ fi
 # Upgrade from <0.10.0~ynh1:
 if ynh_compare_current_package_version --comparison lt --version 0.10.0~ynh1 || [ -z "${accounts_custom_css_length:-}" ]
 then
-	# declaration of new parameter
+	# declaration of new parameters
 	accounts_custom_css_length="10000"
-	# registration of parameter
+	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
 fi
 
 # Upgrade from <0.11.0~ynh1:
 if ynh_compare_current_package_version --comparison lt --version 0.11.0~ynh1 || [ -z "$cache_memory_target" ]
 then
-	# declaration of new parameter
+	# declaration of new parameters
 	cache_memory_target="100MiB"
 	instance_inject_mastodon_version="false"
 	# update default config
@@ -232,7 +232,7 @@ then
 		media_remote_cache_days="7"
 		ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
 	fi
-	# registration of parameter
+	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
 	ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
 fi
@@ -240,16 +240,16 @@ fi
 # Upgrade from <0.12.0~ynh1:
 if ynh_compare_current_package_version --comparison lt --version 0.12.0~ynh1 || [ -z "${instance_federation_mode:-}" ]
 then
-	# declaration of new parameter
+	# declaration of new parameters
 	instance_federation_mode="blocklist"
-	# registration of parameter
+	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=instance_federation_mode --value="$instance_federation_mode"
 fi
 
 # Upgrade from <0.12.1~ynh2:
 if ynh_compare_current_package_version --comparison lt --version 0.12.1~ynh2 || [ -z "${oidc_enabled:-}" ]
 then
-	# declaration of new parameter
+	# declaration of new parameters
 	oidc_enabled="false"
 	oidc_idp_name=""
 	oidc_skip_verification="false"
@@ -257,7 +257,7 @@ then
 	oidc_client_id=""
 	oidc_client_secret=""
 	oidc_link_existing="false"
-	# registration of parameter
+	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=oidc_enabled --value="$oidc_enabled"
 	ynh_app_setting_set --app="$app" --key=oidc_idp_name --value="$oidc_idp_name"
 	ynh_app_setting_set --app="$app" --key=oidc_skip_verification --value="$oidc_skip_verification"
@@ -285,6 +285,21 @@ if ynh_compare_current_package_version --comparison lt --version 0.16.0~ynh1 || 
 then
 	# parameter removal
 	ynh_app_setting_delete --app="$app" --key=accounts_approval_required
+fi
+
+# Upgrade from <0.16.0~ynh2:
+if ynh_compare_current_package_version --comparison lt --version 0.16.0~ynh1 || [ -z "${metrics_enabled:-}" ]
+then
+	# declaration of new parameters
+	metrics_enabled="false"
+	metrics_auth_enabled="false"
+	metrics_auth_username=""
+	metrics_auth_password=""
+	# registration of parameters
+	ynh_app_setting_set --app="$app" --key=metrics_enabled --value="$metrics_enabled"
+	ynh_app_setting_set --app="$app" --key=metrics_auth_enabled --value="$metrics_auth_enabled"
+	ynh_app_setting_set --app="$app" --key=metrics_auth_username --value="$metrics_auth_username"
+	ynh_app_setting_set --app="$app" --key=metrics_auth_password --value="$metrics_auth_password"
 fi
 
 #=================================================
