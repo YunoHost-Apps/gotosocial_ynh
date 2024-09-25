@@ -313,8 +313,8 @@ then
 	# config update
 	media_local_max_size="40MiB"
 	# registration of parameters
-	ynh_app_setting_set --app="$app" --key=metrics_enabled --value="$media_remote_max_size"
-	ynh_app_setting_set --app="$app" --key=metrics_auth_enabled --value="$media_local_max_size"
+	ynh_app_setting_set --app="$app" --key=media_remote_max_size --value="$media_remote_max_size"
+	ynh_app_setting_set --app="$app" --key=media_local_max_size --value="$media_local_max_size"
 fi
 
 #=================================================
