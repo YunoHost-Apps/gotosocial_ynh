@@ -76,7 +76,7 @@ help = "Config pertaining to user media uploads (videos, image, image descriptio
 
     [main.media.media_local_max_size]
     ask.en = "Max size in bytes of media uploads via API."
-    ask.fr = "Taille maximale autorisée pour l'envoi de médias via l'API, en octets."
+    ask.fr = "Taille max autorisée pour l'envoi de médias via l'API, en octets."
     bind = "media-local-max-size:__INSTALL_DIR__/config.yaml"
     default = "10MiB"
     help.en = "Default: 40MiB (41943040 bytes)"
