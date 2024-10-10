@@ -326,8 +326,10 @@ then
 	ynh_script_progression --message="Upgrading source files..."
 	
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.yaml"
+	ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.yaml .cache"
 fi
+
+mkdir -p "$install_dir/.cache/wazero"
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
