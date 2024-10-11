@@ -89,14 +89,14 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc3/gotosocial_0.17.0-rc3_linux_386.tar.gz"
-i386.sha256 = "c6c7cb08d70355c9fc48ebe702ef53726b0963312dac938b5da050d4e11081b1"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc3/gotosocial_0.17.0-rc3_linux_amd64.tar.gz"
-amd64.sha256 = "12f2aaae8a66b20dc1c9b56b833db69b92f490fa30bf5ade7682c42b87a5d8b1"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc3/gotosocial_0.17.0-rc3_linux_arm64.tar.gz"
-arm64.sha256 = "54dd9a5cabbb184f85b7f8a37c19d328e8892bed016e854d66e49b344acb3112"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc3/gotosocial_0.17.0-rc3_linux_armv7.tar.gz"
-armhf.sha256 = "ac05e344ee16ea84c3e5787c913e8e599861df14992f1b9831c88d4f63e4681b"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc4/gotosocial_0.17.0-rc4_linux_386.tar.gz"
+i386.sha256 = "a2cdd5d61bbfb094a23c179ce3c50c54f9ab480c476957f6ae30e8cc66926903"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc4/gotosocial_0.17.0-rc4_linux_amd64.tar.gz"
+amd64.sha256 = "6aa1ccdf0aa47e14d36847dff32067013534ce16fd906c04afeb1e89cebd9215"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc4/gotosocial_0.17.0-rc4_linux_arm64.tar.gz"
+arm64.sha256 = "30d5118897648579d02cd28e9fba2b212482b6638630bc31a080a24284ee1146"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc4/gotosocial_0.17.0-rc4_linux_armv7.tar.gz"
+armhf.sha256 = "63ae567b526700fcfa60c190003750f2df080d42f60bfe414f8a31d4673d4665"
 
 autoupdate.asset.i386 = "gotosocial_.*linux_386.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
