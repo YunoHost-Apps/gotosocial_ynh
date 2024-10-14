@@ -80,6 +80,13 @@ metrics_auth_password=""
 advanced_cookies_samesite="lax"
 advanced_rate_limit_requests="300"
 
+# Remote media processing will likely not work with reasonable performance on
+# 32 bits, so we adapt the config variables to prevent download of remote media
+if [ "$YNH_ARCH" == "armhf" ] || [ "$YNH_ARCH" == "i386" ]; then
+    media_remote_max_size="0"
+    media_emoji_remote_max_size="0"
+fi
+
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
