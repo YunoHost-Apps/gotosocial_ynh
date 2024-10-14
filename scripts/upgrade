@@ -329,7 +329,7 @@ then
 	ynh_setup_source --dest_dir="$install_dir" --full_replace=1 --keep="config.yaml .cache"
 fi
 
-mkdir -p "$install_dir/.cache/wazero"
+mkdir -p "$install_dir/.cache"
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions
