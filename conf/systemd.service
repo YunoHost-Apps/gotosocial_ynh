@@ -9,6 +9,7 @@ Restart=on-failure
 User=__APP__
 Group=__APP__
 WorkingDirectory=__INSTALL_DIR__/
+Environment="GTS_WAZERO_COMPILATION_CACHE=__INSTALL_DIR__/.cache"
 ExecStart=__INSTALL_DIR__/gotosocial --config-path config.yaml server start
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit

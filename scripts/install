@@ -37,8 +37,8 @@ instance_expose_public_timeline="false"
 instance_deliver_to_shared_inboxes="true"
 instance_inject_mastodon_version="false"
 
-media_image_max_size="10MiB"
-media_video_max_size="40MiB"
+media_local_max_size="40MiB"
+media_remote_max_size="40MiB"
 media_description_min_chars="0"
 media_description_max_chars="1500"
 media_remote_cache_days="7"
@@ -80,6 +80,13 @@ metrics_auth_password=""
 advanced_cookies_samesite="lax"
 advanced_rate_limit_requests="300"
 
+# Remote media processing will likely not work with reasonable performance on
+# 32 bits, so we adapt the config variables to prevent download of remote media
+if [ "$YNH_ARCH" == "armhf" ] || [ "$YNH_ARCH" == "i386" ]; then
+    media_remote_max_size="0"
+    media_emoji_remote_max_size="0"
+fi
+
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
@@ -113,8 +120,8 @@ ynh_app_setting_set --app="$app" --key=instance_expose_public_timeline --value="
 ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
 ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
 
-ynh_app_setting_set --app="$app" --key=media_image_max_size --value="$media_image_max_size"
-ynh_app_setting_set --app="$app" --key=media_video_max_size --value="$media_video_max_size"
+ynh_app_setting_set --app="$app" --key=media_local_max_size --value="$media_local_max_size"
+ynh_app_setting_set --app="$app" --key=media_remote_max_size --value="$media_remote_max_size"
 ynh_app_setting_set --app="$app" --key=media_description_min_chars --value="$media_description_min_chars"
 ynh_app_setting_set --app="$app" --key=media_description_max_chars --value="$media_description_max_chars"
 ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
@@ -167,6 +174,8 @@ ynh_script_progression --message="Setting up source files..." --weight=1
 
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir" 
+
+mkdir -p "$install_dir/.cache"
 
 # FIXME: this should be managed by the core in the future
 # Here, as a packager, you may have to tweak the ownerhsip/permissions

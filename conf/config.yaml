@@ -98,10 +98,18 @@ host: "__DOMAIN__"
 # Default: ""
 account-domain: ""
 
-# String. Protocol to use for the server. Only change to http for local testing!
-# This should be the protocol part of the URI that your server is actually reachable on. So even if you're
-# running GoToSocial behind a reverse proxy that handles SSL certificates for you, instead of using built-in
-# letsencrypt, it should still be https.
+# String. Protocol over which the server is reachable from the outside world.
+#
+# ONLY CHANGE THIS TO HTTP FOR LOCAL TESTING! IN 99.99% OF CASES YOU SHOULD NOT CHANGE THIS!
+#
+# This should be the protocol part of the URI that your server is actually reachable on.
+# So even if you're running GoToSocial behind a reverse proxy that handles SSL certificates
+# for you, instead of using built-in letsencrypt, it should still be https, not http.
+#
+# Again, ONLY CHANGE THIS TO HTTP FOR LOCAL TESTING! If you set this to `http`, start your instance,
+# and then later change it to `https`, you will have already broken URI generation for any created
+# users on the instance. You should only touch this setting if you 100% know what you're doing.
+#
 # Options: ["http","https"]
 # Default: "https"
 protocol: "https"
@@ -257,6 +265,14 @@ db-sqlite-cache-size: "8MiB"
 # Examples: ["0s", "1s", "30s", "1m", "5m"]
 # Default: "30m"
 db-sqlite-busy-timeout: "30m"
+
+# String. Full Database connection string
+#
+# This connection string is only applicable for Postgres. When this field is defined, all other database related configuration field will be ignored. This field allow you to fine tune connection with Postgres
+# 
+# Examples: ["postgres://user:pass@localhost/db?search_path=gotosocial", "postgres://user:pass@localhost:9999/db"]
+# Default: ""
+db-postgres-connection-string: ""
 
 cache:
   # cache.memory-target sets a target limit that
@@ -454,25 +470,24 @@ accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
 ##### MEDIA CONFIG #####
 ########################
 
-# Config pertaining to media uploads (videos, image, image descriptions, emoji).
+# Config pertaining to media uploads (media, image descriptions, emoji).
 
-# Size. Maximum allowed image upload size in bytes.
-#
-# Raising this limit may cause other servers to not fetch media
-# attached to a post.
-#
-# Examples: [2097152, 10485760, 10MB, 10MiB]
-# Default: 10MiB (10485760 bytes)
-media-image-max-size: __MEDIA_IMAGE_MAX_SIZE__
-
-# Size. Maximum allowed video upload size in bytes.
+# Size. Max size in bytes of media uploads via API.
 #
 # Raising this limit may cause other servers to not fetch media
 # attached to a post.
 #
 # Examples: [2097152, 10485760, 40MB, 40MiB]
 # Default: 40MiB (41943040 bytes)
-media-video-max-size: __MEDIA_VIDEO_MAX_SIZE__
+media-image-max-size: __MEDIA_LOCAL_MAX_SIZE__
+
+# Size. Max size in bytes of media to download from other instances.
+#
+# Lowering this limit may cause your instance not to fetch post media.
+#
+# Examples: [2097152, 10485760, 40MB, 40MiB]
+# Default: 40MiB (41943040 bytes)
+media-remote-max-size: __MEDIA_REMOTE_MAX_SIZE__
 
 # Int. Minimum amount of characters required as an image or video description.
 # Examples: [500, 1000, 1500]
@@ -504,6 +519,24 @@ media-emoji-local-max-size: __MEDIA_EMOJI_LOCAL_MAX_SIZE__
 # Examples: [51200, 102400, 100KB, 100KiB]
 # Default: 100KiB (102400 bytes)
 media-emoji-remote-max-size: __MEDIA_EMOJI_REMOTE_MAX_SIZE__
+
+# Int. Number of instances of ffmpeg+ffprobe to add to the media processing pool.
+#
+# Increasing this number will lead to faster concurrent media processing,
+# but at the cost of up to about 250MB of (spiking) memory usage per increment.
+#
+# You'll want to increase this number if you have RAM to spare, and/or if you're
+# hosting an instance for more than 50 or so people who post/view lots of media,
+# but you should leave it at 1 for single-user instances or when running GoToSocial
+# in a constrained (low-memory) environment.
+#
+# If you set this number to 0 or less, then instead of a fixed number of instances,
+# it will scale with GOMAXPROCS x 1, yielding (usually) one ffmpeg instance and one
+# ffprobe instance per CPU core on the host machine.
+#
+# Examples: [1, 2, -1, 8]
+# Default: 1
+media-ffmpeg-pool-size: 1
 
 # The below media cleanup settings allow admins to customize when and
 # how often media cleanup + prune jobs run, while being set to a fairly
@@ -563,10 +596,41 @@ storage-local-base-path: "__DATA_DIR__"
 # Default: ""
 storage-s3-endpoint: "__STORAGE_S3_ENDPOINT__"
 
-# Bool. If data stored in S3 should be proxied through GoToSocial instead of redirecting to a presigned URL.
+# Bool. Set this to true if data stored in S3 should be proxied through
+# GoToSocial instead of forwarding the request to a presigned URL.
+#
+# In most cases you won't need to touch this setting, but it might be useful
+# if it's not possible for your bucket provider to generate presigned URLs,
+# or if your bucket is not able to exposed to the wider internet.
 #
 # Default: false
 storage-s3-proxy: __STORAGE_S3_PROXY__
+
+# String. URL to use a base for redirecting incoming media requests to.
+#
+# Must start with "http://" or "https://" and end without a trailing slash.
+#
+# DON'T SET THIS VALUE UNLESS YOU HAVE GOOD REASON TO! It's not necessary for
+# "normal" s3 usage, and most admins can happily just ignore this setting.
+#
+# If set, then media fileserver requests to your instance will be redirected
+# to this URL instead of your bucket URL, preserving relevant path parts.
+#
+# This is useful if you are using a CDN proxy in front of your S3 bucket, and you
+# want to serve media from the CDN rather than serving from your S3 bucket directly.
+#
+# For example, if you have your storage-s3-endpoint value set to "s3.my-storage.example.org",
+# and you have a CDN set up to proxy your bucket, serving from "cdn.some-fancy-host.org",
+# then you should set storage-s3-redirect-url to "https://cdn.some-fancy-host.org".
+#
+# This will allow your GoToSocial instance to *upload* data to "s3.my-storage.example.org",
+# but direct callers to *download* that data from "https://cdn.some-fancy-host.org".
+#
+# This value is ignored if storage-backend is not s3, or if storage-s3-proxy is true.
+#
+# Examples: ["https://cdn.some-fancy-host.org"]
+# Default: ""
+storage-s3-redirect-url: ""
 
 # Bool. Use SSL for S3 connections.
 #
@@ -888,9 +952,9 @@ http-client:
   # Duration. Timeout to use for outgoing HTTP requests. If the timeout
   # is exceeded, the connection to the remote server will be dropped.
   # A value of 0s indicates no timeout: this is not advised!
-  # Examples: ["5s", "10s", "0s"]
-  # Default: "10s"
-  timeout: "10s"
+  # Examples: ["5s", "30s", "0s"]
+  # Default: "30s"
+  timeout: "30s"
 
   ########################################
   #### RESERVED IP RANGE EXCEPTIONS ######
