@@ -35,7 +35,6 @@ Veuillez noter que ce paquet utilise la ["i'm so tired" software license 1.0](ht
 
 ## :red_circle: Anti-fonctionnalités
 
-- **Logiciel en version alpha **: Le logiciel est au tout début de son développement. Il pourrait contenir des fonctionnalités changeantes ou instables, des bugs, et des failles de sécurité.
 - **Package sous licence libre restreinte **: Le package YunoHost de cette application est sous une licence globalement libre, mais avec des clauses qui pourraient restreindre son utilisation.
 
 ## Documentations et ressources

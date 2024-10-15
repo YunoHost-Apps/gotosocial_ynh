@@ -35,7 +35,6 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 ## :red_circle: Anti-eigenschappen
 
-- **Alpha software**: Early development stage. May contain changing or unstable features, bugs, and security vulnerability.
 - **Not totally free package**: The YunoHost package of this app is under an overall free license, but with clauses that may restrict its use.
 
 ## Documentatie en bronnen
