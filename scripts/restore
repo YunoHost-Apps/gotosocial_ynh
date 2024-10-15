@@ -115,7 +115,7 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 #=================================================
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log" --line_match="listening on"
 
 #=================================================
 # RESTORE THE LOGROTATE CONFIGURATION

@@ -259,7 +259,7 @@ ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config
 ynh_script_progression --message="Starting a systemd service..." --weight=1
 
 # Start a systemd service
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log" --line_match="listening on"
 
 #=================================================
 # END OF SCRIPT

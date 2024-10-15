@@ -400,7 +400,8 @@ yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$a
 #=================================================
 ynh_script_progression --message="Starting a systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log"
+# huge timeout of 30 minutes because database migrations can be quite long...
+ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log" --line_match="listening on" --timeout=1800
 
 #=================================================
 # END OF SCRIPT
