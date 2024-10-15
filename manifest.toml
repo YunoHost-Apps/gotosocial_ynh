@@ -89,14 +89,14 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc5/gotosocial_0.17.0-rc5_linux_386_moderncsqlite.tar.gz"
-i386.sha256 = "b47c675ef9f95b491172624239a1745473e0a6e0b531eea76a580b6251fd7b6d"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc5/gotosocial_0.17.0-rc5_linux_amd64.tar.gz"
-amd64.sha256 = "b713adbe26e48f553f9e8900ff2b1232e411f7e558114d18be60a0b4006a713d"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc5/gotosocial_0.17.0-rc5_linux_arm64.tar.gz"
-arm64.sha256 = "8596ad8beb97db5a6e22b83ad8791586c9d2577f26d9de36481d8ca2229c90da"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0-rc5/gotosocial_0.17.0-rc5_linux_armv7_moderncsqlite.tar.gz"
-armhf.sha256 = "e99381f333455c0931fb04a43cdb4084100b211aba8d5d6b46d4a224bb3c7efe"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_386_moderncsqlite.tar.gz"
+i386.sha256 = "e11f1125e70ed3e20a82bfc8848cd4bb968670e2ceaed8010ce080e303c10cb3"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_amd64.tar.gz"
+amd64.sha256 = "6b9e7e6a4b5de8efd38eee9bf4b851c075827a8dffe2cfeeb8dcefabf10d76fd"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_arm64.tar.gz"
+arm64.sha256 = "5e2f0e9c9710accc75181ed605df7807119ce7ba70ba0080a945097e1d17d8cc"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_armv7_moderncsqlite.tar.gz"
+armhf.sha256 = "c337d2eff0be21aa8a49a3d6edda2d02d9a73dc488f6eb6646a05535b4470cbd"
 
 autoupdate.asset.i386 = "gotosocial_.*linux_386_moderncsqlite.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
