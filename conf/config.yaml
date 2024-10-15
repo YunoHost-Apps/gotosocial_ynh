@@ -479,7 +479,7 @@ accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
 #
 # Examples: [2097152, 10485760, 40MB, 40MiB]
 # Default: 40MiB (41943040 bytes)
-media-local-max-size:  __MEDIA_LOCAL_MAX_SIZE__
+media-local-max-size: __MEDIA_LOCAL_MAX_SIZE__
 
 # Size. Max size in bytes of media to download from other instances.
 #
