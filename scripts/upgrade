@@ -30,22 +30,7 @@ ynh_systemd_action --service_name="$app" --action="stop" --log_path="/var/log/$a
 ynh_script_progression --message="Ensuring downward compatibility..."
 
 if ynh_app_upgrading_from_version_before 0.17.0~ynh1; then
-	ynh_die "You should first upgrade to version 0.17.0~ynh1 before upgrading to a newer version. You can use the following command: yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/commit-placeholder"
-fi
-
-# Upgrade from <0.17.0~ynh1:
-if ynh_compare_current_package_version --comparison lt --version 0.17.0~ynh2 || [ -z "${media_remote_max_size:-}" ]
-then
-	# remove deprecated config
-	ynh_app_setting_delete --app="$app" --key=media_image_max_size
-	ynh_app_setting_delete --app="$app" --key=media_video_max_size
-	# declaration of new parameters
-	media_remote_max_size="40MiB"
-	# config update
-	media_local_max_size="40MiB"
-	# registration of parameters
-	ynh_app_setting_set --app="$app" --key=media_remote_max_size --value="$media_remote_max_size"
-	ynh_app_setting_set --app="$app" --key=media_local_max_size --value="$media_local_max_size"
+	ynh_die "You should first upgrade to version 0.17.0~ynh1 before upgrading to a newer version. You can use the following command: yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/b7237d514a4eeaf725fcd0acffe63332f7834822"
 fi
 
 #=================================================
