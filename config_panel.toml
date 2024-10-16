@@ -72,23 +72,23 @@ Quelle que soit la valeur de ce paramètre, tout CSS téléchargé ne sera pas f
 [main.media]
 name = "Media config"
 
-help = "Config pertaining to user media uploads (videos, image, image descriptions)."
+help = "Config pertaining to media (videos, image, image descriptions)."
 
-    [main.media.media_image_max_size]
-    ask.en = "Maximum allowed image upload size in bytes."
-    ask.fr = "Taille maximale autorisée pour le téléchargement d'images, en octets."
-    bind = "media-image-max-size:__INSTALL_DIR__/config.yaml"
-    default = "10MiB"
-    help.en = "Default: 10MiB (10485760 bytes)"
-    help.fr = "Valeur par défaut : 10MiB (10485760 octets)"
+    [main.media.media_local_max_size]
+    ask.en = "Max size in bytes of media uploads via API."
+    ask.fr = "Taille max en octets pour la réception de médias via l'API."
+    bind = "media-local-max-size:__INSTALL_DIR__/config.yaml"
+    default = "40MiB"
+    help.en = "Default: 40MiB (41943040 bytes)"
+    help.fr = "Valeur par défaut : 40MiB (41943040 octets)"
     type = "string"
     pattern.regexp = "^[0-9]*(KB|KiB|MB|MiB)?$"
     pattern.error = "Should be a number with or without the following unit marker: KB, KiB, MB, MiB."
 
-    [main.media.media_video_max_size]
-    ask.en = "Maximum allowed video upload size in bytes."
-    ask.fr = "Taille maximale autorisée pour le téléchargement de vidéos, en octets."
-    bind = "media-video-max-size:__INSTALL_DIR__/config.yaml"
+    [main.media.media_remote_max_size]
+    ask.en = "Max size in bytes of media to download from other instances."
+    ask.fr = "Taille max en octets des téléchargement de médias d'autres instances."
+    bind = "media-remote-max-size:__INSTALL_DIR__/config.yaml"
     default = "40MiB"
     help.en = "Default: 40MiB (41943040 bytes)"
     help.fr = "Valeur par défaut : 40MiB (41943040 octets)"
