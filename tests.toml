@@ -22,6 +22,7 @@ args.accounts_reason_required = 0
 # -------------------------------
 
 test_upgrade_from.cb64af86.name = "Upgrade from 0.16.0~ynh2 (latest alpha)"
+test_upgrade_from.b7237d51.name = "Upgrade from 0.17.0~ynh1 (first beta release)"
 
 # -------------------------------
 # additional tests suite
