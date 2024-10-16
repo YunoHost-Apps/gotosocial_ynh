@@ -310,7 +310,6 @@ then
 	ynh_app_setting_delete --app="$app" --key=media_video_max_size
 	# declaration of new parameters
 	media_remote_max_size="40MiB"
-	# config update
 	media_local_max_size="40MiB"
 	# registration of parameters
 	ynh_app_setting_set --app="$app" --key=media_remote_max_size --value="$media_remote_max_size"
