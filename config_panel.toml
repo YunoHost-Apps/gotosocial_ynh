@@ -72,13 +72,13 @@ Quelle que soit la valeur de ce paramètre, tout CSS téléchargé ne sera pas f
 [main.media]
 name = "Media config"
 
-help = "Config pertaining to user media uploads (videos, image, image descriptions)."
+help = "Config pertaining to media (videos, image, image descriptions)."
 
     [main.media.media_local_max_size]
     ask.en = "Max size in bytes of media uploads via API."
-    ask.fr = "Taille max autorisée pour l'envoi de médias via l'API, en octets."
+    ask.fr = "Taille max en octets pour la réception de médias via l'API."
     bind = "media-local-max-size:__INSTALL_DIR__/config.yaml"
-    default = "10MiB"
+    default = "40MiB"
     help.en = "Default: 40MiB (41943040 bytes)"
     help.fr = "Valeur par défaut : 40MiB (41943040 octets)"
     type = "string"
@@ -87,7 +87,7 @@ help = "Config pertaining to user media uploads (videos, image, image descriptio
 
     [main.media.media_remote_max_size]
     ask.en = "Max size in bytes of media to download from other instances."
-    ask.fr = "Taille max pour le téléchargement de médias depuis d'autres instances, en octets."
+    ask.fr = "Taille max en octets des téléchargement de médias d'autres instances."
     bind = "media-remote-max-size:__INSTALL_DIR__/config.yaml"
     default = "40MiB"
     help.en = "Default: 40MiB (41943040 bytes)"
