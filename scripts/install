@@ -1,11 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# GENERIC START
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -90,179 +84,148 @@ fi
 #=================================================
 # STORE SETTINGS FROM MANIFEST
 #=================================================
-ynh_script_progression --message="Storing installation settings..." --weight=1
+ynh_script_progression "Storing installation settings..."
 
-ynh_app_setting_set --app="$app" --key=install_dir --value="$install_dir"
+ynh_app_setting_set --key=install_dir --value="$install_dir"
 
-ynh_app_setting_set --app="$app" --key=landing_page_user --value="$landing_page_user"
+ynh_app_setting_set --key=landing_page_user --value="$landing_page_user"
 
-ynh_app_setting_set --app="$app" --key=domain --value="$domain"
-ynh_app_setting_set --app="$app" --key=path --value="$path"
+ynh_app_setting_set --key=domain --value="$domain"
+ynh_app_setting_set --key=path --value="$path"
 
-ynh_app_setting_set --app="$app" --key=client_max_body_size --value="$client_max_body_size"
+ynh_app_setting_set --key=client_max_body_size --value="$client_max_body_size"
 
-ynh_app_setting_set --app="$app" --key=admin --value="$admin"
-ynh_app_setting_set --app="$app" --key=email --value="$email"
-ynh_app_setting_set --app="$app" --key=password --value="$password"
+ynh_app_setting_set --key=admin --value="$admin"
+ynh_app_setting_set --key=email --value="$email"
+ynh_app_setting_set --key=password --value="$password"
 
-ynh_app_setting_set --app="$app" --key=cache_memory_target --value="$cache_memory_target"
+ynh_app_setting_set --key=cache_memory_target --value="$cache_memory_target"
 
-ynh_app_setting_set --app="$app" --key=accounts_registration_open --value="$accounts_registration_open"
-ynh_app_setting_set --app="$app" --key=accounts_reason_required --value="$accounts_reason_required"
-ynh_app_setting_set --app="$app" --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
-ynh_app_setting_set --app="$app" --key=accounts_custom_css_length --value="$accounts_custom_css_length"
+ynh_app_setting_set --key=accounts_registration_open --value="$accounts_registration_open"
+ynh_app_setting_set --key=accounts_reason_required --value="$accounts_reason_required"
+ynh_app_setting_set --key=accounts_allow_custom_css --value="$accounts_allow_custom_css"
+ynh_app_setting_set --key=accounts_custom_css_length --value="$accounts_custom_css_length"
 
-ynh_app_setting_set --app="$app" --key=instance_federation_mode --value="$instance_federation_mode"
-ynh_app_setting_set --app="$app" --key=instance_expose_peers --value="$instance_expose_peers"
-ynh_app_setting_set --app="$app" --key=instance_expose_suspended --value="$instance_expose_suspended"
-ynh_app_setting_set --app="$app" --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
-ynh_app_setting_set --app="$app" --key=instance_expose_public_timeline --value="$instance_expose_public_timeline"
-ynh_app_setting_set --app="$app" --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
-ynh_app_setting_set --app="$app" --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
+ynh_app_setting_set --key=instance_federation_mode --value="$instance_federation_mode"
+ynh_app_setting_set --key=instance_expose_peers --value="$instance_expose_peers"
+ynh_app_setting_set --key=instance_expose_suspended --value="$instance_expose_suspended"
+ynh_app_setting_set --key=instance_expose_suspended_web --value="$instance_expose_suspended_web"
+ynh_app_setting_set --key=instance_expose_public_timeline --value="$instance_expose_public_timeline"
+ynh_app_setting_set --key=instance_deliver_to_shared_inboxes --value="$instance_deliver_to_shared_inboxes"
+ynh_app_setting_set --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
 
-ynh_app_setting_set --app="$app" --key=media_local_max_size --value="$media_local_max_size"
-ynh_app_setting_set --app="$app" --key=media_remote_max_size --value="$media_remote_max_size"
-ynh_app_setting_set --app="$app" --key=media_description_min_chars --value="$media_description_min_chars"
-ynh_app_setting_set --app="$app" --key=media_description_max_chars --value="$media_description_max_chars"
-ynh_app_setting_set --app="$app" --key=media_remote_cache_days --value="$media_remote_cache_days"
-ynh_app_setting_set --app="$app" --key=media_emoji_local_max_size --value="$media_emoji_local_max_size"
-ynh_app_setting_set --app="$app" --key=media_emoji_remote_max_size --value="$media_emoji_remote_max_size"
+ynh_app_setting_set --key=media_local_max_size --value="$media_local_max_size"
+ynh_app_setting_set --key=media_remote_max_size --value="$media_remote_max_size"
+ynh_app_setting_set --key=media_description_min_chars --value="$media_description_min_chars"
+ynh_app_setting_set --key=media_description_max_chars --value="$media_description_max_chars"
+ynh_app_setting_set --key=media_remote_cache_days --value="$media_remote_cache_days"
+ynh_app_setting_set --key=media_emoji_local_max_size --value="$media_emoji_local_max_size"
+ynh_app_setting_set --key=media_emoji_remote_max_size --value="$media_emoji_remote_max_size"
 
-ynh_app_setting_set --app="$app" --key=storage_backend --value="$storage_backend"
-ynh_app_setting_set --app="$app" --key=storage_s3_endpoint --value="$storage_s3_endpoint"
-ynh_app_setting_set --app="$app" --key=storage_s3_proxy --value="$storage_s3_proxy"
-ynh_app_setting_set --app="$app" --key=storage_s3_access_key --value="$storage_s3_access_key"
-ynh_app_setting_set --app="$app" --key=storage_s3_secret_key --value="$storage_s3_secret_key"
-ynh_app_setting_set --app="$app" --key=storage_s3_bucket --value="$storage_s3_bucket"
+ynh_app_setting_set --key=storage_backend --value="$storage_backend"
+ynh_app_setting_set --key=storage_s3_endpoint --value="$storage_s3_endpoint"
+ynh_app_setting_set --key=storage_s3_proxy --value="$storage_s3_proxy"
+ynh_app_setting_set --key=storage_s3_access_key --value="$storage_s3_access_key"
+ynh_app_setting_set --key=storage_s3_secret_key --value="$storage_s3_secret_key"
+ynh_app_setting_set --key=storage_s3_bucket --value="$storage_s3_bucket"
 
-ynh_app_setting_set --app="$app" --key=statuses_max_chars --value="$statuses_max_chars"
-ynh_app_setting_set --app="$app" --key=statuses_poll_max_options --value="$statuses_poll_max_options"
-ynh_app_setting_set --app="$app" --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
-ynh_app_setting_set --app="$app" --key=statuses_media_max_files --value="$statuses_media_max_files"
+ynh_app_setting_set --key=statuses_max_chars --value="$statuses_max_chars"
+ynh_app_setting_set --key=statuses_poll_max_options --value="$statuses_poll_max_options"
+ynh_app_setting_set --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
+ynh_app_setting_set --key=statuses_media_max_files --value="$statuses_media_max_files"
 
-ynh_app_setting_set --app="$app" --key=oidc_enabled --value="$oidc_enabled"
-ynh_app_setting_set --app="$app" --key=oidc_idp_name --value="$oidc_idp_name"
-ynh_app_setting_set --app="$app" --key=oidc_skip_verification --value="$oidc_skip_verification"
-ynh_app_setting_set --app="$app" --key=oidc_issuer --value="$oidc_issuer"
-ynh_app_setting_set --app="$app" --key=oidc_client_id --value="$oidc_client_id"
-ynh_app_setting_set --app="$app" --key=oidc_client_secret --value="$oidc_client_secret"
-ynh_app_setting_set --app="$app" --key=oidc_link_existing --value="$oidc_link_existing"
+ynh_app_setting_set --key=oidc_enabled --value="$oidc_enabled"
+ynh_app_setting_set --key=oidc_idp_name --value="$oidc_idp_name"
+ynh_app_setting_set --key=oidc_skip_verification --value="$oidc_skip_verification"
+ynh_app_setting_set --key=oidc_issuer --value="$oidc_issuer"
+ynh_app_setting_set --key=oidc_client_id --value="$oidc_client_id"
+ynh_app_setting_set --key=oidc_client_secret --value="$oidc_client_secret"
+ynh_app_setting_set --key=oidc_link_existing --value="$oidc_link_existing"
 
-ynh_app_setting_set --app="$app" --key=smtp_host --value="$smtp_host"
-ynh_app_setting_set --app="$app" --key=smtp_port --value="$smtp_port"
-ynh_app_setting_set --app="$app" --key=smtp_username --value="$smtp_username"
-ynh_app_setting_set --app="$app" --key=smtp_password --value="$smtp_password"
-ynh_app_setting_set --app="$app" --key=smtp_from --value="$smtp_from"
-ynh_app_setting_set --app="$app" --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
+ynh_app_setting_set --key=smtp_host --value="$smtp_host"
+ynh_app_setting_set --key=smtp_port --value="$smtp_port"
+ynh_app_setting_set --key=smtp_username --value="$smtp_username"
+ynh_app_setting_set --key=smtp_password --value="$smtp_password"
+ynh_app_setting_set --key=smtp_from --value="$smtp_from"
+ynh_app_setting_set --key=smtp_disclose_recipients --value="$smtp_disclose_recipients"
 
-ynh_app_setting_set --app="$app" --key=metrics_enabled --value="$metrics_enabled"
-ynh_app_setting_set --app="$app" --key=metrics_auth_enabled --value="$metrics_auth_enabled"
-ynh_app_setting_set --app="$app" --key=metrics_auth_username --value="$metrics_auth_username"
-ynh_app_setting_set --app="$app" --key=metrics_auth_password --value="$metrics_auth_password"
+ynh_app_setting_set --key=metrics_enabled --value="$metrics_enabled"
+ynh_app_setting_set --key=metrics_auth_enabled --value="$metrics_auth_enabled"
+ynh_app_setting_set --key=metrics_auth_username --value="$metrics_auth_username"
+ynh_app_setting_set --key=metrics_auth_password --value="$metrics_auth_password"
 
-ynh_app_setting_set --app="$app" --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
-ynh_app_setting_set --app="$app" --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
+ynh_app_setting_set --key=advanced_cookies_samesite --value="$advanced_cookies_samesite"
+ynh_app_setting_set --key=advanced_rate_limit_requests --value="$advanced_rate_limit_requests"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Setting up source files..." --weight=1
+ynh_script_progression "Setting up source files..."
 
-### `ynh_setup_source` is used to install an app from a zip or tar.gz file,
-### downloaded from an upstream source, like a git repository.
-### `ynh_setup_source` use the file conf/app.src
-
-# Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir" 
+ynh_setup_source --dest_dir="$install_dir"
 
 mkdir -p "$install_dir/.cache"
-
-# FIXME: this should be managed by the core in the future
-# Here, as a packager, you may have to tweak the ownerhsip/permissions
-# such that the appropriate users (e.g. maybe www-data) can access
-# files in some cases.
-# But FOR THE LOVE OF GOD, do not allow r/x for "others" on the entire folder _
-# this will be treated as a security issue.
-chmod -R 750 "$install_dir"
-chmod -R o-rwx "$install_dir"
-chown -R "$app:www-data" "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=1
+ynh_script_progression "Configuring NGINX web server..."
 
-# Create a dedicated NGINX config for the main domain
-ynh_add_nginx_config
+ynh_config_add_nginx
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..." --weight=1
+ynh_script_progression "Adding $app's configuration..."
 
-ynh_add_config --template="config.yaml" --destination="$install_dir/config.yaml"
-
-# FIXME: this should be handled by the core in the future
-# You may need to use chmod 600 instead of 400,
-# for example if the app is expected to be able to modify its own config
-chmod 400 "$install_dir/config.yaml"
-chown "$app:$app" "$install_dir/config.yaml"
+ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
 
 #=================================================
 # SETUP SYSTEMD
 #=================================================
-ynh_script_progression --message="Configuring a systemd service..." --weight=1
+ynh_script_progression "Configuring $app's systemd service..."
 
-# Create a dedicated systemd config
-ynh_add_systemd_config
+ynh_config_add_systemd
 
-#=================================================
-# GENERIC FINALIZATION
 #=================================================
 # SETUP LOGROTATE
 #=================================================
-ynh_script_progression --message="Configuring log rotation..." --weight=1
+ynh_script_progression "Configuring log rotation..."
 
-# Use logrotate to manage application logfile(s)
-ynh_use_logrotate
+ynh_config_add_logrotate
 
 #=================================================
 # SETUP FAIL2BAN
 #=================================================
-ynh_script_progression --message="Configuring fail2ban..." --weight=1
+ynh_script_progression "Configuring fail2ban..."
 
-# Create a dedicated Fail2Ban config
-ynh_add_fail2ban_config --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:" --max_retry=5
+ynh_config_add_fail2ban --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:"
 
 #=================================================
 # INTEGRATE SERVICE IN YUNOHOST
 #=================================================
-ynh_script_progression --message="Integrating service in YunoHost..." --weight=1
+ynh_script_progression "Integrating service in YunoHost..."
 
 yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # CREATE ADMIN USER
 #=================================================
-ynh_script_progression --message="Creating gotosocial admin user..." --weight=1
+ynh_script_progression "Creating gotosocial admin user..."
 
-# using "/var/www/$app" instead of "$install_dir" as a temporary workaround for this bug:
-# bad_ynh_exec_syntax() false positive: https://github.com/YunoHost/package_linter/issues/123
+ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
 
-ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
-
-ynh_exec_warn_less /var/www/"$app"/gotosocial --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
+ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --weight=1
+ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
-ynh_systemd_action --service_name="$app" --action="start" --log_path="/var/log/$app/$app.log" --line_match="listening on"
+ynh_systemctl --service="$app" --action="start"  --wait_until="listening on"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Installation of $app completed" --last
+ynh_script_progression "Installation of $app completed"
