@@ -28,8 +28,9 @@ ynh_script_progression "Upgrading source files..."
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.yaml .cache"
 
-
 mkdir -p "$install_dir/.cache"
+chown -R "$app:www-data" "$install_dir/.cache"
+chmod -R 750 "$install_dir/.cache"
 
 #=================================================
 # NGINX CONFIGURATION

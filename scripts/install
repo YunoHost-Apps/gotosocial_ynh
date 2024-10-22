@@ -165,6 +165,8 @@ ynh_script_progression "Setting up source files..."
 ynh_setup_source --dest_dir="$install_dir"
 
 mkdir -p "$install_dir/.cache"
+chown -R "$app:www-data" "$install_dir/.cache"
+chmod -R 750 "$install_dir/.cache"
 
 #=================================================
 # NGINX CONFIGURATION
