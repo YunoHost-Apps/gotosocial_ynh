@@ -20,9 +20,7 @@ if ynh_app_upgrading_from_version_before 0.17.0~ynh1; then
 fi
 
 # fix a legacy bug (line added on October 2024, to remove in >= 6 months)
-if [ -z "${oidc_link_existing:-}" ]; then
-	ynh_app_setting_set --key=oidc_link_existing --value="false"
-fi
+ynh_app_setting_set_default --key=oidc_link_existing --value="false"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
