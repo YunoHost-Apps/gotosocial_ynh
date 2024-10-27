@@ -21,7 +21,7 @@ args.accounts_reason_required = 0
 # Commits to test upgrade from
 # -------------------------------
 
-test_upgrade_from.4bc2d54d.name = "Upgrade from 0.13.1~ynh1 (latest packaging v1)"
+test_upgrade_from.b7237d51.name = "Upgrade from 0.17.0~ynh1 (first beta release)"
 
 # -------------------------------
 # additional tests suite

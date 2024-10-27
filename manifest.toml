@@ -9,7 +9,7 @@ description.gl = "Un servidor áxil para a rede social ActivityPub"
 description.ca = "Un servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.17.0~ynh1"
+version = "0.17.1~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -21,7 +21,8 @@ userdoc = "https://docs.gotosocial.org/en/latest/"
 code = "https://github.com/superseriousbusiness/gotosocial"
 
 [integration]
-yunohost = ">= 11.2.6"
+yunohost = ">= 11.2.18"
+helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
 ldap = false
@@ -89,14 +90,14 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_386_moderncsqlite.tar.gz"
-i386.sha256 = "e11f1125e70ed3e20a82bfc8848cd4bb968670e2ceaed8010ce080e303c10cb3"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_amd64.tar.gz"
-amd64.sha256 = "6b9e7e6a4b5de8efd38eee9bf4b851c075827a8dffe2cfeeb8dcefabf10d76fd"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_arm64.tar.gz"
-arm64.sha256 = "5e2f0e9c9710accc75181ed605df7807119ce7ba70ba0080a945097e1d17d8cc"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.0/gotosocial_0.17.0_linux_armv7_moderncsqlite.tar.gz"
-armhf.sha256 = "c337d2eff0be21aa8a49a3d6edda2d02d9a73dc488f6eb6646a05535b4470cbd"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.1/gotosocial_0.17.1_linux_386_moderncsqlite.tar.gz"
+i386.sha256 = "6a2edaf2ddbaac7af76f895eee35cddd5fed75288941224ad2d57a6ebbced81a"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.1/gotosocial_0.17.1_linux_amd64.tar.gz"
+amd64.sha256 = "d90637f7c49671aff6c4dddeec21011820699b178d874a2f42e7ab8a30dd9f73"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.1/gotosocial_0.17.1_linux_arm64.tar.gz"
+arm64.sha256 = "d1afc5cb583d43e19f8086628fceb26eefb0d4d3e3f220546d51156354b1babb"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.1/gotosocial_0.17.1_linux_armv7_moderncsqlite.tar.gz"
+armhf.sha256 = "b98ca68050975fac8ebaa2317204b6f5c324b1bd9fdbb37b1fee32466980c95c"
 
 autoupdate.asset.i386 = "gotosocial_.*linux_386_moderncsqlite.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
@@ -108,6 +109,7 @@ autoupdate.strategy = "latest_github_release"
 allow_email = true
 
 [resources.install_dir]
+group = "www-data:r-x"
 
 [resources.data_dir]
 
