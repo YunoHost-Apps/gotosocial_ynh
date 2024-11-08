@@ -85,6 +85,28 @@ help = "Config pertaining to media (videos, image, image descriptions)."
     pattern.regexp = "^[0-9]*(KB|KiB|MB|MiB)?$"
     pattern.error = "Should be a number with or without the following unit marker: KB, KiB, MB, MiB."
 
+    [main.media.media_image_size_hint]
+    ask.en = "Size in bytes of max image size hint used by applications like Tusky to rescale locally uploaded media."
+    ask.fr = "Taille en octets du paramètre utilisé par des applications telles que Tusky pour redimensionner les images."
+    bind = "media-image-size-hint:__INSTALL_DIR__/config.yaml"
+    default = ""
+    help.en = "Leaving this unset will default to media-local-max-size."
+    help.fr = "Si ce paramètre n'est pas défini, la valeur par défaut est 'media-local-max-size'."
+    type = "string"
+    pattern.regexp = "(^[0-9]*(KB|KiB|MB|MiB)?$|(^$))"
+    pattern.error = "Should be either empty or a number with or without the following unit marker: KB, KiB, MB, MiB."
+
+    [main.media.media_video_size_hint]
+    ask.en = "Size in bytes of max video size hint used by applications like Tusky to rescale locally uploaded media."
+    ask.fr = "Taille en octets du paramètre utilisé par des applications telles que Tusky pour redimensionner les vidéos."
+    bind = "media-video-size-hint:__INSTALL_DIR__/config.yaml"
+    default = ""
+    help.en = "Leaving this unset will default to media-local-max-size."
+    help.fr = "Si ce paramètre n'est pas défini, la valeur par défaut est 'media-local-max-size'."
+    type = "string"
+    pattern.regexp = "(^[0-9]*(KB|KiB|MB|MiB)?$|(^$))"
+    pattern.error = "Should be either empty or a number with or without the following unit marker: KB, KiB, MB, MiB."
+
     [main.media.media_remote_max_size]
     ask.en = "Max size in bytes of media to download from other instances."
     ask.fr = "Taille max en octets des téléchargement de médias d'autres instances."

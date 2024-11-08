@@ -32,6 +32,8 @@ instance_deliver_to_shared_inboxes="true"
 instance_inject_mastodon_version="false"
 
 media_local_max_size="40MiB"
+media_image_size_hint=""
+media_video_size_hint=""
 media_remote_max_size="40MiB"
 media_description_min_chars="0"
 media_description_max_chars="1500"
@@ -115,6 +117,8 @@ ynh_app_setting_set --key=instance_deliver_to_shared_inboxes --value="$instance_
 ynh_app_setting_set --key=instance_inject_mastodon_version --value="$instance_inject_mastodon_version"
 
 ynh_app_setting_set --key=media_local_max_size --value="$media_local_max_size"
+ynh_app_setting_set --key=media_image_size_hint --value="$media_image_size_hint"
+ynh_app_setting_set --key=media_video_size_hint --value="$media_video_size_hint"
 ynh_app_setting_set --key=media_remote_max_size --value="$media_remote_max_size"
 ynh_app_setting_set --key=media_description_min_chars --value="$media_description_min_chars"
 ynh_app_setting_set --key=media_description_max_chars --value="$media_description_max_chars"
