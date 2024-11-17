@@ -36,10 +36,10 @@ ram.runtime = "100M"
 type = "domain"
 
 [install.account_domain]
-ask.en = "Account domain (_i.e._ accounts will have the format `@user@account_domain.example`, _c.f._ https://docs.gotosocial.org/en/latest/advanced/host-account-domain/)."
-ask.fr = "Domaine de compte (_i.e._ les comptes auront le format `@user@domaine_de_compte.example`, _c.f._ https://docs.gotosocial.org/en/latest/advanced/host-account-domain/)."
-help.en = "Select the same as before if you do not want to use split-domains. Read carefully the documentation: domains are forever with the federation."
-help.fr = "Sélectionnez le même que précédemment si vous ne souhaitez pas utiliser de domaine séparé. Lisez attentivement la documentation : les domaines sont choisis pour toujours avec la federation."
+ask.en = "Choose the account domain"
+ask.fr = "Choisissez le domaine de compte"
+help.en = "Accounts will have the format `@user@account_domain.example`. Select the same as before if you do not want to use split-domains. Read carefully the documentation, domains exposed to federation are forever: https://docs.gotosocial.org/en/latest/advanced/host-account-domain/"
+help.fr = "Les comptes auront le format `@user@domaine_de_compte.example`. Sélectionnez le même que précédemment si vous ne souhaitez pas utiliser de domaine séparé. Lisez attentivement la documentation, les domaines soumis à la fédération le sont pour toujours : https://docs.gotosocial.org/en/latest/advanced/host-account-domain"
 type = "domain"
 
 [install.admin]
