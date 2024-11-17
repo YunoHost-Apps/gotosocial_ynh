@@ -46,6 +46,8 @@ ynh_script_progression "Upgrading NGINX web server configuration..."
 
 ynh_config_add_nginx
 
+ynh_config_add --template="account_domain.conf" --destination="/etc/nginx/conf.d/${account_domain}.d/${app}_account_domain.conf"
+
 #=================================================
 # UPDATE A CONFIG FILE
 #=================================================

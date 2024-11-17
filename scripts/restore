@@ -13,6 +13,8 @@ ynh_script_progression "Restoring the NGINX configuration..."
 
 ynh_restore "/etc/nginx/conf.d/$domain.d/$app.conf"
 
+ynh_restore "/etc/nginx/conf.d/${account_domain}.d/${app}_account_domain.conf"
+
 #=================================================
 # RESTORE THE APP MAIN DIR
 #=================================================

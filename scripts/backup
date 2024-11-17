@@ -24,6 +24,8 @@ ynh_backup "$data_dir"
 
 ynh_backup "/etc/nginx/conf.d/$domain.d/$app.conf"
 
+ynh_backup "/etc/nginx/conf.d/${account_domain}.d/${app}_account_domain.conf"
+
 #=================================================
 # SPECIFIC BACKUP
 #=================================================

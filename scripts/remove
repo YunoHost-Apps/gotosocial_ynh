@@ -30,6 +30,8 @@ ynh_script_progression "Removing NGINX web server configuration..."
 
 ynh_config_remove_nginx
 
+ynh_safe_rm "/etc/nginx/conf.d/${account_domain}.d/${app}_account_domain.conf"
+
 #=================================================
 # REMOVE LOGROTATE CONFIGURATION
 #=================================================
