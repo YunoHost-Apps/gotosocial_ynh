@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # GoToSocial voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/gotosocial)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/gotosocial)
 
 [![GoToSocial met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
