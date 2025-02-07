@@ -9,7 +9,7 @@ description.gl = "Un servidor áxil para a rede social ActivityPub"
 description.ca = "Un servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.17.3~ynh1"
+version = "0.18.0~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -90,19 +90,19 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_386_moderncsqlite.tar.gz"
-i386.sha256 = "ec91713c7c0db546a1e6c94107cfc4d0403bc8938abf27cab4394dd2dc46dab8"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_amd64.tar.gz"
-amd64.sha256 = "f7aa9c0cb3e3f9dd6355464f7038d3683023471e98fcddc46ca472a85a977f3b"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_arm64.tar.gz"
-arm64.sha256 = "f8838ae7e1d89604c16ac19dba596d6d5f16646775eacf3bd17dcf815d3514eb"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_armv7_moderncsqlite.tar.gz"
-armhf.sha256 = "e4014f00869e5041ac253c852f59b64cfaef13c5899ac1f04618458df6239069"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.0/gotosocial_0.18.0-rc1_linux_386_nowasm.tar.gz"
+i386.sha256 = "20d6a1fbf5c0eac77d4605f294de445aceba4068bdbc0e7f11317d44dc689399"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.0/gotosocial_0.18.0-rc1_linux_amd64.tar.gz"
+amd64.sha256 = "81d615e3c420329c88e4a3c1ad763fef22addb75d8dc0b286e623a24814fc7a9"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.0/gotosocial_0.18.0-rc1_linux_arm64.tar.gz"
+arm64.sha256 = "190b9207404f1940610499484b4ab67519f1c77fb91d556f3b476ea4447234d8"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.0/gotosocial_0.18.0-rc1_linux_armv7_nowasm.tar.gz"
+armhf.sha256 = "b2e71bcd6657aed17dacf86b1abd797cc163c480905bcaaa4c61ec587bf695d7"
 
-autoupdate.asset.i386 = "gotosocial_.*linux_386_moderncsqlite.tar.gz$"
-autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
-autoupdate.asset.arm64 = "gotosocial_.*linux_arm64.tar.gz$"
-autoupdate.asset.armhf = "gotosocial_.*linux_armv7_moderncsqlite.tar.gz$"
+autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
+autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
+autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
+autoupdate.asset.armhf = "gotosocial_.*_linux_armv7_nowasm.tar.gz$"
 autoupdate.strategy = "latest_github_release"
 
 [resources.system_user]
@@ -122,7 +122,7 @@ main.show_tile = false
 [resources.ports]
 
 [resources.apt]
-packages = "postgresql, postgresql-contrib"
+packages = "postgresql, postgresql-contrib, ffmpeg"
 
 [resources.database]
 type = "postgresql"
