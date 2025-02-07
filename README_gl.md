@@ -29,7 +29,7 @@ Admins are **strongly encouraged to read the documentation** of this package aft
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**Versión proporcionada:** 0.17.3~ynh1
+**Versión proporcionada:** 0.18.0~ynh1
 
 ## Capturas de pantalla
 
