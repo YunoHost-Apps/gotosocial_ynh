@@ -501,6 +501,12 @@ help = "Settings pertaining to... OpenID Connect"
     #### STORAGE SETTINGS
     ####################
 
+[main.storage]
+
+name = "Storage settings"
+
+help = "Settings pertaining to storage of user-created uploads (videos, images, etc). Useful to set up a S3 bucket."
+
     [main.storage.storage_backend]
     ask.en = "Type of storage backend"
     ask.fr = "Type de système de stockage"
