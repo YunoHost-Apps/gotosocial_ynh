@@ -545,6 +545,12 @@ help = "Settings pertaining to storage of user-created uploads (videos, images, 
     bind = "storage-s3-secret-key:__INSTALL_DIR__/config.yaml"
     type = "string"
 
+    [main.storage.storage_s3_bucket]
+    ask.en = "Name of the storage bucket"
+    ask.fr = "Nom du bucket S3"
+    bind = "storage-s3-bucket:__INSTALL_DIR__/config.yaml"
+    type = "string"
+
     ####################
     #### OBSERVABILITY SETTINGS
     ####################
