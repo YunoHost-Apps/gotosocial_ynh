@@ -531,16 +531,12 @@ help = "Settings pertaining to... OpenID Connect"
     ask.en = "S3 access key"
     ask.fr = "Clé d'accès S3"
     bind = "storage-s3-access-key:__INSTALL_DIR__/config.yaml"
-    help.en = "GoToSocial uses 'DNS-style' when accessing buckets. If you are using Scaleways object storage, please remove the 'bucket name' from the endpoint address"
-    help.fr = ""
     type = "string"
 
     [main.storage.storage_s3_secret_key]
     ask.en = "S3 secret key"
     ask.fr = "Clé secrète S3"
     bind = "storage-s3-secret-key:__INSTALL_DIR__/config.yaml"
-    help.en = "GoToSocial uses 'DNS-style' when accessing buckets. If you are using Scaleways object storage, please remove the 'bucket name' from the endpoint address"
-    help.fr = ""
     type = "string"
 
     ####################
