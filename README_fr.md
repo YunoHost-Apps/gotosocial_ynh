@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # GoToSocial pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/gotosocial)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/gotosocial)
 
 [![Installer GoToSocial avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
@@ -27,7 +29,7 @@ Les admins sont **vivement encouragé-e-s à lire la documentation** de ce paque
 Veuillez noter que ce paquet utilise la ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), veuillez la lire et l'accepter avant de procéder à l'installation.
 
 
-**Version incluse :** 0.17.3~ynh1
+**Version incluse :** 0.17.3~ynh2
 
 ## Captures d’écran
 

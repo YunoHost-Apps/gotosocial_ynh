@@ -5,7 +5,9 @@ Ini TIDAK boleh diedit dengan tangan.
 
 # GoToSocial untuk YunoHost
 
-[![Tingkat integrasi](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![Status kerja](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Status pemeliharaan](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![Tingkat integrasi](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
+![Status kerja](https://apps.yunohost.org/badge/state/gotosocial)
+![Status pemeliharaan](https://apps.yunohost.org/badge/maintained/gotosocial)
 
 [![Pasang GoToSocial dengan YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
@@ -27,7 +29,7 @@ Admins are **strongly encouraged to read the documentation** of this package aft
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**Versi terkirim:** 0.17.3~ynh1
+**Versi terkirim:** 0.17.3~ynh2
 
 ## Tangkapan Layar
 
