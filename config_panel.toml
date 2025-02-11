@@ -498,6 +498,60 @@ help = "Settings pertaining to... OpenID Connect"
     type = "select"
 
     ####################
+    #### STORAGE SETTINGS
+    ####################
+
+[main.storage]
+
+name = "Storage settings"
+
+help = "Settings pertaining to storage of user-created uploads (videos, images, etc). Useful to set up a S3 bucket."
+
+    [main.storage.storage_backend]
+    ask.en = "Type of storage backend"
+    ask.fr = "Type de système de stockage"
+    bind = "storage-backend:__INSTALL_DIR__/config.yaml"
+    choices = [ "local", "s3" ]
+    default = "local"
+    type = "select"
+
+    [main.storage.storage_s3_endpoint]
+    ask.en = "S3 API endpoint"
+    ask.fr = "S3 API endpoint"
+    bind = "storage-s3-endpoint:__INSTALL_DIR__/config.yaml"
+    help.en = "GoToSocial uses 'DNS-style' when accessing buckets. If you are using Scaleways object storage, please remove the 'bucket name' from the endpoint address"
+    help.fr = "GoToSocial utilise le mode DNS lors de l'accès aux buckets. Si vous utilisez le stockage d'objets Scaleways, veuillez supprimer le 'bucket name' de l'adresse du point de terminaison »."
+    type = "string"
+
+    [main.storage.storage_s3_proxy]
+    ask.en = "Is S3 proxified?"
+    ask.fr = "Proxyfier le S3 ?"
+    bind = "storage-s3-proxy:__INSTALL_DIR__/config.yaml"
+    choices = [ "true", "false" ]
+    default = "false"
+    help.en = "Set this to 'true' if data stored in S3 should be proxied through GoToSocial instead of forwarding the request to a presigned URL."
+    help.fr = "Mettre cette valeur à 'true' si les données stockées dans S3 doivent être proxyfiées par GoToSocial au lieu de transmettre la requête à une URL présignée."
+    type = "select"
+
+    [main.storage.storage_s3_access_key]
+    ask.en = "S3 access key"
+    ask.fr = "Clé d'accès S3"
+    bind = "storage-s3-access-key:__INSTALL_DIR__/config.yaml"
+    type = "string"
+
+    [main.storage.storage_s3_secret_key]
+    ask.en = "S3 secret key"
+    ask.fr = "Clé secrète S3"
+    bind = "storage-s3-secret-key:__INSTALL_DIR__/config.yaml"
+    type = "string"
+
+    [main.storage.storage_s3_bucket]
+    ask.en = "Name of the storage bucket"
+    ask.fr = "Nom du bucket S3"
+    bind = "storage-s3-bucket:__INSTALL_DIR__/config.yaml"
+    type = "string"
+
+    ####################
     #### OBSERVABILITY SETTINGS
     ####################
 

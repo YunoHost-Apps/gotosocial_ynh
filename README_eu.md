@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # GoToSocial YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/gotosocial)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/gotosocial)
 
 [![Instalatu GoToSocial YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
@@ -27,7 +29,7 @@ Admins are **strongly encouraged to read the documentation** of this package aft
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**Paketatutako bertsioa:** 0.17.3~ynh1
+**Paketatutako bertsioa:** 0.17.3~ynh2
 
 ## Pantaila-argazkiak
 

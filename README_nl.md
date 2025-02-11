@@ -5,7 +5,9 @@ Hij mag NIET handmatig aangepast worden.
 
 # GoToSocial voor Yunohost
 
-[![Integratieniveau](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![Mate van functioneren](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![Onderhoudsstatus](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![Integratieniveau](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
+![Mate van functioneren](https://apps.yunohost.org/badge/state/gotosocial)
+![Onderhoudsstatus](https://apps.yunohost.org/badge/maintained/gotosocial)
 
 [![GoToSocial met Yunohost installeren](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
@@ -27,7 +29,7 @@ Admins are **strongly encouraged to read the documentation** of this package aft
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**Geleverde versie:** 0.17.3~ynh1
+**Geleverde versie:** 0.17.3~ynh2
 
 ## Schermafdrukken
 

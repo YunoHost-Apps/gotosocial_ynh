@@ -5,7 +5,9 @@
 
 # YunoHost 上的 GoToSocial
 
-[![集成程度](https://dash.yunohost.org/integration/gotosocial.svg)](https://ci-apps.yunohost.org/ci/apps/gotosocial/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/gotosocial.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/gotosocial.maintain.svg)
+[![集成程度](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
+![工作状态](https://apps.yunohost.org/badge/state/gotosocial)
+![维护状态](https://apps.yunohost.org/badge/maintained/gotosocial)
 
 [![使用 YunoHost 安装 GoToSocial](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=gotosocial)
 
@@ -27,7 +29,7 @@ Admins are **strongly encouraged to read the documentation** of this package aft
 Please note that this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
 
 
-**分发版本：** 0.17.3~ynh1
+**分发版本：** 0.17.3~ynh2
 
 ## 截图
 
