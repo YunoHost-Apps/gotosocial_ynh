@@ -43,6 +43,7 @@ media_emoji_remote_max_size="100KiB"
 
 storage_backend="local"
 storage_s3_endpoint=""
+storage_s3_redirect_url=""
 storage_s3_proxy="false"
 storage_s3_access_key=""
 storage_s3_secret_key=""

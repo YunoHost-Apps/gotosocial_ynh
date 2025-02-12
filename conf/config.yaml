@@ -690,7 +690,7 @@ storage-s3-proxy: __STORAGE_S3_PROXY__
 #
 # Examples: ["https://cdn.some-fancy-host.org"]
 # Default: ""
-storage-s3-redirect-url: ""
+storage-s3-redirect-url: __STORAGE_S3_REDIRECT_URL__
 
 # Bool. Use SSL for S3 connections.
 #

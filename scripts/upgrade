@@ -26,6 +26,9 @@ ynh_app_setting_set_default --key=oidc_link_existing --value="false"
 ynh_app_setting_set_default --key=media_image_size_hint --value=""
 ynh_app_setting_set_default --key=media_video_size_hint --value=""
 
+# 0.17.3~ynh2 (2025-02-10)
+ynh_app_setting_set_default --key=storage_s3_redirect_url --value=""
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================

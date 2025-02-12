@@ -90,6 +90,7 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
+
 i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.0-rc1/gotosocial_0.18.0-rc1_linux_386_nowasm.tar.gz"
 i386.sha256 = "20d6a1fbf5c0eac77d4605f294de445aceba4068bdbc0e7f11317d44dc689399"
 amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.0-rc1/gotosocial_0.18.0-rc1_linux_amd64.tar.gz"
@@ -103,6 +104,7 @@ autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
 autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
 autoupdate.asset.armhf = "gotosocial_.*_linux_armv7_nowasm.tar.gz$"
+
 autoupdate.strategy = "latest_github_release"
 
 [resources.system_user]
