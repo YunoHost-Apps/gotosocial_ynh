@@ -9,7 +9,7 @@ description.gl = "Un servidor áxil para a rede social ActivityPub"
 description.ca = "Un servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.17.3~ynh2"
+version = "0.17.4~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -90,14 +90,14 @@ default = true
 [resources]
 [resources.sources.main]
 in_subdir = false
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_386_moderncsqlite.tar.gz"
-i386.sha256 = "ec91713c7c0db546a1e6c94107cfc4d0403bc8938abf27cab4394dd2dc46dab8"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_amd64.tar.gz"
-amd64.sha256 = "f7aa9c0cb3e3f9dd6355464f7038d3683023471e98fcddc46ca472a85a977f3b"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_arm64.tar.gz"
-arm64.sha256 = "f8838ae7e1d89604c16ac19dba596d6d5f16646775eacf3bd17dcf815d3514eb"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.3/gotosocial_0.17.3_linux_armv7_moderncsqlite.tar.gz"
-armhf.sha256 = "e4014f00869e5041ac253c852f59b64cfaef13c5899ac1f04618458df6239069"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.4/gotosocial_0.17.4_linux_386_moderncsqlite.tar.gz"
+i386.sha256 = "5cc7906610a79431410279c67ba150562461d7cc60d9cac3928054bb77e429d8"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.4/gotosocial_0.17.4_linux_amd64.tar.gz"
+amd64.sha256 = "d2faa7268487d898b79f11039662489dded71cac87f9c541b30139ddf41bba2d"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.4/gotosocial_0.17.4_linux_arm64.tar.gz"
+arm64.sha256 = "6617d6de5be9370eb7dd375669cd0d53400f23afc33a0d7ba3031411ca46e2db"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.17.4/gotosocial_0.17.4_linux_armv7_moderncsqlite.tar.gz"
+armhf.sha256 = "f4390c72ee24a7e9867d3f0aca9c86320628ad1838651a9dea0a324398a5f1dc"
 
 autoupdate.asset.i386 = "gotosocial_.*linux_386_moderncsqlite.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*linux_amd64.tar.gz$"
