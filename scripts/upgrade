@@ -29,6 +29,9 @@ ynh_app_setting_set_default --key=media_video_size_hint --value=""
 # 0.17.3~ynh2 (2025-02-10)
 ynh_app_setting_set_default --key=storage_s3_redirect_url --value=""
 
+# workaround for https://github.com/YunoHost/issues/issues/2422
+ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
