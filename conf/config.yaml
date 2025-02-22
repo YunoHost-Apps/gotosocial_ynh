@@ -425,6 +425,61 @@ instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
 # Default: false
 instance-inject-mastodon-version: __INSTANCE_INJECT_MASTODON_VERSION__
 
+# String. 24hr time of day formatted as hh:mm.
+# Examples: ["14:30", "00:00", "04:00"]
+# Default: "23:00" (11pm).
+instance-subscriptions-process-from: "23:00"
+
+# Duration. Period between subscription updates.
+# Examples: ["24h", "72h", "12h"]
+# Default: "24h" (once per day).
+instance-subscriptions-process-every: "24h"
+
+# String. Allows you to customize if and how stats are served to
+# crawlers at the /api/v1|v2/instance and /nodeinfo endpoints.
+#
+# Note that no matter what you set below, the /api/v1|v2/instance
+# endpoints will not be allowed by robots.txt, as these are client
+# API endpoints.
+#
+# "" / empty string (default mode): Serve accurate stats at instance
+# and nodeinfo endpoints, and DISALLOW crawlers from crawling
+# those endpoints in robots.txt. This mode is equivalent to politely
+# asking crawlers not to crawl, but there's no guarantee they will obey,
+# as unfortunately many crawlers don't even check robots.txt.
+#
+# "zero": Serve zeroed-out stats at instance and nodeinfo endpoints,
+# and DISALLOW crawlers from crawling those endpoints in robots.txt.
+# This mode prevents even ill-behaved crawlers from gathering stats
+# about your instance, as all gathered values will be 0. This is the
+# safest way of preserving your instance's privacy in terms of stats.
+#
+# "serve": Serve accurate stats at instance and nodeinfo endpoints,
+# and ALLOW crawlers to crawl those endpoints. This mode is useful
+# if you want to contribute to fediverse statistics collection projects.
+#
+# "baffle": Serve randomized, preposterous stats at instance and nodeinfo
+# endpoints, and DISALLOW crawlers from crawling those endpoints in robots.txt.
+# This mode can be useful to annoy crawlers that don't respect robots.txt.
+# Warning that this may draw the ire of crawler implementers who don't
+# respect robots.txt, and may therefore put a target on your instance.
+#
+# Options: ["", "zero", "serve", "baffle"]
+# Default: ""
+instance-stats-mode: ""
+
+# Bool. This flag controls whether local accounts may backdate statuses
+# using past dates with the scheduled_at param to /api/v1/statuses.
+# This flag does not affect scheduling posts in the future
+# (which is currently not implemented anyway),
+# nor can it prevent remote accounts from backdating their own statuses.
+#
+# If true, all local accounts may backdate statuses.
+# If false, status backdating will be disabled and an error will be returned if it's used.
+#
+# Options: [true, false]
+# Default: true
+instance-allow-backdating-statuses: true
 
 ###########################
 ##### ACCOUNTS CONFIG #####
@@ -442,6 +497,28 @@ accounts-registration-open: __ACCOUNTS_REGISTRATION_OPEN__
 # Options: [true, false]
 # Default: true
 accounts-reason-required: __ACCOUNTS_REASON_REQUIRED__
+
+# Int. Number of approved sign-ups allowed within
+# 24hrs before new account registration is closed.
+#
+# Leaving this count at the default essentially limits
+# your instance to growing by 10 accounts per day.
+#
+# Setting this number to 0 or less removes the limit.
+#
+# Default: 10
+accounts-registration-daily-limit: 10
+
+# Int. Number of new account sign-ups allowed in the pending
+# approval queue before new account registration is closed.
+#
+# This can be used to essentially "throttle" the sign-up
+# queue to prevent instance admins becoming overwhelmed.
+#
+# Setting this number to 0 or less removes the limit.
+#
+# Default: 20
+accounts-registration-backlog-limit: 20
 
 # Bool. Allow accounts on this instance to set custom CSS for their profile pages and statuses.
 # Enabling this setting will allow accounts to upload custom CSS via the /user settings page,
