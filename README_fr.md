@@ -29,7 +29,7 @@ Les admins sont **vivement encouragé-e-s à lire la documentation** de ce paque
 Veuillez noter que ce paquet utilise la ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), veuillez la lire et l'accepter avant de procéder à l'installation.
 
 
-**Version incluse :** 0.18.0~ynh1
+**Version incluse :** 0.18.1~ynh1
 
 ## Captures d’écran
 
