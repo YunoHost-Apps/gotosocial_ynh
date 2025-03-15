@@ -1,6 +1,6 @@
 ## Administration
 
-You can login with your admin user (the one automatically created during installation) to your-instance.com/**admin** to administrate your GoToSocial instance.  
+You can login with the email address and password you provided during installation to your-instance.com/**admin** to administrate your GoToSocial instance.  
 [The source code of this administration panel](https://github.com/superseriousbusiness/gotosocial-admin) is available on github.  
 [The GTS admin panel documentation](https://docs.gotosocial.org/en/latest/admin/settings/).
 
