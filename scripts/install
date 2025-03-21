@@ -8,18 +8,14 @@ source /usr/share/yunohost/helpers
 #=================================================
 
 landing_page_user=""
-
-domain="$YNH_APP_ARG_DOMAIN"
-path="/"
-
 client_max_body_size="100M"
 
 # Config stuff:
 
 cache_memory_target="100MiB"
 
-accounts_registration_open=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REGISTRATION_OPEN")
-accounts_reason_required=$(convert_bool "$YNH_APP_ARG_ACCOUNTS_REASON_REQUIRED")
+accounts_registration_open=$(convert_bool "$accounts_registration_open")
+accounts_reason_required=$(convert_bool "$accounts_reason_required")
 accounts_allow_custom_css="false"
 accounts_custom_css_length="10000"
 
