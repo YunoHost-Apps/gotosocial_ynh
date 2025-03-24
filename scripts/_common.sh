@@ -14,7 +14,7 @@ convert_bool(){
 nowasm_detection(){
 
 	# special case to permit a CI test with the nowasm build
-	if $nowasm_test; then build_version="nowasm"; fi
+	if [ "${nowasm_test:-}" = true ]; then build_version="nowasm"; fi
 
 	if grep -qE '^flags.* (sse4|LSE)' /proc/cpuinfo; then
 		# Supported system; using the standard builds
