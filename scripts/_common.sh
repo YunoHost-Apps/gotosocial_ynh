@@ -17,7 +17,7 @@ nowasm_detection(){
 		build_version="main"
 	else
 		# Non-supported system; using the 'nowasm' builds
-		ynh_print_warn "Your system doesn't support the standard GoToSocial builds. Using the experimental and *non supported* 'nowasm' builds. More info: https://docs.gotosocial.org/en/latest/advanced/builds/nowasm/"
+		ynh_print_warn "Your system doesn't support the standard GoToSocial builds. So the package will install the *experimental and unsupported* 'nowasm' builds. More info: https://docs.gotosocial.org/en/latest/advanced/builds/nowasm/"
 		build_version="nowasm"
 	fi
 }
