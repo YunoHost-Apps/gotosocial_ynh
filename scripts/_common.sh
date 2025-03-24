@@ -13,9 +13,6 @@ convert_bool(){
 # see: https://docs.gotosocial.org/en/latest/advanced/builds/nowasm/
 nowasm_detection(){
 
-	# special case to permit a CI test with the nowasm build
-	if [ "${nowasm_test:-}" = true ]; then build_version="nowasm"; fi
-
 	if grep -qE '^flags.* (sse4|LSE)' /proc/cpuinfo; then
 		# Supported system; using the standard builds
 		build_version="main"
@@ -28,4 +25,7 @@ nowasm_detection(){
 		ynh_print_warn "Your system doesn't support the standard GoToSocial builds. So the package will install the *experimental and unsupported* 'nowasm' builds. More info: https://docs.gotosocial.org/en/latest/advanced/builds/nowasm/"
 		build_version="nowasm"
 	fi
+
+	# special case to permit a CI test with the nowasm build
+	if [ "${nowasm_test:-}" = true ]; then build_version="nowasm"; fi
 }
