@@ -26,3 +26,7 @@ test_upgrade_from.b7237d51.name = "Upgrade from 0.17.0~ynh1 (first beta release)
 # -------------------------------
 # additional tests suite
 # -------------------------------
+
+[nowasm_test]
+only = ["install.root"]
+args.nowasm_test = "true"
