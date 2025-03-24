@@ -38,8 +38,8 @@ ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
 
 ynh_script_progression "Upgrading source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir" --full_replace --keep="config.yaml .cache"
+nowasm_detection
+ynh_setup_source --dest_dir="$install_dir" --source_id="$build_version" --full_replace --keep="config.yaml .cache"
 
 mkdir -p "$install_dir/.cache"
 chown -R "$app:www-data" "$install_dir/.cache"

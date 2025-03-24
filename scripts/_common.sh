@@ -8,3 +8,16 @@
 convert_bool(){
 	(("$1")) && echo "true" || echo "false"
 }
+
+# detect if the system is compatible with the standard builds of GTS
+# see: https://docs.gotosocial.org/en/latest/advanced/builds/nowasm/
+nowasm_detection(){
+	if grep -qE '^flags.* (sse4|LSE)' /proc/cpuinfo; then
+		# Supported system; using the standard builds
+		build_version="main"
+	else
+		# Non-supported system; using the 'nowasm' builds
+		ynh_print_warn "Your system doesn't support the standard GoToSocial builds. Using the experimental and *non supported* 'nowasm' builds. More info: https://docs.gotosocial.org/en/latest/advanced/builds/nowasm/"
+		build_version="nowasm"
+	fi
+}
