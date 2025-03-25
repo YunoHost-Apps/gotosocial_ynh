@@ -3,7 +3,7 @@ Este archivo README esta generado automaticamente<https://github.com/YunoHost/ap
 No se debe editar a mano.
 -->
 
-# GoToSocial para Yunohost
+# GoToSocial para YunoHost
 
 [![Nivel de integración](https://apps.yunohost.org/badge/integration/gotosocial)](https://ci-apps.yunohost.org/ci/apps/gotosocial/)
 ![Estado funcional](https://apps.yunohost.org/badge/state/gotosocial)

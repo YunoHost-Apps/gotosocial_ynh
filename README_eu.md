@@ -53,7 +53,7 @@ Please note that this package uses the ["i'm so tired" software license 1.0](htt
 
 Bidali `pull request`a [`testing` abarrera](https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing).
 
-`testing` abarra probatzeko, ondorengoa egin:
+`testing` abarra probatzeko, honakoa egin:
 
 ```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing --debug
