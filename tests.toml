@@ -29,7 +29,7 @@ test_upgrade_from.b7237d51.name = "Upgrade from 0.17.0~ynh1 (first beta release)
 
 [nowasm_test]
 only = ["install.root"]
-preinstall = "nowasm_test = 1"
+preinstall = "export nowasm_test=1"
 args.admin = "xana"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
