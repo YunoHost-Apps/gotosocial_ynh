@@ -28,7 +28,7 @@ nowasm_detection(){
 
 	# special case to permit a CI test with the nowasm build
 	if [ -f "/var/www/nowasm_test" ]; then
-		ynh_print_warn "Testing the `nowasm` versions"
+		ynh_print_warn "Testing the 'nowasm' versions"
 		build_version="nowasm"
 	fi
 }
