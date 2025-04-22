@@ -9,7 +9,7 @@ description.gl = "Un servidor áxil para a rede social ActivityPub"
 description.ca = "Un servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.18.3~ynh1"
+version = "0.19.0~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -91,14 +91,14 @@ default = true
 [resources.sources.main]
 in_subdir = false
 
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.3/gotosocial_0.18.3_linux_386_nowasm.tar.gz"
-i386.sha256 = "9affca7542c8d710664c07e44156dadf6465e56e6093a922f31298b2ae43b479"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.3/gotosocial_0.18.3_linux_amd64.tar.gz"
-amd64.sha256 = "3283a1b35dd0dc876525d3b10e69de62dea4a6c687097ff9c2279eb889235c17"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.3/gotosocial_0.18.3_linux_arm64.tar.gz"
-arm64.sha256 = "9079fc7536593990377d957ac4a18b0739ec1bee541380107d6e269319fe5045"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.18.3/gotosocial_0.18.3_linux_armv7_nowasm.tar.gz"
-armhf.sha256 = "9c568ca0d3e1022309b16f9a5f8de74d32c601db3757b2e5df715a4fa938d240"
+i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0-rc3/gotosocial_0.19.0-rc3_linux_386_nowasm.tar.gz"
+i386.sha256 = "a84394d4e378882e23219a6d2421c803cacf44c27cae05772e3a4062d294e3ac"
+amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0-rc3/gotosocial_0.19.0-rc3_linux_amd64.tar.gz"
+amd64.sha256 = "2061992f406d37ae39d10182bf6bfe7db55530e63e82aca902b7fcba5836f49e"
+arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0-rc3/gotosocial_0.19.0-rc3_linux_arm64.tar.gz"
+arm64.sha256 = "b5845f5924b1f1a8e89fc33dc3314f62432c45a07be92a2bb18d870612a37814"
+armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0-rc3/gotosocial_0.19.0-rc3_linux_armv7_nowasm.tar.gz"
+armhf.sha256 = "cf45a595fd170466967aa43f162c60f463998bc5a9de38528e9d7741c7325720"
 
 autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
 autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
