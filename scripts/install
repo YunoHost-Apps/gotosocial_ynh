@@ -230,6 +230,8 @@ ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.y
 
 ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
 
+ynh_systemctl --service="$app" --action="restart"  --wait_until="listening on"
+
 #=================================================
 # END OF SCRIPT
 #=================================================
