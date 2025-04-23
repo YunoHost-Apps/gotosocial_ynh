@@ -221,6 +221,9 @@ ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service="$app" --action="start"  --wait_until="listening on"
 
+# ensure that the database is well initialized
+sleep 30
+
 #=================================================
 # CREATE ADMIN USER
 #=================================================
