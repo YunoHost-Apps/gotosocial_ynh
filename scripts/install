@@ -215,20 +215,25 @@ ynh_script_progression "Integrating service in YunoHost..."
 yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
-# CREATE ADMIN USER
-#=================================================
-ynh_script_progression "Creating gotosocial admin user..."
-
-ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
-
-ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
-
-#=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
 ynh_systemctl --service="$app" --action="start"  --wait_until="listening on"
+
+# ensure that the database is well initialized
+sleep 30
+
+#=================================================
+# CREATE ADMIN USER
+#=================================================
+ynh_script_progression "Creating $app admin user..."
+
+ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account create --username "$admin" --email "$email" --password "$password"
+
+ynh_hide_warnings "$install_dir/gotosocial" --config-path "$install_dir/config.yaml" admin account promote --username "$admin"
+
+ynh_systemctl --service="$app" --action="restart"  --wait_until="listening on"
 
 #=================================================
 # END OF SCRIPT
