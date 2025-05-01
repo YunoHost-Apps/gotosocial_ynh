@@ -18,7 +18,7 @@ license = "AGPL-3.0-only"
 website = "https://gotosocial.org/"
 admindoc = "https://docs.gotosocial.org/en/latest/"
 userdoc = "https://docs.gotosocial.org/en/latest/"
-code = "https://github.com/superseriousbusiness/gotosocial"
+code = "https://codeberg.org/superseriousbusiness/gotosocial"
 
 [integration]
 yunohost = ">= 11.2.18"
@@ -91,21 +91,34 @@ default = true
 [resources.sources.main]
 in_subdir = false
 
-i386.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_386_nowasm.tar.gz"
-i386.sha256 = "922480df54506d8a0785d22117227600b157a58905a530cafc4b25ec0f0ceea2"
-amd64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_amd64.tar.gz"
+amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_amd64.tar.gz"
 amd64.sha256 = "be4900ea1e69125788d06cc33cd071732e18aba5c2ce3a652cde1271d745856e"
-arm64.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_arm64.tar.gz"
+arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_arm64.tar.gz"
 arm64.sha256 = "3bc07668c810e0b734c4cce9d912484a6290ca7287123407c485b28831cd5ad2"
-armhf.url = "https://github.com/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_armv7_nowasm.tar.gz"
+
+autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
+autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
+
+autoupdate.strategy = "latest_forgejo_release"
+
+[resources.sources.nowasm]
+in_subdir = false
+
+i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_386_nowasm.tar.gz"
+i386.sha256 = "922480df54506d8a0785d22117227600b157a58905a530cafc4b25ec0f0ceea2"
+amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_amd64_nowasm.tar.gz"
+amd64.sha256 = "177b4bef67262a366890de3146e6a5c7716569d1fcd39748dc0133a8a2b02f87"
+arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_arm64_nowasm.tar.gz"
+arm64.sha256 = "669e7a3336c2af6ff3ee999109877d838552960d739752f553de84d0e74dce5e"
+armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_armv7_nowasm.tar.gz"
 armhf.sha256 = "76077fe4298eac3c0d057b9ee8cf7dfc995a4ea3271d0a1c8c6a8d36897973f0"
 
 autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
-autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
-autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
+autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64_nowasm.tar.gz$"
+autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64_nowasm.tar.gz$"
 autoupdate.asset.armhf = "gotosocial_.*_linux_armv7_nowasm.tar.gz$"
 
-autoupdate.strategy = "latest_github_release"
+autoupdate.strategy = "latest_forgejo_release"
 
 [resources.system_user]
 allow_email = true
