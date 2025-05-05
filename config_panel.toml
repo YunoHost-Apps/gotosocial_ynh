@@ -242,6 +242,16 @@ name = "Instance config"
 
 help = "Config pertaining to instance federation settings, pages to hide/expose, etc."
 
+    [main.instance.instance_languages]
+    ask.en = "Preferred languages on this instance"
+    ask.fr = "Langues préférées sur cette instance"
+    bind = "instance-languages:__INSTALL_DIR__/config.yaml"
+    help.en = "Examples: `"nl", "en-gb", "fr"` or `"en-gb"`."
+    help.fr = "Exemples: `"nl", "en-gb", "fr"` ou `"en-gb"`."
+    type = "string"
+    pattern.regexp = "^(\"[a-zA-Z-]+\"(, )?)+$"
+    pattern.error = "Please read the provided examples to see how to format your string."
+
     [main.instance.instance_federation_mode]
     ask.en = "Federation mode to use for this instance"
     ask.fr = "Le mode de fédération à utiliser pour cette instance"
