@@ -70,6 +70,9 @@ And to promote them as an administrator of your instance:
 ./gotosocial --config-path config.yaml admin account promote --username some_username
 ```
 
+Remember to restart GoToSocial after creating your user account.  
+Please note that you have to restart GTS after any action on an user account from the CLI (for example updating a password).
+
 ## OpenID Connect
 
 This package is not-working with the SSO (single-sign on) or LDAP integration.  
