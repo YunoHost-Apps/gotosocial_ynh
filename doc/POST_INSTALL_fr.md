@@ -1,0 +1,1 @@
+Vous pouvez désormais vous connecter à cette page en utilisant les identifiants fournis lors du formulaire d'installation : https://__DOMAIN__/settings
