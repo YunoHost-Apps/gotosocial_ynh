@@ -22,31 +22,40 @@ Dans ce panneau de configuration, vous pouvez configurer les choses suivantes (l
 
 * Configuration des comptes :
   * Ouverture des inscriptions ?
-  * Validation manuelle des inscriptions ?
   * Motif d'inscription requis ?
   * Autoriser le CSS personnalisé des utilisateurices ?
   * Longueur max du CSS personnalisé ?
 * Configuration des médias
-  * Taille maximale des images
-  * Taille maximale des vidéos
+  * Taille maximale des médias locaux
+  * Indication de taille maximale des images pour les applications
+  * Indication de taille maximale des vidéos pour les applications
+  * Taille maximale des médias distants
   * Nombre minimum de caractères pour les descriptions des médias
   * Nombre maximum de caractères pour les descriptions des médias
   * Nombre de jour de mise en cache des médias
+  * Taille maximale des émoji locaux
+  * Taille maximale des émoji distants
 * Configuration des posts
-  * Nombre maximum de caractères pour un nouveau post
-  * Nombre maximum de caractères dans un Content Warning / sujet d'un nouveau post
+  * Nombre maximum de caractères des posts
   * Nombre maximum d'options pour un sondage
   * Nombre maximum de caractères pour une option d'un sondage
   * Nombre maximum de médias pouvant etre ajoutés à un post
 * Configuration de l'instance
+  * Langues préférées sur cette instance
   * Le mode de fédération à utiliser pour cette instance (blocklist / allowlist)
   * Utilisateurice en tant que page d'accueil
+  * Exposition des pairs dans l'API ou l'interface Web
+  * Exposition des instances bloquées dans l'API ou l'interface Web
+  * Exposition de la timeline publique dans l'API
   * Options d'exposition de l'API
+  * Envoi en boites partagées
+  * Injecter une version Mastodon
 * Configuration SMTP
 * Configuration du cache
+* Configuration OIDC
+* Configuration du stockage (local ou S3)
+* Configuration des métriques
 * Configuration avancée
-  * SameSite attribute
-  * Rate limit
 
 N.B. : **N'éditez PAS** le fichier `config.yaml` à la main. Utilisez toujours ce panneau de configuration à la place. Sinon vos modifications seront effacées à chaque mise à jour !
 
@@ -69,6 +78,9 @@ Et pour promouvoir un compte en tant qu'administrateur de votre instance :
 ```bash
 ./gotosocial --config-path config.yaml admin account promote --username nom_dutilisateur
 ```
+
+Pensez à redémarrer GoToSocial après avoir créé votre nouveau compte utilisateur.  
+Notez que vous devrez redémarrer GTS après chaque action sur un compte (par exemple une mise à jour de mot de passe) depuis la ligne de commande.
 
 ## OpenID Connect
 

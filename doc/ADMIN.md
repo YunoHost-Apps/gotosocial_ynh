@@ -22,31 +22,41 @@ In this control panel you can configure the following things (non-exhaustive lis
 
 * Account configuration :
   * Are registrations open?
-  * Manual validation of registrations?
   * Required reason for registration?
   * Allow user custom CSS?
   * Custom CSS max length?
 * Media configuration
-  * Maximum image size
-  * Maximum video size
+  * Maximum size of local medias
+  * Hint for the maximum size of pictures for the apps
+  * Hint for the maximum size of videos for the apps
+  * Maximum size of remote medias
   * Minimum number of characters for media descriptions
   * Maximum number of characters for media descriptions
   * Number of days media can be cached
+  * Maximum size of local emoji
+  * Maximum size of remote emoji
 * Post configuration
-  * Maximum number of characters for a new post
+  * Maximum number of characters for posts
   * Maximum number of characters in a Content Warning / subject of a new post
   * Maximum number of options for a poll
   * Maximum number of characters for a poll option
   * Maximum number of media that can be added to a post
 * Instance config
+  * Instance prefered languages
   * Federation mode to use for this instance (blocklist / allowlist)
   * Landing page user
+  * Exposure of peers in the API or Web interface
+  * Exposure of blocked instances in the API or Web interface
+  * Exposure of the public timeline in the API
   * Exposed API options
-* SMTP config
+  * Send to shared boxes
+  * Inject Mastodon version
+* SMTP settings
 * Cache settings
+* OIDC settings
+* Storage settings (local or S3)
+* Metrics settings
 * Advanced settings
-  * SameSite attribute
-  * Rate limit
 
 Note: **Do NOT edit** the `config.yaml` file by hand. Always use this config panel instead. Otherwise your changes will be deleted at each update!
 
@@ -69,6 +79,9 @@ And to promote them as an administrator of your instance:
 ```bash
 ./gotosocial --config-path config.yaml admin account promote --username some_username
 ```
+
+Remember to restart GoToSocial after creating your user account.  
+Please note that you have to restart GTS after any action on an user account from the CLI (for example updating a password).
 
 ## OpenID Connect
 
