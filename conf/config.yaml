@@ -318,7 +318,7 @@ web-asset-base-dir: "./web/assets/"
 #
 # Example: ["nl", "en-gb", "fr"]
 # Default: []
-instance-languages: [__INSTANCE_LANGUAGES__]
+instance-languages: __INSTANCE_LANGUAGES__
 
 # String. Federation mode to use for this instance.
 #

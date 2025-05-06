@@ -30,7 +30,7 @@ ynh_app_setting_set_default --key=media_video_size_hint --value=""
 ynh_app_setting_set_default --key=storage_s3_redirect_url --value=""
 
 # 0.19.0~ynh3 (2025-05-05)
-ynh_app_setting_set_default --key=instance_languages --value==""
+ynh_app_setting_set_default --key=instance_languages --value=="[]"
 
 # workaround for https://github.com/YunoHost/issues/issues/2422
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
