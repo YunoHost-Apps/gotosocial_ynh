@@ -19,7 +19,7 @@ accounts_reason_required=$(convert_bool "$accounts_reason_required")
 accounts_allow_custom_css="false"
 accounts_custom_css_length="10000"
 
-instance_languages="[]"
+instance_languages=""
 instance_federation_mode="blocklist"
 instance_expose_peers="false"
 instance_expose_suspended="false"
