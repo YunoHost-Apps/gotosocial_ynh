@@ -246,10 +246,10 @@ help = "Config pertaining to instance federation settings, pages to hide/expose,
     ask.en = "Preferred languages on this instance"
     ask.fr = "Langues préférées sur cette instance"
     bind = "instance-languages:__INSTALL_DIR__/config.yaml"
-    help.en = "Examples: `[]`, `[\"nl\", \"en-gb\", \"fr\"]` or `[\"en-gb\"]`. [See here](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) for a list of the country codes."
-    help.fr = "Exemples: `[]`, `[\"nl\", \"en-gb\", \"fr\"]` ou `[\"en-gb\"]`. [Voir une liste des codes de pays](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags)."
+    help.en = "Examples: `\"nl\", \"en-gb\", \"fr\"` or `\"en-gb\"`. [See here](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags) for a list of the country codes."
+    help.fr = "Exemples: `\"nl\", \"en-gb\", \"fr\"` ou `\"en-gb\"`. [Voir une liste des codes de pays](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags)."
     type = "string"
-    pattern.regexp = "^\\[((\"[a-zA-Z-]{2,5}\", )*(\"[a-zA-Z-]{2,5}\"){1})?\\]$"
+    pattern.regexp = "^(\"[a-zA-Z-]+\"(, )?)+$"
     pattern.error = "Please read the provided examples to see how to format your string."
 
     [main.instance.instance_federation_mode]
