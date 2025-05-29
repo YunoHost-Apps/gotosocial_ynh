@@ -38,7 +38,6 @@ ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-
 ynh_script_progression "Upgrading source files..."
 
 nowasm_detection
@@ -49,46 +48,26 @@ chown -R "$app:www-data" "$install_dir/.cache"
 chmod -R 750 "$install_dir/.cache"
 
 #=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression "Upgrading NGINX web server configuration..."
-
-ynh_config_add_nginx
-
-#=================================================
 # UPDATE A CONFIG FILE
 #=================================================
-ynh_script_progression "Updating configuration..."
+ynh_script_progression "Updating $app's configuration files..."
 
 ynh_config_add --template="config.yaml" --destination="$install_dir/config.yaml"
 
 #=================================================
-# SETUP SYSTEMD
+# REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression "Upgrading systemd configuration..."
+ynh_script_progression "Upgrading system configurations related to $app..."
+
+ynh_config_add_nginx
 
 ynh_config_add_systemd
 
-#=================================================
-# SETUP LOGROTATE
-#=================================================
-ynh_script_progression "Upgrading logrotate configuration..."
+yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 ynh_config_add_logrotate
 
-#=================================================
-# SETUP FAIL2BAN
-#=================================================
-ynh_script_progression "Upgrading fail2ban configuration..."
-
 ynh_config_add_fail2ban --logpath="/var/log/${app}/${app}.log" --failregex="statusCode=401 path=/auth/sign_in clientIP=<HOST> .* msg=\"Unauthorized:"
-
-#=================================================
-# INTEGRATE SERVICE IN YUNOHOST
-#=================================================
-ynh_script_progression "Integrating service in YunoHost..."
-
-yunohost service add "$app" --description="Gotosocial server" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
