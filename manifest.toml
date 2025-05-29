@@ -5,11 +5,11 @@ packaging_format = 2
 id = "gotosocial"
 name = "GoToSocial"
 description.en = "Fast ActivityPub social network server"
-description.gl = "Un servidor áxil para a rede social ActivityPub"
-description.ca = "Un servidor de xarxa social basat en ActivityPub"
+description.gl = "Servidor áxil para a rede social ActivityPub"
+description.ca = "Servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.19.0~ynh2"
+version = "0.19.1~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -21,123 +21,127 @@ userdoc = "https://docs.gotosocial.org/en/latest/"
 code = "https://codeberg.org/superseriousbusiness/gotosocial"
 
 [integration]
-yunohost = ">= 11.2.18"
+yunohost = ">= 12.0.9"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
+
 ldap = false
 sso = false
+
 disk = "50M"
 ram.build = "200M"
 ram.runtime = "100M"
 
 [install]
-[install.domain]
-type = "domain"
 
-[install.admin]
-ask.en = "Name your admin user for GoToSocial"
-ask.gl = "Nome da usuaria administradora en GoToSocial"
-ask.ca = "Nom pel compte d'administració de GoToSocial"
-ask.fr = "Nommez votre compte administrateur pour GoToSocial"
-help.en = "Must be in lower case and without special characters."
-help.gl = "Ten que ser con minúsculas e sen caracteres especiais."
-help.ca = "Ha de ser en minúscules i sense caràcters especials."
-help.fr = "Doit être en minuscule et sans caractère special."
-type = "string"
-example = "johndoe"
+	[install.domain]
+	type = "domain"
 
-[install.email]
-ask.en = "The email adress of your admin account."
-ask.gl = "O enderezo de correo electrónico da conta Admin."
-ask.ca = "Adreça de correu pel compte d'administració."
-ask.fr = "L'adresse e-mail de votre compte admin."
-type = "string"
-example = "johndoe@example.com"
+	[install.admin]
+	ask.en = "Name your admin user for GoToSocial"
+	ask.gl = "Nome da usuaria administradora en GoToSocial"
+	ask.ca = "Nom pel compte d'administració de GoToSocial"
+	ask.fr = "Nommez votre compte administrateur pour GoToSocial"
+	help.en = "Must be in lower case and without special characters."
+	help.gl = "Ten que ser con minúsculas e sen caracteres especiais."
+	help.ca = "Ha de ser en minúscules i sense caràcters especials."
+	help.fr = "Doit être en minuscule et sans caractère special."
+	type = "string"
+	example = "johndoe"
 
-[install.password]
-help.en = "Must contain: upper case, lower case, number and special character."
-help.gl = "Ten que conter: maiúscula, minúscula, número e caracteres especiais."
-help.ca = "Ha de tenir: majúscules, minúscules, xifres i caràcters especials."
-help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
-type = "password"
+	[install.email]
+	ask.en = "The email adress to use for your GoToSocial admin account."
+	ask.gl = "O enderezo de correo electrónico da conta Admin."
+	ask.ca = "Adreça de correu pel compte d'administració."
+	ask.fr = "L'adresse e-mail à utiliser pour de le compte admin de GoToSocial."
+	type = "string"
+	example = "johndoe@example.com"
 
-[install.accounts_registration_open]
-ask.en = "Open registration?"
-ask.ar = "التسجيلات مفتوحة؟"
-ask.gl = "Rexistro aberto?"
-ask.ca = "Registres oberts?"
-ask.fr = "Inscriptions ouvertes ?"
-help.en = "Allow people to submit new sign-up / registration requests via the form at `/signup`."
-help.gl = "Queres permitir que calquera poida solicitar unha conta (verdadeiro), ou queres que só sexa a través de convite (falso)?"
-help.ca = "Voleu que la gent puguin enviar peticions de registre (true), o voleu que les registres es facin únicament per invitació (false)?"
-help.fr = "Permettre aux personnes de déposer de nouvelles demandes d'inscription via le formulaire à l'adresse `/signup`."
-type = "boolean"
-default = false
+	[install.password]
+	help.en = "Must contain: upper case, lower case, number and special character."
+	help.gl = "Ten que conter: maiúscula, minúscula, número e caracteres especiais."
+	help.ca = "Ha de tenir: majúscules, minúscules, xifres i caràcters especials."
+	help.fr = "Il doit contenir : majuscule, minuscule, chiffre et caractère spécial."
+	type = "password"
 
-[install.accounts_reason_required]
-ask.en = "Request registration reason?"
-ask.gl = "Requerir razón para crear conta?"
-ask.ca = "Motiu de la petició de registre?"
-ask.fr = "Demande de motif pour les inscriptions ?"
-help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
-help.gl = "Requerir que a solicitante indique un motivo á hora de solicitar a creación da conta. (ex., explicación de por que quere unirse á instancia)"
-help.ca = "S'ha d'afegir un motiu a la petició de registre (per exemple, el motiu pel qual volen unir-se a la instància)?"
-help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
-type = "boolean"
-default = true
+	[install.accounts_registration_open]
+	ask.en = "Open registration?"
+	ask.ar = "التسجيلات مفتوحة؟"
+	ask.gl = "Rexistro aberto?"
+	ask.ca = "Registres oberts?"
+	ask.fr = "Inscriptions ouvertes ?"
+	help.en = "Allow people to submit new sign-up / registration requests via the form at `/signup`."
+	help.gl = "Queres permitir que calquera poida solicitar unha conta (verdadeiro), ou queres que só sexa a través de convite (falso)?"
+	help.ca = "Voleu que la gent puguin enviar peticions de registre (true), o voleu que les registres es facin únicament per invitació (false)?"
+	help.fr = "Permettre aux personnes de déposer de nouvelles demandes d'inscription via le formulaire à l'adresse `/signup`."
+	type = "boolean"
+	default = false
+
+	[install.accounts_reason_required]
+	ask.en = "Request registration reason?"
+	ask.gl = "Requerir razón para crear conta?"
+	ask.ca = "Motiu de la petició de registre?"
+	ask.fr = "Demande de motif pour les inscriptions ?"
+	help.en = "Are sign up requests required to submit a reason for the request (eg., an explanation of why they want to join the instance)?"
+	help.gl = "Requerir que a solicitante indique un motivo á hora de solicitar a creación da conta. (ex., explicación de por que quere unirse á instancia)"
+	help.ca = "S'ha d'afegir un motiu a la petició de registre (per exemple, el motiu pel qual volen unir-se a la instància)?"
+	help.fr = "Les demandes d'inscription doivent-elles être accompagnée d'un motif (par exemple, une explication de la raison pour laquelle la personne veut rejoindre l'instance) ?"
+	type = "boolean"
+	default = true
 
 [resources]
-[resources.sources.main]
-in_subdir = false
 
-amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_amd64.tar.gz"
-amd64.sha256 = "be4900ea1e69125788d06cc33cd071732e18aba5c2ce3a652cde1271d745856e"
-arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_arm64.tar.gz"
-arm64.sha256 = "3bc07668c810e0b734c4cce9d912484a6290ca7287123407c485b28831cd5ad2"
+	[resources.sources.main]
+	in_subdir = false
 
-autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
-autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
+	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_amd64.tar.gz"
+	amd64.sha256 = "7c7516df17dfdf60c69b8c991c49e9c889c770447562f6284a409d25f4269803"
+	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_arm64.tar.gz"
+	arm64.sha256 = "99fc5784e04efa71854ec4a1b453346bbec5af01954aed28067fa4e7a23382c1"
 
-autoupdate.strategy = "latest_forgejo_release"
+	autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
+	autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
 
-[resources.sources.nowasm]
-in_subdir = false
+	autoupdate.strategy = "latest_forgejo_release"
 
-i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_386_nowasm.tar.gz"
-i386.sha256 = "922480df54506d8a0785d22117227600b157a58905a530cafc4b25ec0f0ceea2"
-amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_amd64_nowasm.tar.gz"
-amd64.sha256 = "177b4bef67262a366890de3146e6a5c7716569d1fcd39748dc0133a8a2b02f87"
-arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_arm64_nowasm.tar.gz"
-arm64.sha256 = "669e7a3336c2af6ff3ee999109877d838552960d739752f553de84d0e74dce5e"
-armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.0/gotosocial_0.19.0_linux_armv7_nowasm.tar.gz"
-armhf.sha256 = "76077fe4298eac3c0d057b9ee8cf7dfc995a4ea3271d0a1c8c6a8d36897973f0"
+	[resources.sources.nowasm]
+	in_subdir = false
 
-autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
-autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64_nowasm.tar.gz$"
-autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64_nowasm.tar.gz$"
-autoupdate.asset.armhf = "gotosocial_.*_linux_armv7_nowasm.tar.gz$"
+	i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_386_nowasm.tar.gz"
+	i386.sha256 = "068989936d4882c27b7118015b5b0876ef9d3c188cb4af47b6ff9a4dd6fe7058"
+	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_amd64_nowasm.tar.gz"
+	amd64.sha256 = "e08fd587f84f0e840b6e21a2734150a36aec9df6715236cd105581c06c61a837"
+	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_arm64_nowasm.tar.gz"
+	arm64.sha256 = "7187b8d667391b6455695aeb64117981641a53a3a7fca6768f60bf3ba64f1177"
+	armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_armv7_nowasm.tar.gz"
+	armhf.sha256 = "afe79c9369bc1f4124c9937352bc7a3bc180483c3d01f82e9b36723dc6ea2ad4"
 
-autoupdate.strategy = "latest_forgejo_release"
+	autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
+	autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64_nowasm.tar.gz$"
+	autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64_nowasm.tar.gz$"
+	autoupdate.asset.armhf = "gotosocial_.*_linux_armv7_nowasm.tar.gz$"
 
-[resources.system_user]
-allow_email = true
+	autoupdate.strategy = "latest_forgejo_release"
 
-[resources.install_dir]
-group = "www-data:r-x"
+	[resources.system_user]
+	allow_email = true
 
-[resources.data_dir]
+	[resources.install_dir]
+	group = "www-data:r-x"
 
-[resources.permissions]
-main.url = "/"
-main.allowed = "visitors"
-main.protected = true
-main.show_tile = false
+	[resources.data_dir]
 
-[resources.ports]
+	[resources.permissions]
+	main.url = "/"
+	main.allowed = "visitors"
+	main.protected = true
+	main.show_tile = false
 
-[resources.apt]
-packages = "postgresql, postgresql-contrib, ffmpeg"
+	[resources.ports]
 
-[resources.database]
-type = "postgresql"
+	[resources.apt]
+	packages = "postgresql, postgresql-contrib, ffmpeg"
+
+	[resources.database]
+	type = "postgresql"

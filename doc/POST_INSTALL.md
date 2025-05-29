@@ -1,0 +1,1 @@
+You can now log on this page using the credentials you specified in the install form: https://__DOMAIN__/settings
