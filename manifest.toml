@@ -38,7 +38,7 @@ ram.runtime = "100M"
 	[install.domain]
 	type = "domain"
  
-	[install.account-domain]
+	[install.account_domain]
 	ask.en = "domain used by accounts"
  	type = "domain"
 
