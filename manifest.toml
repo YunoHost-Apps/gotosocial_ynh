@@ -37,6 +37,10 @@ ram.runtime = "100M"
 
 	[install.domain]
 	type = "domain"
+ 
+	[install.account-domain]
+	ask.en = "domain used by accounts"
+ 	type = "domain"
 
 	[install.admin]
 	ask.en = "Name your admin user for GoToSocial"
