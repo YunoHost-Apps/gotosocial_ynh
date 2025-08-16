@@ -10,13 +10,12 @@ ynh_abort_if_errors
 #=================================================
 
 get__instance_languages() {
-	yq -Mrc '."instance-languages" | join(",")' $install_dir/config.yaml
+	instance_languages=$(grep '^instance-languages:' $install_dir/config.yaml | cut -d: -f2-)
+	echo ${instance_languages//[[:space:]\[\]\"\']/}
 }
 
 set__instance_languages() {
 	# We cannot use ynh_write_var_in_file as it ends up over-escaping characters
-	# We cannot use yq as its version in YunoHost, as of 2025-08-13,
-	# does not ship with the 'style' option that would prevent us from defacing the config.yaml file
 	instance_languages="[\"${instance_languages//,/\"\, \"}\"]"
 	ynh_replace_regex --match="^instance-languages:.*" --replace="instance-languages: $instance_languages" --file=$install_dir/config.yaml
 }
