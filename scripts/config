@@ -5,18 +5,20 @@ source /usr/share/yunohost/helpers
 
 ynh_abort_if_errors
 
-# import needed settings
-port_dns_over_tls=$(ynh_app_setting_get --key=port_dns_over_tls)
-port_dns_over_quic=$(ynh_app_setting_get --key=port_dns_over_quic)
+#=================================================
+# INSTANCE LANGUAGE GETTER/SETTER
+#=================================================
 
-#=================================================
-# SPECIFIC SETTERS
-#=================================================
+get__instance_languages() {
+	yq -Mrc '."instance-languages" | join(",")' $install_dir/config.yaml
+}
 
 set__instance_languages() {
-    # custom setter because we need to add the square brackets
-    ynh_app_setting_set --key=instance_languages --value="$instance_languages"
-    ynh_write_var_in_file --file="$install_dir/settings.yml" --key="instance-languages" --value="[$instance_languages]"
+	# We cannot use ynh_write_var_in_file as it ends up over-escaping characters
+	# We cannot use yq as its version in YunoHost, as of 2025-08-13,
+	# does not ship with the 'style' option that would prevent us from defacing the config.yaml file
+	instance_languages="[\"${instance_languages//,/\"\, \"}\"]"
+	ynh_replace_regex --match="^instance-languages:.*" --replace="instance-languages: $instance_languages" --file=$install_dir/config.yaml
 }
 
 #=================================================

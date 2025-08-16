@@ -9,7 +9,7 @@ description.gl = "Servidor áxil para a rede social ActivityPub"
 description.ca = "Servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.19.1~ynh1"
+version = "0.19.1~ynh2"
 
 maintainers = [ "OniriCorpe" ]
 
