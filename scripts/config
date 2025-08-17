@@ -1,0 +1,26 @@
+#!/bin/bash
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+ynh_abort_if_errors
+
+#=================================================
+# INSTANCE LANGUAGE GETTER/SETTER
+#=================================================
+
+get__instance_languages() {
+	instance_languages=$(grep '^instance-languages:' $install_dir/config.yaml | cut -d: -f2-)
+	echo ${instance_languages//[[:space:]\[\]\"\']/}
+}
+
+set__instance_languages() {
+	# We cannot use ynh_write_var_in_file as it ends up over-escaping characters
+	instance_languages="[\"${instance_languages//,/\"\, \"}\"]"
+	ynh_replace_regex --match="^instance-languages:.*" --replace="instance-languages: $instance_languages" --file=$install_dir/config.yaml
+}
+
+#=================================================
+
+ynh_app_config_run "$1"
+
