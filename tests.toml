@@ -5,11 +5,28 @@ test_format = 1.0
 # GTS don't support it
 exclude = [ "change_url" ]
 
+# ------------
+# Tests to run
+# ------------
+
+preinstall = """
+sudo yunohost tools update apps
+sudo yunohost domain add gts.domain.tld
+sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&"
+"""
+
+preupgrade = """
+sudo yunohost app remove gotosocial__2 || true
+sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -F
+"""
+
 # -------------------------------
 # Default args to use for install
 # -------------------------------
 
 args.admin = "xana"
+args.domain = "gts.domain.tld"
+args.account_domain = "domain.tld"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
 # false by default
