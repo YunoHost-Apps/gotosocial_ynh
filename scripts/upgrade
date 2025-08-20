@@ -35,6 +35,8 @@ ynh_app_setting_set_default --key=instance_languages --value=""
 # workaround for https://github.com/YunoHost/issues/issues/2422
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
 
+ynh_app_setting_set_default  --key=account_domain --value=""
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
