@@ -9,16 +9,16 @@ exclude = [ "change_url" ]
 # Tests to run
 # ------------
 
-preinstall = """
-sudo yunohost tools update apps
-sudo yunohost domain add gts.domain.tld
-sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&admin=xana&email=ci-test@example.com&password=vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M&"
-"""
+#preinstall = """
+#sudo yunohost tools update apps
+#sudo yunohost domain add gts.domain.tld
+#sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&admin=xana&email=ci-test@example.com&password=vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M&"
+#"""
 
-preupgrade = """
-sudo yunohost app remove gotosocial__2 || true
-sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -F
-"""
+#preupgrade = """
+#sudo yunohost app remove gotosocial__2 || true
+#sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -F
+#"""
 
 # -------------------------------
 # Default args to use for install
