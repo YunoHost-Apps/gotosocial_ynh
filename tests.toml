@@ -12,7 +12,7 @@ exclude = [ "change_url" ]
 preinstall = """
 sudo yunohost tools update apps
 sudo yunohost domain add gts.domain.tld
-sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&"
+sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&admin=xana&email=ci-test@example.com&password=vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M&"
 """
 
 preupgrade = """
