@@ -189,6 +189,11 @@ ynh_script_progression "Adding system configurations related to $app..."
 # Create a dedicated NGINX config using the conf/nginx.conf template
 ynh_config_add_nginx
 
+if yunohost --output-as plain domain list | grep -q "^$account_domain$" && [ "$account_domain" != "$domain" ]
+    then
+        ynh_config_add --template="nginx_for_account_domain.conf" --destination="/etc/nginx/conf.d/${account_domain}.d/${app}_account_domain.conf" 
+fi
+
 # Create a dedicated systemd config
 ynh_config_add_systemd
 
