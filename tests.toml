@@ -26,7 +26,7 @@ exclude = [ "change_url" ]
 
 args.admin = "xana"
 args.domain = "gts.domain.tld"
-args.account_domain = "domain.tld"
+args.account_domain = "gts.domain.tld"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
 # false by default
@@ -48,6 +48,16 @@ test_upgrade_from.b7237d51.name = "Upgrade from 0.17.0~ynh1 (first beta release)
 only = ["install.root"]
 preinstall = "touch /var/www/nowasm_test"
 args.admin = "xana"
+args.email = "ci-test@example.com"
+args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
+args.accounts_registration_open = 1
+args.accounts_reason_required = 0
+
+[account_domain_test]
+only = ["install.root"]
+args.admin = "xana"
+args.domain = "gts.domain.tld"
+args.account_domain = "domain.tld"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
 args.accounts_registration_open = 1
