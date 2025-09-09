@@ -3,22 +3,22 @@ test_format = 1.0
 [default]
 
 # GTS don't support it
-exclude = [ "change_url", "install.multi" ]
+exclude = [ "change_url" ]
 
 # ------------
 # Tests to run
 # ------------
 
-#preinstall = """
-#sudo yunohost tools update apps
-#sudo yunohost domain add gts.domain.tld
-#sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&admin=xana&email=ci-test@example.com&password=vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M&"
-#"""
+preinstall = """
+sudo yunohost tools update apps
+sudo yunohost domain add gts.domain.tld
+sudo yunohost app install https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -f -a "domain=gts.domain.tld&admin=xana&email=ci-test@example.com&password=vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M&"
+"""
 
-#preupgrade = """
-#sudo yunohost app remove gotosocial__2 || true
-#sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -F
-#"""
+preupgrade = """
+sudo yunohost app remove gotosocial__2 || true
+sudo yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/testing -F
+"""
 
 # -------------------------------
 # Default args to use for install
@@ -43,16 +43,6 @@ test_upgrade_from.b7237d51.name = "Upgrade from 0.17.0~ynh1 (first beta release)
 # -------------------------------
 # additional tests suite
 # -------------------------------
-
-[multi_instance_test]
-only = ["install.multi"]
-args.admin = "xana"
-args.domain = "sub.domain.tld"
-args.account_domain = "user.domain.tld"
-args.email = "ci-test@example.com"
-args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
-args.accounts_registration_open = 1
-args.accounts_reason_required = 0
 
 [nowasm_test]
 only = ["install.root"]
