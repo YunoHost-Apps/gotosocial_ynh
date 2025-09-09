@@ -9,7 +9,7 @@ description.gl = "Servidor áxil para a rede social ActivityPub"
 description.ca = "Servidor de xarxa social basat en ActivityPub"
 description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
-version = "0.19.1~ynh2"
+version = "0.19.2~ynh1"
 
 maintainers = [ "OniriCorpe" ]
 
@@ -95,10 +95,10 @@ ram.runtime = "100M"
 	[resources.sources.main]
 	in_subdir = false
 
-	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_amd64.tar.gz"
-	amd64.sha256 = "7c7516df17dfdf60c69b8c991c49e9c889c770447562f6284a409d25f4269803"
-	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_arm64.tar.gz"
-	arm64.sha256 = "99fc5784e04efa71854ec4a1b453346bbec5af01954aed28067fa4e7a23382c1"
+	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.2/gotosocial_0.19.2_linux_amd64.tar.gz"
+	amd64.sha256 = "e31954c5ef6d51b4027ebb33af33bf99032f5510578cfc3e818c0c4c3722ad06"
+	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.2/gotosocial_0.19.2_linux_arm64.tar.gz"
+	arm64.sha256 = "b8271e0d0675c10fc89119be02f9f9ee3a56d660a26ba48461108e2e4a7cb8a9"
 
 	autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
 	autoupdate.asset.arm64 = "gotosocial_.*_linux_arm64.tar.gz$"
@@ -108,14 +108,14 @@ ram.runtime = "100M"
 	[resources.sources.nowasm]
 	in_subdir = false
 
-	i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_386_nowasm.tar.gz"
-	i386.sha256 = "068989936d4882c27b7118015b5b0876ef9d3c188cb4af47b6ff9a4dd6fe7058"
-	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_amd64_nowasm.tar.gz"
-	amd64.sha256 = "e08fd587f84f0e840b6e21a2734150a36aec9df6715236cd105581c06c61a837"
-	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_arm64_nowasm.tar.gz"
-	arm64.sha256 = "7187b8d667391b6455695aeb64117981641a53a3a7fca6768f60bf3ba64f1177"
-	armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.1/gotosocial_0.19.1_linux_armv7_nowasm.tar.gz"
-	armhf.sha256 = "afe79c9369bc1f4124c9937352bc7a3bc180483c3d01f82e9b36723dc6ea2ad4"
+	i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.2/gotosocial_0.19.2_linux_386_nowasm.tar.gz"
+	i386.sha256 = "4aa3c03e895d7fb72c48b9d332da6459be0a427fd544bed5e4978e841bcc330f"
+	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.2/gotosocial_0.19.2_linux_amd64_nowasm.tar.gz"
+	amd64.sha256 = "a5d65e40b803ff6b2511a5d57e6098728f3e3c1b3c04d2519e9918d886e0fabb"
+	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.2/gotosocial_0.19.2_linux_arm64_nowasm.tar.gz"
+	arm64.sha256 = "523f5896916bbdaf521b1283a9cd7ac9454d4dc26b718a389e9b776f0ca7afda"
+	armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.19.2/gotosocial_0.19.2_linux_armv7_nowasm.tar.gz"
+	armhf.sha256 = "d547830ca8a6a57b7cb7b402362e191377a33d75964db25278566cd6b717cf87"
 
 	autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
 	autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64_nowasm.tar.gz$"
