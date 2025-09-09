@@ -96,7 +96,7 @@ host: "__DOMAIN__"
 # https://docs.gotosocial.org/en/latest/advanced/host-account-domain/
 #
 # Default: ""
-account-domain: ""
+account-domain: "__ACCOUNT_DOMAIN__"
 
 # String. Protocol over which the server is reachable from the outside world.
 #
