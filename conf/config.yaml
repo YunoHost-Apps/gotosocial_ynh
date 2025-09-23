@@ -45,6 +45,19 @@ log-db-queries: false
 # Default: true
 log-client-ip: true
 
+# String. Format to use for formatting log entries.
+# Supports "logfmt" and "json", with examples below:
+#
+# logfmt:
+# func=router.(*Router).Start.func1 level=INFO msg="listening on 127.0.0.1:8080"
+#
+# json:
+# {"func":"router.(*Router).Start.func1", "level":"INFO", "msg":"listening on 127.0.0.1:8080"}
+#
+# Examples: ["logfmt", "json"]
+# Default: "logfmt"
+log-format: "logfmt"
+
 # String. Format to use for the timestamp in log lines.
 # If set to the empty string, the timestamp will be
 # ommitted from the logs entirely.
@@ -151,7 +164,7 @@ trusted-proxies:
 
 # String. Database type.
 # Options: ["postgres","sqlite"]
-# Default: "postgres"
+# Default: ""
 db-type: "postgres"
 
 # String. Database address or parameters.
@@ -169,27 +182,27 @@ db-type: "postgres"
 # Default: ""
 db-address: "127.0.0.1"
 
-# Int. Port for database connection.
+# Int. Port for postgres database connection; ignored for sqlite.
 # Examples: [5432, 1234, 6969]
 # Default: 5432
 db-port: 5432
 
-# String. Username for the database connection.
+# String. Username for postgres database connection.
 # Examples: ["mydbuser","postgres","gotosocial"]
 # Default: ""
 db-user: "__DB_USER__"
 
-# String. Password to use for the database connection
+# String. Password to use for postgres database connection.
 # Examples: ["password123","verysafepassword","postgres"]
 # Default: ""
 db-password: "__DB_PWD__"
 
-# String. Name of the database to use within the provided database type.
+# String. Name of the database to use for postgres database connection.
 # Examples: ["mydb","postgres","gotosocial"]
 # Default: "gotosocial"
 db-database: "__DB_NAME__"
 
-# String. Disable, enable, or require SSL/TLS connection to the database.
+# String. Disable, enable, or require SSL/TLS connection to postgres.
 # If "disable" then no TLS connection will be attempted.
 # If "enable" then TLS will be tried, but the database certificate won't be checked (for self-signed certs).
 # If "require" then TLS will be required to make a connection, and a valid certificate must be presented.
@@ -372,29 +385,61 @@ instance-federation-mode: "__INSTANCE_FEDERATION_MODE__"
 # Default: false
 instance-federation-spam-filter: false
 
-# Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open in order
-# to see a list of instances that this instance 'peers' with. Even if set to 'false', then authenticated
-# users (members of the instance) will still be able to query the endpoint.
+# Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=open
+# in order to see a list of domains that this instance 'peers' with.
+#
+# Even if set to 'false', then authenticated users (members of the instance)
+# will still be able to query these endpoints using an OAuth token.
+#
 # Options: [true, false]
 # Default: false
 instance-expose-peers: __INSTANCE_EXPOSE_PEERS__
 
-# Bool. Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order
-# to see a list of instances that this instance blocks/suspends. Even if set to 'false', then authenticated
-# users (members of the instance) will still be able to query the endpoint.
+# Bool. Allow unauthenticated users to make queries to the following instance API
+# endpoints in order to see a list of domains that this instance explicitly blocks,
+# including the public reason for each block:
 #
-# WARNING: Setting this variable to 'true' may result in your instance being scraped by blocklist scrapers.
+# - /api/v1/instance/peers?filter=blocklist
+# - /api/v1/instance/peers?filter=suspended (deprecated)
+# - /api/v1/instance/domain_blocks
+#
+# Even if set to 'false', then authenticated users (members of the instance)
+# will still be able to query these endpoints using an OAuth token.
+#
+# WARNING: Setting to 'true' may result in your instance being targeted by blocklist scrapers.
 # See: https://docs.gotosocial.org/en/latest/admin/domain_blocks/#block-announce-bots
 #
 # Options: [true, false]
 # Default: false
-instance-expose-suspended: __INSTANCE_EXPOSE_SUSPENDED__
+instance-expose-blocklist: __INSTANCE_EXPOSE_SUSPENDED__
 
-# Bool. Allow unauthenticated users to view /about/suspended,
-# showing the HTML rendered list of instances that this instance blocks/suspends.
+# Bool. Allow unauthenticated users to view /about/domain_blocks,
+# which shows an HTML-rendered list of domains that this instance blocks,
+# including the public reason for each block.
 # Options: [true, false]
 # Default: false
-instance-expose-suspended-web: __INSTANCE_EXPOSE_SUSPENDED_WEB__
+instance-expose-blocklist-web: __INSTANCE_EXPOSE_SUSPENDED_WEB__
+
+# Bool. Allow unauthenticated users to make queries to the following instance API
+# endpoints in order to see a list of domains that this instance explicitly allows
+# including the public reason for each allow:
+#
+# - /api/v1/instance/peers?filter=allowlist
+# - /api/v1/instance/domain_allows
+#
+# Even if set to 'false', then authenticated users (members of the instance)
+# will still be able to query these endpoints using an OAuth token.
+#
+# Options: [true, false]
+# Default: false
+instance-expose-allowlist: false
+
+# Bool. Allow unauthenticated users to view /about/domain_allows,
+# which shows an HTML-rendered list of domains that this instance allows,
+# including the public reason for each allow.
+# Options: [true, false]
+# Default: false
+instance-expose-allowlist-web: false
 
 # Bool. Allow unauthenticated users to make queries to /api/v1/timelines/public in order
 # to see a list of public posts on this server. Even if set to 'false', then authenticated
@@ -402,6 +447,21 @@ instance-expose-suspended-web: __INSTANCE_EXPOSE_SUSPENDED_WEB__
 # Options: [true, false]
 # Default: false
 instance-expose-public-timeline: __INSTANCE_EXPOSE_PUBLIC_TIMELINE__
+
+# Bool. Allow unauthenticated access to /api/v1/custom_emojis, which
+# exposes the list of custom emojis available to users on this server.
+#
+# Setting this to 'true' may alleviate issues with clients that do not
+# provide an access token in their requests to the emojis endpoint, but
+# it also means that anyone can look at what emojis are installed on your
+# instance, which may present privacy / safety issues.
+#
+# Even if set to 'false', authenticated users (ie., instance members)
+# will still be able to query the endpoint using an access token.
+#
+# Options: [true, false]
+# Default: false
+instance-expose-custom-emojis: false
 
 # Bool. This flag tweaks whether GoToSocial will deliver ActivityPub messages
 # to the shared inbox of a recipient, if one is available, instead of delivering
@@ -470,9 +530,7 @@ instance-stats-mode: ""
 
 # Bool. This flag controls whether local accounts may backdate statuses
 # using past dates with the scheduled_at param to /api/v1/statuses.
-# This flag does not affect scheduling posts in the future
-# (which is currently not implemented anyway),
-# nor can it prevent remote accounts from backdating their own statuses.
+# This flag can't prevent remote accounts from backdating their own statuses.
 #
 # If true, all local accounts may backdate statuses.
 # If false, status backdating will be disabled and an error will be returned if it's used.
@@ -543,6 +601,14 @@ accounts-allow-custom-css: __ACCOUNTS_ALLOW_CUSTOM_CSS__
 # Default: 10000
 accounts-custom-css-length: __ACCOUNTS_CUSTOM_CSS_LENGTH__
 
+# Int. The maximum number of profile fields allowed for each account.
+#
+# Note that going way higher than the default might break federation.
+#
+# Examples: [4, 6, 12]
+# Default: 6
+accounts-max-profile-fields: 6
+
 ########################
 ##### MEDIA CONFIG #####
 ########################
@@ -584,15 +650,21 @@ media-video-size-hint: __MEDIA_VIDEO_SIZE_HINT__
 # Default: 40MiB (41943040 bytes)
 media-remote-max-size: __MEDIA_REMOTE_MAX_SIZE__
 
+# Int. Max size in pixels of any one dimension of
+# a thumbnail (as input media ratio is preserved).
+#
+# Examples: [256, 512, 1024]
+# Default: 512
+media-thumb-max-pixels: 512
+
 # Int. Minimum amount of characters required as an image or video description.
 # Examples: [500, 1000, 1500]
 # Default: 0 (not required)
 media-description-min-chars: __MEDIA_DESCRIPTION_MIN_CHARS__
 
 # Int. Maximum amount of characters permitted in an image or video description.
-# Examples: [500, 1000, 1500]
-# Examples: [1000, 1500, 3000]
-# Default: 1500
+# Examples: [1000, 5000, 10000]
+# Default: 5000
 media-description-max-chars: __MEDIA_DESCRIPTION_MAX_CHARS__
 
 # Size. Max size in bytes of emojis uploaded to this instance via the admin API.
@@ -760,6 +832,19 @@ storage-s3-secret-key: "__STORAGE_S3_SECRET_KEY__"
 # Default: ""
 storage-s3-bucket: "__STORAGE_S3_BUCKET__"
 
+# String. Bucket lookup type.
+#
+# If you know what kind of bucket lookup type you need you can specify it here.
+#
+# Many providers are no longer offering path-style bucket access and only subdomain-style. Then,
+# you will need to specify "dns" here instead of the default "auto".
+#
+# If your provider only supports path-style bucket access, specify "path".
+#
+# Examples: ["path", "dns", "auto"]
+# Default: "auto"
+storage-s3-bucket-lookup: "auto"
+
 ###########################
 ##### STATUSES CONFIG #####
 ###########################
@@ -792,6 +877,16 @@ statuses-poll-option-max-chars: __STATUSES_POLL_OPTION_MAX_CHARS__
 # Examples: [4, 6, 10]
 # Default: 6
 statuses-media-max-files: __STATUSES_MEDIA_MAX_FILES__
+
+# Int. Maximum number of statuses a user can schedule at time.
+# Examples: [300]
+# Default: 300
+scheduled-statuses-max-total: 300
+
+# Int. Maximum number of statuses a user can schedule for a single day.
+# Examples: [25]
+# Default: 25
+scheduled-statuses-max-daily: 25
 
 ##############################
 ##### LETSENCRYPT CONFIG #####
@@ -990,50 +1085,52 @@ syslog-protocol: "udp"
 # Default: "localhost:514"
 syslog-address: "localhost:514"
 
-##################################
-##### OBSERVABILITY SETTINGS #####
-##################################
+##############################################
+##### OBSERVABILITY AND METRICS SETTINGS #####
+##############################################
 
-# String. Header name to use to extract a request or trace ID from. Typically set by a
-# loadbalancer or proxy.
+# String. Header name to use to extract a request or
+# trace ID from. Typically set by a loadbalancer or proxy.
+#
 # Default: "X-Request-Id"
 request-id-header: "X-Request-Id"
 
 # Bool. Enable OpenTelemetry based tracing support.
+#
+# When enabling tracing, you must also configure a traces
+# exporter using the OTEL environment variable documented here:
+#
+# https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_exporter
+#
 # Default: false
 tracing-enabled: false
 
-# String. Set the transport protocol for the tracing system. Can either be "grpc"
-# for OTLP gRPC, or "http" for OTLP HTTP.
-# Options: ["grpc", "http"]
-# Default: "grpc"
-tracing-transport: "grpc"
-
-# String. Endpoint of the trace ingester. When using the gRPC or HTTP based transports,
-# provide the endpoint as a single address/port combination without a protocol scheme.
-# Examples: ["localhost:4317"]
-# Default: ""
-tracing-endpoint: ""
-
-# Bool. Disable TLS for the gRPC and HTTP transport protocols.
-# Default: false
-tracing-insecure-transport: false
-
 # Bool. Enable OpenTelemetry based metrics support.
+#
+# To expose Prometheus metrics, you must configure a metrics producer and
+# a metrics exporter, using the OTEL environment variables documented here:
+#
+# https://pkg.go.dev/go.opentelemetry.io/contrib/exporters/autoexport#NewMetricReader
+#
+# Typically, you will want to set the following environment variables
+# (take note of the plural "producers" and singular "exporter"):
+#
+# - OTEL_METRICS_PRODUCERS=prometheus
+# - OTEL_METRICS_EXPORTER=prometheus
+#
+# With these variables set, a Prometheus metrics endpoint will be exposed at
+# localhost:9464/metrics. This can be further configured using the variables:
+#
+# - OTEL_EXPORTER_OTLP_METRICS_PROTOCOL
+# - OTEL_EXPORTER_PROMETHEUS_HOST
+# - OTEL_EXPORTER_PROMETHEUS_PORT
+#
+# For more information, see the GtS metrics documentation here:
+#
+# https://docs.gotosocial.org/en/latest/advanced/metrics/
+#
 # Default: false
-metrics-enabled: __METRICS_ENABLED__
-
-# Bool. Enable HTTP Basic Authentication for Prometheus metrics endpoint.
-# Default: false
-metrics-auth-enabled: __METRICS_AUTH_ENABLED__
-
-# String. Username for Prometheus metrics endpoint.
-# Default: ""
-metrics-auth-username: __METRICS_AUTH_USERNAME__
-
-# String. Password for Prometheus metrics endpoint.
-# Default: ""
-metrics-auth-password: __METRICS_AUTH_PASSWORD__
+metrics-enabled: false
 
 ################################
 ##### HTTP CLIENT SETTINGS #####
@@ -1097,6 +1194,15 @@ http-client:
   #
   # Default: false
   tls-insecure-skip-verify: false
+
+  # Bool. Sets outgoing queries to webfinger, host-meta and nodeinfo to use
+  # HTTP instead of HTTPS.
+  #
+  # THIS SETTING SHOULD BE USED FOR TESTING ONLY! DO NOT CHANGE THIS SETTING
+  # UNLESS YOU KNOW EXACTLY WHAT YOU'RE DOING AND WHY YOU'RE DOING IT.
+  #
+  # Default: false
+  insecure-outgoing: false
 
 #############################
 ##### ADVANCED SETTINGS #####
