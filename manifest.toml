@@ -95,9 +95,9 @@ ram.runtime = "100M"
 	[resources.sources.main]
 	in_subdir = false
 
-	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0/gotosocial_0.20.0_linux_amd64.tar.gz"
+	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0-rc1/gotosocial_0.20.0-rc1_linux_amd64.tar.gz"
 	amd64.sha256 = "10945c5678908fd5883dd75546fb843aa8688b59fa809efd394dcc64b5649c9d"
-	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0/gotosocial_0.20.0_linux_arm64.tar.gz"
+	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0-rc1/gotosocial_0.20.0-rc1_linux_arm64.tar.gz"
 	arm64.sha256 = "2ba62be347f6eb5608385db0f52cc36e06ecf41c12b43edfa9954df8961ad0ea"
 
 	autoupdate.asset.amd64 = "gotosocial_.*_linux_amd64.tar.gz$"
@@ -108,13 +108,13 @@ ram.runtime = "100M"
 	[resources.sources.nowasm]
 	in_subdir = false
 
-	i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0/gotosocial_0.20.0_linux_386_nowasm.tar.gz"
+	i386.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0-rc1/gotosocial_0.20.0-rc1_linux_386_nowasm.tar.gz"
 	i386.sha256 = "dfa900051dbdcce2885bc80ad5515dcd3aa946292a8380e95a1808fd048d3470"
-	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0/gotosocial_0.20.0_linux_amd64_nowasm.tar.gz"
+	amd64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0-rc1/gotosocial_0.20.0-rc1_linux_amd64_nowasm.tar.gz"
 	amd64.sha256 = "08917b6987bc715c5a3acf2383e0b76ad1f7428f95fb0aa71ebbc77484800e0a"
-	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0/gotosocial_0.20.0_linux_arm64_nowasm.tar.gz"
+	arm64.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0-rc1/gotosocial_0.20.0-rc1_linux_arm64_nowasm.tar.gz"
 	arm64.sha256 = "9824b5066d598f6f9edc1db5f0336e972b82584c6d6a97c9c65fadb3736a197c"
-	armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0/gotosocial_0.20.0_linux_armv7_nowasm.tar.gz"
+	armhf.url = "https://codeberg.org/superseriousbusiness/gotosocial/releases/download/v0.20.0-rc1/gotosocial_0.20.0-rc1_linux_armv7_nowasm.tar.gz"
 	armhf.sha256 = "ab39f738fd10bab297d3c7538c4cf0d5dd9fe0e02171a0c1417e42bf6bca721f"
 
 	autoupdate.asset.i386 = "gotosocial_.*_linux_386_nowasm.tar.gz$"
