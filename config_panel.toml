@@ -65,6 +65,15 @@ Quelle que soit la valeur de ce paramètre, tout CSS téléchargé ne sera pas f
         help.fr = "Si accounts-allow-custom-css est 'true', il s'agit de la longueur autorisée en caractères pour les feuilles de style CSS qui sont fournies par les comptes sur cette instance. Aucun effet si accounts-allow-custom-css est 'false'. Valeur par défaut : 10000"
         type = "number"
 
+        [main.accounts.accounts_max_profile_fields]
+        ask.en = "Max number of profile fields allowed?"
+        ask.fr = "Nombre max de champs de profil autorisés ?"
+        bind = "accounts-max-profile-fields:__INSTALL_DIR__/config.yaml"
+        default = "6"
+        help.en = "Note that going way higher than the default might break federation. Default: 6"
+        help.fr = "Notez que monter bien plus haut que la valeur par défaut peut casser la fédération. Valeur par défaut : 6"
+        type = "number"
+
         #################
         #### MEDIA CONFIG
         #################
@@ -560,6 +569,16 @@ help = "Settings pertaining to storage of user-created uploads (videos, images, 
     bind = "storage-s3-bucket:__INSTALL_DIR__/config.yaml"
     type = "string"
 
+    [main.storage.storage_s3_bucket_lookup]
+    ask.en = "Bucket lookup type"
+    ask.fr = "Type de recherche de bucket"
+    choices = [ "path", "dns", "auto" ]
+    default = "auto"
+    bind = "storage-s3-bucket-lookup:__INSTALL_DIR__/config.yaml"
+    type = "select"
+    help.en = "If you know what kind of bucket lookup type you need you can specify it here. Many providers are no longer offering path-style bucket access and only subdomain-style. Then, you will need to specify 'dns' here instead of the default 'auto'. If your provider only supports path-style bucket access, specify 'path'. Default is 'auto'."
+    help.fr = "Si vous savez quel type de recherche de bucket est nécessaire, vous pouvez le définir ici. De nombreux fournisseurs ne proposent plus d'accès au bucket par chemin d'accès, mais uniquement par sous-domaine. Dans ce cas, vous devrez définir 'dns' ici au lieu de la valeur par défaut 'auto'. Si votre fournisseur ne prend en charge que l'accès au bucket par chemin d'accès, définissez 'path'. La valeur par défaut est 'auto'."
+
     ####################
     #### OBSERVABILITY SETTINGS
     ####################
@@ -577,26 +596,6 @@ help = "Settings pertaining to OpenTelemetry based metrics support."
     choices = [ "true", "false" ]
     default = "false"
     type = "select"
-
-    [main.observability.metrics_auth_enabled]
-    ask.en = "Enable HTTP Basic Authentication for Prometheus metrics endpoint?"
-    ask.fr = "Activer l'authentification basique HTTP pour le point de terminaison des métriques Prometheus ?"
-    bind = "metrics-auth-enabled:__INSTALL_DIR__/config.yaml"
-    choices = [ "true", "false" ]
-    default = "false"
-    type = "select"
-
-    [main.observability.metrics_auth_username]
-    ask.en = "Username for Prometheus metrics endpoint."
-    ask.fr = "Identifiant pour le point de terminaison des métriques Prometheus."
-    bind = "metrics-auth-username:__INSTALL_DIR__/config.yaml"
-    type = "string"
-
-    [main.observability.metrics_auth_password]
-    ask.en = "Password for Prometheus metrics endpoint."
-    ask.fr = "Mot de passe pour le point de terminaison des métriques Prometheus."
-    bind = "metrics-auth-password:__INSTALL_DIR__/config.yaml"
-    type = "password"
 
     ####################
     #### ADVANCED SETTINGS
