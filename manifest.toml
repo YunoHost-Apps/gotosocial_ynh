@@ -31,7 +31,7 @@ sso = false
 
 disk = "50M"
 ram.build = "200M"
-ram.runtime = "100M"
+ram.runtime = "200M"
 
 [install]
 
