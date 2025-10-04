@@ -34,6 +34,7 @@ ynh_app_setting_set_default --key=instance_expose_blocklist_web --value=$instanc
 ynh_app_setting_delete --key=instance_expose_suspended
 ynh_app_setting_delete --key=instance_expose_suspended_web
 ynh_app_setting_set_default --key=instance_expose_allowlist --value="false"
+ynh_app_setting_set_default --key=instance_expose_allowlist_web --value="false"
 ynh_app_setting_set_default --key=instance_expose_custom_emojis --value="false"
 if [ $media_description_max_chars == "1500" ]; then  # if it's still the old default value, set the new default value
 	media_description_max_chars="5000"
