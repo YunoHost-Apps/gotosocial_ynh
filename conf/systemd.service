@@ -15,7 +15,7 @@ StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
 MemoryHigh=600M
 MemoryMax=1G
-CPUQuota=50%
+CPUQuota=60%
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these 
