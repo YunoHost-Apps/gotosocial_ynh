@@ -13,8 +13,8 @@ Environment="GTS_WAZERO_COMPILATION_CACHE=__INSTALL_DIR__/.cache"
 ExecStart=__INSTALL_DIR__/gotosocial --config-path config.yaml server start
 StandardOutput=append:/var/log/__APP__/__APP__.log
 StandardError=inherit
-MemoryHigh=350M
-MemoryMax=450M
+MemoryHigh=600M
+MemoryMax=1G
 CPUQuota=50%
 
 # Sandboxing options to harden security
