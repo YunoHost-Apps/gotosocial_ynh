@@ -95,3 +95,4 @@ ynh_systemctl --service="$app" --action="start"  --wait_until="listening on" --t
 #=================================================
 
 ynh_script_progression "Upgrade of $app completed"
+
