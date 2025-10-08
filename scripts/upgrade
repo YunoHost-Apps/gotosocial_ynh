@@ -16,7 +16,7 @@ ynh_systemctl --service="$app" --action="stop"
 ynh_script_progression "Ensuring downward compatibility..."
 
 if ynh_app_upgrading_from_version_before 0.17.3~ynh2; then
-	ynh_die "You should first upgrade to version 0.17.3~ynh2 before upgrading to a newer version. You can use the following command: yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/f204103763bf0f2915726e84bce043826ffbd7d9"
+	ynh_die "You should first upgrade to version 0.17.3~ynh2 before upgrading to a newer version. You can use the following command: yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/9f830118d0f507fa5b1ced47ae8a2ca5750f3e6c"
 fi
 
 # 0.17.3~ynh2 (2025-02-10)
