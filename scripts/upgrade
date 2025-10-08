@@ -28,13 +28,13 @@ ynh_app_setting_set_default --key=instance_languages --value=""
 # workaround for https://github.com/YunoHost/issues/issues/2422
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
 
-# 0.20.0~ynh1 (2025-10-04)
-if [ -z "${instance_expose_suspended:-}" ]; then
+# 0.20.0~ynh1 (2025-10-08)
+if [ -z "${instance_expose_blocklist:-}" ]; then
 	ynh_app_setting_set_default --key=instance_expose_blocklist --value=$instance_expose_suspended
 	ynh_app_setting_set_default --key=instance_expose_blocklist_web --value=$instance_expose_suspended_web
+	ynh_app_setting_delete --key=instance_expose_suspended
+	ynh_app_setting_delete --key=instance_expose_suspended_web
 fi
-ynh_app_setting_delete --key=instance_expose_suspended
-ynh_app_setting_delete --key=instance_expose_suspended_web
 ynh_app_setting_set_default --key=instance_expose_allowlist --value="false"
 ynh_app_setting_set_default --key=instance_expose_allowlist_web --value="false"
 ynh_app_setting_set_default --key=instance_expose_custom_emojis --value="false"
