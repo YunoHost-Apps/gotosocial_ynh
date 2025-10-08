@@ -21,7 +21,7 @@ args.accounts_reason_required = 0
 # Commits to test upgrade from
 # -------------------------------
 
-test_upgrade_from.9f830118.name = "Upgrade from 0.17.3~ynh2"
+test_upgrade_from.a04eb52a.name = "Upgrade from 0.17.3~ynh2"
 
 # -------------------------------
 # additional tests suite
