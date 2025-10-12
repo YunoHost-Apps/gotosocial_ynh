@@ -15,16 +15,9 @@ ynh_systemctl --service="$app" --action="stop"
 #=================================================
 ynh_script_progression "Ensuring downward compatibility..."
 
-if ynh_app_upgrading_from_version_before 0.17.0~ynh1; then
-	ynh_die "You should first upgrade to version 0.17.0~ynh1 before upgrading to a newer version. You can use the following command: yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/b7237d514a4eeaf725fcd0acffe63332f7834822"
+if ynh_app_upgrading_from_version_before 0.17.3~ynh2; then
+	ynh_die "You should first upgrade to version 0.17.3~ynh2 before upgrading to a newer version. You can use the following command: yunohost app upgrade gotosocial -u https://github.com/YunoHost-Apps/gotosocial_ynh/tree/9f830118d0f507fa5b1ced47ae8a2ca5750f3e6c"
 fi
-
-# fix a legacy bug (line added on October 2024, to remove in >= 6 months)
-ynh_app_setting_set_default --key=oidc_link_existing --value="false"
-
-# 0.17.3~ynh1 (2024-11-08)
-ynh_app_setting_set_default --key=media_image_size_hint --value=""
-ynh_app_setting_set_default --key=media_video_size_hint --value=""
 
 # 0.17.3~ynh2 (2025-02-10)
 ynh_app_setting_set_default --key=storage_s3_redirect_url --value=""
@@ -35,7 +28,28 @@ ynh_app_setting_set_default --key=instance_languages --value=""
 # workaround for https://github.com/YunoHost/issues/issues/2422
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
 
-ynh_app_setting_set_default  --key=account_domain --value=""
+if [ -z "${account_domain}" ]; then
+  ynh_app_setting_set_default  --key=account_domain --value="${domain}"
+fi
+# 0.20.0~ynh1 (2025-10-08)
+if [ -z "${instance_expose_blocklist:-}" ]; then
+	ynh_app_setting_set_default --key=instance_expose_blocklist --value=$instance_expose_suspended
+	ynh_app_setting_set_default --key=instance_expose_blocklist_web --value=$instance_expose_suspended_web
+	ynh_app_setting_delete --key=instance_expose_suspended
+	ynh_app_setting_delete --key=instance_expose_suspended_web
+fi
+ynh_app_setting_set_default --key=instance_expose_allowlist --value="false"
+ynh_app_setting_set_default --key=instance_expose_allowlist_web --value="false"
+ynh_app_setting_set_default --key=instance_expose_custom_emojis --value="false"
+if [ $media_description_max_chars == "1500" ]; then  # if it's still the old default value, set the new default value
+	media_description_max_chars="5000"
+	ynh_app_setting_set --key=media_description_max_chars --value="5000"
+fi
+ynh_app_setting_set_default --key=accounts_max_profile_fields --value="6"
+ynh_app_setting_set_default --key=storage_s3_bucket_lookup  --value="auto"
+ynh_app_setting_delete --key=metrics_auth_enabled
+ynh_app_setting_delete --key=metrics_auth_username
+ynh_app_setting_delete --key=metrics_auth_password
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
