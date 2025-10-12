@@ -321,6 +321,14 @@ allowlist : fédération fermée par défaut. Seules les instances explicitement
     help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes sur /api/v1/timelines/public afin de voir la liste des messages publics sur ce serveur. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
     type = "select"
 
+    [main.instance.instance_expose_custom_emojis]
+    ask.en = "API: Expose emojis publicly?"
+    ask.fr = "API : Exposer publiquement les émojis ?"
+    bind = "instance-expose-custom-emojis:__INSTALL_DIR__/config.yaml"
+    choices = [ "true", "false" ]
+    default = "false"
+    type = "select"
+
     [main.instance.instance_deliver_to_shared_inboxes]
     ask.en = "Deliver to shared inboxes?"
     ask.fr = "Envoi en boites partagées ?"
