@@ -29,7 +29,7 @@ ynh_app_setting_set_default --key=instance_languages --value=""
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
 
 if [ -z "${account_domain}" ]; then
-  ynh_app_setting_set_default  --key=account_domain --value="${domain}"
+  ynh_app_setting_set_default  --key=account_domain --value=""
 fi
 # 0.20.0~ynh1 (2025-10-08)
 if [ -z "${instance_expose_blocklist:-}" ]; then
