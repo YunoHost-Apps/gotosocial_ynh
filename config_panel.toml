@@ -140,9 +140,9 @@ help = "Config pertaining to media (videos, image, image descriptions)."
     ask.en = "Maximum amount of characters permitted in an image or video description."
     ask.fr = "Nombre maximum de caractères requis pour la description d'une image ou d'une vidéo."
     bind = "media-description-max-chars:__INSTALL_DIR__/config.yaml"
-    default = "1500"
-    help.en = "Default: 1500"
-    help.fr = "Valeur par défaut : 1500"
+    default = "5000"
+    help.en = "Default: 5000"
+    help.fr = "Valeur par défaut : 5000"
     type = "number"
 
     [main.media.media_remote_cache_days]
@@ -291,24 +291,24 @@ allowlist : fédération fermée par défaut. Seules les instances explicitement
     help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=open afin d'afficher la liste des instances avec lesquelles votre instance est en relation. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
     type = "select"
 
-    [main.instance.instance_expose_suspended]
-    ask.en = "API: Expose suspended?"
+    [main.instance.instance_expose_blocklist]
+    ask.en = "API: Expose domain blocks?"
     ask.fr = "API : Exposer les instances bloquées ?"
-    bind = "instance-expose-suspended:__INSTALL_DIR__/config.yaml"
+    bind = "instance-expose-blocklist:__INSTALL_DIR__/config.yaml"
     choices = [ "true", "false" ]
     default = "false"
-    help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=suspended in order to see a list of instances that this instance blocks/suspends. This will also allow unauthenticated users to see the list through the web UI. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
-    help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=suspended afin de voir la liste des instances bloquées ou suspendues par votre instance. Cela permettra également aux utilisateurs non authentifiés de consulter la liste via l'interface Web. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
+    help.en = "Allow unauthenticated users to make queries to /api/v1/instance/peers?filter=blocklist in order to see a list of instances that this instance blocks. This will also allow unauthenticated users to see the list through the web UI. Even if set to 'false', then authenticated users (members of the instance) will still be able to query the endpoint."
+    help.fr = "Permet aux utilisateurs non authentifiés d'effectuer des requêtes API sur /api/v1/instance/peers?filter=blocklist afin de voir la liste des instances bloquées par votre instance. Cela permettra également aux utilisateurs non authentifiés de consulter la liste via l'interface Web. Même s'il est défini à 'false', les utilisateurs authentifiés (membres de l'instance) seront toujours en mesure d'interroger l'API."
     type = "select"
 
-    [main.instance.instance_expose_suspended_web]
-    ask.en = "API: Expose suspended on Web (/about/suspended)?"
-    ask.fr = "API : Exposer les instances bloquées sur le Web (/about/suspended) ?"
-    bind = "instance-expose-suspended-web:__INSTALL_DIR__/config.yaml"
+    [main.instance.instance_expose_blocklist_web]
+    ask.en = "API: Expose domain blocks on Web (/about/domain_blocks)?"
+    ask.fr = "API : Exposer les instances bloquées sur le Web (/about/domain_blocks) ?"
+    bind = "instance-expose-blocklist-web:__INSTALL_DIR__/config.yaml"
     choices = [ "true", "false" ]
     default = "false"
-    help.en = "Allow unauthenticated users to view /about/suspended, showing the HTML rendered list of instances that this instance blocks/suspends."
-    help.fr = "Permet aux utilisateurs non authentifiés d'afficher /about/suspended, montrant la liste rendue en HTML des instances que cette instance bloque ou suspend."
+    help.en = "Allow unauthenticated users to view /about/domain_blocks, showing the HTML rendered list of instances that this instance blocks."
+    help.fr = "Permet aux utilisateurs non authentifiés d'afficher /about/domain_blocks, montrant la liste rendue en HTML des instances que cette instance bloque."
     type = "select"
 
     [main.instance.instance_expose_public_timeline]
