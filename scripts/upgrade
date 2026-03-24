@@ -48,6 +48,11 @@ ynh_app_setting_delete --key=metrics_auth_enabled
 ynh_app_setting_delete --key=metrics_auth_username
 ynh_app_setting_delete --key=metrics_auth_password
 
+smtp_host="$domain"
+smtp_port="587"
+ynh_app_setting_set --key=smtp_host --value="$smtp_host"
+ynh_app_setting_set --key=smtp_port --value="$smtp_port"
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
