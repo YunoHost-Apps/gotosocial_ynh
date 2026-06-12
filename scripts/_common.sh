@@ -61,7 +61,6 @@ setup_dex() {
     dex_install_dir="$(ynh_app_setting_get --app $dex --key install_dir)"
     dex_domain="$(ynh_app_setting_get --app $dex --key domain)"
     dex_path="$(ynh_app_setting_get --app $dex --key path)"
-    #oidc_callback="https://$domain${path%/}/api/v1.0/callback/"
 
     # Create Dex URIs
     dex_domain_path="${dex_domain}${dex_path}"
@@ -73,7 +72,7 @@ setup_dex() {
     oidc_enabled="true"
     oidc_idp_name="Dex"
     oidc_skip_verification="false"
-    oidc_client_id="${app}_client" # dex confin may need name: 'GoToSocial' while it'll be the same as id: 
+    oidc_client_id="${app}_client"
     oidc_callback="https://$domain/auth/callback"
     oidc_client_secret="$(ynh_string_random --length=32 --filter='A-F0-9')"
     oidc_link_existing="false"
@@ -89,5 +88,4 @@ setup_dex() {
     
     # Add the configuration file for the app in Dex
     bash "$dex_install_dir/add_config.sh" $app $oidc_client_id $oidc_callback $oidc_client_secret
-    # or use this trick directly https://github.com/YunoHost-Apps/dex_ynh/issues/92
 }
