@@ -45,7 +45,6 @@ ram.runtime = "200M"
 	help.fr = "Vous devez avoir au moins une instance de Dex préalablement installée sur votre serveur."
 	
 	[install.oidc_skip_verification]
-	type = "bool"
 	ask.en = "Skip the normal verification flow of tokens returned from the OIDC provider?"
 	help.en = "If true, won't check the expiry or signature. This should only be used in debugging or testing, never ever in a production environment as it's extremely unsafe!"
 	type = "boolean"
