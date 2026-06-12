@@ -41,8 +41,9 @@ ram.runtime = "200M"
 	filter = "match(id, '^(dex)(__[0-9+])?$')"
 	ask.en = "Select the Dex app that will handle authentication."
 	ask.fr = "Sélectionnez l'app Dex qui gérera l'authentification."
-	help.en = "You need to have at least one instance of Dex installed beforehand on your server."
-	help.fr = "Vous devez avoir au moins une instance de Dex préalablement installée sur votre serveur."
+	help.en = "If you don't want to use Dex, leave the default: `--- (_none)`"
+	help.fr = "Si vous ne souhaitez pas utiliser Dex, laissez la valeur par défaut : `--- (_none)"
+	default = "_none"
 	    
 	[install.domain]
 	type = "domain"
