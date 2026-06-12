@@ -13,5 +13,4 @@ Also this package uses the ["i'm so tired" software license 1.0](https://github.
 
 ### Prerequisites
 
-In order to work, you will need to install Dex.
-It is needed to let the app authenticate you on Yunohost.
+Install Dex before if you want to benefit from automatic authentication.

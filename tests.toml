@@ -2,13 +2,6 @@ test_format = 1.0
 
 [default]
 
-# dex support
-preinstall = """
-sudo yunohost tools update apps
-sudo yunohost domain add dex.domain.tld
-sudo yunohost app install dex -f -a "domain=dex.domain.tld&path=/&oidc_name=&oidc_secret=&oidc_callback"
-"""
-
 # GTS don't support it
 exclude = [ "change_url" ]
 
@@ -16,8 +9,7 @@ exclude = [ "change_url" ]
 # Default args to use for install
 # -------------------------------
 
-args.dex = "dex"
-args.oidc_skip_verification = "true"
+args.dex = "_none"
 args.admin = "xana"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
@@ -39,15 +31,9 @@ test_upgrade_from.388d9cf9.name = "Upgrade from 0.19.1~ynh1"
 [nowasm_test]
 only = ["install.root"]
 
-preinstall = """
-touch /var/www/nowasm_test
-sudo yunohost tools update apps
-sudo yunohost domain add dex.domain.tld
-sudo yunohost app install dex -f -a "domain=dex.domain.tld&path=/&oidc_name=&oidc_secret=&oidc_callback"
-"""
+preinstall = "touch /var/www/nowasm_test"
 
-args.dex = "dex"
-args.oidc_skip_verification = "true"
+args.dex = "_none"
 args.admin = "xana"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"

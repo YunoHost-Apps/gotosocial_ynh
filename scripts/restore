@@ -84,6 +84,7 @@ mkdir -p "/var/log/$app"
 # SETUP DEX FOR OIDC
 #=================================================
 
+ynh_script_progression "Restoring Dex..."
 setup_dex
 
 #=================================================

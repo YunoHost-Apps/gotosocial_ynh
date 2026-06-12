@@ -43,13 +43,7 @@ ram.runtime = "200M"
 	ask.fr = "Sélectionnez l'app Dex qui gérera l'authentification."
 	help.en = "You need to have at least one instance of Dex installed beforehand on your server."
 	help.fr = "Vous devez avoir au moins une instance de Dex préalablement installée sur votre serveur."
-	
-	[install.oidc_skip_verification]
-	ask.en = "Skip the normal verification flow of tokens returned from the OIDC provider?"
-	help.en = "If true, won't check the expiry or signature. This should only be used in debugging or testing, never ever in a production environment as it's extremely unsafe!"
-	type = "boolean"
-	default = false
-    
+	    
 	[install.domain]
 	type = "domain"
 
