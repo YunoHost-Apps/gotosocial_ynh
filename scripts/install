@@ -56,13 +56,7 @@ statuses_poll_max_options="6"
 statuses_poll_option_max_chars="50"
 statuses_media_max_files="6"
 
-oidc_enabled="false"
-oidc_idp_name=""
-oidc_skip_verification="false"
-oidc_issuer=""
-oidc_client_id=""
-oidc_client_secret=""
-oidc_link_existing="false"
+# oidc is now handled by _common.sh:setup_dex()
 
 smtp_host="$domain"
 smtp_port="587"
@@ -142,13 +136,7 @@ ynh_app_setting_set --key=statuses_poll_max_options --value="$statuses_poll_max_
 ynh_app_setting_set --key=statuses_poll_option_max_chars --value="$statuses_poll_option_max_chars"
 ynh_app_setting_set --key=statuses_media_max_files --value="$statuses_media_max_files"
 
-ynh_app_setting_set --key=oidc_enabled --value="$oidc_enabled"
-ynh_app_setting_set --key=oidc_idp_name --value="$oidc_idp_name"
-ynh_app_setting_set --key=oidc_skip_verification --value="$oidc_skip_verification"
-ynh_app_setting_set --key=oidc_issuer --value="$oidc_issuer"
-ynh_app_setting_set --key=oidc_client_id --value="$oidc_client_id"
-ynh_app_setting_set --key=oidc_client_secret --value="$oidc_client_secret"
-ynh_app_setting_set --key=oidc_link_existing --value="$oidc_link_existing"
+# oidc is now handled by _common.sh:setup_dex()
 
 ynh_app_setting_set --key=smtp_host --value="$smtp_host"
 ynh_app_setting_set --key=smtp_port --value="$smtp_port"
@@ -164,6 +152,13 @@ ynh_app_setting_set --key=advanced_rate_limit_requests --value="$advanced_rate_l
 
 # workaround for https://github.com/YunoHost/issues/issues/2422
 ynh_app_setting_set --key=protect_against_basic_auth_spoofing --value=False
+
+#=================================================
+# CONFIGURE DEX APP FOR OAUTH2 / OIDC
+#=================================================
+ynh_script_progression "Configuring Dex..."
+
+setup_dex
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE

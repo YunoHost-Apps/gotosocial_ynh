@@ -11,7 +11,7 @@ description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
 version = "0.21.2~ynh1"
 
-maintainers = [ "OniriCorpe" ]
+maintainers = [ "OniriCorpe", "lpryszcz" ]
 
 [upstream]
 license = "AGPL-3.0-only"
@@ -35,6 +35,15 @@ ram.runtime = "200M"
 
 [install]
 
+	# TODO: Once removed, also remove the Prerequisites section of the description
+	[install.dex]
+	type = "app"
+	filter = "match(id, '^(dex)(__[0-9+])?$')"
+	ask.en = "Select the Dex app that will handle authentication."
+	ask.fr = "Sélectionnez l'app Dex qui gérera l'authentification."
+	help.en = "You need to have at least one instance of Dex installed beforehand on your server."
+	help.fr = "Vous devez avoir au moins une instance de Dex préalablement installée sur votre serveur."
+    
 	[install.domain]
 	type = "domain"
 
