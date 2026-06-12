@@ -71,7 +71,7 @@ setup_dex() {
 
     oidc_enabled="true"
     oidc_idp_name="Dex"
-    oidc_skip_verification="false"
+    #oidc_skip_verification="false" # inherited from install script
     oidc_client_id="${app}_client"
     oidc_callback="https://$domain/auth/callback"
     oidc_client_secret="$(ynh_string_random --length=32 --filter='A-F0-9')"

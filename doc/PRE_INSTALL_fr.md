@@ -10,3 +10,8 @@ Veuillez noter les points suivant :
 Vous devrez utiliser un client compatible avec Mastodon comme [Tusky](https://tusky.app/) sur Android, [Feditext](https://github.com/feditext/feditext/blob/develop/README.md) sur iOS ou une instance de [Semaphore](https://semaphore.social/) en Web.
 
 Aussi, ce paquet utilise la ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), veuillez la lire et l'accepter avant de procéder à l'installation.
+
+### Pré-requis
+
+Pour fonctionner, vous devez installer Dex.
+Cela est nécessaire pour que l'application puisse vous authentifier sur Yunohost.

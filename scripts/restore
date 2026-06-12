@@ -81,6 +81,12 @@ fi
 mkdir -p "/var/log/$app"
 
 #=================================================
+# SETUP DEX FOR OIDC
+#=================================================
+
+setup_dex
+
+#=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
 #=================================================
 ynh_script_progression "Reloading NGINX web server and $app's service..."
