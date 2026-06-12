@@ -36,6 +36,7 @@ nowasm_detection(){
 
 setup_dex() {
     # default values
+    oidc_enabled=false
     oidc_idp_name="Dex"
     oidc_skip_verification=false
     oidc_client_id="${app}_client"
@@ -43,10 +44,8 @@ setup_dex() {
     oidc_client_secret=""
     oidc_link_existing="false"
     oidc_issuer=""
-    
-    if [ $dex=="_none" ]; then
-	oidc_enabled=false
-    else
+    # if dex selected
+    if [ $dex!="_none" ]; then
 	oidc_enabled=true
 	# List the Dex apps installed on the system
 	dex_apps="$(yunohost app list -f --output-as json | jq -r '[ .apps[] | select(.manifest.id == "dex") ]')"
