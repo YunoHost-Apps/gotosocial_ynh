@@ -54,7 +54,7 @@ ram.runtime = "200M"
 	ask.en = "The email adress to use for your GoToSocial admin account."
 	ask.gl = "O enderezo de correo electrónico da conta Admin."
 	ask.ca = "Adreça de correu pel compte d'administració."
-	ask.fr = "L'adresse e-mail à utiliser pour de le compte admin de GoToSocial."
+	ask.fr = "L'adresse e-mail à utiliser pour le compte admin de GoToSocial."
 	type = "string"
 	example = "johndoe@example.com"
 
