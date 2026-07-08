@@ -38,7 +38,7 @@ media_video_size_hint=""
 media_remote_max_size="40MiB"
 media_description_min_chars="0"
 media_description_max_chars="5000"
-media_remote_cache_days="7"
+media_remote_cache_days="7 days"
 media_emoji_local_max_size="50KiB"
 media_emoji_remote_max_size="100KiB"
 

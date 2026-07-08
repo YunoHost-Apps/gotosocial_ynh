@@ -54,6 +54,12 @@ smtp_port="587"
 ynh_app_setting_set --key=smtp_host --value="$smtp_host"
 ynh_app_setting_set --key=smtp_port --value="$smtp_port"
 
+if ynh_app_upgrading_from_version_before 0.22.0~ynh1; then
+	media_remote_cache_days="7 days"
+	ynh_app_setting_set --key=media_remote_cache_days --value="$media_remote_cache_days"
+fi
+
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================

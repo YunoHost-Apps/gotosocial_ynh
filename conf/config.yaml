@@ -33,7 +33,7 @@
 # Default: "info"
 log-level: "info"
 
-# Bool. Log database queries when log-level is set to debug or trace.
+# Bool. Log database queries at TRACE regardless of current log-level.
 # This setting produces verbose logs, so it's better to only enable it
 # when you're trying to track an issue down.
 # Options: [true, false]
@@ -103,11 +103,10 @@ host: "__DOMAIN__"
 #
 # DO NOT change this after your server has already run once, or you will break things!
 #
-# Examples: ["example.org","server.com"]
-#
 # Please read the appropriate section of the installation guide before you go messing around with this setting:
 # https://docs.gotosocial.org/en/latest/advanced/host-account-domain/
 #
+# Examples: ["example.org","server.com"]
 # Default: ""
 account-domain: "__ACCOUNT_DOMAIN__"
 
@@ -297,7 +296,10 @@ db-sqlite-busy-timeout: "30m"
 # Default: ""
 db-postgres-connection-string: ""
 
+# GoToSocial cache
+# configuration opts.
 cache:
+
   # cache.memory-target sets a target limit that
   # the application will try to keep it's caches
   # within. This is based on estimated sizes of
@@ -305,6 +307,50 @@ cache:
   # Examples: ["100MiB", "200MiB", "500MiB", "1GiB"]
   # Default: "100MiB"
   memory-target: __CACHE_MEMORY_TARGET__
+
+  # cache.s3-object-info (if set) enables caching
+  # of S3 object information in the storage driver.
+  # This can help reduce S3 calls on metered buckets
+  # by caching simple information like whether an
+  # object exists, and if so, its size. Left unset,
+  # the cache will be disabled, which is the default.
+  # The given value determines the cache capacity.
+  # Examples: [0, 8000, 16000, 2560000]
+  # Default: 0
+  s3-object-info: 0
+
+  # cache.home-timeline-timeout (duration) determines
+  # the duration without use before any one home timeline
+  # is unloaded from memory.
+  #
+  # Things to bear in mind:
+  # - timeline queries are CPU intensive
+  # - cache timelines are relatively memory unintensive
+  # - increasing numbers of cache timelines in memory
+  #   each require a small CPU overhead to keep hydrated
+  home-timeline-timeout: "6h"
+
+  # cache.list-timeline-timeout (duration) determines
+  # the duration without use before any one list timeline
+  # is unloaded from memory.
+  #
+  # Things to bear in mind:
+  # - timeline queries are CPU intensive
+  # - cache timelines are relatively memory unintensive
+  # - increasing numbers of cache timelines in memory
+  #   each require a small CPU overhead to keep hydrated
+  list-timeline-timeout: "1h"
+
+  # cache.tag-timeline-timeout (duration) determines
+  # the duration without use before any one tag timeline
+  # is unloaded from memory.
+  #
+  # Things to bear in mind:
+  # - timeline queries are CPU intensive
+  # - cache timelines are relatively memory unintensive
+  # - increasing numbers of cache timelines in memory
+  #   each require a small CPU overhead to keep hydrated
+  tag-timeline-timeout: "10m"
 
 ######################
 ##### WEB CONFIG #####
@@ -495,15 +541,11 @@ instance-deliver-to-shared-inboxes: __INSTANCE_DELIVER_TO_SHARED_INBOXES__
 # Default: false
 instance-inject-mastodon-version: __INSTANCE_INJECT_MASTODON_VERSION__
 
-# String. 24hr time of day formatted as hh:mm.
-# Examples: ["14:30", "00:00", "04:00"]
-# Default: "23:00" (11pm).
-instance-subscriptions-process-from: "23:00"
-
-# Duration. Period between subscription updates.
-# Examples: ["24h", "72h", "12h"]
-# Default: "24h" (once per day).
-instance-subscriptions-process-every: "24h"
+# Cron expression (see https://crontab.guru/ for help).
+# 
+# Examples: ["0 0 * * *", "30 0 * * *", "0 0 * * 0"]
+# Default: "0 23 * * *" (at 23:00pm, every day)
+instance-subscriptions-process-cron: "0 23 * * *"
 
 # String. Allows you to customize if and how stats are served to
 # crawlers at the /api/v1|v2/instance and /nodeinfo endpoints.
@@ -548,6 +590,38 @@ instance-stats-mode: ""
 # Options: [true, false]
 # Default: true
 instance-allow-backdating-statuses: true
+
+# String. Allows you to customize if and how your instance exposes a directory
+# of *local* accounts that have opted in to discoverability via the settings panel.
+#
+# There are three possible values for this setting:
+#
+# "off": The instance directory is not exposed via the web, but authenticated
+# local accounts will still be able to access /api/v1/directory using an access token.
+#
+# "webonly" (default): The instance directory is exposed via the web, and authenticated
+# local accounts will be able to access /api/v1/directory using an access token.
+#
+# "open": The instance directory is exposed via the web, and the /api/v1/directory API
+# endpoint is available to any callers *without* having to provide an access token.
+#
+# Options: ["off", "webonly", "open"]
+# Default: "webonly"
+instance-directory-mode: "webonly"
+
+# Bool. If true, use robots http headers and robots HTML meta tags to explicitly allow
+# search engine crawlers to index the instance home page, the directory page (if enabled),
+# and any accounts that have set "discoverable" to "true" in the instance settings panel.
+#
+# Note that even if you set this variable to "false" (default) it is no guarantee that
+# crawlers will not try to scrape your instance, it only asks them politely not to do so.
+#
+# You will probably want to set this to "true" on instances that host public accounts that
+# actually want to be indexed by eg., Google, Bing, etc, and become searchable thereby.
+#
+# Options: [true, false]
+# Default: false
+instance-robots-allow-indexing: false
 
 ###########################
 ##### ACCOUNTS CONFIG #####
@@ -721,30 +795,17 @@ media-ffmpeg-pool-size: 1
 # what these settings do, with some customization examples, see the docs:
 # https://docs.gotosocial.org/en/latest/admin/media_caching#cleanup
 
-# Int. Number of days to cache media from remote instances before
-# they are removed from the cache. When remote media is removed from
-# the cache, it is deleted from storage but the database entries for
-# the media are kept so that it can be fetched again if requested by a user.
-#
-# If this is set to 0, then media from remote instances will be cached indefinitely.
-#
-# Examples: [30, 60, 7, 0]
-# Default: 7
-media-remote-cache-days: __MEDIA_REMOTE_CACHE_DAYS__
+# Integer duration.
+# 
+# Examples: ["7 days", "1 week", "1 month"]
+# Default: "7 days"
+media-remote-cache-duration: __MEDIA_REMOTE_CACHE_DAYS__
 
-# String. 24hr time of day formatted as hh:mm.
-# Examples: ["14:30", "00:00", "04:00"]
-# Default: "00:00" (midnight).
-media-cleanup-from: "00:00"
-
-# Duration. Period between media cleanup runs.
-# More than once per 24h is not recommended
-# is likely overkill. Setting this to something
-# very low like once every 10 minutes will probably
-# cause lag and possibly other issues.
-# Examples: ["24h", "72h", "12h"]
-# Default: "24h" (once per day).
-media-cleanup-every: "24h"
+# Cron expression (see https://crontab.guru/ for help).
+# 
+# Examples: ["0 0 * * *", "30 0 * * *", "0 0 * * 0"]
+# Default: "0 0 * * *" (at 00:00am, every day)
+media-cleanup-cron: "0 0 * * *"
 
 ##########################
 ##### STORAGE CONFIG #####
@@ -855,6 +916,17 @@ storage-s3-bucket: "__STORAGE_S3_BUCKET__"
 # Default: "auto"
 storage-s3-bucket-lookup: "auto"
 
+# String. Region containing the bucket.
+# 
+# If this is left blank, the region for the bucket will be automatically detected
+# using GetBucketLocation during startup.
+#
+# This can safely be left blank unless your provider does not support the GetBucketLocation Action. 
+# 
+# Examples: ["", "us-east-2"]
+# Default: ""
+storage-s3-region: ""
+
 ###########################
 ##### STATUSES CONFIG #####
 ###########################
@@ -887,6 +959,18 @@ statuses-poll-option-max-chars: __STATUSES_POLL_OPTION_MAX_CHARS__
 # Examples: [4, 6, 10]
 # Default: 6
 statuses-media-max-files: __STATUSES_MEDIA_MAX_FILES__
+
+# Cron expression (see https://crontab.guru/ for help).
+# 
+# Examples: ["0 0 * * *", "30 0 * * *", "0 0 * * 0"]
+# Default: "0 1 * * 0" (at 01:00am, every Sunday)
+statuses-cleanup-cron: "0 1 * * 0"
+
+# Integer duration.
+# 
+# Examples: ["6 months", "1 year", "2 years"]
+# Default: "0s" (i.e. disabled)
+statuses-cleanup-remote-older-than: "0s"
 
 # Int. Maximum number of statuses a user can schedule at time.
 # Examples: [300]
@@ -1058,6 +1142,11 @@ smtp-password: "__MAIL_PWD__"
 # Default: ""
 smtp-from: "__APP__@__DOMAIN__"
 
+# String. Optional 'From' display name for sent emails.
+# Examples: ["admin"]
+# Default: ""
+smtp-from-display-name: ""
+
 # Bool. If true, when an email is sent that has multiple recipients, each recipient
 # will be included in the To field, so that each recipient can see who else got the
 # email, and they can 'reply all' to the other recipients if they want to.
@@ -1131,7 +1220,6 @@ tracing-enabled: false
 # With these variables set, a Prometheus metrics endpoint will be exposed at
 # localhost:9464/metrics. This can be further configured using the variables:
 #
-# - OTEL_EXPORTER_OTLP_METRICS_PROTOCOL
 # - OTEL_EXPORTER_PROMETHEUS_HOST
 # - OTEL_EXPORTER_PROMETHEUS_PORT
 #
@@ -1148,15 +1236,14 @@ metrics-enabled: __METRICS_ENABLED__
 
 # Settings for OUTGOING http client connections used by GoToSocial to make
 # requests to remote resources (status GETs, media GETs, inbox POSTs, etc).
-
 http-client:
 
   # Duration. Timeout to use for outgoing HTTP requests. If the timeout
   # is exceeded, the connection to the remote server will be dropped.
   # A value of 0s indicates no timeout: this is not advised!
   # Examples: ["5s", "30s", "0s"]
-  # Default: "30s"
-  timeout: "30s"
+  # Default: "1m"
+  timeout: "1m"
 
   ########################################
   #### RESERVED IP RANGE EXCEPTIONS ######
@@ -1213,6 +1300,207 @@ http-client:
   #
   # Default: false
   insecure-outgoing: false
+  
+  ##########################################################################
+  ##### Options passed directly to the HTTP client's http.Transport{}: #####
+  ##########################################################################
+
+  # NOTE: all of the below are internal HTTP client configuration flags,
+  # you should not uncomment + tweak these unless you know what you're doing!
+  #
+  # The commented-out values are set to the sensible values GtS uses by default.
+
+  # DisableKeepAlives, if true, disables HTTP keep-alives and will only use the
+  # connection to the server for a single HTTP request.
+  #
+  # This is unrelated to the similarly named TCP keep-alives.
+  #
+  # Default: false
+  #disable-keep-alives: false
+
+  # MaxConnsPerHost optionally limits the total number of connections per host,
+  # including connections in the dialing, active, and idle states. On limit
+  # violation, dials will block.
+  #
+  # Default: 6
+  #max-conns-per-host: 6
+
+  # MaxIdleConns controls the maximum number of idle (keep-alive) connections across
+  # all hosts. Zero means no limit.
+  #
+  # Default: 0 (no limit)
+  #max-idle-conns: 0
+  
+  # MaxIdleConnsPerHost, if non-zero, controls the maximum idle (keep-alive)
+  # connections to keep per-host. If zero, DefaultMaxIdleConnsPerHost (2) is used.
+  #
+  # Default: 0 (use built-in default 2)
+  #max-idle-conns-per-host: 0
+  
+  # IdleConnTimeout is the maximum amount of time an idle (keep-alive) connection
+  # will remain idle before closing itself. Zero means no limit.
+  #
+  # Default: 5 minutes
+  #idle-conn-timeout: "5 minutes"
+  
+  # TLSHandshakeTimeout specifies the maximum amount of time to wait for a TLS
+  # handshake. Zero means no timeout.
+  #
+  # Default: 0 (no limit)
+  #tls-handshake-timeout: "0"
+  
+  # ResponseHeaderTimeout, if non-zero, specifies the amount of time to wait for a
+  # server's response headers after fully writing the request (including its body, if any).
+  # This time does not include the time to read the response body.
+  #
+  # Default: 0 (no limit)
+  #response-header-timeout: "0"
+  
+  # ReadBufferSize specifies the size of the read buffer used when reading from the transport.
+  # If zero, a default (currently 4KB) is used.
+  #
+  # Default: 0 (use built-in default 4KB)
+  #read-buffer-size: "0"
+  
+  # WriteBufferSize specifies the size of the write buffer used when writing to the transport.
+  # If zero, a default (currently 4KB) is used.
+  #
+  # Default: 0 (use built-in default 4KB)
+  #write-buffer-size: "0"
+
+################################
+##### HTTP SERVER SETTINGS #####
+################################
+
+# Settings for INCOMING http server connections received by GoToSocial.
+#
+# WARNING: all of the below are internal HTTP server configuration flags,
+# you should not uncomment + tweak these unless you know what you're doing!
+# They are set to sensible defaults and you shouldn't need to change them.
+http-server:
+
+  #######################################################################
+  ##### Options passed directly to our HTTP router's gin.Engine{}: #####
+  #######################################################################
+
+  # MaxMultipartMemory value of 'maxMemory' param that is given to
+  # http.Request's ParseMultipartForm method call.
+  #
+  # Default: 40MiB
+  #max-multipart-memory: "40MiB"
+
+  # Enable h2c (http2 without TLS).
+  #
+  # May be useful if your reverse proxy supports connecting to GoToSocial via HTTP2.
+  #
+  # Default: false
+  #use-h2c: false
+
+  #######################################################################
+  ##### Options passed directly to our base http.Server{} instance: #####
+  #######################################################################
+
+  # ReadTimeout is the maximum duration for reading the entire request,
+  # including the body. A zero or negative value means there will be no timeout.
+  #
+  # Because ReadTimeout does not let Handlers make per-request decisions on
+  # each request body's acceptable deadline or upload rate, most users will prefer
+  # to use ReadHeaderTimeout. It is valid to use them both.
+  #
+  # Default: 60s
+  #read-timeout: "60s"
+
+  # ReadHeaderTimeout is the amount of time allowed to read request headers.
+  # The connection's read deadline is reset after reading the headers and the
+  # Handler can decide what is considered too slow for the body. If zero, the
+  # value of ReadTimeout is used. If negative, or if zero and ReadTimeout is
+  # zero or negative, there is no timeout.
+  #
+  # Default: 0 (use read-timeout duration).
+  #read-header-timeout: "0"
+
+  # WriteTimeout is the maximum duration before timing out writes of the response.
+  # It is reset whenever a new request's header is read. Like ReadTimeout, it does
+  # not let Handlers make decisions on a per-request basis. A zero or negative value
+  # means there will be no timeout.
+  #
+  # Default: 30s
+  #write-timeout: "30s"
+
+  # IdleTimeout is the maximum amount of time to wait for the next request when
+  # keep-alives are enabled. If zero, the value of ReadTimeout is used. If negative,
+  # or if zero and ReadTimeout is zero or negative, there is no timeout.
+  #
+  # Default: 30s
+  #idle-timeout: "30s"
+
+  # MaxHeaderBytes controls the maximum number of bytes the server will read parsing
+  # the request header's keys and values, including the request line. It does not limit
+  # the size of the request body. If zero, DefaultMaxHeaderBytes is used.
+  #
+  # Default: 0 (use built-in default 1048576, ie., 1 mebibyte)
+  #max-header-bytes: "0"
+
+  ############################################################################
+  ##### Options passed directly to our HTTP server's http.HTTP2Config{}: #####
+  ############################################################################
+
+  # MaxConcurrentStreams optionally specifies the number of concurrent streams that a
+  # peer may have open at a time. If zero, MaxConcurrentStreams defaults to at least 100.
+  #
+  # Default: 0 (at least 100)
+  #max-concurrent-streams: "0"
+
+  # MaxDecoderHeaderTableSize optionally specifies an upper limit for the size of the header
+  # compression table used for decoding headers sent by the peer. A valid value is less than
+  # 4MiB. If zero or invalid, a default value is used.
+  #
+  # Default: 0 (use built-in default 4096, ie., 4 kibibytes)
+  #max-decoder-header-table-size: "0"
+
+  # MaxEncoderHeaderTableSize optionally specifies an upper limit for the header compression
+  # table used for sending headers to the peer. A valid value is less than 4MiB. If zero or
+  # invalid, a default value is used.
+  #
+  # Default: 0 (use built-in default 4096, ie., 4 kibibytes)
+  #max-encoder-header-table-size: "0"
+
+  # MaxReadFrameSize optionally specifies the largest frame this endpoint is willing to read.
+  # A valid value is between 16KiB and 16MiB, inclusive. If zero or invalid, a default value is used.
+  #
+  # Default: 0 (use built-in default 1048576, ie., 1 mebibyte)
+  #max-read-frame-size: "0"
+
+  # MaxReceiveBufferPerConnection is the maximum size of the flow control window for data received
+  # on a connection. A valid value is at least 64KiB and less than 4MiB. If invalid, a default value
+  # is used.
+  #
+  # Default: 0 (use built-in default 1048576, ie., 1 mebibyte)
+  #max-receive-buffer-per-connection: "0"
+
+  # MaxReceiveBufferPerStream is the maximum size of the flow control window for data received on a
+  # stream (request). A valid value is less than 4MiB. If zero or invalid, a default value is used.
+  #
+  # Default: 0 (use built-in default 1048576, ie., 1 mebibyte)
+  #max-receive-buffer-per-stream: "0"
+
+  # SendPingTimeout is the timeout after which a health check using a ping frame will be carried out
+  # if no frame is received on a connection. If zero, no health check is performed.
+  #
+  # Default: 0
+  #send-ping-timeout: "0"
+
+  # PingTimeout is the timeout after which a connection will be closed if a response to a ping is not
+  # received. If zero, a default of 15 seconds is used.
+  #
+  # Default: 0 (use built-in default 15s)
+  #ping-timeout: "0"
+
+  # WriteByteTimeout is the timeout after which a connection will be closed if no data can be written to it.
+  # The timeout begins when data is available to write, and is extended whenever any bytes are written.
+  #
+  # Default: 0
+  #write-byte-timeout: "0"
 
 #############################
 ##### ADVANCED SETTINGS #####
@@ -1254,13 +1542,17 @@ advanced-cookies-samesite: "__ADVANCED_COOKIES_SAMESITE__"
 # If you set this to 0 or less, rate limiting will be disabled entirely.
 #
 # Examples: [1000, 500, 0]
-# Default: 1000
+# Default: 300
 advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
 
 # Array of string. CIDRs to except from rate limit restrictions.
 # Any IPs inside the CIDR range(s) will not have rate limiting
 # applied on their requests, and rate limit headers will not be
 # set for those requests.
+#
+# For IPv6, we only take subnets up to a /64 into account. If you
+# want to open up a larger prefix, you'll need to list multiple
+# prefixes instead.
 #
 # This can be useful in the following example cases (and probably
 # a bunch of others as well):
@@ -1281,7 +1573,7 @@ advanced-rate-limit-requests: __ADVANCED_RATE_LIMIT_REQUESTS__
 # wide a range. If in doubt, be too restrictive rather than too
 # lenient, and adjust as you go.
 #
-# Example: ["192.168.0.0/16"]
+# Example: ["192.168.0.0/16", "2001:DB8:FACE:CAFE::/64"]
 # Default: []
 advanced-rate-limit-exceptions: []
 
