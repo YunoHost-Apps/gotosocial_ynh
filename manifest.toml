@@ -11,7 +11,7 @@ description.fr = "Serveur de réseau social véloce basé sur ActivityPub"
 
 version = "0.22.0~ynh1"
 
-maintainers = [ "OniriCorpe" ]
+maintainers = [ "OniriCorpe", "lpryszcz" ]
 
 [upstream]
 license = "AGPL-3.0-only"
@@ -35,6 +35,16 @@ ram.runtime = "200M"
 
 [install]
 
+	# TODO: Once removed, also remove the Prerequisites section of the description
+	[install.dex]
+	type = "app"
+	filter = "match(id, '^(dex)(__[0-9+])?$')"
+	ask.en = "Select the Dex app that will handle authentication."
+	ask.fr = "Sélectionnez l'app Dex qui gérera l'authentification."
+	help.en = "If you don't want to use Dex, leave the default: `--- (_none)`"
+	help.fr = "Si vous ne souhaitez pas utiliser Dex, laissez la valeur par défaut : `--- (_none)"
+	default = "_none"
+	    
 	[install.domain]
 	type = "domain"
 
