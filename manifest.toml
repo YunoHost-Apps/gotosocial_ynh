@@ -143,6 +143,24 @@ ram.runtime = "200M"
 	main.protected = true
 	main.show_tile = false
 
+	webfinger.url = "re:__ACCOUNT_DOMAIN__\\/.well-known\\/webfinger"
+    webfinger.auth_header = false
+    webfinger.show_tile = false
+    webfinger.protected= true
+    webfinger.allowed = ["visitors", "all_users"]
+
+    host-meta.url = "re:__ACCOUNT_DOMAIN__\\/.well-known\\/host-meta"
+    host-meta.auth_header = false
+    host-meta.show_tile = false
+    host-meta.protected= true
+    host-meta.allowed = ["visitors", "all_users"]
+
+    nodeinfo.url = "re:__ACCOUNT_DOMAIN__\\/.well-known\\/nodeinfo"
+    nodeinfo.auth_header = false
+    nodeinfo.show_tile = false
+    nodeinfo.protected= true
+    nodeinfo.allowed = ["visitors", "all_users"]
+	
 	[resources.ports]
 
 	[resources.apt]
