@@ -108,7 +108,7 @@ host: "__DOMAIN__"
 #
 # Examples: ["example.org","server.com"]
 # Default: ""
-account-domain: ""
+account-domain: "__ACCOUNT_DOMAIN__"
 
 # String. Protocol over which the server is reachable from the outside world.
 #
