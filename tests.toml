@@ -9,6 +9,7 @@ exclude = [ "change_url" ]
 # Default args to use for install
 # -------------------------------
 
+args.dex = "_none"
 args.admin = "xana"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
@@ -29,7 +30,10 @@ test_upgrade_from.388d9cf9.name = "Upgrade from 0.19.1~ynh1"
 
 [nowasm_test]
 only = ["install.root"]
+
 preinstall = "touch /var/www/nowasm_test"
+
+args.dex = "_none"
 args.admin = "xana"
 args.email = "ci-test@example.com"
 args.password = "vYh8io7r*@P&zyo!6ZhBqQQ%8M5D4M"
