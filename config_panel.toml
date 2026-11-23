@@ -148,16 +148,16 @@ help = "Config pertaining to media (videos, image, image descriptions)."
     [main.media.media_remote_cache_days]
     ask.en = "Number of days to cache media from remote instances before they are removed from the cache."
     ask.fr = "Nombre de jours de mise en cache des médias des instances distantes avant qu'ils ne soient retirés du cache."
-    bind = "media-remote-cache-days:__INSTALL_DIR__/config.yaml"
-    default = "30"
-    type = "number"
+    bind = "media-remote-cache-duration:__INSTALL_DIR__/config.yaml"
+    default = "7 days"
+    type = "string"
     [main.media.media_remote_cache_days.help]
-    en = """Default: 30\
+    en = """Default: 7 days. Examples: "7 days", "1 week", "1 month" \
 A job will run every day at midnight to clean up any remote media older than the given amount of days. \
 When remote media is removed from the cache, it is deleted from storage but the database entries for the media are kept so that it can be fetched again if requested by a user.\
 If this is set to 0, then media from remote instances will be cached indefinitely.\
 """
-    fr = """Valeur par défaut : 30\
+    fr = """Valeur par défaut : 7 days Examples: "7 days", "1 week", "1 month"\
 Une tâche est exécutée tous les soirs à minuit pour nettoyer les médias distants datant de plus d'un certain nombre de jours.\
 Lorsque le média distant est supprimé du cache, il est supprimé du stockage mais les entrées de la base de données pour le média sont conservées afin qu'il puisse être récupéré si un utilisateur le demande.\
 Si la valeur 0 est attribuée à ce paramètre, les médias des instances distantes sont mis en cache indéfiniment.\
