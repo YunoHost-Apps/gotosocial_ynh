@@ -10,3 +10,7 @@ Please note the following points:
 You will need to use a Mastodon-compatible client such as [Tusky](https://tusky.app/) on Android, [Feditext](https://github.com/feditext/feditext/blob/develop/README.md) for iOS or an instance of [Semaphore](https://semaphore.social/) on the Web.
 
 Also this package uses the ["i'm so tired" software license 1.0](https://github.com/YunoHost-Apps/gotosocial_ynh/blob/master/LICENSE), please read it and accept it before proceeding with installation.
+
+### Prerequisites
+
+Install Dex before if you want to benefit from automatic authentication.
